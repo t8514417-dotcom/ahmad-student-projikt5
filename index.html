@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>100 نصيحة للطالب</title>
+
+    <style>
+        :root {
+            --primary: #5b5cf0;
+            --primary-dark: #4142c7;
+            --secondary: #7c3aed;
+            --bg: #f5f7ff;
+            --card: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --header-text: #ffffff;
+            --shadow: 0 15px 35px rgba(52, 55, 120, 0.10);
+        }
+
+        body.dark {
+            --bg: #0f172a;
+            --card: #111827;
+            --text: #f9fafb;
+            --muted: #cbd5e1;
+            --border: #243044;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            transition: 0.3s ease;
+        }
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+        /* الشريط العلوي */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #e8eaf3;
+        }
+
+        body.dark nav {
+            background: rgba(15, 23, 42, 0.88);
+            border-bottom-color: var(--border);
+        }
+
+        .nav-container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: bold;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon-btn {
+            width: 42px;
+            height: 42px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.25s;
+        }
+
+        .icon-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* البطل */
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at top right, rgba(255,255,255,0.20), transparent 30%),
+                radial-gradient(circle at bottom left, rgba(255,255,255,0.14), transparent 30%),
+                linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--header-text);
+            padding: 90px 20px 105px;
+        }
+
+        .hero-container {
+            width: 92%;
+            max-width: 1200px;
+            margin: auto;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 6vw, 64px);
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            max-width: 760px;
+            margin: auto;
+            font-size: 19px;
+            line-height: 2;
+            opacity: 0.96;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .hero-btn {
+            border: none;
+            padding: 14px 22px;
+            border-radius: 14px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        .hero-btn.primary {
+            background: #ffffff;
+            color: var(--primary);
+        }
+
+        .hero-btn.secondary {
+            background: rgba(255,255,255,0.14);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* الإحصائيات */
+        .stats {
+            width: 92%;
+            max-width: 1000px;
+            margin: -45px auto 35px;
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            border-radius: 20px;
+            padding: 24px;
+            text-align: center;
+        }
+
+        .stat-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .stat-number {
+            font-size: 30px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        .stat-text {
+            margin-top: 5px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* الصفحة */
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* نصيحة اليوم */
+        .daily-tip {
+            background: var(--card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            border-radius: 24px;
+            padding: 28px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .daily-icon {
+            width: 62px;
+            height: 62px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-size: 28px;
+        }
+
+        .daily-content small {
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .daily-content h2 {
+            margin: 5px 0 7px;
+            font-size: 22px;
+        }
+
+        .daily-content p {
+            color: var(--muted);
+            line-height: 1.9;
+        }
+
+        .daily-action {
+            border: none;
+            background: #eef2ff;
+            color: var(--primary);
+            padding: 11px 15px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        body.dark .daily-action {
+            background: #1e2548;
+        }
+
+        /* صندوق التحكم */
+        .controls {
+            background: var(--card);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            border-radius: 22px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            border: 2px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            border-radius: 15px;
+            padding: 16px 52px 16px 18px;
+            outline: none;
+            font-size: 16px;
+            transition: 0.25s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--primary);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 19px;
+        }
+
+        .categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 18px;
+        }
+
+        .category-btn {
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            padding: 10px 15px;
+            border-radius: 11px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .category-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 18px;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .result-count {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .random-btn {
+            border: none;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 12px 17px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.25s;
+        }
+
+        .random-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* البطاقات */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .tip-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: 0.25s;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+
+        .tip-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .tip-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .number {
+            width: 44px;
+            height: 44px;
+            background: #eef2ff;
+            color: var(--primary);
+            border-radius: 13px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        body.dark .number {
+            background: #1e2548;
+        }
+
+        .favorite-btn {
+            width: 38px;
+            height: 38px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 17px;
+        }
+
+        .favorite-btn.active {
+            color: #ef4444;
+        }
+
+        .tip-card h3 {
+            margin: 18px 0 9px;
+            font-size: 19px;
+        }
+
+        .tip-card p {
+            color: var(--muted);
+            line-height: 1.95;
+            font-size: 14px;
+        }
+
+        .tag {
+            display: inline-block;
+            margin-top: 18px;
+            background: #f1f5f9;
+            color: #475569;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+        }
+
+        body.dark .tag {
+            background: #1f2937;
+            color: #cbd5e1;
+        }
+
+        /* لا توجد نتائج */
+        .empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--card);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+        }
+
+        .empty-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .empty h3 {
+            margin-bottom: 8px;
+        }
+
+        .empty p {
+            color: var(--muted);
+        }
+
+        /* النافذة */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.72);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-box {
+            width: 100%;
+            max-width: 600px;
+            background: var(--card);
+            color: var(--text);
+            border-radius: 24px;
+            padding: 35px;
+            position: relative;
+            animation: pop 0.22s ease;
+            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: scale(0.94);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .close {
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            width: 40px;
+            height: 40px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 22px;
+        }
+
+        .modal-number {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .modal-box h2 {
+            font-size: 28px;
+            margin-bottom: 14px;
+        }
+
+        .modal-box p {
+            color: var(--muted);
+            line-height: 2;
+            font-size: 17px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 25px;
+        }
+
+        .modal-action {
+            border: none;
+            padding: 12px 16px;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .modal-action.primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .modal-action.secondary {
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        /* الفوتر */
+        footer {
+            margin-top: 70px;
+            background: #0b1120;
+            color: white;
+            text-align: center;
+            padding: 32px 20px;
+        }
+
+        footer h3 {
+            margin-bottom: 8px;
+        }
+
+        footer p {
+            color: #cbd5e1;
+            font-size: 14px;
+        }
+
+        /* تجاوب الجوال */
+        @media (max-width: 950px) {
+            .tips-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .stats {
+                grid-template-columns: 1fr;
+                margin-top: 20px;
+            }
+
+            .daily-tip {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .daily-icon {
+                margin: auto;
+            }
+
+            .daily-action {
+                width: 100%;
+            }
+
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 15px 70px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .nav-container {
+                height: 64px;
+            }
+
+            .logo {
+                font-size: 17px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- الشريط العلوي -->
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">🎓 100 نصيحة للطالب</a>
+
+            <div class="nav-actions">
+                <button class="icon-btn" id="favoritesBtn" title="عرض المفضلة">
+                    ❤️
+                </button>
+
+                <button class="icon-btn" id="themeBtn" title="الوضع الليلي">
+                    🌙
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- الواجهة الرئيسية -->
+    <header class="hero" id="home">
+        <div class="hero-container">
+
+            <span class="hero-badge">📚 دليلك الدراسي الشامل</span>
+
+            <h1>100 نصيحة للطالب</h1>
+
+            <p>
+                مجموعة من النصائح العملية التي تساعدك على تنظيم وقتك،
+                تحسين تركيزك، تطوير عاداتك الدراسية، والوصول إلى أهدافك بثقة.
+            </p>
+
+            <div class="hero-buttons">
+                <button class="hero-btn primary" onclick="scrollToTips()">
+                    ابدأ التعلم الآن
+                </button>
+
+                <button class="hero-btn secondary" onclick="randomTip()">
+                    🎲 نصيحة عشوائية
+                </button>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- الإحصائيات -->
+    <section class="stats">
+
+        <div class="stat-card">
+            <div class="stat-icon">💡</div>
+            <div class="stat-number">100</div>
+            <div class="stat-text">نصيحة مفيدة</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">📂</div>
+            <div class="stat-number">5</div>
+            <div class="stat-text">تصنيفات مختلفة</div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon">❤️</div>
+            <div class="stat-number" id="favoriteCount">0</div>
+            <div class="stat-text">نصيحة في المفضلة</div>
+        </div>
+
+    </section>
+
+    <main class="container" id="tipsSection">
+
+        <!-- نصيحة اليوم -->
+        <section class="daily-tip">
+
+            <div class="daily-icon">⭐</div>
+
+            <div class="daily-content">
+                <small>نصيحة اليوم</small>
+                <h2 id="dailyTitle">ابدأ بخطوة صغيرة</h2>
+                <p id="dailyText">
+                    النجاح لا يحتاج إلى إنجاز كل شيء دفعة واحدة،
+                    ابدأ بخطوة صغيرة واستمر عليها.
+                </p>
+            </div>
+
+            <button class="daily-action" onclick="openDailyTip()">
+                قراءة النصيحة
+            </button>
+
+        </section>
+
+        <!-- التحكم -->
+        <section class="controls">
+
+            <div class="search-box">
+                <span class="search-icon">🔎</span>
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="ابحث عن نصيحة، مثل: الوقت أو الدراسة أو التركيز..."
+                />
+            </div>
+
+            <div class="categories">
+
+                <button class="category-btn active" data-category="الكل">
+                    جميع النصائح
+                </button>
+
+                <button class="category-btn" data-category="الدراسة">
+                    📚 الدراسة
+                </button>
+
+                <button class="category-btn" data-category="إدارة الوقت">
+                    ⏰ إدارة الوقت
+                </button>
+
+                <button class="category-btn" data-category="التركيز">
+                    🧠 التركيز
+                </button>
+
+                <button class="category-btn" data-category="الصحة">
+                    ❤️ الصحة
+                </button>
+
+                <button class="category-btn" data-category="النجاح">
+                    🏆 النجاح
+                </button>
+
+            </div>
+
+            <div class="control-row">
+
+                <div class="result-count" id="resultCount">
+                    يتم عرض 100 نصيحة
+                </div>
+
+                <button class="random-btn" onclick="randomTip()">
+                    🎲 أعطني نصيحة عشوائية
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- قائمة النصائح -->
+        <section class="tips-grid" id="tipsGrid"></section>
+
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <h3>🎓 100 نصيحة للطالب</h3>
+        <p>طريق النجاح يبدأ بخطوة، اجعل كل يوم فرصة جديدة للتطور.</p>
+    </footer>
+
+    <!-- النافذة المنبثقة -->
+    <div class="modal" id="modal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeModal()">×</button>
+
+            <span class="modal-number" id="modalNumber"></span>
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalText"></p>
+
+            <div class="modal-buttons">
+
+                <button
+                    class="modal-action primary"
+                    id="modalFavoriteBtn"
+                    onclick="toggleCurrentFavorite()">
+                    ❤️ إضافة إلى المفضلة
+                </button>
+
+                <button
+                    class="modal-action secondary"
+                    onclick="closeModal()">
+                    إغلاق
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        /* =========================
+           100 نصيحة
+        ========================= */
+
+        const tips = [
+
+            ["حدد أهدافك", "اكتب أهدافك الدراسية بوضوح وحدد ما تريد تحقيقه خلال الفصل الدراسي.", "النجاح"],
+            ["نظم وقتك", "ضع جدولًا يوميًا يوزع وقتك بين الدراسة والراحة والأنشطة المختلفة.", "إدارة الوقت"],
+            ["ابدأ مبكرًا", "لا تؤجل الدراسة إلى اللحظة الأخيرة، فالبدء المبكر يقلل الضغط.", "الدراسة"],
+            ["استخدم قائمة المهام", "اكتب المهام التي تريد إنجازها ورتبها حسب الأولوية.", "إدارة الوقت"],
+            ["ابتعد عن الهاتف", "أبعد هاتفك أثناء الدراسة حتى لا يتشتت انتباهك.", "التركيز"],
+            ["اختر مكانًا مناسبًا", "الدراسة في مكان هادئ ومنظم تساعدك على التركيز.", "التركيز"],
+            ["خذ فترات راحة", "خذ استراحة قصيرة بين جلسات الدراسة حتى تستعيد نشاطك.", "الصحة"],
+            ["نم جيدًا", "احرص على الحصول على نوم كافٍ لأن النوم مهم للتركيز.", "الصحة"],
+            ["اشرب الماء", "حافظ على شرب كمية مناسبة من الماء خلال يومك.", "الصحة"],
+            ["راجع دروسك يوميًا", "المراجعة اليومية أفضل من تراكم المواد قبل الاختبار.", "الدراسة"],
+
+            ["اكتب ملاحظاتك", "دوّن أهم الأفكار والمعلومات أثناء شرح المعلم.", "الدراسة"],
+            ["اسأل عندما لا تفهم", "لا تتردد في سؤال المعلم أو زميلك عندما تواجه صعوبة.", "الدراسة"],
+            ["استخدم الخرائط الذهنية", "الخرائط الذهنية تساعدك على ربط الأفكار وتذكرها.", "الدراسة"],
+            ["حل أسئلة كثيرة", "التدريب على الأسئلة يساعدك على فهم المادة.", "الدراسة"],
+            ["راجع أخطاءك", "تعلم من أخطائك ولا تكتفِ بمعرفة الإجابة الصحيحة.", "النجاح"],
+            ["حدد نقاط ضعفك", "اعرف المواد والمهارات التي تحتاج إلى مزيد من التدريب.", "النجاح"],
+            ["كافئ نفسك", "بعد إنجاز هدف دراسي، امنح نفسك مكافأة بسيطة.", "النجاح"],
+            ["كن إيجابيًا", "الإيجابية تساعدك على الاستمرار عندما تواجه صعوبة.", "النجاح"],
+            ["لا تقارن نفسك بالآخرين", "قارن نفسك بمستواك السابق واعمل على تطويره.", "النجاح"],
+            ["قسم وقت الدراسة", "اجعل الدراسة على جلسات مركزة يتخللها وقت قصير للراحة.", "إدارة الوقت"],
+
+            ["رتب مكتبك", "المكان المنظم يقلل المشتتات ويساعدك على البدء.", "التركيز"],
+            ["خصص وقتًا للترفيه", "خصص وقتًا للراحة والترفيه حتى تحافظ على التوازن.", "إدارة الوقت"],
+            ["راجع قبل الاختبار", "ابدأ المراجعة قبل موعد الاختبار بوقت كافٍ.", "الدراسة"],
+            ["اقرأ قبل الحصة", "قراءة الدرس قبل الحصة تساعدك على فهم الشرح.", "الدراسة"],
+            ["استخدم البطاقات التعليمية", "البطاقات مفيدة لحفظ المصطلحات والتعريفات.", "الدراسة"],
+            ["اقرأ بتركيز", "ركز على فهم الفكرة بدلًا من القراءة السريعة فقط.", "التركيز"],
+            ["أغلق الإشعارات", "تعطيل الإشعارات يقلل من الانقطاعات أثناء الدراسة.", "التركيز"],
+            ["ضع هاتفك بعيدًا", "إبعاد الهاتف يساعدك على مقاومة استخدامه أثناء الدراسة.", "التركيز"],
+            ["ابدأ بالأصعب", "أنجز المهام الصعبة عندما يكون تركيزك في أعلى مستوى.", "إدارة الوقت"],
+            ["قسم المادة", "قسّم المادة الكبيرة إلى أجزاء صغيرة يسهل إنجازها.", "الدراسة"],
+
+            ["حدد موعدًا للانتهاء", "ضع وقتًا واضحًا لإنهاء كل مهمة حتى لا تمتد بلا نهاية.", "إدارة الوقت"],
+            ["راجع أهدافك أسبوعيًا", "راجع ما أنجزته وما تحتاج إلى تحسينه كل أسبوع.", "النجاح"],
+            ["تعلم من زملائك", "النقاش مع الطلاب الآخرين قد يكشف لك طرقًا جديدة للفهم.", "الدراسة"],
+            ["علّم شخصًا آخر", "شرح المعلومة لغيرك يساعدك على التأكد من فهمك.", "الدراسة"],
+            ["لا تخجل من الخطأ", "الخطأ فرصة للتعلم وتحسين مستواك.", "النجاح"],
+            ["حافظ على حضورك", "الانتظام في الحضور يساعدك على متابعة الدروس.", "الدراسة"],
+            ["تجنب المماطلة", "عندما تكون المهمة صغيرة ابدأ بها فورًا.", "إدارة الوقت"],
+            ["اكتب ملخصًا", "بعد كل درس اكتب أهم النقاط بأسلوبك الخاص.", "الدراسة"],
+            ["حدد الأولويات", "ابدأ بالمهام الأكثر أهمية وتأثيرًا على دراستك.", "إدارة الوقت"],
+            ["استفد من المكتبة", "المكتبة مكان مناسب للبحث والدراسة بعيدًا عن المشتتات.", "الدراسة"],
+
+            ["استخدم مصادر موثوقة", "اعتمد على الكتب والمصادر التعليمية الموثوقة.", "الدراسة"],
+            ["تعلم مهارة البحث", "تعلم كيف تبحث عن المعلومات وتتحقق من صحتها.", "الدراسة"],
+            ["طور مهارات الكتابة", "الكتابة الجيدة تساعدك في التقارير والواجبات.", "النجاح"],
+            ["اقرأ أكثر", "القراءة المستمرة توسع معرفتك وتحسن قدرتك على الفهم.", "النجاح"],
+            ["شارك في الصف", "المشاركة في النقاش تساعد على ترسيخ المعلومات.", "الدراسة"],
+            ["لا تهمل الواجبات", "أنجز واجباتك في موعدها ولا تجعلها تتراكم.", "الدراسة"],
+            ["نظم ملفاتك", "رتب كتبك وملفاتك بحيث تجدها بسرعة.", "إدارة الوقت"],
+            ["استخدم التقويم", "سجل الاختبارات والواجبات والمواعيد المهمة.", "إدارة الوقت"],
+            ["خصص وقتًا للمراجعة", "اجعل المراجعة جزءًا ثابتًا من جدولك الأسبوعي.", "الدراسة"],
+            ["مارس الرياضة", "النشاط البدني يساعدك على الحفاظ على نشاطك.", "الصحة"],
+
+            ["تنفس بعمق", "عندما تشعر بالتوتر خذ عدة أنفاس عميقة وحاول الهدوء.", "الصحة"],
+            ["قلل السهر", "الحفاظ على نمط نوم منتظم يساعد على التركيز.", "الصحة"],
+            ["اجلس بطريقة صحيحة", "حافظ على وضعية جلوس مريحة أثناء الدراسة.", "الصحة"],
+            ["خذ استراحة من الشاشة", "امنح عينيك فترات راحة عند استخدام الأجهزة لفترة طويلة.", "الصحة"],
+            ["ثق بنفسك", "ذكّر نفسك بقدرتك على التعلم والتطور.", "النجاح"],
+            ["لا تستسلم", "النتيجة الضعيفة لا تعني أنك لا تستطيع النجاح.", "النجاح"],
+            ["تعامل مع الضغط", "قسم العمل إلى خطوات صغيرة بدلًا من التفكير فيه كله مرة واحدة.", "النجاح"],
+            ["تحدث مع معلمك", "اطلب المساعدة عندما تحتاج إلى شرح إضافي.", "الدراسة"],
+            ["اختر أصدقاء إيجابيين", "الطلاب الإيجابيون يشجعونك على الدراسة والتطور.", "النجاح"],
+            ["ابتعد عن المشتتات", "قلل من الأشياء التي تسحب انتباهك أثناء المذاكرة.", "التركيز"],
+
+            ["ضع خطة للاختبار", "حدد ما ستراجعه ومتى ستراجعه قبل موعد الاختبار.", "إدارة الوقت"],
+            ["اقرأ الأسئلة جيدًا", "اقرأ السؤال كاملًا قبل اختيار الإجابة.", "الدراسة"],
+            ["وزع وقت الاختبار", "لا تستغرق وقتًا طويلًا في سؤال واحد.", "إدارة الوقت"],
+            ["راجع إجاباتك", "عندما يتبقى وقت راجع إجاباتك قبل التسليم.", "الدراسة"],
+            ["حضّر حقيبتك مسبقًا", "جهز كتبك وأدواتك في الليلة السابقة.", "إدارة الوقت"],
+            ["ضع جدولًا أسبوعيًا", "التخطيط الأسبوعي يساعدك على رؤية التزاماتك كاملة.", "إدارة الوقت"],
+            ["تعلم قول لا", "لا توافق على شيء يسبب لك ضغطًا ويؤثر على أهدافك.", "إدارة الوقت"],
+            ["حدد وقت الإنترنت", "ضع حدودًا واضحة لاستخدام مواقع التواصل.", "التركيز"],
+            ["استخدم وضع التركيز", "فعّل أدوات التركيز الموجودة في هاتفك.", "التركيز"],
+            ["لا تفتح مواقع غير ضرورية", "أثناء الدراسة افتح فقط ما تحتاج إليه.", "التركيز"],
+
+            ["أعد صياغة المعلومات", "اكتب المعلومة بطريقتك حتى تتأكد أنك فهمتها.", "الدراسة"],
+            ["اربط المعلومات بأمثلة", "الأمثلة الواقعية تجعل بعض المفاهيم أسهل في التذكر.", "الدراسة"],
+            ["استخدم الرسومات", "الرسومات والجداول قد تساعدك على فهم المعلومات المعقدة.", "الدراسة"],
+            ["اختبر نفسك", "اسأل نفسك عن الدرس دون النظر إلى الكتاب.", "الدراسة"],
+            ["ابدأ الآن", "أفضل وقت للبدء هو الآن، حتى لو كانت الخطوة الأولى صغيرة.", "النجاح"],
+            ["احتفل بتقدمك", "لاحظ الإنجازات الصغيرة لأنها تبني حماسك للاستمرار.", "النجاح"],
+            ["تعلم من نتائجك", "استفد من درجاتك لمعرفة ما يحتاج إلى تطوير.", "النجاح"],
+            ["ضع أهدافًا واقعية", "اجعل أهدافك قابلة للتحقيق ومناسبة لوقتك.", "النجاح"],
+            ["كن منظمًا", "التنظيم يقلل الوقت الضائع ويساعدك على التركيز.", "إدارة الوقت"],
+            ["حافظ على أدواتك", "تأكد من توفر الأدوات التي تحتاجها للدراسة.", "إدارة الوقت"],
+
+            ["اقرأ التعليمات", "في الواجبات والاختبارات اقرأ التعليمات قبل البدء.", "الدراسة"],
+            ["راجع قبل التسليم", "تأكد من خلو العمل من الأخطاء قبل تسليمه.", "الدراسة"],
+            ["حافظ على توازنك", "الدراسة مهمة وكذلك الراحة والوقت الشخصي.", "الصحة"],
+            ["طور نفسك باستمرار", "اجعل كل فصل دراسي فرصة لاكتساب مهارات جديدة.", "النجاح"],
+            ["حدد سببك", "اعرف لماذا تريد النجاح فهذا يساعدك على الاستمرار.", "النجاح"],
+            ["تعلم إدارة التوتر", "استخدم التنظيم والراحة والنشاط البدني للتعامل مع الضغط.", "الصحة"],
+            ["كن صبورًا", "التقدم الدراسي يحتاج وقتًا وممارسة مستمرة.", "النجاح"],
+            ["ركز على التقدم", "حتى التحسن البسيط يعتبر خطوة إلى الأمام.", "النجاح"],
+            ["خصص مكانًا ثابتًا للدراسة", "وجود مكان مخصص يساعد عقلك على الدخول في وضع التركيز.", "التركيز"],
+            ["قلل المقاطعات", "أخبر من حولك أنك تدرس عندما تحتاج إلى جلسة تركيز.", "التركيز"],
+
+            ["رتب أفكارك", "قبل كتابة التقرير رتب الأفكار الرئيسية أولًا.", "الدراسة"],
+            ["تعلم من مصادر مختلفة", "استخدم الكتاب والفيديو والشرح العملي لفهم الموضوع.", "الدراسة"],
+            ["اجعل التعلم عادة", "الدراسة المنتظمة أفضل من الدراسة المكثفة المتقطعة.", "الدراسة"],
+            ["راجع الكلمات المهمة", "حدد الكلمات والمفاهيم الأساسية في كل درس.", "الدراسة"],
+            ["استخدم الألوان باعتدال", "تمييز الأفكار المهمة قد يساعد على سرعة المراجعة.", "الدراسة"],
+            ["ضع هدفًا لكل جلسة", "قبل أن تبدأ حدد ما تريد إنجازه في جلسة الدراسة.", "إدارة الوقت"],
+            ["لا تدرس في الفوضى", "رتب المواد التي تحتاجها قبل بداية جلسة الدراسة.", "التركيز"],
+            ["احفظ بعد الفهم", "افهم الفكرة أولًا ثم ركز على حفظ التفاصيل.", "الدراسة"],
+            ["خذ نفسًا قبل الاختبار", "قبل البدء توقف لحظة ونظم أفكارك.", "الصحة"],
+            ["استمر ولا تتوقف", "الاستمرارية اليومية تصنع فرقًا كبيرًا على المدى الطويل.", "النجاح"]
+
+        ];
+
+        /* تحويل البيانات */
+        const allTips = tips.map((item, index) => ({
+            id: index + 1,
+            title: item[0],
+            text: item[1],
+            category: item[2]
+        }));
+
+        let currentCategory = "الكل";
+        let currentModalId = null;
+
+        const tipsGrid = document.getElementById("tipsGrid");
+        const searchInput = document.getElementById("searchInput");
+        const resultCount = document.getElementById("resultCount");
+        const modal = document.getElementById("modal");
+        const modalNumber = document.getElementById("modalNumber");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalText = document.getElementById("modalText");
+        const modalFavoriteBtn = document.getElementById("modalFavoriteBtn");
+        const favoriteCount = document.getElementById("favoriteCount");
+        const dailyTitle = document.getElementById("dailyTitle");
+        const dailyText = document.getElementById("dailyText");
+
+        /* المفضلة */
+        let favorites = JSON.parse(localStorage.getItem("studentFavorites") || "[]");
+
+        /* الوضع الليلي */
+        const savedTheme = localStorage.getItem("studentTheme");
+
+        if (savedTheme === "dark") {
+            document.body.classList.add("dark");
+        }
+
+        document.getElementById("themeBtn").addEventListener("click", () => {
+
+            document.body.classList.toggle("dark");
+
+            localStorage.setItem(
+                "studentTheme",
+                document.body.classList.contains("dark") ? "dark" : "light"
+            );
+
+        });
+
+        /* عرض النصائح */
+        function renderTips() {
+
+            const search = searchInput.value.trim().toLowerCase();
+
+            let filtered = allTips.filter(tip => {
+
+                const categoryMatch =
+                    currentCategory === "الكل" ||
+                    tip.category === currentCategory;
+
+                const searchMatch =
+                    tip.title.toLowerCase().includes(search) ||
+                    tip.text.toLowerCase().includes(search);
+
+                return categoryMatch && searchMatch;
+            });
+
+            tipsGrid.innerHTML = "";
+
+            if (filtered.length === 0) {
+
+                tipsGrid.innerHTML = `
+                    <div class="empty">
+                        <div class="empty-icon">🔍</div>
+                        <h3>لم نجد أي نصيحة</h3>
+                        <p>جرّب كلمة بحث أخرى أو غيّر التصنيف.</p>
+                    </div>
+                `;
+
+            } else {
+
+                filtered.forEach(tip => {
+
+                    const card = document.createElement("article");
+                    card.className = "tip-card";
+
+                    const isFavorite = favorites.includes(tip.id);
+
+                    card.innerHTML = `
+                        <div class="tip-top">
+                            <div class="number">${tip.id}</div>
+
+                            <button
+                                class="favorite-btn ${isFavorite ? "active" : ""}"
+                                onclick="event.stopPropagation(); toggleFavorite(${tip.id})"
+                                aria-label="إضافة إلى المفضلة">
+                                ${isFavorite ? "❤️" : "🤍"}
+                            </button>
+                        </div>
+
+                        <h3>${tip.title}</h3>
+
+                        <p>${tip.text}</p>
+
+                        <span class="tag">${tip.category}</span>
+                    `;
+
+                    card.addEventListener("click", () => openTip(tip.id));
+
+                    tipsGrid.appendChild(card);
+
+                });
+            }
+
+            resultCount.textContent =
+                `عرض ${filtered.length} من أصل ${allTips.length} نصيحة`;
+
+            updateFavoriteCount();
+        }
+
+        /* تغيير التصنيف */
+        document.querySelectorAll(".category-btn").forEach(btn => {
+
+            btn.addEventListener("click", () => {
+
+                document
+                    .querySelectorAll(".category-btn")
+                    .forEach(button => button.classList.remove("active"));
+
+                btn.classList.add("active");
+
+                currentCategory = btn.dataset.category;
+
+                renderTips();
+
+            });
+
+        });
+
+        /* البحث */
+        searchInput.addEventListener("input", renderTips);
+
+        /* المفضلة */
+        function toggleFavorite(id) {
+
+            if (favorites.includes(id)) {
+
+                favorites = favorites.filter(item => item !== id);
+
+            } else {
+
+                favorites.push(id);
+
+            }
+
+            localStorage.setItem(
+                "studentFavorites",
+                JSON.stringify(favorites)
+            );
+
+            renderTips();
+
+            if (currentModalId === id) {
+                updateModalFavoriteButton();
+            }
+        }
+
+        function toggleCurrentFavorite() {
+
+            if (currentModalId !== null) {
+                toggleFavorite(currentModalId);
+            }
+        }
+
+        function updateFavoriteCount() {
+            favoriteCount.textContent = favorites.length;
+        }
+
+        function updateModalFavoriteButton() {
+
+            if (favorites.includes(currentModalId)) {
+
+                modalFavoriteBtn.textContent = "❤️ إزالة من المفضلة";
+
+            } else {
+
+                modalFavoriteBtn.textContent = "🤍 إضافة إلى المفضلة";
+
+            }
+        }
+
+        /* فتح النصيحة */
+        function openTip(id) {
+
+            const tip = allTips.find(item => item.id === id);
+
+            if (!tip) return;
+
+            currentModalId = id;
+
+            modalNumber.textContent = `النصيحة رقم ${tip.id}`;
+            modalTitle.textContent = tip.title;
+            modalText.textContent = tip.text;
+
+            updateModalFavoriteButton();
+
+            modal.classList.add("show");
+        }
+
+        /* نصيحة اليوم */
+        function getDailyTip() {
+
+            const day = new Date().getDate();
+
+            return allTips[(day - 1) % allTips.length];
+
+        }
+
+        function showDailyTip() {
+
+            const tip = getDailyTip();
+
+            dailyTitle.textContent = tip.title;
+            dailyText.textContent = tip.text;
+
+        }
+
+        function openDailyTip() {
+
+            const tip = getDailyTip();
+
+            openTip(tip.id);
+
+        }
+
+        /* نصيحة عشوائية */
+        function randomTip() {
+
+            const random =
+                allTips[Math.floor(Math.random() * allTips.length)];
+
+            openTip(random.id);
+
+        }
+
+        /* زر المفضلة */
+        document.getElementById("favoritesBtn").addEventListener("click", () => {
+
+            if (favorites.length === 0) {
+
+                alert("لم تضف أي نصائح إلى المفضلة بعد ❤️");
+                return;
+
+            }
+
+            currentCategory = "الكل";
+            searchInput.value = "";
+
+            document
+                .querySelectorAll(".category-btn")
+                .forEach(button => button.classList.remove("active"));
+
+            document
+                .querySelector('.category-btn[data-category="الكل"]')
+                .classList.add("active");
+
+            const favoriteTips = allTips.filter(tip =>
+                favorites.includes(tip.id)
+            );
+
+            tipsGrid.innerHTML = "";
+
+            favoriteTips.forEach(tip => {
+
+                const card = document.createElement("article");
+                card.className = "tip-card";
+
+                card.innerHTML = `
+                    <div class="tip-top">
+                        <div class="number">${tip.id}</div>
+
+                        <button
+                            class="favorite-btn active"
+                            onclick="event.stopPropagation(); toggleFavorite(${tip.id})">
+                            ❤️
+                        </button>
+                    </div>
+
+                    <h3>${tip.title}</h3>
+
+                    <p>${tip.text}</p>
+
+                    <span class="tag">${tip.category}</span>
+                `;
+
+                card.onclick = () => openTip(tip.id);
+
+                tipsGrid.appendChild(card);
+
+            });
+
+            resultCount.textContent =
+                `عرض ${favoriteTips.length} نصيحة محفوظة في المفضلة`;
+
+            document
+                .getElementById("tipsSection")
+                .scrollIntoView({ behavior: "smooth" });
+
+        });
+
+        /* إغلاق النافذة */
+        function closeModal() {
+            modal.classList.remove("show");
+        }
+
+        modal.addEventListener("click", event => {
+
+            if (event.target === modal) {
+                closeModal();
+            }
+
+        });
+
+        document.addEventListener("keydown", event => {
+
+            if (event.key === "Escape") {
+                closeModal();
+            }
+
+        });
+
+        /* التمرير */
+        function scrollToTips() {
+
+            document
+                .getElementById("tipsSection")
+                .scrollIntoView({ behavior: "smooth" });
+
+        }
+
+        /* التشغيل */
+        showDailyTip();
+        renderTips();
+
+    </script>
+
+</body>
+</html>
