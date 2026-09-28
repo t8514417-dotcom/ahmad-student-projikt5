@@ -3,182 +3,567 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>100 نصيحة للطالب | دليل الدراسة الذكية</title>
+<meta name="description" content="منصة الطالب العراقية: 100 نصيحة، طرق الدراسة، بومودورو، خطة الدراسة، الواجبات، الاختبارات، البطاقات التعليمية، المناهج والكتب PDF.">
+<title>🎓 منصة الطالب | 100 نصيحة وطرق الدراسة</title>
 <style>
-:root{--primary:#5b5cf0;--primary2:#7c3aed;--bg:#f5f7ff;--card:#fff;--text:#18212f;--muted:#667085;--line:#e6e8f0;--soft:#eef2ff;--ok:#16a34a;--danger:#ef4444;--shadow:0 16px 40px rgba(60,65,130,.10)}
-body.dark{--bg:#0f172a;--card:#111827;--text:#f8fafc;--muted:#cbd5e1;--line:#263449;--soft:#1d2547;--shadow:0 16px 40px rgba(0,0,0,.28)}
-*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.85;transition:.25s}button,input{font:inherit}button{cursor:pointer}
-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}body.dark nav{background:rgba(15,23,42,.9)}.nav{width:92%;max-width:1250px;margin:auto;height:70px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;color:var(--primary);font-size:20px;text-decoration:none}.navBtns{display:flex;gap:8px}.icon{width:42px;height:42px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:12px}
-.hero{background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.18),transparent 28%),linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;text-align:center;padding:78px 20px 105px}.heroBox{width:92%;max-width:900px;margin:auto}.badge{display:inline-block;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);font-size:13px;margin-bottom:18px}.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.2;margin-bottom:14px}.hero p{font-size:18px;max-width:760px;margin:auto}.heroBtns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}.heroBtn{border:0;border-radius:13px;padding:13px 20px;font-weight:700}.white{background:#fff;color:var(--primary)}.glass{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.24)}
-.stats{width:92%;max-width:1050px;margin:-40px auto 34px;position:relative;z-index:4;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.stat{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:20px;text-align:center;padding:20px}.stat i{font-style:normal;font-size:27px}.num{color:var(--primary);font-size:29px;font-weight:800}.label{font-size:13px;color:var(--muted)}
-.wrap{width:92%;max-width:1250px;margin:auto}.sectionHead{text-align:center;margin:50px 0 23px}.sectionHead h2{font-size:29px;margin-bottom:5px}.sectionHead p{color:var(--muted)}
-.daily{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:24px;padding:25px;display:grid;grid-template-columns:70px 1fr auto;gap:18px;align-items:center}.dailyIcon{width:70px;height:70px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;background:linear-gradient(135deg,var(--primary),var(--primary2))}.daily small{color:var(--primary);font-weight:800}.daily h3{font-size:21px}.daily p{color:var(--muted)}.dailyBtn{border:0;background:var(--soft);color:var(--primary);padding:11px 15px;border-radius:11px;font-weight:700}
-.methods{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.method{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:20px;transition:.2s;cursor:pointer}.method:hover{transform:translateY(-5px)}.methodIcon{font-size:30px}.method h3{font-size:17px;margin:7px 0}.method p{font-size:13px;color:var(--muted)}
-.controls{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:22px;padding:22px;margin-top:45px}.search{position:relative}.search input{width:100%;padding:15px 48px 15px 16px;border:2px solid var(--line);border-radius:14px;background:var(--bg);color:var(--text);outline:0}.search input:focus{border-color:var(--primary)}.search span{position:absolute;right:17px;top:50%;transform:translateY(-50%)}.filters{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.filter{border:1px solid var(--line);background:var(--card);color:var(--text);padding:9px 14px;border-radius:10px}.filter.active{background:var(--primary);border-color:var(--primary);color:#fff}.bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}.count{color:var(--muted);font-size:14px}.random{border:0;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;padding:11px 16px;border-radius:11px;font-weight:700}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:23px}.card{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:19px;padding:21px;position:relative;cursor:pointer;transition:.2s}.card:hover{transform:translateY(-5px)}.card:before{content:"";position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--primary2));border-radius:19px 19px 0 0}.top{display:flex;align-items:center;justify-content:space-between}.badgeNum{width:42px;height:42px;border-radius:12px;background:var(--soft);color:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:800}.heart{width:37px;height:37px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:10px}.heart.active{color:var(--danger)}.card h3{font-size:18px;margin:16px 0 7px}.why{font-size:14px;color:var(--muted)}.howPreview{background:var(--bg);border-radius:11px;padding:10px 12px;margin-top:13px;font-size:13px}.howPreview b{color:var(--primary)}.tag{display:inline-block;background:var(--soft);color:var(--primary);padding:4px 9px;border-radius:7px;font-size:11px;margin-top:13px}.empty{grid-column:1/-1;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:55px 20px}.emptyIcon{font-size:42px}
-.modal{display:none;position:fixed;inset:0;background:rgba(2,6,23,.72);z-index:1000;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.box{width:100%;max-width:720px;max-height:90vh;overflow:auto;background:var(--card);color:var(--text);border-radius:24px;padding:31px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.25)}.close{position:absolute;left:14px;top:14px;width:39px;height:39px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:10px;font-size:21px}.modalLabel{color:var(--primary);font-weight:800}.box h2{font-size:28px;margin:5px 0 17px}.info{background:var(--bg);border-right:4px solid var(--primary);border-radius:13px;padding:15px;margin-top:14px}.info h4{color:var(--primary);margin-bottom:5px}.step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-top:8px}.step b{color:var(--primary)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.action{border:0;padding:11px 15px;border-radius:11px;font-weight:700}.primary{background:var(--primary);color:#fff}.secondary{background:var(--bg);color:var(--text);border:1px solid var(--line)}.done{background:var(--ok);color:#fff}
-footer{margin-top:70px;background:#0b1120;color:#fff;text-align:center;padding:32px 20px}footer p{color:#cbd5e1;font-size:13px}
-@media(max-width:1050px){.methods{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr);margin-top:20px}.daily{grid-template-columns:1fr;text-align:center}.dailyIcon{margin:auto}.dailyBtn{width:100%}.methods{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.hero{padding:60px 15px 70px}.hero p{font-size:15px}.brand{font-size:17px}}@media(max-width:430px){.stats{grid-template-columns:1fr}.box{padding:25px 19px}}
+:root{--primary:#5b5cf0;--secondary:#7c3aed;--accent:#06b6d4;--success:#16a34a;--danger:#ef4444;--warning:#f59e0b;--bg:#f5f7ff;--card:#fff;--text:#172033;--muted:#667085;--border:#e6e8f0;--soft:#eef2ff;--shadow:0 14px 35px rgba(65,70,150,.10);--radius:18px}
+body.dark{--bg:#0b1220;--card:#111827;--text:#f8fafc;--muted:#cbd5e1;--border:#263449;--soft:#1e254b;--shadow:0 15px 35px rgba(0,0,0,.28)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.8;transition:.25s}
+button,input,textarea,select{font-family:inherit}button{cursor:pointer}.hidden{display:none!important}
+a{color:inherit}
+.container{width:92%;max-width:1250px;margin:auto}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+body.dark nav{background:rgba(11,18,32,.92)}
+.nav{min-height:68px;display:flex;gap:16px;align-items:center;justify-content:space-between}.brand{font-weight:900;color:var(--primary);text-decoration:none;font-size:20px;white-space:nowrap}.nav-links{display:flex;gap:7px;align-items:center;flex-wrap:wrap}.nav-links a{font-size:13px;text-decoration:none;padding:7px 10px;border-radius:9px;color:var(--muted)}.nav-links a:hover{background:var(--soft);color:var(--primary)}.nav-actions{display:flex;gap:8px}.icon-btn{width:40px;height:40px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:11px}
+.hero{color:#fff;padding:78px 20px 96px;background:radial-gradient(circle at 15% 20%,rgba(255,255,255,.15),transparent 27%),radial-gradient(circle at 90% 80%,rgba(255,255,255,.15),transparent 25%),linear-gradient(135deg,var(--primary),var(--secondary))}.hero-inner{text-align:center;max-width:950px;margin:auto}.hero-badge{display:inline-block;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.25);padding:7px 14px;border-radius:999px;font-size:13px}.hero h1{font-size:clamp(34px,6vw,62px);line-height:1.2;margin:15px 0}.hero p{font-size:18px;max-width:820px;margin:auto;opacity:.97}.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:27px}.btn{border:1px solid var(--border);border-radius:11px;padding:11px 15px;font-weight:800;background:var(--card);color:var(--text)}.btn.primary{background:var(--primary);color:#fff;border-color:var(--primary)}.btn.ghost{background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.28)}.btn.success{background:var(--success);color:#fff;border-color:var(--success)}.btn.danger{background:var(--danger);color:#fff;border-color:var(--danger)}
+.stats{margin:-36px auto 30px;width:92%;max-width:1050px;position:relative;z-index:2;display:grid;grid-template-columns:repeat(5,1fr);gap:12px}.stat{background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:var(--radius);padding:17px;text-align:center}.stat i{font-style:normal;font-size:24px}.stat b{display:block;color:var(--primary);font-size:25px}.stat small{color:var(--muted)}
+.section{margin:48px 0}.section-head{text-align:center;margin-bottom:22px}.section-head h2{font-size:30px}.section-head p{color:var(--muted)}
+.panel{background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:22px;padding:22px}
+.daily{display:grid;grid-template-columns:70px 1fr auto;gap:16px;align-items:center}.daily-icon{width:70px;height:70px;border-radius:20px;display:grid;place-items:center;font-size:31px;color:#fff;background:linear-gradient(135deg,var(--primary),var(--secondary))}.daily small{color:var(--primary);font-weight:800}.daily h3{font-size:21px}.daily p{color:var(--muted);font-size:14px}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:17px}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:17px}.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.method-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}.method-card{background:var(--card);border:1px solid var(--border);border-radius:17px;padding:19px;box-shadow:var(--shadow);cursor:pointer;transition:.2s}.method-card:hover{transform:translateY(-4px)}.method-card .mi{font-size:28px}.method-card h3{font-size:16px;margin:7px 0}.method-card p{font-size:12px;color:var(--muted)}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.input,.select,.textarea{width:100%;padding:12px 13px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:11px;outline:none}.input:focus,.select:focus,.textarea:focus{border-color:var(--primary)}.search-row{display:grid;grid-template-columns:1fr auto;gap:10px}.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}.chip{border:1px solid var(--border);background:var(--card);color:var(--text);padding:8px 12px;border-radius:10px}.chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.tip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}.tip{background:var(--card);border:1px solid var(--border);border-radius:18px;box-shadow:var(--shadow);padding:20px;position:relative;cursor:pointer;transition:.2s}.tip:hover{transform:translateY(-4px)}.tip:before{content:"";position:absolute;right:0;left:0;top:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--secondary));border-radius:18px 18px 0 0}.tip-top{display:flex;justify-content:space-between}.num{width:40px;height:40px;display:grid;place-items:center;background:var(--soft);color:var(--primary);border-radius:11px;font-weight:800}.heart{width:36px;height:36px;background:var(--card);border:1px solid var(--border);border-radius:10px}.heart.active{color:var(--danger)}.tip h3{margin:15px 0 7px;font-size:18px}.tip p{font-size:13px;color:var(--muted)}.mini-how{margin-top:11px;background:var(--bg);border-radius:10px;padding:9px;font-size:12px}.tag{display:inline-block;margin-top:12px;padding:3px 9px;border-radius:8px;background:var(--soft);color:var(--primary);font-size:10px}
+.timer{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}.timer-box{background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border-radius:24px;padding:30px;text-align:center}.timer-time{font-size:clamp(50px,9vw,90px);font-weight:900;letter-spacing:2px;line-height:1;margin:15px 0 20px}.timer-state{opacity:.9}.timer-actions{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}.presets{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}.preset{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.25);padding:8px 12px;border-radius:9px}.side-list{display:grid;gap:9px}.list-item{display:flex;align-items:center;justify-content:space-between;gap:10px;border:1px solid var(--border);background:var(--bg);border-radius:12px;padding:10px 12px}.muted{color:var(--muted);font-size:13px}
+.form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.form-grid .full{grid-column:1/-1}.form-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.task{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:start;border:1px solid var(--border);background:var(--card);padding:13px;border-radius:13px}.task.done{opacity:.6}.task.done .task-title{text-decoration:line-through}.priority-high{color:var(--danger)}.priority-mid{color:var(--warning)}.priority-low{color:var(--success)}
+.quiz{background:var(--card);border:1px solid var(--border);box-shadow:var(--shadow);border-radius:20px;padding:22px}.question{font-size:20px;margin:8px 0 16px}.option{width:100%;text-align:right;padding:12px;margin-top:8px;border:1px solid var(--border);background:var(--bg);color:var(--text);border-radius:11px}.option.correct{background:#dcfce7;border-color:var(--success);color:#166534}.option.wrong{background:#fee2e2;border-color:var(--danger);color:#991b1b}.quiz-top{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}.progress{height:8px;background:var(--bg);border-radius:999px;overflow:hidden;margin:10px 0 18px}.progress>span{display:block;height:100%;background:linear-gradient(90deg,var(--primary),var(--secondary))}
+.flash-layout{display:grid;grid-template-columns:1fr .8fr;gap:18px}.flash-card{min-height:220px;display:grid;place-items:center;text-align:center;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;border-radius:22px;padding:30px;cursor:pointer}.flash-card small{opacity:.8}.flash-card h3{font-size:29px;line-height:1.45}.flash-controls{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:12px}.deck{border:1px solid var(--border);background:var(--bg);border-radius:13px;padding:12px}.deck button{width:100%}
+.curriculum-filter{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.books{display:grid;grid-template-columns:repeat(3,1fr);gap:15px;margin-top:18px}.book{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:17px}.book h3{font-size:17px}.book p{font-size:12px;color:var(--muted)}.book a{display:inline-block;margin-top:10px;text-decoration:none;background:var(--primary);color:#fff;padding:9px 11px;border-radius:9px;font-size:12px;font-weight:800}
+.calc{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.result{background:var(--soft);border-radius:14px;padding:16px;margin-top:10px;color:var(--primary);font-weight:800}.notes{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.note{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:16px}.note h3{font-size:17px}.note p{white-space:pre-wrap;color:var(--muted);font-size:13px;margin-top:8px}.achievements{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.achievement{border:1px solid var(--border);background:var(--card);border-radius:16px;padding:17px;text-align:center;box-shadow:var(--shadow)}.achievement.locked{opacity:.45;filter:grayscale(1)}.achievement .ai{font-size:32px}.achievement h3{font-size:15px;margin-top:5px}.achievement p{font-size:11px;color:var(--muted)}
+.settings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.setting{border:1px solid var(--border);background:var(--card);border-radius:15px;padding:15px}.setting h3{font-size:16px}.setting p{color:var(--muted);font-size:12px;margin:5px 0 10px}.range-row{display:flex;gap:10px;align-items:center}.range-row input{flex:1}
+.modal{position:fixed;inset:0;background:rgba(2,6,23,.72);z-index:1000;display:none;align-items:center;justify-content:center;padding:15px}.modal.show{display:flex}.modal-box{width:100%;max-width:760px;max-height:90vh;overflow:auto;background:var(--card);color:var(--text);border-radius:23px;padding:28px;position:relative}.close{position:absolute;left:13px;top:13px;width:38px;height:38px;border:1px solid var(--border);background:var(--card);color:var(--text);border-radius:10px;font-size:21px}.modal-label{color:var(--primary);font-weight:800;font-size:13px}.modal-box h2{font-size:28px;margin:4px 0 12px}.info{background:var(--bg);border-right:4px solid var(--primary);padding:14px;border-radius:12px;margin-top:14px}.info h4{color:var(--primary);margin-bottom:4px}.step{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:9px;margin-top:7px;font-size:13px}.modal-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.toast{position:fixed;bottom:18px;left:18px;background:#111827;color:#fff;padding:11px 14px;border-radius:11px;opacity:0;pointer-events:none;transform:translateY(10px);transition:.25s;z-index:1100}.toast.show{opacity:1;transform:none}
+footer{margin-top:60px;background:#09111f;color:#fff;text-align:center;padding:32px 20px}footer p{color:#cbd5e1;font-size:12px;margin-top:4px}
+@media(max-width:1050px){.nav-links{display:none}.stats{grid-template-columns:repeat(3,1fr)}.method-grid{grid-template-columns:repeat(3,1fr)}.tip-grid{grid-template-columns:repeat(2,1fr)}.books{grid-template-columns:repeat(2,1fr)}.achievements{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr)}.daily{grid-template-columns:1fr;text-align:center}.daily-icon{margin:auto}.timer,.flash-layout,.calc{grid-template-columns:1fr}.method-grid,.tip-grid,.books,.notes,.settings-grid{grid-template-columns:1fr}.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}.curriculum-filter,.form-grid{grid-template-columns:1fr}.achievements{grid-template-columns:repeat(2,1fr)}.hero{padding:58px 15px 70px}.hero p{font-size:15px}}
 </style>
 </head>
 <body>
-<nav><div class="nav"><a class="brand" href="#">🎓 100 نصيحة للطالب</a><div class="navBtns"><button class="icon" id="favBtn" title="المفضلة">❤️</button><button class="icon" id="themeBtn" title="الوضع الليلي">🌙</button></div></div></nav>
-<header class="hero"><div class="heroBox"><span class="badge">📚 دليل الدراسة الذكية</span><h1>100 نصيحة للطالب</h1><p>نصائح عملية مع شرح واضح وطريقة تطبيق ومثال واقعي، بالإضافة إلى أشهر طرق الدراسة لتنظيم وقتك وتحسين فهمك.</p><div class="heroBtns"><button class="heroBtn white" onclick="goTips()">ابدأ الآن</button><button class="heroBtn glass" onclick="randomTip()">🎲 نصيحة عشوائية</button></div></div></header>
-<section class="stats"><div class="stat"><i>💡</i><div class="num">100</div><div class="label">نصيحة عملية</div></div><div class="stat"><i>🧠</i><div class="num">10</div><div class="label">طرق دراسة</div></div><div class="stat"><i>❤️</i><div class="num" id="favCount">0</div><div class="label">في المفضلة</div></div><div class="stat"><i>✅</i><div class="num" id="doneCount">0</div><div class="label">تم تطبيقها</div></div></section>
-<main class="wrap">
-<section class="daily"><div class="dailyIcon">⭐</div><div><small style="color:var(--primary);font-weight:800">نصيحة اليوم</small><h3 id="dailyTitle"></h3><p id="dailyText" style="color:var(--muted)"></p></div><button class="dailyBtn" onclick="openDaily()">اقرأ بالتفصيل</button></section>
-<div class="sectionHead"><h2>🧠 طرق الدراسة</h2><p>اضغط على أي طريقة لمعرفة فكرتها وخطواتها ومتى تستخدمها.</p></div>
-<section class="methods" id="methods"></section>
-<div class="sectionHead" id="tipsAnchor"><h2>💡 100 نصيحة للطالب</h2><p>كل نصيحة تحتوي على شرح وطريقة تطبيق ومثال عملي.</p></div>
-<section class="controls"><div class="search"><span>🔎</span><input id="search" placeholder="ابحث مثل: بومودورو، الوقت، التركيز، الاختبار..."></div><div class="filters"><button class="filter active" data-cat="الكل">جميع النصائح</button><button class="filter" data-cat="الدراسة">📚 الدراسة</button><button class="filter" data-cat="إدارة الوقت">⏰ إدارة الوقت</button><button class="filter" data-cat="التركيز">🧠 التركيز</button><button class="filter" data-cat="الصحة">❤️ الصحة</button><button class="filter" data-cat="النجاح">🏆 النجاح</button></div><div class="bottom"><span class="count" id="count"></span><button class="random" onclick="randomTip()">🎲 نصيحة عشوائية</button></div></section>
-<section class="grid" id="grid"></section>
-</main>
-<footer><h3>🎓 100 نصيحة للطالب</h3><p>تعلم بذكاء، نظم وقتك، وطور نفسك خطوة بعد خطوة.</p></footer>
-<div class="modal" id="modal"><div class="box"><button class="close" onclick="closeModal()">×</button><span class="modalLabel" id="mLabel"></span><h2 id="mTitle"></h2><div class="info"><h4>💡 لماذا هذه النصيحة مهمة؟</h4><p id="mWhy"></p></div><div class="info"><h4>🎯 كيف تطبقها؟</h4><div id="mSteps"></div></div><div class="info"><h4>📝 مثال عملي</h4><p id="mExample"></p></div><div class="actions"><button class="action primary" id="mFav" onclick="toggleCurrentFav()">🤍 إضافة إلى المفضلة</button><button class="action secondary" id="mDone" onclick="toggleCurrentDone()">☐ لم أطبقها بعد</button><button class="action secondary" onclick="closeModal()">إغلاق</button></div></div></div>
-<script>
-const tips=[
-["حدد أهدافك الدراسية","الهدف الواضح يحدد لك ماذا تفعل اليوم بدل الدراسة بشكل عشوائي.",["اكتب هدفًا في جملة واحدة.","اجعله قابلًا للقياس.","ضع موعدًا لمراجعته."],"سأحل 20 سؤال رياضيات يوميًا لمدة أسبوع.","النجاح"],
-["قسّم المادة إلى أجزاء","تقسيم الفصل إلى وحدات صغيرة يجعل البداية أسهل ويقلل التراكم.",["قسم الفصل حسب العناوين.","حدد جزءًا لكل جلسة.","علّم الأجزاء المكتملة."],"بدل 30 صفحة دفعة واحدة، ادرس 5 صفحات في كل جلسة.","الدراسة"],
-["ابدأ مبكرًا","المراجعة المبكرة تعطيك فرصة للفهم والتدرب والمراجعة.",["حدد موعد الاختبار.","وزع الدروس على الأيام.","اترك يومًا للمراجعة."],"ابدأ اختبار الخميس يوم الأحد.","إدارة الوقت"],
-["استخدم قائمة المهام","كتابة مهام اليوم تمنع النسيان وتوضح الأولويات.",["اكتب 3 إلى 5 مهام.","رتبها.","ضع علامة بعد الإنجاز."],"رياضيات ثم علوم ثم قراءة 10 صفحات.","إدارة الوقت"],
-["حدد الأولويات","ليس كل شيء يحتاج نفس الوقت؛ ابدأ بما له موعد أقرب أو أهمية أكبر.",["اكتب المهام.","حدد الأهم.","ابدأ بالأولوية الأولى."],"اختبار الغد قبل مشروع موعده الأسبوع المقبل.","إدارة الوقت"],
-["أبعد الهاتف","إبعاد الهاتف يقلل الرغبة في تفقده خلال جلسة التركيز.",["فعّل عدم الإزعاج.","ضعه خارج مجال النظر.","افحصه بعد الجلسة."],"ضع الهاتف في حقيبتك أثناء جلسة بومودورو.","التركيز"],
-["أغلق الإشعارات","الإشعارات تقطع تركيزك حتى لو لم تفتح الرسالة.",["أوقف إشعارات التطبيقات.","فعّل وضع التركيز.","حدد وقتًا للرد."],"لا تظهر إشعارات خلال 30 دقيقة دراسة.","التركيز"],
-["خصص مكانًا ثابتًا للدراسة","المكان الثابت يساعدك على بناء عادة وروتين واضح.",["اختر مكتبًا أو زاوية.","حافظ على ترتيبها.","استخدمها للدراسة بانتظام."],"كل يوم تبدأ المذاكرة من نفس المكتب.","التركيز"],
-["رتب مكتبك","المكتب المرتب يقلل المشتتات والبحث عن الأشياء.",["أبعد غير الضروري.","جهز الكتب.","اترك مساحة للعمل."],"كتاب واحد ودفتر وقلم على الطاولة.","التركيز"],
-["اجعل لكل جلسة هدفًا","الهدف المحدد يجعل جلسة الدراسة قابلة للإنجاز والقياس.",["حدد نتيجة واحدة.","اكتبها.","تحقق منها عند النهاية."],"هدف الجلسة: حل الأسئلة من 1 إلى 15.","إدارة الوقت"],
-["استخدم بومودورو","تقسيم الدراسة إلى دورات تركيز واستراحة يساعد على البدء والاستمرار.",["25 دقيقة تركيز.","5 دقائق راحة.","كرر أربع مرات.","خذ راحة أطول."],"25 دقيقة رياضيات ثم 5 دقائق راحة.","الدراسة"],
-["جرّب جلسات 50/10","جلسة أطول مناسبة لبعض المهام التي تحتاج تركيزًا متصلًا.",["اختر مهمة واحدة.","ركز 50 دقيقة.","استرح 10 دقائق."],"استخدمها لكتابة بحث أو حل مجموعة مسائل.","إدارة الوقت"],
-["راجع يوميًا","المراجعة اليومية تقلل تراكم الدروس قبل الاختبارات.",["راجع درس اليوم.","حدد ما نسيت.","اختبر نفسك."],"20 دقيقة مساءً لمراجعة أهم نقاط اليوم.","الدراسة"],
-["راجع بعد الحصة","مراجعة الدرس مبكرًا تكشف الفجوات قبل أن تتراكم.",["اقرأ ملاحظاتك.","حدد نقطة صعبة.","اكتب سؤالًا."],"بعد العودة خصص 15 دقيقة لدرس صعب.","الدراسة"],
-["اكتب ملاحظاتك بأسلوبك","إعادة صياغة المعلومات تجعلك تعالجها بدل نسخها فقط.",["استمع للشرح.","اكتب الفكرة الأساسية.","أضف مثالًا."],"حوّل فقرة طويلة إلى ثلاث نقاط.","الدراسة"],
-["استخدم طريقة كورنيل","تقسيم الصفحة إلى ملاحظات وأسئلة وملخص يجعل المراجعة منظمة.",["اكتب الملاحظات.","ضع أسئلة في الهامش.","اكتب ملخصًا أسفل الصفحة."],"راجع أسئلة الهامش دون النظر للملاحظات.","الدراسة"],
-["حوّل العناوين إلى أسئلة","السؤال يجعل القراءة نشطة ويحدد ما تبحث عنه.",["اقرأ العنوان.","حوّله إلى سؤال.","استخرج الإجابة من الدرس."],"أسباب الثورة ← ما أسباب الثورة؟","الدراسة"],
-["استخدم الاستدعاء النشط","محاولة تذكر المعلومة دون رؤيتها تكشف ما تعرفه وما نسيته.",["أغلق الكتاب.","اكتب ما تتذكره.","قارن بالمصدر.","أعد ما نسيته."],"بعد درس الأحياء اكتب المراحل من الذاكرة.","الدراسة"],
-["استخدم التكرار المتباعد","المراجعة على فترات متباعدة تساعدك على العودة للمعلومة بشكل منتظم.",["راجع اليوم.","ثم غدًا.","ثم بعد عدة أيام.","ثم بعد أسبوع."],"مفردات اللغة اليوم ثم بعد يومين ثم بعد أسبوع.","الدراسة"],
-["استخدم البطاقات التعليمية","البطاقات مفيدة للتعريفات والمصطلحات والقوانين.",["السؤال في جهة.","الإجابة في الجهة الأخرى.","اختبر نفسك قبل قلب البطاقة."],"ما تعريف التمثيل الضوئي؟ ثم تحقق.","الدراسة"],
-["استخدم ليتنر","تنظيم البطاقات حسب الإتقان يوجه وقتك للمعلومات الأصعب.",["ابدأ بالصندوق الأول.","الصحيحة تنتقل.","الخاطئة تعود.","راجع كل صندوق في موعده."],"الكلمة الصعبة تظهر لك أكثر من السهلة.","الدراسة"],
-["استخدم فاينمان","شرح الفكرة بلغة بسيطة يكشف الفجوات في فهمك.",["اختر مفهومًا.","اشرحه ببساطة.","حدد ما لم تفهمه.","راجع ثم أعد الشرح."],"اشرح قانونًا لطالب أصغر منك.","الدراسة"],
-["استخدم SQ3R","طريقة منظمة للفصول الطويلة: تصفح، اسأل، اقرأ، استرجع، راجع.",["تصفح الفصل.","اكتب أسئلة.","اقرأ للإجابة.","استرجع.","راجع."],"حوّل عناوين الفصل إلى أسئلة قبل القراءة.","الدراسة"],
-["استخدم الخرائط الذهنية","الخريطة توضح العلاقات بين الأفكار وتختصر الموضوع.",["ضع الموضوع في المنتصف.","أضف الفروع.","أضف التفاصيل.","اربط المتشابه."],"ارسم خريطة لأسباب ونتائج حدث تاريخي.","الدراسة"],
-["استخدم الرسومات والجداول","المخططات والجداول تسهل المقارنة والمراجعة.",["حدد المعلومات.","اختر الشكل المناسب.","اكتب الكلمات الأساسية."],"قارن أنواع الصخور في جدول.","الدراسة"],
-["علّم شخصًا آخر","شرح المعلومة لشخص آخر يختبر فهمك عمليًا.",["تعلم الفكرة.","اشرح دون كتاب.","اسمح بالأسئلة.","راجع النقاط الناقصة."],"اشرح لزميلك درسًا لمدة 10 دقائق.","الدراسة"],
-["اختبر نفسك بعد كل درس","الاختبار المبكر يكشف الفجوات قبل الاختبار الحقيقي.",["أغلق الكتاب.","اكتب 5 أسئلة.","أجب.","صحح."],"بعد الكيمياء اكتب خمسة أسئلة وأجب عنها.","الدراسة"],
-["حل أسئلة كثيرة","الحل العملي يحول المعرفة إلى مهارة ويظهر الأخطاء.",["ابدأ بالأسهل.","زد الصعوبة.","سجل الأخطاء.","أعد حل الصعب."],"حل 10 أسئلة ثم 10 من نوع آخر.","الدراسة"],
-["حاكي الاختبار","التدرب في ظروف مشابهة للاختبار يوضح سرعتك ومستوى استعدادك.",["حدد وقتًا.","أبعد الكتاب.","حل دون مساعدة.","صحح النتيجة."],"حل نموذجًا كاملًا في نفس مدة الاختبار.","الدراسة"],
-["راجع أخطاء الاختبارات","الخطأ يعطيك معلومة عن نقطة تحتاج إلى تدريب.",["حدد السؤال.","اكتب سبب الخطأ.","اكتب الحل.","أعد المحاولة لاحقًا."],"سجل القانون الذي أخطأت في استخدامه.","النجاح"],
-["أنشئ دفترًا للأخطاء","جمع أخطائك في مكان واحد يجعل المراجعة مركزة.",["اكتب السؤال.","اكتب إجابتك.","اكتب التصحيح.","راجع أسبوعيًا."],"قبل الاختبار راجع دفتر الأخطاء.","الدراسة"],
-["افهم قبل الحفظ","الفهم يجعل المعلومة أكثر معنى وأسهل في الاستدعاء.",["اسأل لماذا.","اشرح الفكرة.","استخدم مثالًا.","احفظ التفاصيل بعد ذلك."],"افهم سبب القانون ثم احفظ صيغته.","الدراسة"],
-["اربط المعلومات بأمثلة","المثال الواقعي يعطي المعلومة سياقًا يسهل تذكره.",["حدد المفهوم.","فكر بمثال.","اكتب العلاقة."],"اربط النسبة المئوية بخصم الأسعار.","الدراسة"],
-["اربط الدرس الجديد بالسابق","ربط المعرفة الجديدة بما تعرفه يبني شبكة معلومات مترابطة.",["حدد الفكرة الجديدة.","تذكر مفهومًا سابقًا.","اكتب العلاقة."],"اربط قانونًا جديدًا بقانون سابق.","الدراسة"],
-["راجع الكلمات المفتاحية","المصطلحات الأساسية تقودك إلى بقية تفاصيل الدرس.",["حدد المصطلحات.","اكتب تعريفًا قصيرًا.","اختبر نفسك."],"أنشئ قائمة بأهم 15 مصطلحًا.","الدراسة"],
-["اقرأ بتركيز","القراءة النشطة أفضل من المرور السريع على النص.",["اقرأ فقرة.","اسأل عن فكرتها.","لخصها.","واصل."],"بعد كل صفحة اكتب جملة تلخصها.","التركيز"],
-["خذ استراحات قصيرة","الاستراحة المنظمة تساعدك على العودة للجلسة بدل الاستنزاف المستمر.",["حدد وقتًا.","ابتعد عن المكتب.","تحرك.","عد في الموعد."],"5 دقائق راحة بعد جلسة تركيز.","الصحة"],
-["نم بانتظام","النوم المنتظم يدعم روتين التعلم والانتباه خلال اليوم.",["حدد وقت نوم قريبًا من الثبات.","خفف الشاشة قبل النوم.","خطط للمراجعة مبكرًا."],"أنه المراجعة قبل وقت النوم بدل السهر.","الصحة"],
-["قلل السهر قبل الاختبار","التخطيط المسبق يقلل الحاجة للمراجعة الطويلة في آخر ليلة.",["ابدأ مبكرًا.","أنه الجزء الأساسي.","اجعل آخر فترة هادئة."],"راجع في الأيام السابقة وابتعد عن السهر المتكرر.","الصحة"],
-["مارس نشاطًا بدنيًا","النشاط جزء من يوم متوازن ويساعدك على كسر الجلوس الطويل.",["اختر نشاطًا مناسبًا.","حدد وقتًا.","التزم بانتظام."],"المشي بعد جلسة الدراسة.","الصحة"],
-["لا تدرس وأنت مرهق جدًا","عندما يصبح التعب شديدًا قد تنخفض جودة الجلسة.",["قيّم طاقتك.","خذ راحة.","عد عند استعادة التركيز."],"إذا لم تعد قادرًا على التركيز، خذ استراحة.","الصحة"],
-["حدد وقت الإنترنت","استخدام الإنترنت بلا حدود قد يستهلك الوقت الدراسي.",["حدد وقتًا للترفيه.","أغلق المواقع أثناء الدراسة.","استخدمها بعد الهدف."],"لا تفتح مواقع التواصل حتى تنهي الجلسة.","التركيز"],
-["استخدم وضع التركيز","أدوات التركيز تقلل المقاطعات من الهاتف أو الحاسوب.",["فعّل الوضع.","حدد التطبيقات المسموحة.","ابدأ الجلسة."],"اسمح بالمكالمات المهمة فقط أثناء الدراسة.","التركيز"],
-["لا تفتح تبويبات كثيرة","التبويبات الزائدة تخلق مصادر للتشتت أثناء البحث.",["افتح ما تحتاجه.","أغلق غير الضروري.","احفظ الروابط المفيدة."],"أثناء البحث افتح مصادر الموضوع فقط.","التركيز"],
-["استخدم الإنترنت كأداة","الإنترنت يصبح أكثر فائدة عندما تدخل بهدف واضح.",["اكتب هدف البحث.","حدد مدة.","سجل النتيجة.","أغلقه بعد الانتهاء."],"ابحث عن شرح محدد بدل التصفح العشوائي.","التركيز"],
-["تحقق من مصادر المعلومات","ليس كل ما على الإنترنت صحيحًا أو مناسبًا لمهمتك.",["قارن مصدرين.","تحقق من الجهة.","اقرأ تاريخ المصدر عند الحاجة."],"في التقرير قارن المعلومات قبل استخدامها.","الدراسة"],
-["تعلم مهارة البحث","صياغة السؤال بدقة توفر الوقت وتحسن جودة النتائج.",["حدد السؤال.","استخدم كلمات مفتاحية.","قارن النتائج.","سجل المصادر."],"استبدل البحث العام بكلمات دقيقة.","النجاح"],
-["نظّم ملفاتك","المجلدات الواضحة توفر وقت البحث عن الواجبات.",["أنشئ مجلدًا لكل مادة.","سمِّ الملفات بوضوح.","احذف النسخ غير اللازمة."],"رياضيات/واجبات/اختبار-1.pdf","إدارة الوقت"],
-["احتفظ بنسخة احتياطية","النسخة الثانية تحمي عملك من فقدان الملف.",["احفظ الأصل.","أنشئ نسخة ثانية.","ضعها في مكان مختلف."],"احفظ البحث على الجهاز ومساحة تخزين أخرى.","إدارة الوقت"],
-["جهز حقيبتك مسبقًا","التجهيز الليلي يقلل النسيان ويوفر وقت الصباح.",["راجع جدول الغد.","ضع الكتب.","تأكد من الأدوات."],"جهز الحقيبة قبل النوم.","إدارة الوقت"],
-["خطط لليوم التالي","ثلاث مهام واضحة تجعل بداية اليوم أسرع.",["اكتب أهم 3 مهام.","حدد وقتًا تقريبيًا.","جهز الأدوات."],"قبل النوم: رياضيات، علوم، قراءة.","إدارة الوقت"],
-["خطط للأسبوع","الرؤية الأسبوعية تمنع تراكم الاختبارات والواجبات.",["اكتب المواعيد.","وزع الجلسات.","اترك وقتًا احتياطيًا."],"ضع كل الاختبارات في تقويم أسبوعي.","إدارة الوقت"],
-["اترك وقتًا احتياطيًا","الجدول المرن يتحمل التأخير المفاجئ بشكل أفضل.",["قدّر المدة.","أضف هامشًا.","استخدمه للتعويض أو المراجعة."],"اترك 30 دقيقة احتياطية لمهمة طويلة.","إدارة الوقت"],
-["لا تفرط في التخطيط","الغرض من الخطة هو أن تبدأ، لا أن تقضي وقتك في تزيينها.",["حدد المهام.","ابدأ.","عدّل أثناء التنفيذ."],"ثلاث مهام واضحة أفضل من جدول ضخم لا تنفذه.","إدارة الوقت"],
-["استخدم قاعدة الخمس دقائق","البداية الصغيرة تقلل مقاومة البدء عندما تكون المهمة ثقيلة.",["ابدأ 5 دقائق.","نفذ أول جزء.","قرر الاستمرار بعد البداية."],"افتح الملف واكتب المقدمة فقط.","إدارة الوقت"],
-["لا تنتظر الحماس","الروتين المنتظم أكثر ثباتًا من الاعتماد على المزاج.",["حدد وقتًا ثابتًا.","ابدأ بخطوة صغيرة.","كرر يوميًا."],"ابدأ المذاكرة حتى لو لم تشعر بالحماس الكامل.","النجاح"],
-["ابدأ بأسهل خطوة","أول خطوة صغيرة تجعل المهمة الكبيرة أقل رهبة.",["افتح الكتاب.","اكتب العنوان.","حل سؤالًا واحدًا.","واصل."],"ابدأ بصفحة واحدة من الفصل.","النجاح"],
-["استخدم مؤقتًا","المؤقت يجعل للجلسة بداية ونهاية واضحتين.",["حدد المدة.","ابدأ.","لا تبدل المهمة حتى ينتهي المؤقت."],"30 دقيقة لحل مجموعة من الأسئلة.","إدارة الوقت"],
-["راجع أهدافك أسبوعيًا","المراجعة الأسبوعية تكشف ما نجح وما يحتاج تعديلًا.",["راجع ما أنجزت.","حدد التأخير.","خطط للأسبوع القادم."],"كل نهاية أسبوع راجع ثلاث مواد أساسية.","النجاح"],
-["حدد نقاط ضعفك","معرفة ما تحتاجه فعليًا تساعدك على استثمار وقتك.",["راجع الاختبارات.","سجل الموضوعات الصعبة.","خطط لتدريب إضافي."],"إذا تكرر خطأ الكسور، خصص لها جلسة.","النجاح"],
-["لا تقارن نفسك بالآخرين","التركيز على تقدمك الشخصي يجعل خطتك أوضح.",["قارن نتائجك السابقة.","حدد تحسنًا واحدًا.","تابع تقدمك."],"راقب ارتفاع درجتك من اختبار لآخر.","النجاح"],
-["ثق بنفسك بناءً على التدريب","الثقة تنمو مع الممارسة والنتائج الصغيرة المتراكمة.",["سجل ما أتقنته.","تدرب على الضعف.","راجع تقدمك."],"اكتب ثلاثة أشياء أصبحت أفضل فيها هذا الشهر.","النجاح"],
-["لا تستسلم بعد نتيجة ضعيفة","النتيجة الواحدة يمكن أن تصبح نقطة بداية لخطة أفضل.",["حلل الأخطاء.","عدل الخطة.","ابدأ بالتدريب."],"بعد درجة منخفضة حدد ثلاثة أسباب وثلاث خطوات علاجية.","النجاح"],
-["تعامل مع الضغط خطوة بخطوة","تقسيم المشكلة يقلل الشعور بأن كل شيء يجب أن يحل مرة واحدة.",["اكتب ما يقلقك.","حوّل كل نقطة إلى خطوة.","نفذ الأولى."],"بدل القلق من كل الاختبارات، ضع خطة لاختبار الغد.","النجاح"],
-["اختر أصدقاء يدعمون دراستك","البيئة المحيطة بك قد تساعدك على الالتزام أو تجعل المذاكرة أصعب.",["اقترب من الجادين.","اتفقوا على وقت مراجعة.","ابتعدوا عن التشتيت."],"جلسة مراجعة مشتركة بدل تصفح الهاتف.","النجاح"],
-["تعلم قول لا","رفض بعض المشتتات يحمي الوقت المخصص لأهدافك.",["حدد أولويتك.","ارفض بأدب.","اقترح وقتًا آخر عند الحاجة."],"لن أخرج الآن، لدي مراجعة لمدة ساعة.","إدارة الوقت"],
-["حدد وقتًا للترفيه","الراحة المخطط لها تساعد على الحفاظ على التوازن والاستمرار.",["حدد وقتًا للترفيه.","لا تجعله مفتوحًا بلا نهاية.","ارجع للخطة."],"بعد انتهاء أهدافك اليومية خصص ساعة لهواية تحبها.","الصحة"],
-["لا تدرس كل المواد بالطريقة نفسها","المواد الحسابية تحتاج تدريبًا، وبعض مواد الحفظ تحتاج استدعاء ومراجعة.",["حدد طبيعة المادة.","اختر الطريقة المناسبة.","قارن النتيجة."],"الرياضيات بالحل، والمصطلحات بالبطاقات والاستدعاء.","الدراسة"],
-["راجع المادة الصعبة أكثر","وقت المراجعة يستفيد أكثر عندما يذهب إلى نقاط ضعفك.",["حدد المادة الصعبة.","زد جلساتها قليلًا.","اختبر نفسك بانتظام."],"أضف جلسة إضافية للكيمياء إذا كانت أصعب مادة لديك.","إدارة الوقت"],
-["لا تهمل المادة السهلة","المادة السهلة تحتاج مراجعة قصيرة حتى لا تُنسى.",["راجعها بسرعة.","اختبر نفسك.","لا تتركها للآخر."],"15 دقيقة مراجعة للمادة السهلة كل يومين.","الدراسة"],
-["اكتب ملخصًا بعد كل فصل","الملخص يعطيك ورقة مراجعة سريعة بدل إعادة قراءة الفصل كله.",["حدد الأفكار.","اكتبها بأسلوبك.","قلل التفاصيل الزائدة."],"اختصر فصلًا كاملًا في صفحة واحدة.","الدراسة"],
-["استخدم الألوان باعتدال","تمييز المعلومات المهمة قد يساعدك على العثور عليها بسرعة.",["حدد لونًا للعناوين.","لون المصطلحات المهمة.","لا تلوّن كل الصفحة."],"لون القوانين والمفاهيم الأساسية فقط.","الدراسة"],
-["راجع القوانين بطريقة عملية","القانون يصبح أقوى في ذاكرتك عندما تعرف متى وكيف تستخدمه.",["اكتب القانون.","اكتب معنى الرموز.","حل مثالًا.","حل سؤالًا جديدًا."],"بعد قانون المساحة احسب مساحة شكل من اختيارك.","الدراسة"],
-["تدرب على الكتابة تحت وقت محدد","الوقت المحدد يساعدك على تحسين سرعة الإجابة دون إهمال الجودة.",["اختر موضوعًا.","حدد مدة.","اكتب.","راجع بعد الانتهاء."],"اكتب إجابة من 150 كلمة خلال 15 دقيقة.","الدراسة"],
-["راجع التعليمات قبل البدء","قراءة المطلوب تمنع أخطاء يمكن تفاديها بسهولة.",["اقرأ التعليمات كاملة.","حدد المطلوب.","ابدأ بعد التأكد."],"تحقق هل المطلوب تعريف أم مقارنة أم حل.","الدراسة"],
-["راجع إجاباتك في الاختبار","المراجعة النهائية قد تكشف أخطاء حساب أو نسيان جزء من السؤال.",["راجع الصعب.","راجع الحساب.","تأكد من كل الإجابات."],"اترك دقائق أخيرة للمراجعة.","الدراسة"],
-["لا تتوقف طويلًا عند سؤال","إدارة الوقت في الاختبار تمنع استنزافه في سؤال واحد.",["حاول.","إذا تعثرت انتقل.","ارجع لاحقًا."],"ضع علامة على السؤال الصعب وانتقل.","إدارة الوقت"],
-["اقرأ السؤال كاملًا","بعض الأخطاء تأتي من فهم المطلوب بشكل ناقص.",["اقرأ مرة كاملة.","حدد الكلمات المهمة.","تأكد من المطلوب."],"انتبه هل المطلوب قيمة أم مساحة أم تفسير.","الدراسة"],
-["تعلم من كل اختبار","الاختبار مصدر معلومات عن طريقة استعدادك وليس الدرجة فقط.",["راجع النتيجة.","حدد نمط الأخطاء.","غير خطة الاستعداد."],"إذا خسرت بسبب السرعة، تدرب بمؤقت في المرة القادمة.","النجاح"],
-["خطط لمشروعك على مراحل","المشروع الكبير يصبح أسهل عندما يتحول إلى مراحل صغيرة.",["حدد المراحل.","ضع موعدًا لكل مرحلة.","ابدأ الأولى."],"الموضوع ثم المصادر ثم الكتابة ثم المراجعة.","إدارة الوقت"],
-["ابدأ البحث مبكرًا","البحث يحتاج وقتًا لجمع المصادر والتحقق والكتابة.",["حدد الموضوع.","اجمع المصادر.","ابدأ الكتابة مبكرًا."],"لا تترك تقرير الأسبوع إلى الليلة الأخيرة.","إدارة الوقت"],
-["لا تخجل من طلب المساعدة","طلب التوضيح مبكرًا يمنع بقاء فجوة فهم كبيرة.",["حدد الجزء الصعب.","اسأل المعلم أو زميلًا.","أعد الشرح لنفسك."],"قل: لم أفهم الخطوة الثانية، هل توضحها؟","النجاح"],
-["استخدم وقت الانتظار","الدقائق الصغيرة مناسبة للمراجعة الخفيفة.",["احمل بطاقات صغيرة.","راجع مصطلحات.","استمع لملخص قصير."],"راجع خمس كلمات أثناء انتظار الحافلة.","إدارة الوقت"],
-["راجع قبل النوم مراجعة خفيفة","مراجعة قصيرة قد تكون أنسب من بدء فصل جديد قبل النوم.",["راجع العناوين.","استدعِ أهم النقاط.","توقف قبل التعب."],"راجع بطاقات المصطلحات لخمس دقائق.","الدراسة"],
-["ضع هدفًا للغد قبل النوم","الهدف المكتوب يقلل وقت التردد عند بدء اليوم.",["اكتب أول مهمة.","جهز أدواتها.","ابدأ بها في وقتك المحدد."],"غدًا أول مهمة: حل 10 مسائل.","إدارة الوقت"],
-["راجع التقدم نهاية الأسبوع","المراجعة الأسبوعية تمنعك من اكتشاف التأخير قبل الاختبارات مباشرة.",["راجع الدرجات.","راجع الخطة.","عدل الأسبوع المقبل."],"لاحظ أنك تضيّع ساعة يوميًا على الهاتف فعدّل وقتك.","النجاح"],
-["ركز على ما تستطيع التحكم به","تركيزك على أفعالك الحالية أكثر فائدة من القلق بشأن أمور خارج سيطرتك.",["حدد المشكلة.","اسأل ماذا أستطيع أن أفعل؟","نفذ الخطوة."],"بدل القلق من صعوبة الاختبار، ابدأ حل نموذج.","النجاح"],
-["غيّر الطريقة إذا لم تنجح","أحيانًا المشكلة في أسلوب الدراسة لا في قدرتك على التعلم.",["قيّم النتيجة.","جرب الاستدعاء النشط.","جرب الأسئلة أو الشرح."],"إذا لم تفد القراءة وحدها، أضف البطاقات والأسئلة.","النجاح"],
-["اجعل التعلم عادة يومية","الاستمرارية تبني المعرفة أكثر من جلسة ضخمة متقطعة.",["حدد وقتًا ثابتًا.","ابدأ بمدة قصيرة.","حافظ على الأيام المتتالية."],"20 دقيقة مراجعة كل يوم.","الدراسة"],
-["احتفل بالتقدم الصغير","ملاحظة التحسن البسيط تساعدك على رؤية أثر الاستمرار.",["سجل ما أنجزت.","قارن نفسك بالماضي.","كافئ الالتزام."],"اكتب ثلاث مهارات تحسنت فيها هذا الشهر.","النجاح"],
-["كن صبورًا مع نفسك","التعلم يحتاج وقتًا ومحاولات متعددة خصوصًا في الموضوعات الصعبة.",["تقبل البطء.","كرر التدريب.","اطلب المساعدة عند الحاجة."],"قد تحتاج عدة جلسات لفهم موضوع جديد وهذا طبيعي.","النجاح"],
-["لا تجعل يومًا سيئًا يوقفك","التعثر ليوم واحد لا يعني أن الخطة فشلت.",["اعترف بالتعثر.","عد في اليوم التالي.","ابدأ بمهمة صغيرة."],"إذا ضاع يوم، لا تضيع الأسبوع كله.","النجاح"],
-["أنهِ الجلسة بنقطة بداية للجلسة القادمة","معرفة أين ستبدأ لاحقًا تجعل العودة أسرع.",["اكتب نقطة التوقف.","احفظ ملفاتك.","جهز المهمة التالية."],"اكتب: الجلسة القادمة تبدأ من السؤال 16.","إدارة الوقت"],
-["جهز أدواتك قبل الدراسة","التجهيز المسبق يمنع إضاعة وقت التركيز في البحث عن الأدوات.",["حدد ما تحتاجه.","ضعه قربك.","ابدأ مباشرة."],"كتاب ودفتر وقلم وماء قبل الجلسة.","إدارة الوقت"],
-["استعمل قاعدة مهمة واحدة","العمل على مهمة واحدة في اللحظة نفسها يقلل التنقل الذهني.",["اختر المهمة.","أبعد غيرها.","أكمل الجزء المحدد."],"في جلسة الرياضيات لا تفتح الأحياء.","التركيز"],
-["اختبر نفسك تحت وقت","التدرب مع الوقت يكشف سرعتك ويعلمك توزيع الدقائق.",["حدد عدد الأسئلة.","حدد الزمن.","حل ثم صحح."],"20 سؤالًا في 30 دقيقة.","الدراسة"],
-["اكتب خطة للاختبار","الخطة تحول الأيام المتاحة إلى خطوات واضحة.",["حدد الموعد.","قسم المواضيع.","وزع الأيام.","اترك مراجعة نهائية."],"موضوع يوميًا ثم يوم للأسئلة.","إدارة الوقت"],
-["راجع أصعب نقطة أولًا","معالجة أكبر نقطة ضعف مبكرًا تعطيك وقتًا للتدريب.",["حدد الأصعب.","خصص له جلسة.","اختبر نفسك بعد الجلسة."],"ابدأ بالدرس الذي أخطأت فيه أكثر.","الدراسة"],
-["استخدم دفتر مراجعة سريع","ملخص القوانين والمفاهيم في مكان واحد يسهل المراجعة الأخيرة.",["اكتب المختصر.","حدّثه بعد الدرس.","راجعه قبل الاختبار."],"دفتر صغير للقوانين والتعريفات.","الدراسة"],
-["وازن بين الدراسة والراحة","التوازن يساعدك على الاستمرار دون أن تجعل يومك كله ضغطًا.",["حدد أهداف الدراسة.","حدد وقت الراحة.","التزم بالاثنين."],"بعد إنجاز أهدافك اليومية خصص وقتًا للعائلة أو الهواية.","الصحة"]
-].map((x,i)=>({id:i+1,title:x[0],why:x[1],how:x[2],example:x[3],category:x[4]}));
+<nav>
+<div class="nav container">
+<a class="brand" href="#home">🎓 منصة الطالب</a>
+<div class="nav-links">
+<a href="#tips">النصائح</a><a href="#methods">طرق الدراسة</a><a href="#timer">بومودورو</a><a href="#planner">الخطة</a><a href="#tasks">المهام</a><a href="#quizzes">الاختبارات</a><a href="#curriculum">المنهج العراقي</a>
+</div>
+<div class="nav-actions"><button class="icon-btn" id="darkBtn" title="الوضع الليلي">🌙</button><button class="icon-btn" id="favBtn" title="المفضلة">❤️</button></div>
+</div>
+</nav>
 
+<header class="hero" id="home">
+<div class="hero-inner">
+<span class="hero-badge">📚 منصة دراسية عربية للطالب العراقي</span>
+<h1>100 نصيحة للطالب وأكثر</h1>
+<p>مكان واحد لتنظيم دراستك: نصائح مع التطبيق، طرق دراسة، مؤقت بومودورو، خطة وواجبات، اختبارات، بطاقات، تقدم، إنجازات، ومناهج وكتب PDF.</p>
+<div class="hero-actions"><button class="heroBtn btn white" onclick="scrollToId('tips')">ابدأ الآن</button><button class="heroBtn btn ghost" onclick="randomTip()">🎲 نصيحة عشوائية</button><button class="heroBtn btn ghost" onclick="scrollToId('timer')">🍅 ابدأ جلسة</button></div>
+</div>
+</header>
+
+<section class="stats">
+<div class="stat"><i>💡</i><b id="sTips">100</b><small>نصيحة</small></div>
+<div class="stat"><i>🧠</i><b id="sMethods">10</b><small>طرق دراسة</small></div>
+<div class="stat"><i>❤️</i><b id="sFav">0</b><small>مفضلة</small></div>
+<div class="stat"><i>✅</i><b id="sDone">0</b><small>مطبقة</small></div>
+<div class="stat"><i>⏱️</i><b id="sMinutes">0</b><small>دقيقة دراسة</small></div>
+</section>
+
+<main class="container">
+<section class="section" id="dashboard">
+<div class="daily panel">
+<div class="daily-icon">⭐</div>
+<div><small>نصيحة اليوم</small><h3 id="dailyTitle"></h3><p id="dailyText"></p></div>
+<button class="btn primary" onclick="openTip(getDaily().id)">قراءة كاملة</button>
+</div>
+</section>
+
+<section class="section" id="methods">
+<div class="section-head"><h2>🧠 طرق الدراسة الفعّالة</h2><p>اضغط على أي طريقة لمعرفة فكرتها وكيفية تطبيقها.</p></div>
+<div class="method-grid" id="methodsGrid"></div>
+</section>
+
+<section class="section" id="tips">
+<div class="section-head"><h2>💡 100 نصيحة للطالب</h2><p>كل نصيحة لها سبب وتطبيق ومثال، ويمكنك حفظها أو تعليمها كمطبقة.</p></div>
+<div class="panel">
+<div class="search-row"><input class="input" id="tipSearch" placeholder="🔎 ابحث عن نصيحة أو شرح أو طريقة تطبيق..."><button class="btn primary" onclick="randomTip()">🎲 عشوائية</button></div>
+<div class="chips" id="tipCats"></div>
+<div class="controls" style="justify-content:space-between;margin-top:14px"><span class="muted" id="tipCount"></span><button class="btn" onclick="showFavorites()">❤️ عرض المفضلة</button></div>
+</div>
+<div class="tip-grid" id="tipsGrid"></div>
+</section>
+
+<section class="section" id="timer">
+<div class="section-head"><h2>🍅 مؤقت بومودورو</h2><p>حدد جلسة تركيز، ثم استراحة. سجّل الموقع الجلسات المكتملة محليًا.</p></div>
+<div class="timer">
+<div class="timer-box">
+<div class="timer-state" id="timerState">جاهز للدراسة</div>
+<div class="timer-time" id="timerTime">25:00</div>
+<div class="presets"><button class="preset" onclick="setTimer(25,'تركيز')">25 دقيقة</button><button class="preset" onclick="setTimer(50,'تركيز')">50 دقيقة</button><button class="preset" onclick="setTimer(45,'تركيز')">45 دقيقة</button><button class="preset" onclick="setTimer(5,'راحة')">5 دقائق</button><button class="preset" onclick="setTimer(10,'راحة')">10 دقائق</button></div>
+<div class="timer-actions" style="margin-top:14px"><button class="btn" onclick="startTimer()">▶️ ابدأ</button><button class="btn" onclick="pauseTimer()">⏸️ إيقاف مؤقت</button><button class="btn" onclick="resetTimer()">↩️ إعادة</button></div>
+</div>
+<div class="panel"><h3>🎯 هدف الجلسة</h3><input class="input" id="sessionSubject" placeholder="المادة، مثل الرياضيات"><input class="input" id="sessionGoal" style="margin-top:9px" placeholder="هدف الجلسة، مثل حل 15 سؤالًا"><div class="info" style="margin-top:14px"><h4>💡 بعد انتهاء الجلسة</h4><p class="muted">ستُسجّل جلسة التركيز المكتملة في إحصائياتك المحلية.</p></div><h3 style="margin-top:16px">📈 آخر الجلسات</h3><div class="side-list" id="sessionList" style="margin-top:8px"></div></div>
+</div>
+</section>
+
+<section class="section" id="planner">
+<div class="section-head"><h2>📅 خطة الدراسة</h2><p>أنشئ جلسات دراسية مرتبطة بالمادة والتاريخ والهدف.</p></div>
+<div class="grid-2">
+<div class="panel"><h3>➕ إضافة جلسة</h3><div class="form-grid" style="margin-top:12px"><input class="input" id="planSubject" placeholder="المادة"><input class="input" id="planDate" type="date"><input class="input" id="planTime" type="time"><input class="input" id="planMinutes" type="number" min="5" value="25" placeholder="المدة بالدقائق"><input class="input full" id="planGoal" placeholder="هدف الجلسة"><div class="form-actions full"><button class="btn primary" onclick="addPlan()">إضافة إلى الخطة</button><button class="btn" onclick="makeTodaySuggestion()">🎯 ماذا أدرس اليوم؟</button></div></div></div>
+<div class="panel"><h3>📋 خطتي</h3><div class="side-list" id="planList" style="margin-top:12px"></div></div>
+</div>
+</section>
+
+<section class="section" id="tasks">
+<div class="section-head"><h2>✅ الواجبات والمهام</h2><p>سجّل الواجبات والمواعيد والأولويات.</p></div>
+<div class="grid-2">
+<div class="panel"><h3>➕ مهمة جديدة</h3><div class="form-grid" style="margin-top:12px"><input class="input" id="taskTitle" placeholder="اسم الواجب"><input class="input" id="taskSubject" placeholder="المادة"><input class="input" id="taskDue" type="date"><select class="select" id="taskPriority"><option value="عالية">أولوية عالية</option><option value="متوسطة" selected>أولوية متوسطة</option><option value="منخفضة">أولوية منخفضة</option></select><div class="form-actions full"><button class="btn primary" onclick="addTask()">إضافة المهمة</button></div></div></div>
+<div class="panel"><h3>📝 قائمة المهام</h3><div class="side-list" id="taskList" style="margin-top:12px"></div></div>
+</div>
+</section>
+
+<section class="section" id="quizzes">
+<div class="section-head"><h2>📝 اختبارات قصيرة</h2><p>اختبر نفسك، ثم راجع الإجابات التي أخطأت بها.</p></div>
+<div class="quiz" id="quizBox"></div>
+</section>
+
+<section class="section" id="flashcards">
+<div class="section-head"><h2>🗂️ البطاقات التعليمية</h2><p>اقلب البطاقة، ثم سجّل إن كنت تعرفها. يمكنك أيضًا إنشاء بطاقاتك.</p></div>
+<div class="flash-layout">
+<div class="panel">
+<div class="flash-card" id="flashCard" onclick="flipFlashcard()"><div><small id="flashState">السؤال</small><h3 id="flashText">اضغط ابدأ لعرض بطاقة</h3></div></div>
+<div class="flash-controls"><button class="btn primary" onclick="startFlashcards()">▶️ ابدأ</button><button class="btn" onclick="flashKnown(true)">✅ أعرفها</button><button class="btn" onclick="flashKnown(false)">❌ لا أعرفها</button><button class="btn" onclick="nextFlashcard()">➡️ التالية</button></div>
+</div>
+<div class="panel"><h3>➕ بطاقة جديدة</h3><input class="input" id="fcQ" style="margin-top:10px" placeholder="السؤال"><textarea class="textarea" id="fcA" style="margin-top:10px" rows="4" placeholder="الإجابة"></textarea><button class="btn primary" style="margin-top:10px" onclick="addFlashcard()">إضافة البطاقة</button><h3 style="margin-top:20px">📚 إحصائيات</h3><p class="muted" id="flashStats"></p></div>
+</div>
+</section>
+
+<section class="section" id="curriculum">
+<div class="section-head"><h2>🇮🇶 المنهج الدراسي العراقي والكتب PDF</h2><p>اختر المرحلة والصف للوصول إلى المواد وروابط صفحات الكتب بصيغة PDF.</p></div>
+<div class="panel">
+<div class="curriculum-filter"><select class="select" id="stageSelect"><option value="primary">المرحلة الابتدائية</option><option value="middle">المرحلة المتوسطة</option><option value="prep">المرحلة الإعدادية</option></select><select class="select" id="gradeSelect"></select><select class="select" id="subjectSelect"></select></div>
+<div id="curriculumInfo" class="info"></div>
+<div class="books" id="booksGrid"></div>
+</div>
+</section>
+
+<section class="section" id="calculator">
+<div class="section-head"><h2>🧮 أدوات الطالب</h2><p>حاسبة المتوسط والدرجة المطلوبة، مع عداد بسيط للأيام.</p></div>
+<div class="calc">
+<div class="panel"><h3>📊 حساب المتوسط</h3><input class="input" id="gradesInput" style="margin-top:12px" placeholder="اكتب الدرجات مفصولة بفواصل: 80, 90, 75"><button class="btn primary" style="margin-top:10px" onclick="calcAverage()">احسب المتوسط</button><div class="result" id="avgResult">لم يتم الحساب بعد.</div></div>
+<div class="panel"><h3>🎯 الدرجة المطلوبة</h3><div class="form-grid" style="margin-top:12px"><input class="input" id="currentScore" type="number" placeholder="درجتك الحالية"><input class="input" id="currentWeight" type="number" placeholder="وزن الدرجة الحالية %"><input class="input" id="targetScore" type="number" placeholder="الهدف النهائي %"><input class="input" id="remainingWeight" type="number" placeholder="الوزن المتبقي %"></div><button class="btn primary" style="margin-top:10px" onclick="calcTarget()">احسب الدرجة المطلوبة</button><div class="result" id="targetResult">لم يتم الحساب بعد.</div></div>
+</div>
+</section>
+
+<section class="section" id="advisor">
+<div class="section-head"><h2>🤖 مرشد الدراسة الذكي</h2><p>اكتب مشكلتك الدراسية، وسيقترح الموقع طريقة عملية من الأدوات الموجودة داخله، بدون إرسال بياناتك إلى خدمة خارجية.</p></div>
+<div class="panel">
+<textarea class="textarea" id="advisorInput" rows="4" placeholder="مثال: أنسى المعلومات بسرعة، أو أتشتت كثيرًا، أو لدي اختبار رياضيات قريب..."></textarea>
+<button class="btn primary" style="margin-top:10px" onclick="advise()">احصل على اقتراح</button>
+<div class="result" id="advisorResult">اكتب مشكلتك ثم اضغط احصل على اقتراح.</div>
+</div>
+</section>
+
+<section class="section" id="notes">
+<div class="section-head"><h2>📝 ملاحظاتي</h2><p>أنشئ ملاحظات خاصة بك، وستُحفظ على جهازك.</p></div>
+<div class="grid-2"><div class="panel"><input class="input" id="noteTitle" placeholder="عنوان الملاحظة"><textarea class="textarea" id="noteText" style="margin-top:10px" rows="8" placeholder="اكتب ملاحظتك..."></textarea><button class="btn primary" style="margin-top:10px" onclick="addNote()">حفظ الملاحظة</button></div><div class="notes" id="notesGrid"></div></div>
+</section>
+
+<section class="section" id="progress">
+<div class="section-head"><h2>📊 تقدمي وإنجازاتي</h2><p>الإحصائيات محفوظة محليًا في متصفحك.</p></div>
+<div class="grid-2"><div class="panel"><h3>📈 تقدمي</h3><div class="result" id="progressText"></div><div class="progress" style="margin-top:14px"><span id="progressBar" style="width:0%"></span></div><p class="muted">هدف مبسط: قراءة النصائح وتطبيقها، مع إنجاز جلسات الدراسة والاختبارات.</p></div><div class="panel"><h3>🔥 سلسلة الدراسة</h3><div class="result" id="streakText"></div><p class="muted" style="margin-top:8px">تُحسب السلسلة من أيام وجود جلسة دراسة مكتملة.</p></div></div>
+<div class="achievements" id="achievements" style="margin-top:18px"></div>
+</section>
+
+<section class="section" id="settings">
+<div class="section-head"><h2>⚙️ الإعدادات والبيانات</h2><p>تحكم بالمظهر واحفظ نسخة من بياناتك.</p></div>
+<div class="settings-grid">
+<div class="setting"><h3>🌙 المظهر</h3><p>تغيير الوضع الليلي.</p><button class="btn" onclick="toggleTheme()">تبديل الوضع</button></div>
+<div class="setting"><h3>🔠 حجم الخط</h3><p>اختر حجم النص.</p><div class="range-row"><input type="range" min="14" max="21" value="16" id="fontRange" oninput="setFont(this.value)"><span id="fontValue">16</span></div></div>
+<div class="setting"><h3>💾 البيانات</h3><p>صدّر بيانات الموقع إلى ملف أو استوردها لاحقًا.</p><button class="btn" onclick="exportData()">تصدير</button><button class="btn" style="margin-top:7px" onclick="$('importFile').click()">استيراد</button><input id="importFile" type="file" accept="application/json" class="hidden" onchange="importData(event)"></div>
+<div class="setting"><h3>🔄 إعادة الضبط</h3><p>يحذف بياناتك المحلية من هذا الموقع.</p><button class="btn danger" onclick="resetAll()">حذف بياناتي المحلية</button></div>
+<div class="setting"><h3>🔔 إشعارات المتصفح</h3><p>يطلب الإذن لإظهار تنبيه بسيط عند انتهاء المؤقت، إن كان المتصفح يدعم ذلك.</p><button class="btn" onclick="requestNotification()">تفعيل الإشعارات</button></div>
+<div class="setting"><h3>🤖 مساعد ذكي</h3><p>واجهة جاهزة لربط API ذكاء اصطناعي مستقبلًا. لا يتم الاتصال بأي خدمة من هذا الملف.</p><button class="btn" onclick="alert('هذه الميزة تحتاج API وخادمًا لحماية المفتاح. الموقع يعمل بدونها.')">معرفة المتطلبات</button></div>
+</div>
+</section>
+
+<section class="section" id="advanced">
+<div class="section-head"><h2>🚀 مزايا مستقبلية</h2><p>واجهة المكان جاهزة، لكن الميزات التي تحتاج حسابات وخادمًا تحتاج Backend.</p></div>
+<div class="grid-4">
+<div class="panel"><b>👤 الحسابات</b><p class="muted">تسجيل دخول ومزامنة بين الأجهزة.</p></div>
+<div class="panel"><b>☁️ المزامنة</b><p class="muted">حفظ الخطة والنتائج على السحابة.</p></div>
+<div class="panel"><b>💬 المجتمع</b><p class="muted">غرف دراسة ودردشة ومشاركة بطاقات.</p></div>
+<div class="panel"><b>🤖 الذكاء الاصطناعي</b><p class="muted">شرح وتلخيص وإنشاء أسئلة عبر API.</p></div>
+</div>
+</section>
+</main>
+
+<footer><h3>🎓 منصة الطالب</h3><p>تعلم بذكاء، نظم وقتك، وطور نفسك خطوة بخطوة.</p><p>نسخة تعمل على GitHub Pages وتخزن بيانات الطالب محليًا داخل المتصفح.</p></footer>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><span class="modal-label" id="modalLabel"></span><h2 id="modalTitle"></h2><p class="muted" id="modalWhy"></p><div class="info"><h4>🎯 كيف تطبقها؟</h4><div id="modalHow"></div></div><div class="info"><h4>📝 مثال عملي</h4><p class="muted" id="modalExample"></p></div><div class="modal-actions"><button class="btn primary" id="modalFav" onclick="toggleCurrentFav()">🤍 إضافة للمفضلة</button><button class="btn" id="modalDone" onclick="toggleCurrentDone()">☐ لم أطبقها</button><button class="btn" onclick="closeModal()">إغلاق</button></div></div></div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================
+   بيانات النصائح - 100
+========================= */
+const tipsData = [
+['حدد أهدافك الدراسية','حوّل ما تريده إلى نتيجة واضحة يمكن متابعتها بدل هدف عام.',['اكتب هدفًا في جملة واحدة.','اجعله قابلًا للقياس.','حدد موعدًا للمراجعة.'],'اكتب: سأحل 20 سؤالًا في الرياضيات يوميًا لمدة أسبوع.','النجاح'],
+['قسّم المادة إلى أجزاء','الفصل الطويل يصبح أسهل عندما تقسمه إلى وحدات صغيرة.',['قسّم الفصل حسب العناوين.','حدد جزءًا لكل جلسة.','ضع علامة عند إكمال كل جزء.'],'بدل دراسة 30 صفحة دفعة واحدة، ادرس 5 صفحات في كل جلسة.','الدراسة'],
+['ابدأ مبكرًا','البدء قبل الاختبار يعطيك وقتًا للفهم والمراجعة.',['حدد موعد الاختبار.','وزّع الدروس على الأيام.','اترك يومًا للمراجعة.'],'ابدأ مراجعة اختبار الخميس يوم الأحد.','إدارة الوقت'],
+['استخدم قائمة مهام','القائمة توضح ما يجب إنجازه وتقلل النسيان.',['اكتب 3 إلى 5 مهام أساسية.','رتبها بالأولوية.','اشطب المهمة بعد إنجازها.'],'1) رياضيات 2) علوم 3) قراءة.','إدارة الوقت'],
+['حدد أولوياتك','ليست كل المهام متساوية في الأهمية أو الموعد.',['اكتب المهام.','حدد الأكثر أهمية.','ابدأ بالأقرب أو الأكثر تأثيرًا.'],'اختبار الغد قبل مشروع موعده الأسبوع المقبل.','إدارة الوقت'],
+['أبعد الهاتف أثناء الدراسة','تقليل الوصول للهاتف يقلل فرص التشتت.',['فعّل عدم الإزعاج.','ضع الهاتف بعيدًا.','راجِع الرسائل بعد الجلسة.'],'ضع الهاتف في الحقيبة خلال جلسة بومودورو.','التركيز'],
+['أغلق الإشعارات','الإشعارات تقطع الانتباه حتى دون فتح التطبيق.',['أوقف إشعارات التواصل.','فعّل وضع التركيز.','حدد وقتًا لفحص الرسائل.'],'لا تظهر الإشعارات أثناء جلسة المذاكرة.','التركيز'],
+['خصص مكانًا ثابتًا للدراسة','المكان المتكرر يساعدك على بناء روتين واضح.',['اختر مكتبًا هادئًا.','حافظ على ترتيبه.','استخدمه للدراسة بانتظام.'],'كل يوم تبدأ المذاكرة من نفس المكتب.','التركيز'],
+['رتّب مكتبك','الفوضى تزيد المشتتات وتجعل البداية أبطأ.',['أبعد الأشياء غير الضرورية.','جهّز الكتب.','اترك مساحة للعمل.'],'ضع كتاب المادة ودفترها وقلمًا فقط.','التركيز'],
+['اجعل لكل جلسة هدفًا','الجلسة الواضحة الهدف أسهل في المتابعة.',['حدد نتيجة واحدة.','اكتبها قبل البدء.','توقف بعد تحقيقها أو حدّث الهدف.'],'هدف الجلسة: حل الأسئلة 1 إلى 15.','إدارة الوقت'],
+['استخدم بومودورو','تقسيم الوقت إلى تركيز واستراحة قد يسهل البدء والاستمرار.',['25 دقيقة دراسة.','5 دقائق راحة.','كرر 4 مرات.','ثم خذ راحة أطول.'],'25 دقيقة رياضيات ثم 5 دقائق راحة.','الدراسة'],
+['جرّب جلسات 50/10','الجلسة الأطول قد تناسب البحث والكتابة والمسائل الممتدة.',['ركز 50 دقيقة.','استرح 10 دقائق.','كرر إذا بقي تركيزك جيدًا.'],'استخدمها لكتابة بحث أو حل مسائل طويلة.','إدارة الوقت'],
+['راجع دروسك يوميًا','المراجعة اليومية تقلل تراكم المادة.',['راجع درس اليوم.','حدد ما نسيته.','اختبر نفسك.'],'20 دقيقة مساءً لمراجعة نقاط اليوم.','الدراسة'],
+['راجع بعد الحصة','الرجوع للدرس مبكرًا يساعد على تثبيت المعلومات.',['اقرأ ملاحظاتك.','صحح الناقص.','حدد سؤالًا غير واضح.'],'خصص 15 دقيقة بعد العودة لمراجعة مادة صعبة.','الدراسة'],
+['اكتب ملاحظاتك بأسلوبك','إعادة الصياغة تجعلك تفكر في المعلومة بدل نسخها فقط.',['اكتب الفكرة الأساسية.','استخدم كلماتك.','أضف مثالًا.'],'بدل نسخ الفقرة، اكتب ثلاث نقاط تلخصها.','الدراسة'],
+['استخدم طريقة كورنيل','تقسيم الصفحة إلى ملاحظات وأسئلة وملخص ينظم المراجعة.',['اكتب الملاحظات.','ضع أسئلة في الهامش.','اكتب ملخصًا.'],'راجع أسئلة الهامش دون النظر للملاحظات.','الدراسة'],
+['حوّل العناوين إلى أسئلة','الأسئلة تجعل القراءة أكثر نشاطًا.',['حوّل العنوان إلى سؤال.','اقرأ للبحث عن الإجابة.','استرجعها دون الكتاب.'],'أسباب الثورة ← ما أسباب الثورة؟','الدراسة'],
+['استخدم الاستدعاء النشط','محاولة تذكر المعلومة من دون رؤيتها تكشف نقاط الضعف.',['أغلق الكتاب.','اكتب ما تتذكره.','قارن بالمصدر.','كرر ما أخطأت فيه.'],'اكتب مراحل درس الأحياء من الذاكرة.','الدراسة'],
+['استخدم التكرار المتباعد','توزيع المراجعة على أيام مختلفة يجعل العودة للمعلومات منتظمة.',['راجع اليوم.','غدًا.','بعد عدة أيام.','بعد أسبوع.'],'راجع كلمات اللغة اليوم ثم بعد يومين ثم أسبوع.','الدراسة'],
+['استخدم البطاقات التعليمية','البطاقات مناسبة للمصطلحات والتعريفات والقوانين.',['ضع السؤال في جهة.','الإجابة في الجهة الأخرى.','اختبر نفسك قبل القلب.'],'ما تعريف المصطلح؟ ثم تحقق من الإجابة.','الدراسة'],
+['استخدم طريقة ليتنر','تنظيم البطاقات حسب الإتقان يركز وقتك على الصعب.',['ضع البطاقات في الصندوق الأول.','انقل الصحيح لصندوق لاحق.','أعد الخاطئ.'],'الكلمات الصعبة تظهر لك أكثر.','الدراسة'],
+['استخدم طريقة فاينمان','شرح الفكرة بلغة بسيطة يكشف فجوات الفهم.',['اختر مفهومًا.','اشرحه ببساطة.','حدد ما لم تستطع شرحه.','راجع ثم أعد.'],'اشرح قانونًا لطالب أصغر منك.','الدراسة'],
+['استخدم SQ3R','طريقة منظمة للفصول الطويلة: تصفح، اسأل، اقرأ، استرجع، راجع.',['تصفح الفصل.','حوّل العناوين لأسئلة.','اقرأ.','استرجع.','راجع.'],'ابدأ بالأسئلة ثم اقرأ بحثًا عن الإجابات.','الدراسة'],
+['استخدم الخرائط الذهنية','الخريطة توضح العلاقة بين الأفكار.',['ضع الفكرة في الوسط.','أضف الفروع.','أضف التفاصيل.','اربط المتشابه.'],'ارسم خريطة لدرس التاريخ.','الدراسة'],
+['استخدم الجداول','الجداول مفيدة للمقارنة بين المعلومات المتشابهة.',['حدد ما تريد مقارنته.','اختر الأعمدة.','اكتب الكلمات الأساسية.'],'قارن أنواع الصخور في جدول.','الدراسة'],
+['علّم شخصًا آخر','شرح المعلومة لغيرك اختبار عملي لفهمك.',['اختر مفهومًا.','اشرح دون كتاب.','اسمح بالأسئلة.','راجع النقاط الضعيفة.'],'اشرح درسًا لزميل لمدة 10 دقائق.','الدراسة'],
+['اشرح بصوت مرتفع','الشرح بصوتك يساعدك على اكتشاف ما لم تفهمه.',['أغلق الكتاب.','اشرح الفكرة.','سجل أو استمع لنفسك.'],'اشرح موضوعًا لمدة دقيقتين.','الدراسة'],
+['اختبر نفسك بعد كل درس','الاختبار المبكر يكشف نقاط الضعف قبل الامتحان.',['ضع الكتاب.','اكتب 5 أسئلة.','أجب.','صحح.'],'بعد الكيمياء اكتب 5 أسئلة وأجب عنها.','الدراسة'],
+['حل أسئلة كثيرة','التدريب يحول المعرفة إلى مهارة.',['ابدأ بالأسهل.','زد الصعوبة.','سجل الأخطاء.','أعد الصعب.'],'حل 20 سؤالًا متنوعًا.','الدراسة'],
+['حاكي الاختبار الحقيقي','المحاكاة تدربك على الوقت وطريقة الحل.',['حدد وقتًا.','أبعد الكتاب.','حل دون مساعدة.','صحح.'],'حل نموذجًا كاملًا بمؤقت.','الدراسة'],
+['راجع أخطاء الاختبارات','سبب الخطأ أهم من معرفة الإجابة فقط.',['حدد السؤال.','اكتب السبب.','اكتب الحل الصحيح.','أعد المحاولة.'],'سجل القانون الذي أخطأت في استخدامه.','النجاح'],
+['أنشئ دفتر أخطاء','تجميع الأخطاء يجعل المراجعة أسرع.',['اكتب السؤال.','اكتب خطأك.','اكتب التصحيح.','راجع أسبوعيًا.'],'استخدمه قبل الاختبار بدل قراءة المنهج كله.','الدراسة'],
+['افهم قبل الحفظ','الفهم يجعل التفاصيل أكثر معنى وأسهل في الاستدعاء.',['اسأل لماذا.','اشرح الفكرة.','استخدم مثالًا.','ثم احفظ.'],'افهم سبب القانون قبل حفظ صيغته.','الدراسة'],
+['اربط المعلومات بأمثلة','المثال الواقعي يعطي المعلومة سياقًا.',['حدد المفهوم.','فكر بموقف.','اكتب العلاقة.'],'اربط النسبة المئوية بخصم الأسعار.','الدراسة'],
+['اربط الدرس الجديد بالسابق','ربط المعرفة يبني شبكة معلومات مترابطة.',['حدد الفكرة الجديدة.','تذكر القديمة.','اكتب العلاقة.'],'اربط قانونًا جديدًا بقانون سابق.','الدراسة'],
+['راجع الكلمات المفتاحية','المصطلحات الأساسية تقودك إلى تفاصيل الدرس.',['حدد المصطلحات.','عرّفها بإيجاز.','اختبر نفسك.'],'أنشئ قائمة بأهم 15 مصطلحًا.','الدراسة'],
+['اقرأ بتركيز','القراءة السريعة دون فهم قد تعطي إحساسًا زائفًا بالاستيعاب.',['اقرأ فقرة.','اسأل عن فكرتها.','لخصها.'],'اكتب جملة تلخص كل صفحة.','التركيز'],
+['خذ استراحات قصيرة','الاستراحة المنظمة تساعدك على الاستمرار.',['حدد وقت الراحة.','ابتعد عن المكتب.','عد في الموعد.'],'استرح 5 دقائق بين الجلسات.','الصحة'],
+['تحرك في الاستراحة','الحركة تكسر الجلوس الطويل.',['قف.','امش قليلًا.','عد للمكتب.'],'تحرك لبضع دقائق بين جلستين.','الصحة'],
+['اشرب الماء','اجعل الماء جزءًا ثابتًا من روتينك الدراسي.',['ضع قارورة قربك.','اشرب خلال اليوم.','أعد تعبئتها.'],'احتفظ بالماء بجانب مكتبك.','الصحة'],
+['نم بانتظام','النوم الجيد جزء من روتين التعلم والانتباه.',['ثبت وقت النوم قدر الإمكان.','خفف الشاشة قبل النوم.','لا تعتمد على السهر.'],'أنه المراجعة مبكرًا ثم نم.','الصحة'],
+['قلل السهر قبل الاختبار','المراجعة الليلية الطويلة قد تتركك متعبًا.',['خطط مبكرًا.','أنه الأساسيات قبل الليل.','اجعل آخر فترة هادئة.'],'أنهِ المراجعة النهائية مساءً.','الصحة'],
+['مارس نشاطًا بدنيًا','الحركة جزء من توازن الطالب اليومي.',['اختر نشاطًا بسيطًا.','حدد وقتًا.','كرر بانتظام.'],'المشي بعد جلسة الدراسة.','الصحة'],
+['لا تدرس وأنت مرهق جدًا','عندما يصبح التعب شديدًا تقل جودة الجلسة.',['قيّم طاقتك.','خذ راحة.','عد عندما تتحسن قدرتك.'],'إذا لم تعد قادرًا على التركيز خذ استراحة.','الصحة'],
+['اجلس بوضعية مريحة','الوضعية المريحة تساعد على الاستمرار.',['اضبط الكرسي.','اجعل الشاشة مناسبة.','غيّر وضعيتك أحيانًا.'],'اضبط مكانك قبل الجلسة.','الصحة'],
+['خذ استراحة من الشاشة','الجلسات الرقمية الطويلة تحتاج فواصل.',['ابتعد عن الشاشة.','انظر لمسافة أبعد.','عد بعد الاستراحة.'],'بعد جلسة طويلة خذ فاصلًا بدون شاشة.','الصحة'],
+['تنفّس بهدوء عند التوتر','التوقف لحظات يساعدك على استعادة الهدوء.',['توقف.','خذ نفسًا بطيئًا.','أخرج النفس ببطء.','عد للمهمة.'],'قبل الاختبار خذ دقيقة لتنظيم تنفسك.','الصحة'],
+['حدد وقت الإنترنت','التصفح غير المحدد قد يلتهم وقت الدراسة.',['حدد وقتًا للترفيه.','أغلقه أثناء الدراسة.','عد بعد الإنجاز.'],'لا تفتح التواصل حتى تنهي الجلسة.','التركيز'],
+['استخدم وضع التركيز','أدوات الهاتف يمكن أن تقلل المقاطعات.',['فعّل الوضع.','اسمح بالتطبيقات الضرورية فقط.','ابدأ الجلسة.'],'اسمح بالمكالمات المهمة فقط.','التركيز'],
+['لا تفتح تبويبات كثيرة','كثرة النوافذ تخلق مصادر للتشتت.',['افتح الضروري.','أغلق الباقي.','احفظ الروابط المفيدة.'],'أثناء البحث افتح المصادر المتعلقة بالموضوع فقط.','التركيز'],
+['استخدم الإنترنت لهدف واضح','البحث يصبح أفضل عندما تدخل بسؤال محدد.',['اكتب السؤال.','حدد مدة.','سجل ما وجدت.','أغلق المتصفح.'],'ابحث عن شرح محدد بدل التصفح العشوائي.','التركيز'],
+['تحقق من المصادر','المعلومات المنشورة ليست كلها دقيقة.',['قارن أكثر من مصدر.','تحقق من الجهة.','استخدم مصادر تعليمية موثوقة.'],'قارن مصدرين عند كتابة تقرير.','الدراسة'],
+['تعلم مهارة البحث','صياغة البحث جيدًا توفر الوقت.',['حدد السؤال.','استخدم كلمات مفتاحية.','قارن النتائج.','سجل المصادر.'],'استخدم كلمات بحث دقيقة.','النجاح'],
+['نظّم ملفاتك','الملفات المنظمة توفر وقت البحث.',['مجلد لكل مادة.','أسماء واضحة.','نسخ مرتبة.'],'رياضيات/واجبات/اختبار-1.pdf','إدارة الوقت'],
+['احتفظ بنسخة احتياطية','نسخة ثانية تحمي عملك من الفقدان.',['احفظ الأصل.','أنشئ نسخة ثانية.','ضعها في مكان مختلف.'],'احتفظ بالبحث على جهازك ومكان آخر.','إدارة الوقت'],
+['جهز حقيبتك مسبقًا','التجهيز الليلي يوفر وقت الصباح.',['راجع جدول الغد.','ضع الكتب.','تأكد من الأدوات.'],'جهز حقيبتك قبل النوم.','إدارة الوقت'],
+['خطط لليوم التالي','ثلاث مهام واضحة تجعل البداية أسرع.',['اكتب 3 مهام.','حدد أوقاتها تقريبًا.','جهز الأدوات.'],'قبل النوم حدد: رياضيات، علوم، قراءة.','إدارة الوقت'],
+['خطط للأسبوع','الخطة الأسبوعية تمنع تداخل الاختبارات والواجبات.',['سجل المواعيد.','وزع الجلسات.','اترك وقتًا احتياطيًا.'],'ضع الاختبارات والواجبات في تقويم واحد.','إدارة الوقت'],
+['اترك وقتًا احتياطيًا','الجدول الممتلئ يتأثر بأي تأخير.',['قدّر مدة المهمة.','أضف هامشًا.','استخدمه للتعويض.'],'اترك 30 دقيقة احتياطية.','إدارة الوقت'],
+['لا تفرط في التخطيط','الهدف من التخطيط هو التنفيذ.',['حدد الأساسيات.','ابدأ.','عدّل الخطة إذا لزم.'],'خطة من 3 مهام أفضل من جدول لا تنفذه.','إدارة الوقت'],
+['استخدم قاعدة الخمس دقائق','البداية الصغيرة تقلل مقاومة مهمة ثقيلة.',['ابدأ لخمس دقائق.','نفذ أول جزء.','استمر إذا استطعت.'],'افتح الكتاب وحل سؤالًا واحدًا فقط.','إدارة الوقت'],
+['لا تنتظر الحماس','الروتين أكثر ثباتًا من الاعتماد على المزاج.',['حدد وقتًا ثابتًا.','ابدأ حتى لو لم تكن متحمسًا.','دع الاستمرارية تتراكم.'],'ابدأ بموعد دراسة يومي ثابت.','النجاح'],
+['ابدأ بأسهل خطوة','الخطوة الصغيرة تجعل المهمة الكبيرة أقل رهبة.',['افتح الكتاب.','اكتب العنوان.','ابدأ بأول صفحة.'],'ابدأ بصفحتين بدل التفكير في الفصل كاملًا.','النجاح'],
+['قسّم المشاريع الكبيرة','المشروع الطويل يصبح قابلًا للإدارة عندما يتحول إلى مراحل.',['حدد المراحل.','ضع موعدًا لكل مرحلة.','ابدأ بالأولى.'],'بحث: موضوع → مصادر → كتابة → مراجعة.','إدارة الوقت'],
+['ابدأ البحث مبكرًا','جمع المصادر والكتابة يحتاجان وقتًا.',['حدد المطلوب.','اجمع المصادر.','ابدأ المسودة.'],'ابدأ البحث فور استلام المشروع.','إدارة الوقت'],
+['راجع العمل قبل التسليم','المراجعة تكشف أخطاء يمكن إصلاحها.',['راجع المحتوى.','راجع اللغة.','تأكد من التعليمات.'],'تحقق من اسمك والمراجع وعدد الصفحات.','الدراسة'],
+['استخدم وقت الانتظار','الدقائق القصيرة مناسبة للمراجعة الخفيفة.',['احمل بطاقات.','راجع المصطلحات.','استمع لشرح قصير.'],'راجع خمس كلمات أثناء الانتظار.','إدارة الوقت'],
+['اكتشف أفضل وقت للتركيز','مستوى التركيز يختلف بين الطلاب.',['جرب أوقاتًا مختلفة.','لاحظ وقت نشاطك.','ضع الصعب فيه.'],'إذا كنت تركز مساءً ضع المسائل مساءً.','إدارة الوقت'],
+['ضع المهام الصعبة في وقت تركيزك','استخدم أفضل أوقاتك للمواد التي تحتاج تفكيرًا.',['حدد وقتك الأفضل.','ضع المادة الصعبة فيه.','اترك السهل لأوقات أقل تركيزًا.'],'الرياضيات في وقت تركيزك الأعلى.','إدارة الوقت'],
+['لا تجمع عدة مهام','التنقل المستمر بين المهام يستهلك الانتباه.',['اختر مهمة.','أكمل جزءًا واضحًا.','انتقل بعدها.'],'لا تدرس وتشاهد الفيديو وترد على الرسائل معًا.','التركيز'],
+['أعط كل مادة وقتها','المواد تختلف في طبيعتها وحاجتها للتدريب.',['حدد الحاجة.','وزع الوقت.','راجع التوزيع أسبوعيًا.'],'زد وقت المادة التي تحتاج مسائل أكثر.','إدارة الوقت'],
+['راجع المواد الصعبة أكثر','نقاط الضعف تحتاج ممارسة إضافية.',['حدد الموضوع.','أضف جلسة إضافية.','اختبر نفسك.'],'أضف جلسة للكيمياء إذا كانت أصعب عليك.','الدراسة'],
+['لا تهمل المواد السهلة','المادة السهلة تحتاج مراجعة أيضًا حتى لا تنسى.',['خصص مراجعات قصيرة.','اختبر نفسك.','لا تتركها لآخر يوم.'],'15 دقيقة مراجعة للمادة السهلة.','الدراسة'],
+['راجع أصعب نقطة أولًا','معالجة نقطة الضعف مبكرًا تعطيك وقتًا لتصحيحها.',['حدد الصعب.','خصص له جلسة.','اختبر فهمك.'],'ابدأ بالسؤال الذي تخطئ فيه أكثر.','الدراسة'],
+['اكتب ملخصًا لكل فصل','الملخص يجمع الأفكار الرئيسية في مكان واحد.',['حدد الأفكار الأساسية.','اختصر.','اكتب بأسلوبك.'],'اختصر الفصل في صفحة واحدة.','الدراسة'],
+['استخدم الألوان باعتدال','التمييز البصري يمكن أن يساعد على العثور على المهم.',['لون العناوين.','لون القوانين.','لا تلون كل شيء.'],'لون القوانين فقط.','الدراسة'],
+['سجل شرحك لنفسك','سماع شرحك يساعدك على اكتشاف ما نسيته.',['اشرح لدقيقتين.','سجل.','استمع.','صحح.'],'سجل شرحًا لمفهوم صعب.','الدراسة'],
+['ادرس مع زميل مناسب','الطالب الجاد قد يضيف طريقة مختلفة للفهم.',['اختر زميلًا جادًا.','حدد الموضوع.','اسألوا بعضكم.'],'كل طالب يشرح للآخر 10 دقائق.','الدراسة'],
+['اختر أصدقاء يدعمون هدفك','البيئة المحيطة تؤثر في عاداتك.',['اقترب من المجتهدين.','شارك أهدافك.','حدد وقت الترفيه.'],'اتفق مع زميل على جلسة مراجعة.','النجاح'],
+['لا تخجل من الخطأ','الخطأ جزء طبيعي من التعلم.',['حدد السبب.','صححه.','جرب مرة أخرى.'],'اكتب سبب الخطأ بدل تجاهله.','النجاح'],
+['لا تقارن نفسك بالآخرين','مقارنة نفسك بنفسك تعطيك مؤشرًا أفضل للتقدم.',['راجع نتيجتك السابقة.','حدد مجال التحسن.','تابع التقدم.'],'قارن 70 السابقة بـ80 الحالية.','النجاح'],
+['ثق بقدرتك على التطور','المهارات الدراسية تتحسن بالممارسة والوقت.',['حدد مهارة.','تدرب.','راجع النتيجة.'],'تدرب على أسئلة الرياضيات أسبوعًا كاملًا.','النجاح'],
+['كافئ نفسك بعد الإنجاز','المكافآت الصغيرة قد تساعد على استمرار العادة.',['أنجز الهدف.','كافئ نفسك بنشاط تحبه.','ارجع للجدول.'],'بعد جلسة ناجحة خذ وقتًا للهواية.','النجاح'],
+['احتفل بالتقدم الصغير','التقدم اليومي يتراكم.',['سجل الإنجازات.','لاحظ التحسن.','استمر.'],'اكتب 3 أشياء تحسنت فيها هذا الأسبوع.','النجاح'],
+['راجع أهدافك أسبوعيًا','المراجعة تعطيك فرصة لتعديل الخطة.',['راجع ما أنجزته.','حدد المتأخر.','عدّل الأسبوع المقبل.'],'كل نهاية أسبوع راجع جدولك.','النجاح'],
+['تعلم من كل اختبار','الاختبار يعطيك معلومات عن نقاط القوة والضعف.',['راجع الأخطاء.','حدد السبب.','عدّل طريقة المراجعة.'],'إذا أخطأت بسبب السرعة فحاكي الاختبار بوقت.','النجاح'],
+['ضع خطة للاختبار','الخطة تحول الأيام إلى مهام محددة.',['حدد الموضوعات.','وزع الأيام.','اترك يومًا للأسئلة.'],'كل يوم فصل مع يوم أخير للنماذج.','إدارة الوقت'],
+['وزع وقت الاختبار','إدارة الوقت تمنع بقاء أسئلة بلا إجابة.',['قدّر وقت كل جزء.','ضع علامة على الصعب.','اترك وقتًا للمراجعة.'],'انتقل من السؤال الصعب ثم ارجع له.','إدارة الوقت'],
+['اقرأ التعليمات جيدًا','فهم المطلوب جزء من حل السؤال.',['اقرأ التعليمات كاملة.','حدد الكلمات المهمة.','ابدأ بعد فهم المطلوب.'],'في المسائل انتبه هل المطلوب قيمة أم مساحة.','الدراسة'],
+['لا تتوقف طويلًا عند سؤال','سؤال واحد لا يستحق أن يستهلك وقت الاختبار كله.',['حاول.','ضع علامة.','انتقل.','ارجع لاحقًا.'],'ضع نجمة على السؤال الصعب ثم أكمل.','إدارة الوقت'],
+['راجع إجاباتك','المراجعة النهائية تكشف أخطاء حساب وقراءة.',['راجع الصعب.','راجع الحساب.','راجع الكتابة.'],'خصص آخر دقائق للمراجعة.','الدراسة'],
+['جهز أدواتك قبل الدراسة','التجهيز يمنع قطع التركيز للبحث عن الأشياء.',['اجمع الأدوات.','ضعها قربك.','ابدأ فورًا.'],'القلم والدفتر والكتاب جاهزون.','التركيز'],
+['حدد ما لا تعرفه','أفضل مراجعة هي التي تستهدف الفجوات.',['اختبر نفسك.','علّم المفاهيم الصعبة.','راجعها.'],'ضع نجمة بجانب كل مفهوم لا تستطيع شرحه.','الدراسة'],
+['راجع الكلمات الصعبة أكثر','المعلومات الأصعب تحتاج تكرارًا أكثر.',['ضعها في مجموعة.','راجعها يوميًا.','اختبر نفسك.'],'خصص 10 دقائق للكلمات الصعبة.','الدراسة'],
+['اجعل المراجعة عادة','الانتظام أقل إرهاقًا من التراكم.',['حدد وقتًا ثابتًا.','ابدأ بمدة قصيرة.','حافظ عليه.'],'20 دقيقة مراجعة يومية.','النجاح'],
+['خطط لوقت الراحة','الراحة المنظمة أفضل من التشتت العشوائي.',['حدد مدتها.','ابتعد عن المكتب.','عد في موعدك.'],'5 أو 10 دقائق راحة بين الجلسات.','الصحة'],
+['استخدم المؤقت','المؤقت يعطي الجلسة بداية ونهاية واضحتين.',['حدد المدة.','ابدأ.','التزم حتى النهاية.'],'اضبط 25 دقيقة للمذاكرة.','إدارة الوقت'],
+['استفد من المراجعة السريعة','المراجعات القصيرة المتكررة تحافظ على المعلومات قريبة.',['راجع الملخص.','اختبر نفسك.','حدد ما نسيته.'],'10 دقائق بطاقات قبل المدرسة.','الدراسة'],
+['اترك آخر دقائق الجلسة للمراجعة','الخاتمة تجمع ما تعلمته.',['توقف قبل النهاية بقليل.','اكتب 3 نقاط.','حدد بداية الجلسة القادمة.'],'اكتب أهم ثلاثة قوانين تعلمتها.','الدراسة'],
+['دوّن نقطة التوقف','معرفة أين ستبدأ لاحقًا توفر وقتًا.',['اكتب آخر سؤال أو صفحة.','جهز الكتاب.','ابدأ منها في الجلسة التالية.'],'اكتب: توقفت عند السؤال 16.','إدارة الوقت']
+].map((t,i)=>({id:i+1,title:t[0],why:t[1],how:t[2],example:t[3],category:t[4]}));
+
+/* =========================
+   طرق الدراسة - 10
+========================= */
 const methods=[
-{icon:"🍅",title:"بومودورو",desc:"جلسات تركيز قصيرة تتخللها استراحات.",steps:["اختر مهمة واحدة.","ادرس 25 دقيقة.","استرح 5 دقائق.","كرر أربع دورات.","خذ استراحة أطول."],when:"مناسبة عند المماطلة أو صعوبة بدء الدراسة."},
-{icon:"🧠",title:"الاستدعاء النشط",desc:"استرجاع المعلومة من الذاكرة بدل إعادة القراءة.",steps:["اقرأ الموضوع.","أغلق الكتاب.","اكتب أو قل ما تتذكره.","قارن بالمصدر.","أعد النقاط التي نسيتها."],when:"ممتاز للمراجعة والاختبارات."},
-{icon:"🔁",title:"التكرار المتباعد",desc:"مراجعة المعلومات على فترات متباعدة.",steps:["راجع اليوم.","راجع غدًا.","راجع بعد عدة أيام.","راجع بعد أسبوع.","زد الفاصل مع الإتقان."],when:"مفيد للحفظ والمصطلحات واللغات."},
-{icon:"👨‍🏫",title:"فاينمان",desc:"شرح الفكرة ببساطة لاكتشاف فجوات الفهم.",steps:["اختر مفهومًا.","اشرحه بلغة بسيطة.","حدد ما لم تستطع شرحه.","ارجع للمصدر.","أعد الشرح."],when:"مفيد للمفاهيم المعقدة والعلوم."},
-{icon:"🗂️",title:"ليتنر",desc:"تنظيم البطاقات حسب مستوى الإتقان.",steps:["ضع كل البطاقات في صندوق البداية.","انقل الصحيحة لصندوق لاحق.","أعد الخاطئة للصندوق الأول.","راجع الصناديق وفق جدول."],when:"مفيد للمفردات والتعريفات."},
-{icon:"📝",title:"كورنيل",desc:"ملاحظات + أسئلة + ملخص في صفحة منظمة.",steps:["اكتب الملاحظات الرئيسية.","ضع أسئلة في الهامش.","اكتب ملخصًا أسفل الصفحة.","اختبر نفسك بأسئلة الهامش."],when:"مفيد للمحاضرات والدروس النظرية."},
-{icon:"📖",title:"SQ3R",desc:"تصفح، اسأل، اقرأ، استرجع، راجع.",steps:["تصفح الفصل.","حوّل العناوين إلى أسئلة.","اقرأ للبحث عن الإجابات.","استرجع دون كتاب.","راجع."],when:"مفيد للفصول والكتب الطويلة."},
-{icon:"🗺️",title:"الخريطة الذهنية",desc:"ربط الأفكار في مخطط بصري.",steps:["ضع الموضوع في المنتصف.","أضف الفروع الرئيسية.","أضف التفاصيل.","اربط العلاقات."],when:"مفيد للموضوعات التي فيها علاقات وأجزاء كثيرة."},
-{icon:"🔀",title:"المزج بين الأسئلة",desc:"التنقل بين أنواع مختلفة من المسائل.",steps:["اختر عدة أنواع من الأسئلة.","امزجها بدل حل نوع واحد.","حدد طريقة الحل لكل سؤال.","راجع الأخطاء."],when:"مفيد خصوصًا للمواد التي تتعدد فيها طرق الحل."},
-{icon:"🗣️",title:"الشرح للآخرين",desc:"تعلم ثم اشرح لشخص آخر دون الكتاب.",steps:["تعلم المفهوم.","أغلق المصدر.","اشرح بصوتك.","اسمح بالأسئلة.","راجع النقاط الناقصة."],when:"مفيد لتثبيت الفهم والاستعداد للمناقشات."}
+{icon:'🍅',title:'بومودورو',desc:'جلسات تركيز قصيرة مع فترات راحة.',how:'25 دقيقة تركيز ثم 5 دقائق راحة، وتكرر أربع دورات قبل استراحة أطول.',best:'المماطلة والمهام اليومية.'},
+{icon:'🧠',title:'الاستدعاء النشط',desc:'استرجاع المعلومات دون النظر للمصدر.',how:'أغلق الكتاب، اكتب أو اشرح ما تتذكره، ثم قارن بالمصدر.',best:'الحفظ والفهم والاختبارات.'},
+{icon:'🔁',title:'التكرار المتباعد',desc:'المراجعة على فترات متباعدة.',how:'راجع اليوم ثم غدًا ثم بعد عدة أيام ثم أسبوعيًا بحسب حاجتك.',best:'المصطلحات واللغات والمعلومات.'},
+{icon:'👨‍🏫',title:'فاينمان',desc:'شرح الفكرة بلغة بسيطة.',how:'اختر مفهومًا واشرحه وكأنك تشرحه لطالب أصغر، وحدد ما لم تستطع شرحه.',best:'المفاهيم الصعبة.'},
+{icon:'🗂️',title:'ليتنر',desc:'تنظيم البطاقات حسب الإتقان.',how:'انقل البطاقة التي تعرفها لصندوق لاحق، وأعد البطاقة الصعبة لصندوق مبكر.',best:'البطاقات والمفردات.'},
+{icon:'📝',title:'كورنيل',desc:'ملاحظات + أسئلة + ملخص.',how:'خصص منطقة للملاحظات، والهامش للأسئلة، والأسفل للملخص.',best:'المحاضرات والدروس النظرية.'},
+{icon:'📖',title:'SQ3R',desc:'تصفح، اسأل، اقرأ، استرجع، راجع.',how:'تصفح الفصل، حول العناوين لأسئلة، اقرأ، استرجع، ثم راجع.',best:'الفصول الطويلة.'},
+{icon:'🗺️',title:'الخريطة الذهنية',desc:'ربط الأفكار بصريًا.',how:'ضع الفكرة في الوسط، ثم الفروع الرئيسية والتفاصيل والروابط.',best:'التاريخ والعلوم والمواضيع المركبة.'},
+{icon:'🔀',title:'المزج بين المسائل',desc:'التنقل بين أنواع مختلفة من الأسئلة.',how:'امزج مسائل متعددة بدل حل نوع واحد فقط، وحدد طريقة الحل قبل البدء.',best:'الرياضيات والفيزياء.'},
+{icon:'🗣️',title:'الشرح للآخرين',desc:'اختبار فهمك عبر التعليم.',how:'تعلم الفكرة ثم اشرحها لشخص آخر واسمح له بطرح الأسئلة.',best:'الفهم العميق والمراجعة.'}
 ];
 
-let favorites=JSON.parse(localStorage.getItem('studentFavorites')||'[]');
-let done=JSON.parse(localStorage.getItem('studentDone')||'[]');
-let category='الكل', currentId=null;
-const grid=document.getElementById('grid'), search=document.getElementById('search'), count=document.getElementById('count'), modal=document.getElementById('modal');
-function renderMethods(){document.getElementById('methods').innerHTML=methods.map((m,i)=>`<article class="method" onclick="openMethod(${i})"><div class="methodIcon">${m.icon}</div><h3>${m.title}</h3><p>${m.desc}</p></article>`).join('')}
-function render(){const q=search.value.trim().toLowerCase();const data=tips.filter(t=>(category==='الكل'||t.category===category)&&(t.title+' '+t.why+' '+t.how.join(' ')+' '+t.example).toLowerCase().includes(q));grid.innerHTML=data.length?data.map(t=>`<article class="card" onclick="openTip(${t.id})"><div class="top"><div class="badgeNum">${t.id}</div><button class="heart ${favorites.includes(t.id)?'active':''}" onclick="event.stopPropagation();toggleFav(${t.id})">${favorites.includes(t.id)?'❤️':'🤍'}</button></div><h3>${t.title}</h3><p class="why">${t.why}</p><div class="howPreview"><b>🎯 التطبيق:</b> ${t.how[0]}</div><span class="tag">${t.category}</span></article>`).join(''):'<div class="empty"><div class="emptyIcon">🔎</div><h3>لم نجد نصائح مطابقة</h3><p>جرّب كلمة أخرى أو غير التصنيف.</p></div>';count.textContent=`عرض ${data.length} من أصل ${tips.length} نصيحة`;updateStats()}
-function updateStats(){document.getElementById('favCount').textContent=favorites.length;document.getElementById('doneCount').textContent=done.length}
-function openTip(id){const t=tips[id-1];if(!t)return;currentId=id;document.getElementById('mLabel').textContent=`النصيحة رقم ${id} • ${t.category}`;document.getElementById('mTitle').textContent=t.title;document.getElementById('mWhy').textContent=t.why;document.getElementById('mSteps').innerHTML=t.how.map((s,i)=>`<div class="step"><b>الخطوة ${i+1}:</b> ${s}</div>`).join('');document.getElementById('mExample').textContent=t.example;document.getElementById('mFav').style.display='inline-block';document.getElementById('mDone').style.display='inline-block';updateModalButtons();modal.classList.add('show')}
-function openMethod(i){const m=methods[i];currentId=null;document.getElementById('mLabel').textContent='طريقة دراسة';document.getElementById('mTitle').textContent=`${m.icon} ${m.title}`;document.getElementById('mWhy').textContent=m.desc;document.getElementById('mSteps').innerHTML=m.steps.map((s,i)=>`<div class="step"><b>الخطوة ${i+1}:</b> ${s}</div>`).join('');document.getElementById('mExample').textContent=m.when;document.getElementById('mFav').style.display='none';document.getElementById('mDone').style.display='none';modal.classList.add('show')}
-function updateModalButtons(){if(currentId===null)return;document.getElementById('mFav').textContent=favorites.includes(currentId)?'❤️ إزالة من المفضلة':'🤍 إضافة إلى المفضلة';const isDone=done.includes(currentId);document.getElementById('mDone').textContent=isDone?'✅ تم تطبيقها':'☐ لم أطبقها بعد';document.getElementById('mDone').className='action '+(isDone?'done':'secondary')}
-function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem('studentFavorites',JSON.stringify(favorites));render();if(currentId===id)updateModalButtons()}
-function toggleCurrentFav(){if(currentId)toggleFav(currentId)}
-function toggleDone(id){done=done.includes(id)?done.filter(x=>x!==id):[...done,id];localStorage.setItem('studentDone',JSON.stringify(done));updateStats();if(currentId===id)updateModalButtons()}
-function toggleCurrentDone(){if(currentId)toggleDone(currentId)}
-function randomTip(){openTip(Math.floor(Math.random()*tips.length)+1)}
-function getDaily(){return tips[(new Date().getDate()-1)%tips.length]}
-function openDaily(){openTip(getDaily().id)}
-function renderDaily(){const t=getDaily();document.getElementById('dailyTitle').textContent=t.title;document.getElementById('dailyText').textContent=t.why}
-function closeModal(){modal.classList.remove('show');currentId=null}
-function goTips(){document.getElementById('tipsAnchor').scrollIntoView({behavior:'smooth'})}
-search.addEventListener('input',render);
-document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');category=b.dataset.cat;render()}));
-document.getElementById('favBtn').addEventListener('click',()=>{const fav=tips.filter(t=>favorites.includes(t.id));grid.innerHTML=fav.length?fav.map(t=>`<article class="card" onclick="openTip(${t.id})"><div class="top"><div class="badgeNum">${t.id}</div><button class="heart active" onclick="event.stopPropagation();toggleFav(${t.id})">❤️</button></div><h3>${t.title}</h3><p class="why">${t.why}</p><div class="howPreview"><b>🎯 التطبيق:</b> ${t.how[0]}</div><span class="tag">${t.category}</span></article>`).join(''):'<div class="empty"><div class="emptyIcon">❤️</div><h3>لا توجد نصائح محفوظة</h3><p>اضغط على ❤️ في أي نصيحة لإضافتها.</p></div>';count.textContent=`عرض ${fav.length} نصيحة محفوظة`;document.getElementById('tipsAnchor').scrollIntoView({behavior:'smooth'})});
-document.getElementById('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('dark');localStorage.setItem('studentTheme',document.body.classList.contains('dark')?'dark':'light')});
-if(localStorage.getItem('studentTheme')==='dark')document.body.classList.add('dark');
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-renderMethods();renderDaily();render();updateStats();
+/* =========================
+   المنهج العراقي: هيكل قابل للتحديث
+========================= */
+const curriculum={
+primary:{
+'الأول الابتدائي':['التربية الإسلامية','القراءة','اللغة الإنجليزية','الرياضيات','العلوم','التربية الأخلاقية'],
+'الثاني الابتدائي':['التربية الإسلامية','القراءة','اللغة الإنجليزية','الرياضيات','العلوم','التربية الأخلاقية'],
+'الثالث الابتدائي':['التربية الإسلامية','القراءة','اللغة الإنجليزية','الرياضيات','العلوم'],
+'الرابع الابتدائي':['التربية الإسلامية','القراءة','القواعد','اللغة الإنجليزية','الرياضيات','العلوم','الاجتماعيات'],
+'الخامس الابتدائي':['التربية الإسلامية','القراءة','القواعد','اللغة الإنجليزية','الرياضيات','العلوم','الاجتماعيات'],
+'السادس الابتدائي':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','العلوم','الاجتماعيات']},
+middle:{
+'الأول المتوسط':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','الاجتماعيات','الأحياء','الكيمياء','الفيزياء','الحاسوب','اللغة الفرنسية'],
+'الثاني المتوسط':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','الاجتماعيات','الأحياء','الكيمياء','الفيزياء','الحاسوب','اللغة الفرنسية'],
+'الثالث المتوسط':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','الاجتماعيات','الأحياء','الكيمياء','الفيزياء','اللغة الفرنسية']},
+prep:{
+'الرابع العلمي':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','الأحياء','الكيمياء','الفيزياء','الحاسوب','اللغة الفرنسية','الكردية'],
+'الرابع الأدبي':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','التاريخ','الجغرافية','علم الاجتماع','الحاسوب','اللغة الفرنسية','الكردية'],
+'الخامس العلمي':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','الأحياء','الكيمياء','الفيزياء','الحاسوب','الكردية','اللغة الفرنسية'],
+'الخامس الأدبي':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','التاريخ','الجغرافية','الاقتصاد','الفلسفة','الحاسوب'],
+'السادس العلمي':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','الأحياء','الكيمياء','الفيزياء','اللغة الفرنسية'],
+'السادس الأدبي':['التربية الإسلامية','اللغة العربية','اللغة الإنجليزية','الرياضيات','التاريخ','الجغرافية','الاقتصاد','النقد والأدب']}
+};
+const bookHubs={
+'الثالث المتوسط':'https://iraqedu.net/الثالث-المتوسط/كتب-الثالث-المتوسط/',
+'الرابع العلمي':'https://iraqedu.net/الرابع-العلمي/كتب-الرابع-العلمي/',
+'الرابع الأدبي':'https://iraqedu.net/الرابع-الادبي/كتب-الرابع-الادبي/',
+'الرابع الاعدادي':'https://iraqedu.net/كتب-الرابع-الاعدادي/',
+'السادس العلمي':'https://iraqedu.net/السادس-العلمي/كتب-السادس-العلمي/',
+'السادس الأدبي':'https://iraqedu.net/السادس-الادبي/كتب-السادس-الادبي/'
+};
+
+/* =========================
+   بنك أسئلة
+========================= */
+const quizBank=[
+['ما الخطوة المناسبة بعد قراءة درس جديد؟',['إعادة القراءة فقط','اختبار النفس من الذاكرة','ترك الدرس دون مراجعة','حفظ كل كلمة'],1,'الاستدعاء النشط يجعل الطالب يستخرج المعلومة بدل التعرف عليها فقط.'],
+['في بومودورو الشائع، ما مدة جلسة التركيز؟',['10 دقائق','25 دقيقة','90 دقيقة','5 دقائق'],1,'من أشهر إعدادات بومودورو 25 دقيقة تركيز ثم 5 دقائق راحة.'],
+['ما فائدة دفتر الأخطاء؟',['زيادة عدد الصفحات','تكرار الأخطاء نفسها','تحديد أسباب الأخطاء ومراجعتها','إلغاء الاختبارات'],2,'تسجيل سبب الخطأ يساعدك على معالجة نقطة الضعف.'],
+['أي طريقة تعتمد على شرح الفكرة بلغة بسيطة؟',['كورنيل','فاينمان','ليتنر','SQ3R'],1,'فاينمان تعتمد على الشرح البسيط واكتشاف فجوات الفهم.'],
+['ما الهدف من التكرار المتباعد؟',['مراجعة كل شيء في يوم واحد','توزيع المراجعة على فترات','إلغاء المراجعة','زيادة صعوبة الامتحان'],1,'المراجعة المتباعدة توزع العودة للمعلومات على فترات.'],
+['ما الأفضل عند مواجهة سؤال صعب في اختبار؟',['البقاء عليه طوال الوقت','ترك الاختبار','وضع علامة والعودة إليه لاحقًا','تخمين كل الإجابات'],2,'إدارة الوقت تتطلب عدم استنزاف زمن الاختبار في سؤال واحد.'],
+['ماذا تفعل قبل جلسة دراسة جيدة؟',['تفتح كل التطبيقات','تحدد هدفًا','تزيد المشتتات','تحذف الخطة'],1,'الهدف الواضح يجعل الجلسة قابلة للقياس.'],
+['ما الذي يساعد على تقليل تشتت الهاتف؟',['زيادة الإشعارات','وضع الهاتف بعيدًا','فتح مواقع أكثر','ترك الهاتف بجانب الكتاب'],1,'إبعاد الهاتف وإغلاق الإشعارات يقللان المقاطعات.'],
+['طريقة كورنيل تحتوي على ماذا؟',['ملاحظات وأسئلة وملخص','مؤقت فقط','اختبار فقط','بطاقات فقط'],0,'تقسم الصفحة إلى ملاحظات وأسئلة وملخص.'],
+['ما المقصود بالاستدعاء النشط؟',['النظر للنص طوال الوقت','استرجاع المعلومة من الذاكرة','نسخ الكتاب','تلوين كل شيء'],1,'الاستدعاء النشط يختبر قدرة استرجاع المعلومة.'],
+['ما أفضل استخدام للبطاقات التعليمية؟',['المصطلحات والتعريفات','تنظيم الحقيبة','التنظيف','النوم'],0,'البطاقات مناسبة للمعلومات القصيرة مثل المصطلحات.'],
+['ما الذي يقلل تراكم المادة؟',['المراجعة اليومية','التأجيل','السهر فقط','إهمال الدروس'],0,'المراجعة اليومية تقلل كمية المادة المتراكمة.'],
+['ما فائدة تقسيم مشروع كبير؟',['يزيد الفوضى','يجعله مراحل قابلة للإنجاز','يلغي المواعيد','يمنع المراجعة'],1,'تقسيم المشروع إلى مراحل يساعد على إدارته.'],
+['أي شيء يندرج تحت الصحة الدراسية؟',['النوم والراحة','الإشعارات','فتح التبويبات','تأجيل الواجب'],0,'النوم والراحة جزء من روتين الطالب المتوازن.'],
+['ما المقصود بالمزج بين المسائل؟',['حل نوع واحد فقط','التنقل بين أنواع مختلفة من الأسئلة','ترك الحل','حفظ الإجابات'],1,'المزج يدربك على التمييز بين طرق الحل المختلفة.'],
+['ما الذي ينبغي مراجعته قبل التسليم؟',['التعليمات والمحتوى','لون الحائط','التطبيقات','الرسائل'],0,'المراجعة النهائية تشمل المحتوى والتعليمات والأخطاء.'],
+['ما وظيفة المؤقت في الدراسة؟',['تشتيت الانتباه','تحديد بداية ونهاية الجلسة','حذف الواجبات','إلغاء الراحة'],1,'المؤقت يجعل الجلسة واضحة المدة.'],
+['ماذا تفعل عندما لا تفهم نقطة؟',['تخفيها','تسأل وتحدد النقطة','تترك المادة كلها','تحذف الملاحظات'],1,'تحديد السؤال وطلب المساعدة مبكرًا يمنع تراكم فجوات الفهم.'],
+['ما فائدة الخرائط الذهنية؟',['ربط الأفكار','إلغاء المراجعة','إدارة الهاتف','تنظيف المكتب'],0,'الخريطة الذهنية تنظم الروابط بين الأفكار.'],
+['ما الأفضل للمشروع الطويل؟',['البدء ليلة التسليم','البدء مبكرًا','عدم كتابة خطة','نسخ ملف قديم'],1,'المشاريع تحتاج وقتًا للبحث والكتابة والمراجعة.'],
+['ما فائدة وضع هدف لكل جلسة؟',['زيادة الغموض','قياس ما تريد إنجازه','زيادة المشتتات','تقليل التركيز'],1,'الهدف يحدد نتيجة واضحة للجلسة.'],
+['في ليتنر، ماذا يحدث للبطاقة الصعبة؟',['تظهر أقل','تعود لصندوق مبكر','تُحذف دائمًا','تتحول لملف'],1,'البطاقة الخاطئة تعود لمراجعة أكثر تكرارًا.'],
+['ما التسلسل الصحيح لـSQ3R؟',['تصفح، اسأل، اقرأ، استرجع، راجع','راجع، اقرأ، اسأل، نام، ارسم','اقرأ، نام، اسأل، احذف، راجع','لا يوجد تسلسل'],0,'SQ3R هي Survey, Question, Read, Recite, Review.'],
+['ما فائدة المراجعة الأسبوعية؟',['تعديل الخطة','إلغاء الدروس','زيادة المشتتات','تأخير الاختبارات'],0,'المراجعة الأسبوعية تساعد على معرفة ما تم وما تأخر.'],
+['ما السلوك الأفضل قبل الاختبار؟',['السهر الشديد دائمًا','التخطيط والمراجعة والنوم','ترك كل شيء لآخر لحظة','إهمال الأخطاء'],1,'التخطيط المبكر والمراجعة المنظمة أفضل من التراكم.']
+];
+
+/* =========================
+   الحالة المحلية
+========================= */
+const KEY='studentPlatformV3';
+let state=JSON.parse(localStorage.getItem(KEY)||'null')||{
+favorites:[],done:[],sessions:[],plans:[],tasks:[],notes:[],flashcards:[],quiz:{score:0,total:0,history:[]},font:16,theme:'light'
+};
+function save(){localStorage.setItem(KEY,JSON.stringify(state));updateStats();renderAll();}
+const $=id=>document.getElementById(id);
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(window._toast);window._toast=setTimeout(()=>$('toast').classList.remove('show'),2200)}
+function scrollToId(id){$(id)?.scrollIntoView({behavior:'smooth'})}
+
+/* =========================
+   النصائح
+========================= */
+let tipCategory='الكل';
+function renderCategories(){
+const cats=['الكل','الدراسة','إدارة الوقت','التركيز','الصحة','النجاح'];
+$('tipCats').innerHTML=cats.map(c=>`<button class="chip ${c===tipCategory?'active':''}" onclick="setTipCategory('${c}')">${c}</button>`).join('');
+}
+function setTipCategory(c){tipCategory=c;renderTips()}
+function renderTips(){
+renderCategories();
+const q=$('tipSearch').value.trim().toLowerCase();
+const list=tipsData.filter(t=>(tipCategory==='الكل'||t.category===tipCategory)&&(`${t.title} ${t.why} ${t.how.join(' ')} ${t.example}`.toLowerCase().includes(q)));
+$('tipCount').textContent=`عرض ${list.length} من أصل ${tipsData.length} نصيحة`;
+$('tipsGrid').innerHTML=list.length?list.map(t=>{
+const fav=state.favorites.includes(t.id);const done=state.done.includes(t.id);return `<article class="tip" onclick="openTip(${t.id})"><div class="tip-top"><div class="num">${t.id}</div><button class="heart ${fav?'active':''}" onclick="event.stopPropagation();toggleFavorite(${t.id})">${fav?'❤️':'🤍'}</button></div><h3>${t.title}</h3><p>${t.why}</p><div class="mini-how"><b style="color:var(--primary)">🎯 التطبيق:</b> ${t.how[0]}</div><span class="tag">${t.category}${done?' • ✅ مطبقة':''}</span></article>`}).join(''):`<div class="empty" style="grid-column:1/-1">🔍<h3>لا توجد نتائج</h3><p class="muted">جرّب كلمة بحث أخرى.</p></div>`;
+}
+$('tipSearch').addEventListener('input',renderTips);
+function openTip(id){const t=tipsData[id-1];if(!t)return;currentModalTip=id;$('modalLabel').textContent=`النصيحة رقم ${id} • ${t.category}`;$('modalTitle').textContent=t.title;$('modalWhy').textContent=t.why;$('modalHow').innerHTML=t.how.map((x,i)=>`<div class="step"><b>الخطوة ${i+1}:</b> ${x}</div>`).join('');$('modalExample').textContent=t.example;$('modalFav').style.display='inline-block';$('modalDone').style.display='inline-block';updateModalButtons();$('modal').classList.add('show')}
+let currentModalTip=null;
+function updateModalButtons(){if(!currentModalTip)return;const f=state.favorites.includes(currentModalTip);const d=state.done.includes(currentModalTip);$('modalFav').textContent=f?'❤️ إزالة من المفضلة':'🤍 إضافة للمفضلة';$('modalDone').textContent=d?'✅ تم تطبيقها':'☐ لم أطبقها';$('modalDone').classList.toggle('done',d)}
+function toggleFavorite(id){state.favorites=state.favorites.includes(id)?state.favorites.filter(x=>x!==id):[...state.favorites,id];save();toast(state.favorites.includes(id)?'تمت إضافة النصيحة للمفضلة ❤️':'تمت إزالة النصيحة');if(currentModalTip===id)updateModalButtons()}
+function toggleCurrentFav(){if(currentModalTip)toggleFavorite(currentModalTip)}
+function toggleDone(id){state.done=state.done.includes(id)?state.done.filter(x=>x!==id):[...state.done,id];save();toast(state.done.includes(id)?'تم تسجيل النصيحة كمطبقة ✅':'تم إلغاء التطبيق');if(currentModalTip===id)updateModalButtons()}
+function toggleCurrentDone(){if(currentModalTip)toggleDone(currentModalTip)}
+function closeModal(){$('modal').classList.remove('show');currentModalTip=null}
+function randomTip(){openTip(Math.floor(Math.random()*tipsData.length)+1)}
+function getDaily(){return tipsData[(new Date().getDate()-1)%tipsData.length]}
+function showDaily(){const t=getDaily();$('dailyTitle').textContent=t.title;$('dailyText').textContent=t.why}
+function showFavorites(){const list=tipsData.filter(t=>state.favorites.includes(t.id));$('tipSearch').value='';tipCategory='الكل';renderCategories();$('tipCount').textContent=`عرض ${list.length} نصيحة محفوظة`;$('tipsGrid').innerHTML=list.length?list.map(t=>`<article class="tip" onclick="openTip(${t.id})"><div class="tip-top"><div class="num">${t.id}</div><button class="heart active" onclick="event.stopPropagation();toggleFavorite(${t.id})">❤️</button></div><h3>${t.title}</h3><p>${t.why}</p><div class="mini-how"><b style="color:var(--primary)">🎯 التطبيق:</b> ${t.how[0]}</div><span class="tag">${t.category}</span></article>`).join(''):`<div class="panel" style="grid-column:1/-1;text-align:center">❤️ لا توجد نصائح محفوظة بعد.</div>`;scrollToId('tips')}
+
+/* =========================
+   طرق الدراسة
+========================= */
+function renderMethods(){$('methodsGrid').innerHTML=methods.map((m,i)=>`<article class="method-card" onclick="openMethod(${i})"><div class="mi">${m.icon}</div><h3>${m.title}</h3><p>${m.desc}</p></article>`).join('')}
+function openMethod(i){const m=methods[i];$('modalLabel').textContent='طريقة دراسة';$('modalTitle').textContent=`${m.icon} ${m.title}`;$('modalWhy').textContent=m.desc;$('modalHow').innerHTML=`<div class="step"><b>كيف تطبقها:</b> ${m.how}</div><div class="step"><b>مناسبة لـ:</b> ${m.best}</div>`;$('modalExample').textContent=`ابدأ بجلسة واحدة قصيرة، ثم راقب نتيجتها وعدّل المدة أو الأسلوب بما يناسبك.`;$('modalFav').style.display='none';$('modalDone').style.display='none';$('modal').classList.add('show')}
+
+/* =========================
+   المؤقت
+========================= */
+let timerSeconds=25*60,timerRunning=false,timerMode='تركيز',timerInterval=null,timerFocusMinutes=25;
+function updateTimer(){const m=String(Math.floor(timerSeconds/60)).padStart(2,'0'),s=String(timerSeconds%60).padStart(2,'0');$('timerTime').textContent=`${m}:${s}`;$('timerState').textContent=timerRunning?`${timerMode} الآن`:'جاهز للدراسة'}
+function setTimer(min,mode='تركيز'){pauseTimer();timerSeconds=min*60;timerMode=mode;if(mode==='تركيز')timerFocusMinutes=min;updateTimer()}
+function startTimer(){if(timerRunning)return;timerRunning=true;updateTimer();timerInterval=setInterval(()=>{timerSeconds--;updateTimer();if(timerSeconds<=0){pauseTimer();if(timerMode==='تركيز')completeSession();if('Notification' in window&&Notification.permission==='granted')new Notification('انتهت الجلسة',{body:'حان وقت التغيير أو الراحة.'});alert(`انتهت جلسة ${timerMode}!`)}},1000)}
+function pauseTimer(){timerRunning=false;clearInterval(timerInterval);timerInterval=null;updateTimer()}
+function resetTimer(){pauseTimer();timerSeconds=timerMode==='راحة'?5*60:25*60;updateTimer()}
+function completeSession(){const minutes=timerMode==='تركيز'?timerFocusMinutes:0;const subject=$('sessionSubject').value.trim()||'دراسة عامة';state.sessions.unshift({date:new Date().toISOString(),minutes:Math.max(1,Math.round((minutes||25))),subject,goal:$('sessionGoal').value.trim()||'جلسة تركيز'});if(state.sessions.length>50)state.sessions.length=50;save();toast('تم تسجيل جلسة دراسة ✅')}
+function renderSessions(){$('sessionList').innerHTML=state.sessions.slice(0,7).map(s=>`<div class="list-item"><span><b>${s.subject}</b><br><small class="muted">${s.goal}</small></span><span>${s.minutes} د</span></div>`).join('')||'<div class="muted">لا توجد جلسات مكتملة بعد.</div>'}
+
+/* =========================
+   خطة الدراسة
+========================= */
+function addPlan(){const subject=$('planSubject').value.trim();const date=$('planDate').value;const time=$('planTime').value;const minutes=Number($('planMinutes').value)||25;const goal=$('planGoal').value.trim();if(!subject||!date){return toast('اكتب المادة والتاريخ أولًا.')};state.plans.push({id:Date.now(),subject,date,time,minutes,goal,done:false});save();['planSubject','planDate','planTime','planGoal'].forEach(id=>$(id).value='');toast('أضيفت الجلسة للخطة 📅')}
+function togglePlan(id){const x=state.plans.find(p=>p.id===id);if(x)x.done=!x.done;save()}
+function deletePlan(id){state.plans=state.plans.filter(p=>p.id!==id);save()}
+function renderPlans(){const list=[...state.plans].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));$('planList').innerHTML=list.map(p=>`<div class="list-item"><span><b>${p.subject}</b> • ${p.date}${p.time?' '+p.time:''}<br><small class="muted">${p.goal||'بدون هدف'} • ${p.minutes} دقيقة</small></span><span><button class="btn" onclick="togglePlan(${p.id})">${p.done?'✅':'☐'}</button><button class="btn danger" onclick="deletePlan(${p.id})">حذف</button></span></div>`).join('')||'<div class="muted">خطتك فارغة. أضف أول جلسة.</div>'}
+function makeTodaySuggestion(){const candidates=state.plans.filter(p=>p.date===new Date().toISOString().slice(0,10)&&!p.done);if(candidates[0]){toast(`مهمتك اليوم: ${candidates[0].subject} — ${candidates[0].goal||'جلسة دراسة'}`);scrollToId('timer')}else toast('لا توجد جلسة مخططة لليوم. أضف جلسة جديدة.')}
+
+/* =========================
+   المهام
+========================= */
+function addTask(){const title=$('taskTitle').value.trim();if(!title)return toast('اكتب اسم المهمة.');state.tasks.push({id:Date.now(),title,subject:$('taskSubject').value.trim(),due:$('taskDue').value,priority:$('taskPriority').value,done:false});save();['taskTitle','taskSubject','taskDue'].forEach(id=>$(id).value='');toast('أضيفت المهمة ✅')}
+function toggleTask(id){const t=state.tasks.find(x=>x.id===id);if(t)t.done=!t.done;save()}
+function deleteTask(id){state.tasks=state.tasks.filter(x=>x.id!==id);save()}
+function renderTasks(){const p={عالية:'priority-high',متوسطة:'priority-mid',منخفضة:'priority-low'};$('taskList').innerHTML=state.tasks.slice().sort((a,b)=>Number(a.done)-Number(b.done)||(a.due||'9999').localeCompare(b.due||'9999')).map(t=>`<div class="task ${t.done?'done':''}"><button class="btn" onclick="toggleTask(${t.id})">${t.done?'✅':'☐'}</button><div><div class="task-title"><b>${t.title}</b></div><small class="muted">${t.subject||'بدون مادة'} • ${t.due||'بدون موعد'} • <span class="${p[t.priority]}">${t.priority}</span></small></div><button class="btn danger" onclick="deleteTask(${t.id})">حذف</button></div>`).join('')||'<div class="muted">لا توجد مهام.</div>'}
+
+/* =========================
+   الاختبارات
+========================= */
+let quiz={questions:[],index:0,score:0,answered:false};
+function startQuiz(){quiz.questions=[...quizBank].sort(()=>Math.random()-.5).slice(0,10);quiz.index=0;quiz.score=0;quiz.answered=false;renderQuiz()}
+function renderQuiz(){if(!quiz.questions.length){$('quizBox').innerHTML=`<div style="text-align:center"><h3>اختبر نفسك</h3><p class="muted">ابدأ اختبارًا من 10 أسئلة عشوائية.</p><button class="btn primary" onclick="startQuiz()">بدء الاختبار</button><p class="muted" style="margin-top:10px">أفضل نتيجة محفوظة: ${state.quiz.score}/${state.quiz.total}</p></div>`;return}const q=quiz.questions[quiz.index];$('quizBox').innerHTML=`<div class="quiz-top"><span>السؤال ${quiz.index+1} من ${quiz.questions.length}</span><span>النتيجة: ${quiz.score}</span></div><div class="progress"><span style="width:${(quiz.index/quiz.questions.length)*100}%"></span></div><div class="question">${q[0]}</div>${q[1].map((op,i)=>`<button class="option" id="op${i}" onclick="answerQuiz(${i})">${op}</button>`).join('')}<div id="quizExplain" class="info hidden"></div>`}
+function answerQuiz(i){if(quiz.answered)return;quiz.answered=true;const q=quiz.questions[quiz.index];for(let n=0;n<q[1].length;n++){if(n===q[3])$('op'+n).classList.add('correct');else if(n===i)$('op'+n).classList.add('wrong')}if(i===q[3])quiz.score++;$('quizExplain').classList.remove('hidden');$('quizExplain').innerHTML=`<h4>${i===q[3]?'✅ إجابة صحيحة':'❌ إجابة غير صحيحة'}</h4><p class="muted">${q[4]}</p><button class="btn primary" style="margin-top:8px" onclick="nextQuiz()">${quiz.index===quiz.questions.length-1?'عرض النتيجة':'السؤال التالي'}</button>`}
+function nextQuiz(){if(quiz.index===quiz.questions.length-1){state.quiz.total=quiz.questions.length;state.quiz.score=Math.max(state.quiz.score,quiz.score);state.quiz.history.unshift({date:new Date().toISOString(),score:quiz.score,total:quiz.questions.length});save();$('quizBox').innerHTML=`<div style="text-align:center"><h3>🎉 انتهى الاختبار</h3><div class="result">نتيجتك: ${quiz.score} / ${quiz.questions.length}</div><button class="btn primary" style="margin-top:10px" onclick="startQuiz()">اختبار جديد</button></div>`}else{quiz.index++;quiz.answered=false;renderQuiz()}}
+
+/* =========================
+   البطاقات التعليمية
+========================= */
+const defaultFlash=[['ما هو الاستدعاء النشط؟','محاولة استرجاع المعلومة من الذاكرة دون النظر إلى المصدر.'],['ما هي بومودورو؟','تقسيم الدراسة إلى فترات تركيز وفترات راحة.'],['ما فائدة دفتر الأخطاء؟','تحديد أسباب الأخطاء ومراجعتها لمنع تكرارها.'],['ما طريقة فاينمان؟','شرح الفكرة بلغة بسيطة لاكتشاف فجوات الفهم.'],['ما التكرار المتباعد؟','مراجعة المعلومات على فترات زمنية متباعدة.'],['ما طريقة كورنيل؟','طريقة لتنظيم الملاحظات إلى ملاحظات وأسئلة وملخص.'],['ما SQ3R؟','تصفح، اسأل، اقرأ، استرجع، راجع.'],['ما فائدة الخرائط الذهنية؟','ربط الأفكار بصريًا في مخطط واحد.']];
+let flashIndex=0,flashFlipped=false;
+function allFlash(){return [...defaultFlash,...state.flashcards]}
+function startFlashcards(){flashIndex=0;flashFlipped=false;renderFlash()}
+function renderFlash(){const list=allFlash();const x=list[flashIndex%list.length];$('flashState').textContent=flashFlipped?'الإجابة':'السؤال';$('flashText').textContent=flashFlipped?x[1]:x[0];$('flashStats').textContent=`البطاقات المتاحة: ${list.length} • الحالية: ${(flashIndex%list.length)+1}`}
+function flipFlashcard(){if(!allFlash().length)return;flashFlipped=!flashFlipped;renderFlash()}
+function nextFlashcard(){flashIndex=(flashIndex+1)%allFlash().length;flashFlipped=false;renderFlash()}
+function flashKnown(known){toast(known?'أحسنت، استمر ✅':'ضعها ضمن مراجعتك مرة أخرى 🔁');nextFlashcard()}
+function addFlashcard(){const q=$('fcQ').value.trim(),a=$('fcA').value.trim();if(!q||!a)return toast('اكتب السؤال والإجابة.');state.flashcards.push([q,a]);save();$('fcQ').value='';$('fcA').value='';toast('تمت إضافة البطاقة 🗂️')}
+
+/* =========================
+   المنهج والكتب
+========================= */
+function renderCurriculum(){const stage=$('stageSelect').value;const grades=Object.keys(curriculum[stage]);$('gradeSelect').innerHTML=grades.map((g,i)=>`<option ${i===0?'selected':''}>${g}</option>`).join('');renderSubjects()}
+function renderSubjects(){const stage=$('stageSelect').value,grade=$('gradeSelect').value;const subs=curriculum[stage][grade]||[];$('subjectSelect').innerHTML=subs.map(s=>`<option>${s}</option>`).join('');const hub=bookHubs[grade]||'https://iraqedu.net/';$('curriculumInfo').innerHTML=`<h4>📚 ${grade}</h4><p class="muted">المواد المعروضة: ${subs.join(' • ')}</p><p class="muted" style="margin-top:5px">لعام الكتب قد تختلف الطبعات؛ افتح صفحة الكتب للصف لرؤية نسخ PDF المتاحة حاليًا.</p>`;$('booksGrid').innerHTML=subs.map(s=>`<article class="book"><h3>📘 ${s}</h3><p>كتاب ${s} للصف ${grade}. استخدم صفحة الكتب الخارجية للوصول إلى نسخة PDF المتاحة للصف.</p><a href="${hub}" target="_blank" rel="noopener">📥 فتح الكتب PDF</a></article>`).join('')}
+$('stageSelect').addEventListener('change',renderCurriculum);$('gradeSelect').addEventListener('change',renderSubjects);$('subjectSelect').addEventListener('change',renderSubjects);
+
+/* =========================
+   الآلة الحاسبة
+========================= */
+function calcAverage(){const arr=$('gradesInput').value.split(',').map(x=>Number(x.trim())).filter(x=>!Number.isNaN(x));if(!arr.length)return $('avgResult').textContent='أدخل درجات صحيحة.';const avg=arr.reduce((a,b)=>a+b,0)/arr.length;$('avgResult').textContent=`المتوسط = ${avg.toFixed(2)}%`}
+function calcTarget(){const cur=Number($('currentScore').value),w=Number($('currentWeight').value)/100,target=Number($('targetScore').value),rw=Number($('remainingWeight').value)/100;if(!w||!rw)return $('targetResult').textContent='أدخل الأوزان بشكل صحيح.';const needed=(target-cur*w)/rw;$('targetResult').textContent=`تحتاج تقريبًا إلى ${needed.toFixed(2)}% في الجزء المتبقي للوصول إلى الهدف.`}
+
+/* =========================
+   الملاحظات
+========================= */
+function addNote(){const title=$('noteTitle').value.trim(),text=$('noteText').value.trim();if(!title||!text)return toast('اكتب عنوان الملاحظة ومحتواها.');state.notes.unshift({id:Date.now(),title,text,date:new Date().toLocaleDateString('ar-IQ')});save();$('noteTitle').value='';$('noteText').value='';toast('تم حفظ الملاحظة 📝')}
+function deleteNote(id){state.notes=state.notes.filter(n=>n.id!==id);save()}
+function renderNotes(){$('notesGrid').innerHTML=state.notes.map(n=>`<article class="note"><div style="display:flex;justify-content:space-between;gap:8px"><h3>${n.title}</h3><button class="btn danger" onclick="deleteNote(${n.id})">×</button></div><small class="muted">${n.date}</small><p>${n.text}</p></article>`).join('')||'<div class="panel" style="grid-column:1/-1;text-align:center"><span class="muted">لا توجد ملاحظات.</span></div>'}
+
+/* =========================
+   التقدم والإنجازات
+========================= */
+function updateStats(){const mins=state.sessions.reduce((a,s)=>a+s.minutes,0);$('sFav').textContent=state.favorites.length;$('sDone').textContent=state.done.length;$('sMinutes').textContent=mins}
+function renderProgress(){const base=state.done.length+state.sessions.length+state.quiz.history.length;const target=30;const pct=Math.min(100,Math.round(base/target*100));$('progressText').textContent=`تقدمك الحالي: ${pct}%`;$('progressBar').style.width=pct+'%';const days=[...new Set(state.sessions.map(s=>s.date.slice(0,10)))].sort().reverse();let streak=0;let cursor=new Date();for(let i=0;i<days.length;i++){const d=new Date(cursor);d.setDate(cursor.getDate()-i);if(days.includes(d.toISOString().slice(0,10)))streak++;else break}$('streakText').textContent=`🔥 ${streak} يوم${streak===1?'':'ًا'} متتاليًا`}
+const achievements=[
+['🌱','أول نصيحة','أضف نصيحة للمفضلة',()=>state.favorites.length>=1],
+['📚','10 نصائح','طبّق 10 نصائح',()=>state.done.length>=10],
+['💯','100 نصيحة','طبّق 100 نصيحة',()=>state.done.length>=100],
+['🍅','أول جلسة','أكمل أول جلسة دراسة',()=>state.sessions.length>=1],
+['⏱️','10 جلسات','أكمل 10 جلسات دراسة',()=>state.sessions.length>=10],
+['📝','أول اختبار','أكمل أول اختبار',()=>state.quiz.history.length>=1],
+['🏆','نتيجة كاملة','احصل على 10/10 في اختبار',()=>state.quiz.history.some(x=>x.score===x.total)],
+['🗂️','10 بطاقات','أنشئ 10 بطاقات',()=>state.flashcards.length>=10],
+['✅','10 مهام','أنجز 10 مهام',()=>state.tasks.filter(t=>t.done).length>=10],
+['🔥','7 أيام','ادرس 7 أيام متتالية',()=>getStreak()>=7],
+['📅','خطة كاملة','أنجز 10 جلسات مخططة',()=>state.plans.filter(p=>p.done).length>=10],
+['🧠','طرق الدراسة','استخدم قسم طرق الدراسة',()=>true]
+];
+function getStreak(){const days=[...new Set(state.sessions.map(s=>s.date.slice(0,10)))].sort().reverse();let streak=0;const now=new Date();for(let i=0;i<days.length;i++){const d=new Date(now);d.setDate(now.getDate()-i);if(days.includes(d.toISOString().slice(0,10)))streak++;else break}return streak}
+function renderAchievements(){$('achievements').innerHTML=achievements.map(a=>`<div class="achievement ${a[3]()?'':'locked'}"><div class="ai">${a[0]}</div><h3>${a[1]}</h3><p>${a[2]}</p></div>`).join('')}
+
+/* =========================
+   الوضع والإعدادات
+========================= */
+function applySettings(){if(state.theme==='dark')document.body.classList.add('dark');else document.body.classList.remove('dark');document.documentElement.style.fontSize=state.font+'px';$('fontRange').value=state.font;$('fontValue').textContent=state.font}
+function toggleTheme(){state.theme=document.body.classList.contains('dark')?'light':'dark';save();applySettings()}
+$('darkBtn').addEventListener('click',toggleTheme)
+function setFont(v){state.font=Number(v);document.documentElement.style.fontSize=v+'px';$('fontValue').textContent=v;localStorage.setItem(KEY,JSON.stringify(state))}
+function requestNotification(){if(!('Notification' in window))return toast('المتصفح لا يدعم الإشعارات.');Notification.requestPermission().then(p=>toast(p==='granted'?'تم تفعيل الإشعارات ✅':'لم يتم تفعيل الإشعارات.'))}
+function exportData(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='بيانات-الطالب.json';a.click();URL.revokeObjectURL(url)}
+function importData(event){const file=event.target.files[0];if(!file)return;const r=new FileReader();r.onload=()=>{try{const data=JSON.parse(r.result);state={...state,...data};save();toast('تم استيراد البيانات ✅')}catch{toast('الملف غير صالح.')}};r.readAsText(file)}
+function resetAll(){if(!confirm('هل أنت متأكد من حذف جميع بياناتك المحلية؟'))return;localStorage.removeItem(KEY);location.reload()}
+
+/* =========================
+   اقتراحات وتشغيل
+========================= */
+function advise(){
+const q=$('advisorInput').value.trim().toLowerCase();
+if(!q)return $('advisorResult').textContent='اكتب مشكلتك أولًا.';
+let title='🎯 اقتراحك: جلسة دراسة منظمة';
+let body='ابدأ بهدف واحد لمدة 25 دقيقة، ثم اختبر نفسك في النهاية.';
+if(/حفظ|أنسى|نسي|معلومات|مصطلحات|كلمات/.test(q)){title='🧠 جرّب الاستدعاء النشط + التكرار المتباعد';body='أغلق الكتاب واسترجع المعلومات من الذاكرة، ثم راجع النقاط المنسية وكررها اليوم وبعد عدة أيام.'}
+else if(/تشتت|هاتف|موبايل|تركيز|انتباه/.test(q)){title='🍅 جرّب بومودورو مع إبعاد الهاتف';body='اضبط 25 دقيقة، أغلق الإشعارات وأبعد الهاتف، ثم خذ 5 دقائق راحة.'}
+else if(/وقت|مماطل|تأجيل|جدول|مشغول/.test(q)){title='📅 استخدم خطة اليوم + قائمة 3 مهام';body='حدد ثلاث مهام أساسية فقط، ورتبها حسب الأولوية، ثم نفذ الأولى في جلسة مؤقتة.'}
+else if(/رياضيات|فيزياء|كيمياء|مسائل|حل/.test(q)){title='🔀 حل أسئلة متنوعة + دفتر أخطاء';body='حل مسائل من أنواع مختلفة، وسجل سبب كل خطأ ثم أعد السؤال بعد فترة.'}
+else if(/اختبار|امتحان|وزاري|نهائي/.test(q)){title='📝 حاكِ الاختبار الحقيقي';body='حدد زمنًا قريبًا من الامتحان، حل نموذجًا دون كتاب، ثم راجع الأخطاء وحدد ما ستراجعه لاحقًا.'}
+else if(/شرح|فهم|صعب|مفهوم/.test(q)){title='👨‍🏫 استخدم طريقة فاينمان';body='اشرح الفكرة بكلمات بسيطة، وحدد الجزء الذي لا تستطيع شرحه، ثم ارجع للمصدر وأعد الشرح.'}
+$('advisorResult').innerHTML='<b>'+title+'</b><br><span class="muted">'+body+'</span>'
+}
+
+function renderAll(){renderSessions();renderPlans();renderTasks();renderNotes();renderProgress();renderAchievements();renderFlash();updateStats()}
+$('favBtn').addEventListener('click',showFavorites)
+$('modal').addEventListener('click',e=>{if(e.target===$('modal'))closeModal()})
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()})
+renderMethods();showDaily();renderCategories();renderTips();startFlashcards();startQuiz();renderCurriculum();applySettings();renderAll();updateTimer();
 </script>
 </body>
 </html>
