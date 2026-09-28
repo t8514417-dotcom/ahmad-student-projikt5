@@ -1,1315 +1,184 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>100 نصيحة للطالب</title>
-
-    <style>
-        :root {
-            --primary: #5b5cf0;
-            --primary-dark: #4142c7;
-            --secondary: #7c3aed;
-            --bg: #f5f7ff;
-            --card: #ffffff;
-            --text: #1f2937;
-            --muted: #6b7280;
-            --border: #e5e7eb;
-            --header-text: #ffffff;
-            --shadow: 0 15px 35px rgba(52, 55, 120, 0.10);
-        }
-
-        body.dark {
-            --bg: #0f172a;
-            --card: #111827;
-            --text: #f9fafb;
-            --muted: #cbd5e1;
-            --border: #243044;
-            --shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            transition: 0.3s ease;
-        }
-
-        button,
-        input {
-            font-family: inherit;
-        }
-
-        /* الشريط العلوي */
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.88);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid #e8eaf3;
-        }
-
-        body.dark nav {
-            background: rgba(15, 23, 42, 0.88);
-            border-bottom-color: var(--border);
-        }
-
-        .nav-container {
-            width: 92%;
-            max-width: 1200px;
-            margin: auto;
-            height: 72px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-        }
-
-        .logo {
-            font-size: 21px;
-            font-weight: bold;
-            color: var(--primary);
-            text-decoration: none;
-        }
-
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .icon-btn {
-            width: 42px;
-            height: 42px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 18px;
-            transition: 0.25s;
-        }
-
-        .icon-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* البطل */
-        .hero {
-            position: relative;
-            overflow: hidden;
-            background:
-                radial-gradient(circle at top right, rgba(255,255,255,0.20), transparent 30%),
-                radial-gradient(circle at bottom left, rgba(255,255,255,0.14), transparent 30%),
-                linear-gradient(135deg, var(--primary), var(--secondary));
-            color: var(--header-text);
-            padding: 90px 20px 105px;
-        }
-
-        .hero-container {
-            width: 92%;
-            max-width: 1200px;
-            margin: auto;
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            padding: 8px 16px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.15);
-            border: 1px solid rgba(255,255,255,0.25);
-            margin-bottom: 20px;
-            font-size: 14px;
-        }
-
-        .hero h1 {
-            font-size: clamp(34px, 6vw, 64px);
-            margin-bottom: 18px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            max-width: 760px;
-            margin: auto;
-            font-size: 19px;
-            line-height: 2;
-            opacity: 0.96;
-        }
-
-        .hero-buttons {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .hero-btn {
-            border: none;
-            padding: 14px 22px;
-            border-radius: 14px;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: bold;
-            transition: 0.25s;
-        }
-
-        .hero-btn.primary {
-            background: #ffffff;
-            color: var(--primary);
-        }
-
-        .hero-btn.secondary {
-            background: rgba(255,255,255,0.14);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.25);
-        }
-
-        .hero-btn:hover {
-            transform: translateY(-3px);
-        }
-
-        /* الإحصائيات */
-        .stats {
-            width: 92%;
-            max-width: 1000px;
-            margin: -45px auto 35px;
-            position: relative;
-            z-index: 5;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
-
-        .stat-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            border-radius: 20px;
-            padding: 24px;
-            text-align: center;
-        }
-
-        .stat-icon {
-            font-size: 28px;
-            margin-bottom: 10px;
-        }
-
-        .stat-number {
-            font-size: 30px;
-            font-weight: bold;
-            color: var(--primary);
-        }
-
-        .stat-text {
-            margin-top: 5px;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        /* الصفحة */
-        .container {
-            width: 92%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* نصيحة اليوم */
-        .daily-tip {
-            background: var(--card);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            border-radius: 24px;
-            padding: 28px;
-            margin-bottom: 30px;
-            display: grid;
-            grid-template-columns: auto 1fr auto;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .daily-icon {
-            width: 62px;
-            height: 62px;
-            border-radius: 18px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            font-size: 28px;
-        }
-
-        .daily-content small {
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        .daily-content h2 {
-            margin: 5px 0 7px;
-            font-size: 22px;
-        }
-
-        .daily-content p {
-            color: var(--muted);
-            line-height: 1.9;
-        }
-
-        .daily-action {
-            border: none;
-            background: #eef2ff;
-            color: var(--primary);
-            padding: 11px 15px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        body.dark .daily-action {
-            background: #1e2548;
-        }
-
-        /* صندوق التحكم */
-        .controls {
-            background: var(--card);
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow);
-            border-radius: 22px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .search-box {
-            position: relative;
-        }
-
-        .search-box input {
-            width: 100%;
-            border: 2px solid var(--border);
-            background: var(--bg);
-            color: var(--text);
-            border-radius: 15px;
-            padding: 16px 52px 16px 18px;
-            outline: none;
-            font-size: 16px;
-            transition: 0.25s;
-        }
-
-        .search-box input:focus {
-            border-color: var(--primary);
-        }
-
-        .search-icon {
-            position: absolute;
-            right: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 19px;
-        }
-
-        .categories {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin-top: 18px;
-        }
-
-        .category-btn {
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            padding: 10px 15px;
-            border-radius: 11px;
-            cursor: pointer;
-            transition: 0.25s;
-        }
-
-        .category-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        .category-btn.active {
-            background: var(--primary);
-            color: white;
-            border-color: var(--primary);
-        }
-
-        .control-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 18px;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .result-count {
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .random-btn {
-            border: none;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 12px 17px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.25s;
-        }
-
-        .random-btn:hover {
-            transform: translateY(-2px);
-        }
-
-        /* البطاقات */
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-        }
-
-        .tip-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 24px;
-            box-shadow: var(--shadow);
-            transition: 0.25s;
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tip-card::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-        }
-
-        .tip-card:hover {
-            transform: translateY(-6px);
-        }
-
-        .tip-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .number {
-            width: 44px;
-            height: 44px;
-            background: #eef2ff;
-            color: var(--primary);
-            border-radius: 13px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-        }
-
-        body.dark .number {
-            background: #1e2548;
-        }
-
-        .favorite-btn {
-            width: 38px;
-            height: 38px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 17px;
-        }
-
-        .favorite-btn.active {
-            color: #ef4444;
-        }
-
-        .tip-card h3 {
-            margin: 18px 0 9px;
-            font-size: 19px;
-        }
-
-        .tip-card p {
-            color: var(--muted);
-            line-height: 1.95;
-            font-size: 14px;
-        }
-
-        .tag {
-            display: inline-block;
-            margin-top: 18px;
-            background: #f1f5f9;
-            color: #475569;
-            padding: 5px 10px;
-            border-radius: 8px;
-            font-size: 12px;
-        }
-
-        body.dark .tag {
-            background: #1f2937;
-            color: #cbd5e1;
-        }
-
-        /* لا توجد نتائج */
-        .empty {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 60px 20px;
-            background: var(--card);
-            border-radius: 20px;
-            border: 1px solid var(--border);
-        }
-
-        .empty-icon {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
-
-        .empty h3 {
-            margin-bottom: 8px;
-        }
-
-        .empty p {
-            color: var(--muted);
-        }
-
-        /* النافذة */
-        .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(15, 23, 42, 0.72);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            z-index: 1000;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-box {
-            width: 100%;
-            max-width: 600px;
-            background: var(--card);
-            color: var(--text);
-            border-radius: 24px;
-            padding: 35px;
-            position: relative;
-            animation: pop 0.22s ease;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.25);
-        }
-
-        @keyframes pop {
-            from {
-                opacity: 0;
-                transform: scale(0.94);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .close {
-            position: absolute;
-            top: 14px;
-            left: 14px;
-            width: 40px;
-            height: 40px;
-            border: 1px solid var(--border);
-            background: var(--card);
-            color: var(--text);
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 22px;
-        }
-
-        .modal-number {
-            display: inline-block;
-            color: var(--primary);
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
-
-        .modal-box h2 {
-            font-size: 28px;
-            margin-bottom: 14px;
-        }
-
-        .modal-box p {
-            color: var(--muted);
-            line-height: 2;
-            font-size: 17px;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: 25px;
-        }
-
-        .modal-action {
-            border: none;
-            padding: 12px 16px;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .modal-action.primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .modal-action.secondary {
-            background: var(--bg);
-            color: var(--text);
-            border: 1px solid var(--border);
-        }
-
-        /* الفوتر */
-        footer {
-            margin-top: 70px;
-            background: #0b1120;
-            color: white;
-            text-align: center;
-            padding: 32px 20px;
-        }
-
-        footer h3 {
-            margin-bottom: 8px;
-        }
-
-        footer p {
-            color: #cbd5e1;
-            font-size: 14px;
-        }
-
-        /* تجاوب الجوال */
-        @media (max-width: 950px) {
-            .tips-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 700px) {
-            .stats {
-                grid-template-columns: 1fr;
-                margin-top: 20px;
-            }
-
-            .daily-tip {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .daily-icon {
-                margin: auto;
-            }
-
-            .daily-action {
-                width: 100%;
-            }
-
-            .tips-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 65px 15px 70px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .nav-container {
-                height: 64px;
-            }
-
-            .logo {
-                font-size: 17px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>100 نصيحة للطالب | دليل الدراسة الذكية</title>
+<style>
+:root{--primary:#5b5cf0;--primary2:#7c3aed;--bg:#f5f7ff;--card:#fff;--text:#18212f;--muted:#667085;--line:#e6e8f0;--soft:#eef2ff;--ok:#16a34a;--danger:#ef4444;--shadow:0 16px 40px rgba(60,65,130,.10)}
+body.dark{--bg:#0f172a;--card:#111827;--text:#f8fafc;--muted:#cbd5e1;--line:#263449;--soft:#1d2547;--shadow:0 16px 40px rgba(0,0,0,.28)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:Tahoma,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.85;transition:.25s}button,input{font:inherit}button{cursor:pointer}
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}body.dark nav{background:rgba(15,23,42,.9)}.nav{width:92%;max-width:1250px;margin:auto;height:70px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;color:var(--primary);font-size:20px;text-decoration:none}.navBtns{display:flex;gap:8px}.icon{width:42px;height:42px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:12px}
+.hero{background:radial-gradient(circle at 20% 10%,rgba(255,255,255,.18),transparent 28%),linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;text-align:center;padding:78px 20px 105px}.heroBox{width:92%;max-width:900px;margin:auto}.badge{display:inline-block;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);font-size:13px;margin-bottom:18px}.hero h1{font-size:clamp(36px,6vw,62px);line-height:1.2;margin-bottom:14px}.hero p{font-size:18px;max-width:760px;margin:auto}.heroBtns{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:28px}.heroBtn{border:0;border-radius:13px;padding:13px 20px;font-weight:700}.white{background:#fff;color:var(--primary)}.glass{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.24)}
+.stats{width:92%;max-width:1050px;margin:-40px auto 34px;position:relative;z-index:4;display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.stat{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:20px;text-align:center;padding:20px}.stat i{font-style:normal;font-size:27px}.num{color:var(--primary);font-size:29px;font-weight:800}.label{font-size:13px;color:var(--muted)}
+.wrap{width:92%;max-width:1250px;margin:auto}.sectionHead{text-align:center;margin:50px 0 23px}.sectionHead h2{font-size:29px;margin-bottom:5px}.sectionHead p{color:var(--muted)}
+.daily{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:24px;padding:25px;display:grid;grid-template-columns:70px 1fr auto;gap:18px;align-items:center}.dailyIcon{width:70px;height:70px;border-radius:20px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:30px;background:linear-gradient(135deg,var(--primary),var(--primary2))}.daily small{color:var(--primary);font-weight:800}.daily h3{font-size:21px}.daily p{color:var(--muted)}.dailyBtn{border:0;background:var(--soft);color:var(--primary);padding:11px 15px;border-radius:11px;font-weight:700}
+.methods{display:grid;grid-template-columns:repeat(5,1fr);gap:15px}.method{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:20px;transition:.2s;cursor:pointer}.method:hover{transform:translateY(-5px)}.methodIcon{font-size:30px}.method h3{font-size:17px;margin:7px 0}.method p{font-size:13px;color:var(--muted)}
+.controls{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:22px;padding:22px;margin-top:45px}.search{position:relative}.search input{width:100%;padding:15px 48px 15px 16px;border:2px solid var(--line);border-radius:14px;background:var(--bg);color:var(--text);outline:0}.search input:focus{border-color:var(--primary)}.search span{position:absolute;right:17px;top:50%;transform:translateY(-50%)}.filters{display:flex;flex-wrap:wrap;gap:9px;margin-top:16px}.filter{border:1px solid var(--line);background:var(--card);color:var(--text);padding:9px 14px;border-radius:10px}.filter.active{background:var(--primary);border-color:var(--primary);color:#fff}.bottom{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}.count{color:var(--muted);font-size:14px}.random{border:0;background:linear-gradient(135deg,var(--primary),var(--primary2));color:#fff;padding:11px 16px;border-radius:11px;font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:23px}.card{background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:19px;padding:21px;position:relative;cursor:pointer;transition:.2s}.card:hover{transform:translateY(-5px)}.card:before{content:"";position:absolute;top:0;right:0;left:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--primary2));border-radius:19px 19px 0 0}.top{display:flex;align-items:center;justify-content:space-between}.badgeNum{width:42px;height:42px;border-radius:12px;background:var(--soft);color:var(--primary);display:flex;align-items:center;justify-content:center;font-weight:800}.heart{width:37px;height:37px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:10px}.heart.active{color:var(--danger)}.card h3{font-size:18px;margin:16px 0 7px}.why{font-size:14px;color:var(--muted)}.howPreview{background:var(--bg);border-radius:11px;padding:10px 12px;margin-top:13px;font-size:13px}.howPreview b{color:var(--primary)}.tag{display:inline-block;background:var(--soft);color:var(--primary);padding:4px 9px;border-radius:7px;font-size:11px;margin-top:13px}.empty{grid-column:1/-1;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:55px 20px}.emptyIcon{font-size:42px}
+.modal{display:none;position:fixed;inset:0;background:rgba(2,6,23,.72);z-index:1000;align-items:center;justify-content:center;padding:18px}.modal.show{display:flex}.box{width:100%;max-width:720px;max-height:90vh;overflow:auto;background:var(--card);color:var(--text);border-radius:24px;padding:31px;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.25)}.close{position:absolute;left:14px;top:14px;width:39px;height:39px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:10px;font-size:21px}.modalLabel{color:var(--primary);font-weight:800}.box h2{font-size:28px;margin:5px 0 17px}.info{background:var(--bg);border-right:4px solid var(--primary);border-radius:13px;padding:15px;margin-top:14px}.info h4{color:var(--primary);margin-bottom:5px}.step{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 11px;margin-top:8px}.step b{color:var(--primary)}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}.action{border:0;padding:11px 15px;border-radius:11px;font-weight:700}.primary{background:var(--primary);color:#fff}.secondary{background:var(--bg);color:var(--text);border:1px solid var(--line)}.done{background:var(--ok);color:#fff}
+footer{margin-top:70px;background:#0b1120;color:#fff;text-align:center;padding:32px 20px}footer p{color:#cbd5e1;font-size:13px}
+@media(max-width:1050px){.methods{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr);margin-top:20px}.daily{grid-template-columns:1fr;text-align:center}.dailyIcon{margin:auto}.dailyBtn{width:100%}.methods{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.hero{padding:60px 15px 70px}.hero p{font-size:15px}.brand{font-size:17px}}@media(max-width:430px){.stats{grid-template-columns:1fr}.box{padding:25px 19px}}
+</style>
 </head>
-
 <body>
-
-    <!-- الشريط العلوي -->
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">🎓 100 نصيحة للطالب</a>
-
-            <div class="nav-actions">
-                <button class="icon-btn" id="favoritesBtn" title="عرض المفضلة">
-                    ❤️
-                </button>
-
-                <button class="icon-btn" id="themeBtn" title="الوضع الليلي">
-                    🌙
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- الواجهة الرئيسية -->
-    <header class="hero" id="home">
-        <div class="hero-container">
-
-            <span class="hero-badge">📚 دليلك الدراسي الشامل</span>
-
-            <h1>100 نصيحة للطالب</h1>
-
-            <p>
-                مجموعة من النصائح العملية التي تساعدك على تنظيم وقتك،
-                تحسين تركيزك، تطوير عاداتك الدراسية، والوصول إلى أهدافك بثقة.
-            </p>
-
-            <div class="hero-buttons">
-                <button class="hero-btn primary" onclick="scrollToTips()">
-                    ابدأ التعلم الآن
-                </button>
-
-                <button class="hero-btn secondary" onclick="randomTip()">
-                    🎲 نصيحة عشوائية
-                </button>
-            </div>
-
-        </div>
-    </header>
-
-    <!-- الإحصائيات -->
-    <section class="stats">
-
-        <div class="stat-card">
-            <div class="stat-icon">💡</div>
-            <div class="stat-number">100</div>
-            <div class="stat-text">نصيحة مفيدة</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">📂</div>
-            <div class="stat-number">5</div>
-            <div class="stat-text">تصنيفات مختلفة</div>
-        </div>
-
-        <div class="stat-card">
-            <div class="stat-icon">❤️</div>
-            <div class="stat-number" id="favoriteCount">0</div>
-            <div class="stat-text">نصيحة في المفضلة</div>
-        </div>
-
-    </section>
-
-    <main class="container" id="tipsSection">
-
-        <!-- نصيحة اليوم -->
-        <section class="daily-tip">
-
-            <div class="daily-icon">⭐</div>
-
-            <div class="daily-content">
-                <small>نصيحة اليوم</small>
-                <h2 id="dailyTitle">ابدأ بخطوة صغيرة</h2>
-                <p id="dailyText">
-                    النجاح لا يحتاج إلى إنجاز كل شيء دفعة واحدة،
-                    ابدأ بخطوة صغيرة واستمر عليها.
-                </p>
-            </div>
-
-            <button class="daily-action" onclick="openDailyTip()">
-                قراءة النصيحة
-            </button>
-
-        </section>
-
-        <!-- التحكم -->
-        <section class="controls">
-
-            <div class="search-box">
-                <span class="search-icon">🔎</span>
-
-                <input
-                    type="text"
-                    id="searchInput"
-                    placeholder="ابحث عن نصيحة، مثل: الوقت أو الدراسة أو التركيز..."
-                />
-            </div>
-
-            <div class="categories">
-
-                <button class="category-btn active" data-category="الكل">
-                    جميع النصائح
-                </button>
-
-                <button class="category-btn" data-category="الدراسة">
-                    📚 الدراسة
-                </button>
-
-                <button class="category-btn" data-category="إدارة الوقت">
-                    ⏰ إدارة الوقت
-                </button>
-
-                <button class="category-btn" data-category="التركيز">
-                    🧠 التركيز
-                </button>
-
-                <button class="category-btn" data-category="الصحة">
-                    ❤️ الصحة
-                </button>
-
-                <button class="category-btn" data-category="النجاح">
-                    🏆 النجاح
-                </button>
-
-            </div>
-
-            <div class="control-row">
-
-                <div class="result-count" id="resultCount">
-                    يتم عرض 100 نصيحة
-                </div>
-
-                <button class="random-btn" onclick="randomTip()">
-                    🎲 أعطني نصيحة عشوائية
-                </button>
-
-            </div>
-
-        </section>
-
-        <!-- قائمة النصائح -->
-        <section class="tips-grid" id="tipsGrid"></section>
-
-    </main>
-
-    <!-- الفوتر -->
-    <footer>
-        <h3>🎓 100 نصيحة للطالب</h3>
-        <p>طريق النجاح يبدأ بخطوة، اجعل كل يوم فرصة جديدة للتطور.</p>
-    </footer>
-
-    <!-- النافذة المنبثقة -->
-    <div class="modal" id="modal">
-
-        <div class="modal-box">
-
-            <button class="close" onclick="closeModal()">×</button>
-
-            <span class="modal-number" id="modalNumber"></span>
-
-            <h2 id="modalTitle"></h2>
-
-            <p id="modalText"></p>
-
-            <div class="modal-buttons">
-
-                <button
-                    class="modal-action primary"
-                    id="modalFavoriteBtn"
-                    onclick="toggleCurrentFavorite()">
-                    ❤️ إضافة إلى المفضلة
-                </button>
-
-                <button
-                    class="modal-action secondary"
-                    onclick="closeModal()">
-                    إغلاق
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <script>
-
-        /* =========================
-           100 نصيحة
-        ========================= */
-
-        const tips = [
-
-            ["حدد أهدافك", "اكتب أهدافك الدراسية بوضوح وحدد ما تريد تحقيقه خلال الفصل الدراسي.", "النجاح"],
-            ["نظم وقتك", "ضع جدولًا يوميًا يوزع وقتك بين الدراسة والراحة والأنشطة المختلفة.", "إدارة الوقت"],
-            ["ابدأ مبكرًا", "لا تؤجل الدراسة إلى اللحظة الأخيرة، فالبدء المبكر يقلل الضغط.", "الدراسة"],
-            ["استخدم قائمة المهام", "اكتب المهام التي تريد إنجازها ورتبها حسب الأولوية.", "إدارة الوقت"],
-            ["ابتعد عن الهاتف", "أبعد هاتفك أثناء الدراسة حتى لا يتشتت انتباهك.", "التركيز"],
-            ["اختر مكانًا مناسبًا", "الدراسة في مكان هادئ ومنظم تساعدك على التركيز.", "التركيز"],
-            ["خذ فترات راحة", "خذ استراحة قصيرة بين جلسات الدراسة حتى تستعيد نشاطك.", "الصحة"],
-            ["نم جيدًا", "احرص على الحصول على نوم كافٍ لأن النوم مهم للتركيز.", "الصحة"],
-            ["اشرب الماء", "حافظ على شرب كمية مناسبة من الماء خلال يومك.", "الصحة"],
-            ["راجع دروسك يوميًا", "المراجعة اليومية أفضل من تراكم المواد قبل الاختبار.", "الدراسة"],
-
-            ["اكتب ملاحظاتك", "دوّن أهم الأفكار والمعلومات أثناء شرح المعلم.", "الدراسة"],
-            ["اسأل عندما لا تفهم", "لا تتردد في سؤال المعلم أو زميلك عندما تواجه صعوبة.", "الدراسة"],
-            ["استخدم الخرائط الذهنية", "الخرائط الذهنية تساعدك على ربط الأفكار وتذكرها.", "الدراسة"],
-            ["حل أسئلة كثيرة", "التدريب على الأسئلة يساعدك على فهم المادة.", "الدراسة"],
-            ["راجع أخطاءك", "تعلم من أخطائك ولا تكتفِ بمعرفة الإجابة الصحيحة.", "النجاح"],
-            ["حدد نقاط ضعفك", "اعرف المواد والمهارات التي تحتاج إلى مزيد من التدريب.", "النجاح"],
-            ["كافئ نفسك", "بعد إنجاز هدف دراسي، امنح نفسك مكافأة بسيطة.", "النجاح"],
-            ["كن إيجابيًا", "الإيجابية تساعدك على الاستمرار عندما تواجه صعوبة.", "النجاح"],
-            ["لا تقارن نفسك بالآخرين", "قارن نفسك بمستواك السابق واعمل على تطويره.", "النجاح"],
-            ["قسم وقت الدراسة", "اجعل الدراسة على جلسات مركزة يتخللها وقت قصير للراحة.", "إدارة الوقت"],
-
-            ["رتب مكتبك", "المكان المنظم يقلل المشتتات ويساعدك على البدء.", "التركيز"],
-            ["خصص وقتًا للترفيه", "خصص وقتًا للراحة والترفيه حتى تحافظ على التوازن.", "إدارة الوقت"],
-            ["راجع قبل الاختبار", "ابدأ المراجعة قبل موعد الاختبار بوقت كافٍ.", "الدراسة"],
-            ["اقرأ قبل الحصة", "قراءة الدرس قبل الحصة تساعدك على فهم الشرح.", "الدراسة"],
-            ["استخدم البطاقات التعليمية", "البطاقات مفيدة لحفظ المصطلحات والتعريفات.", "الدراسة"],
-            ["اقرأ بتركيز", "ركز على فهم الفكرة بدلًا من القراءة السريعة فقط.", "التركيز"],
-            ["أغلق الإشعارات", "تعطيل الإشعارات يقلل من الانقطاعات أثناء الدراسة.", "التركيز"],
-            ["ضع هاتفك بعيدًا", "إبعاد الهاتف يساعدك على مقاومة استخدامه أثناء الدراسة.", "التركيز"],
-            ["ابدأ بالأصعب", "أنجز المهام الصعبة عندما يكون تركيزك في أعلى مستوى.", "إدارة الوقت"],
-            ["قسم المادة", "قسّم المادة الكبيرة إلى أجزاء صغيرة يسهل إنجازها.", "الدراسة"],
-
-            ["حدد موعدًا للانتهاء", "ضع وقتًا واضحًا لإنهاء كل مهمة حتى لا تمتد بلا نهاية.", "إدارة الوقت"],
-            ["راجع أهدافك أسبوعيًا", "راجع ما أنجزته وما تحتاج إلى تحسينه كل أسبوع.", "النجاح"],
-            ["تعلم من زملائك", "النقاش مع الطلاب الآخرين قد يكشف لك طرقًا جديدة للفهم.", "الدراسة"],
-            ["علّم شخصًا آخر", "شرح المعلومة لغيرك يساعدك على التأكد من فهمك.", "الدراسة"],
-            ["لا تخجل من الخطأ", "الخطأ فرصة للتعلم وتحسين مستواك.", "النجاح"],
-            ["حافظ على حضورك", "الانتظام في الحضور يساعدك على متابعة الدروس.", "الدراسة"],
-            ["تجنب المماطلة", "عندما تكون المهمة صغيرة ابدأ بها فورًا.", "إدارة الوقت"],
-            ["اكتب ملخصًا", "بعد كل درس اكتب أهم النقاط بأسلوبك الخاص.", "الدراسة"],
-            ["حدد الأولويات", "ابدأ بالمهام الأكثر أهمية وتأثيرًا على دراستك.", "إدارة الوقت"],
-            ["استفد من المكتبة", "المكتبة مكان مناسب للبحث والدراسة بعيدًا عن المشتتات.", "الدراسة"],
-
-            ["استخدم مصادر موثوقة", "اعتمد على الكتب والمصادر التعليمية الموثوقة.", "الدراسة"],
-            ["تعلم مهارة البحث", "تعلم كيف تبحث عن المعلومات وتتحقق من صحتها.", "الدراسة"],
-            ["طور مهارات الكتابة", "الكتابة الجيدة تساعدك في التقارير والواجبات.", "النجاح"],
-            ["اقرأ أكثر", "القراءة المستمرة توسع معرفتك وتحسن قدرتك على الفهم.", "النجاح"],
-            ["شارك في الصف", "المشاركة في النقاش تساعد على ترسيخ المعلومات.", "الدراسة"],
-            ["لا تهمل الواجبات", "أنجز واجباتك في موعدها ولا تجعلها تتراكم.", "الدراسة"],
-            ["نظم ملفاتك", "رتب كتبك وملفاتك بحيث تجدها بسرعة.", "إدارة الوقت"],
-            ["استخدم التقويم", "سجل الاختبارات والواجبات والمواعيد المهمة.", "إدارة الوقت"],
-            ["خصص وقتًا للمراجعة", "اجعل المراجعة جزءًا ثابتًا من جدولك الأسبوعي.", "الدراسة"],
-            ["مارس الرياضة", "النشاط البدني يساعدك على الحفاظ على نشاطك.", "الصحة"],
-
-            ["تنفس بعمق", "عندما تشعر بالتوتر خذ عدة أنفاس عميقة وحاول الهدوء.", "الصحة"],
-            ["قلل السهر", "الحفاظ على نمط نوم منتظم يساعد على التركيز.", "الصحة"],
-            ["اجلس بطريقة صحيحة", "حافظ على وضعية جلوس مريحة أثناء الدراسة.", "الصحة"],
-            ["خذ استراحة من الشاشة", "امنح عينيك فترات راحة عند استخدام الأجهزة لفترة طويلة.", "الصحة"],
-            ["ثق بنفسك", "ذكّر نفسك بقدرتك على التعلم والتطور.", "النجاح"],
-            ["لا تستسلم", "النتيجة الضعيفة لا تعني أنك لا تستطيع النجاح.", "النجاح"],
-            ["تعامل مع الضغط", "قسم العمل إلى خطوات صغيرة بدلًا من التفكير فيه كله مرة واحدة.", "النجاح"],
-            ["تحدث مع معلمك", "اطلب المساعدة عندما تحتاج إلى شرح إضافي.", "الدراسة"],
-            ["اختر أصدقاء إيجابيين", "الطلاب الإيجابيون يشجعونك على الدراسة والتطور.", "النجاح"],
-            ["ابتعد عن المشتتات", "قلل من الأشياء التي تسحب انتباهك أثناء المذاكرة.", "التركيز"],
-
-            ["ضع خطة للاختبار", "حدد ما ستراجعه ومتى ستراجعه قبل موعد الاختبار.", "إدارة الوقت"],
-            ["اقرأ الأسئلة جيدًا", "اقرأ السؤال كاملًا قبل اختيار الإجابة.", "الدراسة"],
-            ["وزع وقت الاختبار", "لا تستغرق وقتًا طويلًا في سؤال واحد.", "إدارة الوقت"],
-            ["راجع إجاباتك", "عندما يتبقى وقت راجع إجاباتك قبل التسليم.", "الدراسة"],
-            ["حضّر حقيبتك مسبقًا", "جهز كتبك وأدواتك في الليلة السابقة.", "إدارة الوقت"],
-            ["ضع جدولًا أسبوعيًا", "التخطيط الأسبوعي يساعدك على رؤية التزاماتك كاملة.", "إدارة الوقت"],
-            ["تعلم قول لا", "لا توافق على شيء يسبب لك ضغطًا ويؤثر على أهدافك.", "إدارة الوقت"],
-            ["حدد وقت الإنترنت", "ضع حدودًا واضحة لاستخدام مواقع التواصل.", "التركيز"],
-            ["استخدم وضع التركيز", "فعّل أدوات التركيز الموجودة في هاتفك.", "التركيز"],
-            ["لا تفتح مواقع غير ضرورية", "أثناء الدراسة افتح فقط ما تحتاج إليه.", "التركيز"],
-
-            ["أعد صياغة المعلومات", "اكتب المعلومة بطريقتك حتى تتأكد أنك فهمتها.", "الدراسة"],
-            ["اربط المعلومات بأمثلة", "الأمثلة الواقعية تجعل بعض المفاهيم أسهل في التذكر.", "الدراسة"],
-            ["استخدم الرسومات", "الرسومات والجداول قد تساعدك على فهم المعلومات المعقدة.", "الدراسة"],
-            ["اختبر نفسك", "اسأل نفسك عن الدرس دون النظر إلى الكتاب.", "الدراسة"],
-            ["ابدأ الآن", "أفضل وقت للبدء هو الآن، حتى لو كانت الخطوة الأولى صغيرة.", "النجاح"],
-            ["احتفل بتقدمك", "لاحظ الإنجازات الصغيرة لأنها تبني حماسك للاستمرار.", "النجاح"],
-            ["تعلم من نتائجك", "استفد من درجاتك لمعرفة ما يحتاج إلى تطوير.", "النجاح"],
-            ["ضع أهدافًا واقعية", "اجعل أهدافك قابلة للتحقيق ومناسبة لوقتك.", "النجاح"],
-            ["كن منظمًا", "التنظيم يقلل الوقت الضائع ويساعدك على التركيز.", "إدارة الوقت"],
-            ["حافظ على أدواتك", "تأكد من توفر الأدوات التي تحتاجها للدراسة.", "إدارة الوقت"],
-
-            ["اقرأ التعليمات", "في الواجبات والاختبارات اقرأ التعليمات قبل البدء.", "الدراسة"],
-            ["راجع قبل التسليم", "تأكد من خلو العمل من الأخطاء قبل تسليمه.", "الدراسة"],
-            ["حافظ على توازنك", "الدراسة مهمة وكذلك الراحة والوقت الشخصي.", "الصحة"],
-            ["طور نفسك باستمرار", "اجعل كل فصل دراسي فرصة لاكتساب مهارات جديدة.", "النجاح"],
-            ["حدد سببك", "اعرف لماذا تريد النجاح فهذا يساعدك على الاستمرار.", "النجاح"],
-            ["تعلم إدارة التوتر", "استخدم التنظيم والراحة والنشاط البدني للتعامل مع الضغط.", "الصحة"],
-            ["كن صبورًا", "التقدم الدراسي يحتاج وقتًا وممارسة مستمرة.", "النجاح"],
-            ["ركز على التقدم", "حتى التحسن البسيط يعتبر خطوة إلى الأمام.", "النجاح"],
-            ["خصص مكانًا ثابتًا للدراسة", "وجود مكان مخصص يساعد عقلك على الدخول في وضع التركيز.", "التركيز"],
-            ["قلل المقاطعات", "أخبر من حولك أنك تدرس عندما تحتاج إلى جلسة تركيز.", "التركيز"],
-
-            ["رتب أفكارك", "قبل كتابة التقرير رتب الأفكار الرئيسية أولًا.", "الدراسة"],
-            ["تعلم من مصادر مختلفة", "استخدم الكتاب والفيديو والشرح العملي لفهم الموضوع.", "الدراسة"],
-            ["اجعل التعلم عادة", "الدراسة المنتظمة أفضل من الدراسة المكثفة المتقطعة.", "الدراسة"],
-            ["راجع الكلمات المهمة", "حدد الكلمات والمفاهيم الأساسية في كل درس.", "الدراسة"],
-            ["استخدم الألوان باعتدال", "تمييز الأفكار المهمة قد يساعد على سرعة المراجعة.", "الدراسة"],
-            ["ضع هدفًا لكل جلسة", "قبل أن تبدأ حدد ما تريد إنجازه في جلسة الدراسة.", "إدارة الوقت"],
-            ["لا تدرس في الفوضى", "رتب المواد التي تحتاجها قبل بداية جلسة الدراسة.", "التركيز"],
-            ["احفظ بعد الفهم", "افهم الفكرة أولًا ثم ركز على حفظ التفاصيل.", "الدراسة"],
-            ["خذ نفسًا قبل الاختبار", "قبل البدء توقف لحظة ونظم أفكارك.", "الصحة"],
-            ["استمر ولا تتوقف", "الاستمرارية اليومية تصنع فرقًا كبيرًا على المدى الطويل.", "النجاح"]
-
-        ];
-
-        /* تحويل البيانات */
-        const allTips = tips.map((item, index) => ({
-            id: index + 1,
-            title: item[0],
-            text: item[1],
-            category: item[2]
-        }));
-
-        let currentCategory = "الكل";
-        let currentModalId = null;
-
-        const tipsGrid = document.getElementById("tipsGrid");
-        const searchInput = document.getElementById("searchInput");
-        const resultCount = document.getElementById("resultCount");
-        const modal = document.getElementById("modal");
-        const modalNumber = document.getElementById("modalNumber");
-        const modalTitle = document.getElementById("modalTitle");
-        const modalText = document.getElementById("modalText");
-        const modalFavoriteBtn = document.getElementById("modalFavoriteBtn");
-        const favoriteCount = document.getElementById("favoriteCount");
-        const dailyTitle = document.getElementById("dailyTitle");
-        const dailyText = document.getElementById("dailyText");
-
-        /* المفضلة */
-        let favorites = JSON.parse(localStorage.getItem("studentFavorites") || "[]");
-
-        /* الوضع الليلي */
-        const savedTheme = localStorage.getItem("studentTheme");
-
-        if (savedTheme === "dark") {
-            document.body.classList.add("dark");
-        }
-
-        document.getElementById("themeBtn").addEventListener("click", () => {
-
-            document.body.classList.toggle("dark");
-
-            localStorage.setItem(
-                "studentTheme",
-                document.body.classList.contains("dark") ? "dark" : "light"
-            );
-
-        });
-
-        /* عرض النصائح */
-        function renderTips() {
-
-            const search = searchInput.value.trim().toLowerCase();
-
-            let filtered = allTips.filter(tip => {
-
-                const categoryMatch =
-                    currentCategory === "الكل" ||
-                    tip.category === currentCategory;
-
-                const searchMatch =
-                    tip.title.toLowerCase().includes(search) ||
-                    tip.text.toLowerCase().includes(search);
-
-                return categoryMatch && searchMatch;
-            });
-
-            tipsGrid.innerHTML = "";
-
-            if (filtered.length === 0) {
-
-                tipsGrid.innerHTML = `
-                    <div class="empty">
-                        <div class="empty-icon">🔍</div>
-                        <h3>لم نجد أي نصيحة</h3>
-                        <p>جرّب كلمة بحث أخرى أو غيّر التصنيف.</p>
-                    </div>
-                `;
-
-            } else {
-
-                filtered.forEach(tip => {
-
-                    const card = document.createElement("article");
-                    card.className = "tip-card";
-
-                    const isFavorite = favorites.includes(tip.id);
-
-                    card.innerHTML = `
-                        <div class="tip-top">
-                            <div class="number">${tip.id}</div>
-
-                            <button
-                                class="favorite-btn ${isFavorite ? "active" : ""}"
-                                onclick="event.stopPropagation(); toggleFavorite(${tip.id})"
-                                aria-label="إضافة إلى المفضلة">
-                                ${isFavorite ? "❤️" : "🤍"}
-                            </button>
-                        </div>
-
-                        <h3>${tip.title}</h3>
-
-                        <p>${tip.text}</p>
-
-                        <span class="tag">${tip.category}</span>
-                    `;
-
-                    card.addEventListener("click", () => openTip(tip.id));
-
-                    tipsGrid.appendChild(card);
-
-                });
-            }
-
-            resultCount.textContent =
-                `عرض ${filtered.length} من أصل ${allTips.length} نصيحة`;
-
-            updateFavoriteCount();
-        }
-
-        /* تغيير التصنيف */
-        document.querySelectorAll(".category-btn").forEach(btn => {
-
-            btn.addEventListener("click", () => {
-
-                document
-                    .querySelectorAll(".category-btn")
-                    .forEach(button => button.classList.remove("active"));
-
-                btn.classList.add("active");
-
-                currentCategory = btn.dataset.category;
-
-                renderTips();
-
-            });
-
-        });
-
-        /* البحث */
-        searchInput.addEventListener("input", renderTips);
-
-        /* المفضلة */
-        function toggleFavorite(id) {
-
-            if (favorites.includes(id)) {
-
-                favorites = favorites.filter(item => item !== id);
-
-            } else {
-
-                favorites.push(id);
-
-            }
-
-            localStorage.setItem(
-                "studentFavorites",
-                JSON.stringify(favorites)
-            );
-
-            renderTips();
-
-            if (currentModalId === id) {
-                updateModalFavoriteButton();
-            }
-        }
-
-        function toggleCurrentFavorite() {
-
-            if (currentModalId !== null) {
-                toggleFavorite(currentModalId);
-            }
-        }
-
-        function updateFavoriteCount() {
-            favoriteCount.textContent = favorites.length;
-        }
-
-        function updateModalFavoriteButton() {
-
-            if (favorites.includes(currentModalId)) {
-
-                modalFavoriteBtn.textContent = "❤️ إزالة من المفضلة";
-
-            } else {
-
-                modalFavoriteBtn.textContent = "🤍 إضافة إلى المفضلة";
-
-            }
-        }
-
-        /* فتح النصيحة */
-        function openTip(id) {
-
-            const tip = allTips.find(item => item.id === id);
-
-            if (!tip) return;
-
-            currentModalId = id;
-
-            modalNumber.textContent = `النصيحة رقم ${tip.id}`;
-            modalTitle.textContent = tip.title;
-            modalText.textContent = tip.text;
-
-            updateModalFavoriteButton();
-
-            modal.classList.add("show");
-        }
-
-        /* نصيحة اليوم */
-        function getDailyTip() {
-
-            const day = new Date().getDate();
-
-            return allTips[(day - 1) % allTips.length];
-
-        }
-
-        function showDailyTip() {
-
-            const tip = getDailyTip();
-
-            dailyTitle.textContent = tip.title;
-            dailyText.textContent = tip.text;
-
-        }
-
-        function openDailyTip() {
-
-            const tip = getDailyTip();
-
-            openTip(tip.id);
-
-        }
-
-        /* نصيحة عشوائية */
-        function randomTip() {
-
-            const random =
-                allTips[Math.floor(Math.random() * allTips.length)];
-
-            openTip(random.id);
-
-        }
-
-        /* زر المفضلة */
-        document.getElementById("favoritesBtn").addEventListener("click", () => {
-
-            if (favorites.length === 0) {
-
-                alert("لم تضف أي نصائح إلى المفضلة بعد ❤️");
-                return;
-
-            }
-
-            currentCategory = "الكل";
-            searchInput.value = "";
-
-            document
-                .querySelectorAll(".category-btn")
-                .forEach(button => button.classList.remove("active"));
-
-            document
-                .querySelector('.category-btn[data-category="الكل"]')
-                .classList.add("active");
-
-            const favoriteTips = allTips.filter(tip =>
-                favorites.includes(tip.id)
-            );
-
-            tipsGrid.innerHTML = "";
-
-            favoriteTips.forEach(tip => {
-
-                const card = document.createElement("article");
-                card.className = "tip-card";
-
-                card.innerHTML = `
-                    <div class="tip-top">
-                        <div class="number">${tip.id}</div>
-
-                        <button
-                            class="favorite-btn active"
-                            onclick="event.stopPropagation(); toggleFavorite(${tip.id})">
-                            ❤️
-                        </button>
-                    </div>
-
-                    <h3>${tip.title}</h3>
-
-                    <p>${tip.text}</p>
-
-                    <span class="tag">${tip.category}</span>
-                `;
-
-                card.onclick = () => openTip(tip.id);
-
-                tipsGrid.appendChild(card);
-
-            });
-
-            resultCount.textContent =
-                `عرض ${favoriteTips.length} نصيحة محفوظة في المفضلة`;
-
-            document
-                .getElementById("tipsSection")
-                .scrollIntoView({ behavior: "smooth" });
-
-        });
-
-        /* إغلاق النافذة */
-        function closeModal() {
-            modal.classList.remove("show");
-        }
-
-        modal.addEventListener("click", event => {
-
-            if (event.target === modal) {
-                closeModal();
-            }
-
-        });
-
-        document.addEventListener("keydown", event => {
-
-            if (event.key === "Escape") {
-                closeModal();
-            }
-
-        });
-
-        /* التمرير */
-        function scrollToTips() {
-
-            document
-                .getElementById("tipsSection")
-                .scrollIntoView({ behavior: "smooth" });
-
-        }
-
-        /* التشغيل */
-        showDailyTip();
-        renderTips();
-
-    </script>
-
+<nav><div class="nav"><a class="brand" href="#">🎓 100 نصيحة للطالب</a><div class="navBtns"><button class="icon" id="favBtn" title="المفضلة">❤️</button><button class="icon" id="themeBtn" title="الوضع الليلي">🌙</button></div></div></nav>
+<header class="hero"><div class="heroBox"><span class="badge">📚 دليل الدراسة الذكية</span><h1>100 نصيحة للطالب</h1><p>نصائح عملية مع شرح واضح وطريقة تطبيق ومثال واقعي، بالإضافة إلى أشهر طرق الدراسة لتنظيم وقتك وتحسين فهمك.</p><div class="heroBtns"><button class="heroBtn white" onclick="goTips()">ابدأ الآن</button><button class="heroBtn glass" onclick="randomTip()">🎲 نصيحة عشوائية</button></div></div></header>
+<section class="stats"><div class="stat"><i>💡</i><div class="num">100</div><div class="label">نصيحة عملية</div></div><div class="stat"><i>🧠</i><div class="num">10</div><div class="label">طرق دراسة</div></div><div class="stat"><i>❤️</i><div class="num" id="favCount">0</div><div class="label">في المفضلة</div></div><div class="stat"><i>✅</i><div class="num" id="doneCount">0</div><div class="label">تم تطبيقها</div></div></section>
+<main class="wrap">
+<section class="daily"><div class="dailyIcon">⭐</div><div><small style="color:var(--primary);font-weight:800">نصيحة اليوم</small><h3 id="dailyTitle"></h3><p id="dailyText" style="color:var(--muted)"></p></div><button class="dailyBtn" onclick="openDaily()">اقرأ بالتفصيل</button></section>
+<div class="sectionHead"><h2>🧠 طرق الدراسة</h2><p>اضغط على أي طريقة لمعرفة فكرتها وخطواتها ومتى تستخدمها.</p></div>
+<section class="methods" id="methods"></section>
+<div class="sectionHead" id="tipsAnchor"><h2>💡 100 نصيحة للطالب</h2><p>كل نصيحة تحتوي على شرح وطريقة تطبيق ومثال عملي.</p></div>
+<section class="controls"><div class="search"><span>🔎</span><input id="search" placeholder="ابحث مثل: بومودورو، الوقت، التركيز، الاختبار..."></div><div class="filters"><button class="filter active" data-cat="الكل">جميع النصائح</button><button class="filter" data-cat="الدراسة">📚 الدراسة</button><button class="filter" data-cat="إدارة الوقت">⏰ إدارة الوقت</button><button class="filter" data-cat="التركيز">🧠 التركيز</button><button class="filter" data-cat="الصحة">❤️ الصحة</button><button class="filter" data-cat="النجاح">🏆 النجاح</button></div><div class="bottom"><span class="count" id="count"></span><button class="random" onclick="randomTip()">🎲 نصيحة عشوائية</button></div></section>
+<section class="grid" id="grid"></section>
+</main>
+<footer><h3>🎓 100 نصيحة للطالب</h3><p>تعلم بذكاء، نظم وقتك، وطور نفسك خطوة بعد خطوة.</p></footer>
+<div class="modal" id="modal"><div class="box"><button class="close" onclick="closeModal()">×</button><span class="modalLabel" id="mLabel"></span><h2 id="mTitle"></h2><div class="info"><h4>💡 لماذا هذه النصيحة مهمة؟</h4><p id="mWhy"></p></div><div class="info"><h4>🎯 كيف تطبقها؟</h4><div id="mSteps"></div></div><div class="info"><h4>📝 مثال عملي</h4><p id="mExample"></p></div><div class="actions"><button class="action primary" id="mFav" onclick="toggleCurrentFav()">🤍 إضافة إلى المفضلة</button><button class="action secondary" id="mDone" onclick="toggleCurrentDone()">☐ لم أطبقها بعد</button><button class="action secondary" onclick="closeModal()">إغلاق</button></div></div></div>
+<script>
+const tips=[
+["حدد أهدافك الدراسية","الهدف الواضح يحدد لك ماذا تفعل اليوم بدل الدراسة بشكل عشوائي.",["اكتب هدفًا في جملة واحدة.","اجعله قابلًا للقياس.","ضع موعدًا لمراجعته."],"سأحل 20 سؤال رياضيات يوميًا لمدة أسبوع.","النجاح"],
+["قسّم المادة إلى أجزاء","تقسيم الفصل إلى وحدات صغيرة يجعل البداية أسهل ويقلل التراكم.",["قسم الفصل حسب العناوين.","حدد جزءًا لكل جلسة.","علّم الأجزاء المكتملة."],"بدل 30 صفحة دفعة واحدة، ادرس 5 صفحات في كل جلسة.","الدراسة"],
+["ابدأ مبكرًا","المراجعة المبكرة تعطيك فرصة للفهم والتدرب والمراجعة.",["حدد موعد الاختبار.","وزع الدروس على الأيام.","اترك يومًا للمراجعة."],"ابدأ اختبار الخميس يوم الأحد.","إدارة الوقت"],
+["استخدم قائمة المهام","كتابة مهام اليوم تمنع النسيان وتوضح الأولويات.",["اكتب 3 إلى 5 مهام.","رتبها.","ضع علامة بعد الإنجاز."],"رياضيات ثم علوم ثم قراءة 10 صفحات.","إدارة الوقت"],
+["حدد الأولويات","ليس كل شيء يحتاج نفس الوقت؛ ابدأ بما له موعد أقرب أو أهمية أكبر.",["اكتب المهام.","حدد الأهم.","ابدأ بالأولوية الأولى."],"اختبار الغد قبل مشروع موعده الأسبوع المقبل.","إدارة الوقت"],
+["أبعد الهاتف","إبعاد الهاتف يقلل الرغبة في تفقده خلال جلسة التركيز.",["فعّل عدم الإزعاج.","ضعه خارج مجال النظر.","افحصه بعد الجلسة."],"ضع الهاتف في حقيبتك أثناء جلسة بومودورو.","التركيز"],
+["أغلق الإشعارات","الإشعارات تقطع تركيزك حتى لو لم تفتح الرسالة.",["أوقف إشعارات التطبيقات.","فعّل وضع التركيز.","حدد وقتًا للرد."],"لا تظهر إشعارات خلال 30 دقيقة دراسة.","التركيز"],
+["خصص مكانًا ثابتًا للدراسة","المكان الثابت يساعدك على بناء عادة وروتين واضح.",["اختر مكتبًا أو زاوية.","حافظ على ترتيبها.","استخدمها للدراسة بانتظام."],"كل يوم تبدأ المذاكرة من نفس المكتب.","التركيز"],
+["رتب مكتبك","المكتب المرتب يقلل المشتتات والبحث عن الأشياء.",["أبعد غير الضروري.","جهز الكتب.","اترك مساحة للعمل."],"كتاب واحد ودفتر وقلم على الطاولة.","التركيز"],
+["اجعل لكل جلسة هدفًا","الهدف المحدد يجعل جلسة الدراسة قابلة للإنجاز والقياس.",["حدد نتيجة واحدة.","اكتبها.","تحقق منها عند النهاية."],"هدف الجلسة: حل الأسئلة من 1 إلى 15.","إدارة الوقت"],
+["استخدم بومودورو","تقسيم الدراسة إلى دورات تركيز واستراحة يساعد على البدء والاستمرار.",["25 دقيقة تركيز.","5 دقائق راحة.","كرر أربع مرات.","خذ راحة أطول."],"25 دقيقة رياضيات ثم 5 دقائق راحة.","الدراسة"],
+["جرّب جلسات 50/10","جلسة أطول مناسبة لبعض المهام التي تحتاج تركيزًا متصلًا.",["اختر مهمة واحدة.","ركز 50 دقيقة.","استرح 10 دقائق."],"استخدمها لكتابة بحث أو حل مجموعة مسائل.","إدارة الوقت"],
+["راجع يوميًا","المراجعة اليومية تقلل تراكم الدروس قبل الاختبارات.",["راجع درس اليوم.","حدد ما نسيت.","اختبر نفسك."],"20 دقيقة مساءً لمراجعة أهم نقاط اليوم.","الدراسة"],
+["راجع بعد الحصة","مراجعة الدرس مبكرًا تكشف الفجوات قبل أن تتراكم.",["اقرأ ملاحظاتك.","حدد نقطة صعبة.","اكتب سؤالًا."],"بعد العودة خصص 15 دقيقة لدرس صعب.","الدراسة"],
+["اكتب ملاحظاتك بأسلوبك","إعادة صياغة المعلومات تجعلك تعالجها بدل نسخها فقط.",["استمع للشرح.","اكتب الفكرة الأساسية.","أضف مثالًا."],"حوّل فقرة طويلة إلى ثلاث نقاط.","الدراسة"],
+["استخدم طريقة كورنيل","تقسيم الصفحة إلى ملاحظات وأسئلة وملخص يجعل المراجعة منظمة.",["اكتب الملاحظات.","ضع أسئلة في الهامش.","اكتب ملخصًا أسفل الصفحة."],"راجع أسئلة الهامش دون النظر للملاحظات.","الدراسة"],
+["حوّل العناوين إلى أسئلة","السؤال يجعل القراءة نشطة ويحدد ما تبحث عنه.",["اقرأ العنوان.","حوّله إلى سؤال.","استخرج الإجابة من الدرس."],"أسباب الثورة ← ما أسباب الثورة؟","الدراسة"],
+["استخدم الاستدعاء النشط","محاولة تذكر المعلومة دون رؤيتها تكشف ما تعرفه وما نسيته.",["أغلق الكتاب.","اكتب ما تتذكره.","قارن بالمصدر.","أعد ما نسيته."],"بعد درس الأحياء اكتب المراحل من الذاكرة.","الدراسة"],
+["استخدم التكرار المتباعد","المراجعة على فترات متباعدة تساعدك على العودة للمعلومة بشكل منتظم.",["راجع اليوم.","ثم غدًا.","ثم بعد عدة أيام.","ثم بعد أسبوع."],"مفردات اللغة اليوم ثم بعد يومين ثم بعد أسبوع.","الدراسة"],
+["استخدم البطاقات التعليمية","البطاقات مفيدة للتعريفات والمصطلحات والقوانين.",["السؤال في جهة.","الإجابة في الجهة الأخرى.","اختبر نفسك قبل قلب البطاقة."],"ما تعريف التمثيل الضوئي؟ ثم تحقق.","الدراسة"],
+["استخدم ليتنر","تنظيم البطاقات حسب الإتقان يوجه وقتك للمعلومات الأصعب.",["ابدأ بالصندوق الأول.","الصحيحة تنتقل.","الخاطئة تعود.","راجع كل صندوق في موعده."],"الكلمة الصعبة تظهر لك أكثر من السهلة.","الدراسة"],
+["استخدم فاينمان","شرح الفكرة بلغة بسيطة يكشف الفجوات في فهمك.",["اختر مفهومًا.","اشرحه ببساطة.","حدد ما لم تفهمه.","راجع ثم أعد الشرح."],"اشرح قانونًا لطالب أصغر منك.","الدراسة"],
+["استخدم SQ3R","طريقة منظمة للفصول الطويلة: تصفح، اسأل، اقرأ، استرجع، راجع.",["تصفح الفصل.","اكتب أسئلة.","اقرأ للإجابة.","استرجع.","راجع."],"حوّل عناوين الفصل إلى أسئلة قبل القراءة.","الدراسة"],
+["استخدم الخرائط الذهنية","الخريطة توضح العلاقات بين الأفكار وتختصر الموضوع.",["ضع الموضوع في المنتصف.","أضف الفروع.","أضف التفاصيل.","اربط المتشابه."],"ارسم خريطة لأسباب ونتائج حدث تاريخي.","الدراسة"],
+["استخدم الرسومات والجداول","المخططات والجداول تسهل المقارنة والمراجعة.",["حدد المعلومات.","اختر الشكل المناسب.","اكتب الكلمات الأساسية."],"قارن أنواع الصخور في جدول.","الدراسة"],
+["علّم شخصًا آخر","شرح المعلومة لشخص آخر يختبر فهمك عمليًا.",["تعلم الفكرة.","اشرح دون كتاب.","اسمح بالأسئلة.","راجع النقاط الناقصة."],"اشرح لزميلك درسًا لمدة 10 دقائق.","الدراسة"],
+["اختبر نفسك بعد كل درس","الاختبار المبكر يكشف الفجوات قبل الاختبار الحقيقي.",["أغلق الكتاب.","اكتب 5 أسئلة.","أجب.","صحح."],"بعد الكيمياء اكتب خمسة أسئلة وأجب عنها.","الدراسة"],
+["حل أسئلة كثيرة","الحل العملي يحول المعرفة إلى مهارة ويظهر الأخطاء.",["ابدأ بالأسهل.","زد الصعوبة.","سجل الأخطاء.","أعد حل الصعب."],"حل 10 أسئلة ثم 10 من نوع آخر.","الدراسة"],
+["حاكي الاختبار","التدرب في ظروف مشابهة للاختبار يوضح سرعتك ومستوى استعدادك.",["حدد وقتًا.","أبعد الكتاب.","حل دون مساعدة.","صحح النتيجة."],"حل نموذجًا كاملًا في نفس مدة الاختبار.","الدراسة"],
+["راجع أخطاء الاختبارات","الخطأ يعطيك معلومة عن نقطة تحتاج إلى تدريب.",["حدد السؤال.","اكتب سبب الخطأ.","اكتب الحل.","أعد المحاولة لاحقًا."],"سجل القانون الذي أخطأت في استخدامه.","النجاح"],
+["أنشئ دفترًا للأخطاء","جمع أخطائك في مكان واحد يجعل المراجعة مركزة.",["اكتب السؤال.","اكتب إجابتك.","اكتب التصحيح.","راجع أسبوعيًا."],"قبل الاختبار راجع دفتر الأخطاء.","الدراسة"],
+["افهم قبل الحفظ","الفهم يجعل المعلومة أكثر معنى وأسهل في الاستدعاء.",["اسأل لماذا.","اشرح الفكرة.","استخدم مثالًا.","احفظ التفاصيل بعد ذلك."],"افهم سبب القانون ثم احفظ صيغته.","الدراسة"],
+["اربط المعلومات بأمثلة","المثال الواقعي يعطي المعلومة سياقًا يسهل تذكره.",["حدد المفهوم.","فكر بمثال.","اكتب العلاقة."],"اربط النسبة المئوية بخصم الأسعار.","الدراسة"],
+["اربط الدرس الجديد بالسابق","ربط المعرفة الجديدة بما تعرفه يبني شبكة معلومات مترابطة.",["حدد الفكرة الجديدة.","تذكر مفهومًا سابقًا.","اكتب العلاقة."],"اربط قانونًا جديدًا بقانون سابق.","الدراسة"],
+["راجع الكلمات المفتاحية","المصطلحات الأساسية تقودك إلى بقية تفاصيل الدرس.",["حدد المصطلحات.","اكتب تعريفًا قصيرًا.","اختبر نفسك."],"أنشئ قائمة بأهم 15 مصطلحًا.","الدراسة"],
+["اقرأ بتركيز","القراءة النشطة أفضل من المرور السريع على النص.",["اقرأ فقرة.","اسأل عن فكرتها.","لخصها.","واصل."],"بعد كل صفحة اكتب جملة تلخصها.","التركيز"],
+["خذ استراحات قصيرة","الاستراحة المنظمة تساعدك على العودة للجلسة بدل الاستنزاف المستمر.",["حدد وقتًا.","ابتعد عن المكتب.","تحرك.","عد في الموعد."],"5 دقائق راحة بعد جلسة تركيز.","الصحة"],
+["نم بانتظام","النوم المنتظم يدعم روتين التعلم والانتباه خلال اليوم.",["حدد وقت نوم قريبًا من الثبات.","خفف الشاشة قبل النوم.","خطط للمراجعة مبكرًا."],"أنه المراجعة قبل وقت النوم بدل السهر.","الصحة"],
+["قلل السهر قبل الاختبار","التخطيط المسبق يقلل الحاجة للمراجعة الطويلة في آخر ليلة.",["ابدأ مبكرًا.","أنه الجزء الأساسي.","اجعل آخر فترة هادئة."],"راجع في الأيام السابقة وابتعد عن السهر المتكرر.","الصحة"],
+["مارس نشاطًا بدنيًا","النشاط جزء من يوم متوازن ويساعدك على كسر الجلوس الطويل.",["اختر نشاطًا مناسبًا.","حدد وقتًا.","التزم بانتظام."],"المشي بعد جلسة الدراسة.","الصحة"],
+["لا تدرس وأنت مرهق جدًا","عندما يصبح التعب شديدًا قد تنخفض جودة الجلسة.",["قيّم طاقتك.","خذ راحة.","عد عند استعادة التركيز."],"إذا لم تعد قادرًا على التركيز، خذ استراحة.","الصحة"],
+["حدد وقت الإنترنت","استخدام الإنترنت بلا حدود قد يستهلك الوقت الدراسي.",["حدد وقتًا للترفيه.","أغلق المواقع أثناء الدراسة.","استخدمها بعد الهدف."],"لا تفتح مواقع التواصل حتى تنهي الجلسة.","التركيز"],
+["استخدم وضع التركيز","أدوات التركيز تقلل المقاطعات من الهاتف أو الحاسوب.",["فعّل الوضع.","حدد التطبيقات المسموحة.","ابدأ الجلسة."],"اسمح بالمكالمات المهمة فقط أثناء الدراسة.","التركيز"],
+["لا تفتح تبويبات كثيرة","التبويبات الزائدة تخلق مصادر للتشتت أثناء البحث.",["افتح ما تحتاجه.","أغلق غير الضروري.","احفظ الروابط المفيدة."],"أثناء البحث افتح مصادر الموضوع فقط.","التركيز"],
+["استخدم الإنترنت كأداة","الإنترنت يصبح أكثر فائدة عندما تدخل بهدف واضح.",["اكتب هدف البحث.","حدد مدة.","سجل النتيجة.","أغلقه بعد الانتهاء."],"ابحث عن شرح محدد بدل التصفح العشوائي.","التركيز"],
+["تحقق من مصادر المعلومات","ليس كل ما على الإنترنت صحيحًا أو مناسبًا لمهمتك.",["قارن مصدرين.","تحقق من الجهة.","اقرأ تاريخ المصدر عند الحاجة."],"في التقرير قارن المعلومات قبل استخدامها.","الدراسة"],
+["تعلم مهارة البحث","صياغة السؤال بدقة توفر الوقت وتحسن جودة النتائج.",["حدد السؤال.","استخدم كلمات مفتاحية.","قارن النتائج.","سجل المصادر."],"استبدل البحث العام بكلمات دقيقة.","النجاح"],
+["نظّم ملفاتك","المجلدات الواضحة توفر وقت البحث عن الواجبات.",["أنشئ مجلدًا لكل مادة.","سمِّ الملفات بوضوح.","احذف النسخ غير اللازمة."],"رياضيات/واجبات/اختبار-1.pdf","إدارة الوقت"],
+["احتفظ بنسخة احتياطية","النسخة الثانية تحمي عملك من فقدان الملف.",["احفظ الأصل.","أنشئ نسخة ثانية.","ضعها في مكان مختلف."],"احفظ البحث على الجهاز ومساحة تخزين أخرى.","إدارة الوقت"],
+["جهز حقيبتك مسبقًا","التجهيز الليلي يقلل النسيان ويوفر وقت الصباح.",["راجع جدول الغد.","ضع الكتب.","تأكد من الأدوات."],"جهز الحقيبة قبل النوم.","إدارة الوقت"],
+["خطط لليوم التالي","ثلاث مهام واضحة تجعل بداية اليوم أسرع.",["اكتب أهم 3 مهام.","حدد وقتًا تقريبيًا.","جهز الأدوات."],"قبل النوم: رياضيات، علوم، قراءة.","إدارة الوقت"],
+["خطط للأسبوع","الرؤية الأسبوعية تمنع تراكم الاختبارات والواجبات.",["اكتب المواعيد.","وزع الجلسات.","اترك وقتًا احتياطيًا."],"ضع كل الاختبارات في تقويم أسبوعي.","إدارة الوقت"],
+["اترك وقتًا احتياطيًا","الجدول المرن يتحمل التأخير المفاجئ بشكل أفضل.",["قدّر المدة.","أضف هامشًا.","استخدمه للتعويض أو المراجعة."],"اترك 30 دقيقة احتياطية لمهمة طويلة.","إدارة الوقت"],
+["لا تفرط في التخطيط","الغرض من الخطة هو أن تبدأ، لا أن تقضي وقتك في تزيينها.",["حدد المهام.","ابدأ.","عدّل أثناء التنفيذ."],"ثلاث مهام واضحة أفضل من جدول ضخم لا تنفذه.","إدارة الوقت"],
+["استخدم قاعدة الخمس دقائق","البداية الصغيرة تقلل مقاومة البدء عندما تكون المهمة ثقيلة.",["ابدأ 5 دقائق.","نفذ أول جزء.","قرر الاستمرار بعد البداية."],"افتح الملف واكتب المقدمة فقط.","إدارة الوقت"],
+["لا تنتظر الحماس","الروتين المنتظم أكثر ثباتًا من الاعتماد على المزاج.",["حدد وقتًا ثابتًا.","ابدأ بخطوة صغيرة.","كرر يوميًا."],"ابدأ المذاكرة حتى لو لم تشعر بالحماس الكامل.","النجاح"],
+["ابدأ بأسهل خطوة","أول خطوة صغيرة تجعل المهمة الكبيرة أقل رهبة.",["افتح الكتاب.","اكتب العنوان.","حل سؤالًا واحدًا.","واصل."],"ابدأ بصفحة واحدة من الفصل.","النجاح"],
+["استخدم مؤقتًا","المؤقت يجعل للجلسة بداية ونهاية واضحتين.",["حدد المدة.","ابدأ.","لا تبدل المهمة حتى ينتهي المؤقت."],"30 دقيقة لحل مجموعة من الأسئلة.","إدارة الوقت"],
+["راجع أهدافك أسبوعيًا","المراجعة الأسبوعية تكشف ما نجح وما يحتاج تعديلًا.",["راجع ما أنجزت.","حدد التأخير.","خطط للأسبوع القادم."],"كل نهاية أسبوع راجع ثلاث مواد أساسية.","النجاح"],
+["حدد نقاط ضعفك","معرفة ما تحتاجه فعليًا تساعدك على استثمار وقتك.",["راجع الاختبارات.","سجل الموضوعات الصعبة.","خطط لتدريب إضافي."],"إذا تكرر خطأ الكسور، خصص لها جلسة.","النجاح"],
+["لا تقارن نفسك بالآخرين","التركيز على تقدمك الشخصي يجعل خطتك أوضح.",["قارن نتائجك السابقة.","حدد تحسنًا واحدًا.","تابع تقدمك."],"راقب ارتفاع درجتك من اختبار لآخر.","النجاح"],
+["ثق بنفسك بناءً على التدريب","الثقة تنمو مع الممارسة والنتائج الصغيرة المتراكمة.",["سجل ما أتقنته.","تدرب على الضعف.","راجع تقدمك."],"اكتب ثلاثة أشياء أصبحت أفضل فيها هذا الشهر.","النجاح"],
+["لا تستسلم بعد نتيجة ضعيفة","النتيجة الواحدة يمكن أن تصبح نقطة بداية لخطة أفضل.",["حلل الأخطاء.","عدل الخطة.","ابدأ بالتدريب."],"بعد درجة منخفضة حدد ثلاثة أسباب وثلاث خطوات علاجية.","النجاح"],
+["تعامل مع الضغط خطوة بخطوة","تقسيم المشكلة يقلل الشعور بأن كل شيء يجب أن يحل مرة واحدة.",["اكتب ما يقلقك.","حوّل كل نقطة إلى خطوة.","نفذ الأولى."],"بدل القلق من كل الاختبارات، ضع خطة لاختبار الغد.","النجاح"],
+["اختر أصدقاء يدعمون دراستك","البيئة المحيطة بك قد تساعدك على الالتزام أو تجعل المذاكرة أصعب.",["اقترب من الجادين.","اتفقوا على وقت مراجعة.","ابتعدوا عن التشتيت."],"جلسة مراجعة مشتركة بدل تصفح الهاتف.","النجاح"],
+["تعلم قول لا","رفض بعض المشتتات يحمي الوقت المخصص لأهدافك.",["حدد أولويتك.","ارفض بأدب.","اقترح وقتًا آخر عند الحاجة."],"لن أخرج الآن، لدي مراجعة لمدة ساعة.","إدارة الوقت"],
+["حدد وقتًا للترفيه","الراحة المخطط لها تساعد على الحفاظ على التوازن والاستمرار.",["حدد وقتًا للترفيه.","لا تجعله مفتوحًا بلا نهاية.","ارجع للخطة."],"بعد انتهاء أهدافك اليومية خصص ساعة لهواية تحبها.","الصحة"],
+["لا تدرس كل المواد بالطريقة نفسها","المواد الحسابية تحتاج تدريبًا، وبعض مواد الحفظ تحتاج استدعاء ومراجعة.",["حدد طبيعة المادة.","اختر الطريقة المناسبة.","قارن النتيجة."],"الرياضيات بالحل، والمصطلحات بالبطاقات والاستدعاء.","الدراسة"],
+["راجع المادة الصعبة أكثر","وقت المراجعة يستفيد أكثر عندما يذهب إلى نقاط ضعفك.",["حدد المادة الصعبة.","زد جلساتها قليلًا.","اختبر نفسك بانتظام."],"أضف جلسة إضافية للكيمياء إذا كانت أصعب مادة لديك.","إدارة الوقت"],
+["لا تهمل المادة السهلة","المادة السهلة تحتاج مراجعة قصيرة حتى لا تُنسى.",["راجعها بسرعة.","اختبر نفسك.","لا تتركها للآخر."],"15 دقيقة مراجعة للمادة السهلة كل يومين.","الدراسة"],
+["اكتب ملخصًا بعد كل فصل","الملخص يعطيك ورقة مراجعة سريعة بدل إعادة قراءة الفصل كله.",["حدد الأفكار.","اكتبها بأسلوبك.","قلل التفاصيل الزائدة."],"اختصر فصلًا كاملًا في صفحة واحدة.","الدراسة"],
+["استخدم الألوان باعتدال","تمييز المعلومات المهمة قد يساعدك على العثور عليها بسرعة.",["حدد لونًا للعناوين.","لون المصطلحات المهمة.","لا تلوّن كل الصفحة."],"لون القوانين والمفاهيم الأساسية فقط.","الدراسة"],
+["راجع القوانين بطريقة عملية","القانون يصبح أقوى في ذاكرتك عندما تعرف متى وكيف تستخدمه.",["اكتب القانون.","اكتب معنى الرموز.","حل مثالًا.","حل سؤالًا جديدًا."],"بعد قانون المساحة احسب مساحة شكل من اختيارك.","الدراسة"],
+["تدرب على الكتابة تحت وقت محدد","الوقت المحدد يساعدك على تحسين سرعة الإجابة دون إهمال الجودة.",["اختر موضوعًا.","حدد مدة.","اكتب.","راجع بعد الانتهاء."],"اكتب إجابة من 150 كلمة خلال 15 دقيقة.","الدراسة"],
+["راجع التعليمات قبل البدء","قراءة المطلوب تمنع أخطاء يمكن تفاديها بسهولة.",["اقرأ التعليمات كاملة.","حدد المطلوب.","ابدأ بعد التأكد."],"تحقق هل المطلوب تعريف أم مقارنة أم حل.","الدراسة"],
+["راجع إجاباتك في الاختبار","المراجعة النهائية قد تكشف أخطاء حساب أو نسيان جزء من السؤال.",["راجع الصعب.","راجع الحساب.","تأكد من كل الإجابات."],"اترك دقائق أخيرة للمراجعة.","الدراسة"],
+["لا تتوقف طويلًا عند سؤال","إدارة الوقت في الاختبار تمنع استنزافه في سؤال واحد.",["حاول.","إذا تعثرت انتقل.","ارجع لاحقًا."],"ضع علامة على السؤال الصعب وانتقل.","إدارة الوقت"],
+["اقرأ السؤال كاملًا","بعض الأخطاء تأتي من فهم المطلوب بشكل ناقص.",["اقرأ مرة كاملة.","حدد الكلمات المهمة.","تأكد من المطلوب."],"انتبه هل المطلوب قيمة أم مساحة أم تفسير.","الدراسة"],
+["تعلم من كل اختبار","الاختبار مصدر معلومات عن طريقة استعدادك وليس الدرجة فقط.",["راجع النتيجة.","حدد نمط الأخطاء.","غير خطة الاستعداد."],"إذا خسرت بسبب السرعة، تدرب بمؤقت في المرة القادمة.","النجاح"],
+["خطط لمشروعك على مراحل","المشروع الكبير يصبح أسهل عندما يتحول إلى مراحل صغيرة.",["حدد المراحل.","ضع موعدًا لكل مرحلة.","ابدأ الأولى."],"الموضوع ثم المصادر ثم الكتابة ثم المراجعة.","إدارة الوقت"],
+["ابدأ البحث مبكرًا","البحث يحتاج وقتًا لجمع المصادر والتحقق والكتابة.",["حدد الموضوع.","اجمع المصادر.","ابدأ الكتابة مبكرًا."],"لا تترك تقرير الأسبوع إلى الليلة الأخيرة.","إدارة الوقت"],
+["لا تخجل من طلب المساعدة","طلب التوضيح مبكرًا يمنع بقاء فجوة فهم كبيرة.",["حدد الجزء الصعب.","اسأل المعلم أو زميلًا.","أعد الشرح لنفسك."],"قل: لم أفهم الخطوة الثانية، هل توضحها؟","النجاح"],
+["استخدم وقت الانتظار","الدقائق الصغيرة مناسبة للمراجعة الخفيفة.",["احمل بطاقات صغيرة.","راجع مصطلحات.","استمع لملخص قصير."],"راجع خمس كلمات أثناء انتظار الحافلة.","إدارة الوقت"],
+["راجع قبل النوم مراجعة خفيفة","مراجعة قصيرة قد تكون أنسب من بدء فصل جديد قبل النوم.",["راجع العناوين.","استدعِ أهم النقاط.","توقف قبل التعب."],"راجع بطاقات المصطلحات لخمس دقائق.","الدراسة"],
+["ضع هدفًا للغد قبل النوم","الهدف المكتوب يقلل وقت التردد عند بدء اليوم.",["اكتب أول مهمة.","جهز أدواتها.","ابدأ بها في وقتك المحدد."],"غدًا أول مهمة: حل 10 مسائل.","إدارة الوقت"],
+["راجع التقدم نهاية الأسبوع","المراجعة الأسبوعية تمنعك من اكتشاف التأخير قبل الاختبارات مباشرة.",["راجع الدرجات.","راجع الخطة.","عدل الأسبوع المقبل."],"لاحظ أنك تضيّع ساعة يوميًا على الهاتف فعدّل وقتك.","النجاح"],
+["ركز على ما تستطيع التحكم به","تركيزك على أفعالك الحالية أكثر فائدة من القلق بشأن أمور خارج سيطرتك.",["حدد المشكلة.","اسأل ماذا أستطيع أن أفعل؟","نفذ الخطوة."],"بدل القلق من صعوبة الاختبار، ابدأ حل نموذج.","النجاح"],
+["غيّر الطريقة إذا لم تنجح","أحيانًا المشكلة في أسلوب الدراسة لا في قدرتك على التعلم.",["قيّم النتيجة.","جرب الاستدعاء النشط.","جرب الأسئلة أو الشرح."],"إذا لم تفد القراءة وحدها، أضف البطاقات والأسئلة.","النجاح"],
+["اجعل التعلم عادة يومية","الاستمرارية تبني المعرفة أكثر من جلسة ضخمة متقطعة.",["حدد وقتًا ثابتًا.","ابدأ بمدة قصيرة.","حافظ على الأيام المتتالية."],"20 دقيقة مراجعة كل يوم.","الدراسة"],
+["احتفل بالتقدم الصغير","ملاحظة التحسن البسيط تساعدك على رؤية أثر الاستمرار.",["سجل ما أنجزت.","قارن نفسك بالماضي.","كافئ الالتزام."],"اكتب ثلاث مهارات تحسنت فيها هذا الشهر.","النجاح"],
+["كن صبورًا مع نفسك","التعلم يحتاج وقتًا ومحاولات متعددة خصوصًا في الموضوعات الصعبة.",["تقبل البطء.","كرر التدريب.","اطلب المساعدة عند الحاجة."],"قد تحتاج عدة جلسات لفهم موضوع جديد وهذا طبيعي.","النجاح"],
+["لا تجعل يومًا سيئًا يوقفك","التعثر ليوم واحد لا يعني أن الخطة فشلت.",["اعترف بالتعثر.","عد في اليوم التالي.","ابدأ بمهمة صغيرة."],"إذا ضاع يوم، لا تضيع الأسبوع كله.","النجاح"],
+["أنهِ الجلسة بنقطة بداية للجلسة القادمة","معرفة أين ستبدأ لاحقًا تجعل العودة أسرع.",["اكتب نقطة التوقف.","احفظ ملفاتك.","جهز المهمة التالية."],"اكتب: الجلسة القادمة تبدأ من السؤال 16.","إدارة الوقت"],
+["جهز أدواتك قبل الدراسة","التجهيز المسبق يمنع إضاعة وقت التركيز في البحث عن الأدوات.",["حدد ما تحتاجه.","ضعه قربك.","ابدأ مباشرة."],"كتاب ودفتر وقلم وماء قبل الجلسة.","إدارة الوقت"],
+["استعمل قاعدة مهمة واحدة","العمل على مهمة واحدة في اللحظة نفسها يقلل التنقل الذهني.",["اختر المهمة.","أبعد غيرها.","أكمل الجزء المحدد."],"في جلسة الرياضيات لا تفتح الأحياء.","التركيز"],
+["اختبر نفسك تحت وقت","التدرب مع الوقت يكشف سرعتك ويعلمك توزيع الدقائق.",["حدد عدد الأسئلة.","حدد الزمن.","حل ثم صحح."],"20 سؤالًا في 30 دقيقة.","الدراسة"],
+["اكتب خطة للاختبار","الخطة تحول الأيام المتاحة إلى خطوات واضحة.",["حدد الموعد.","قسم المواضيع.","وزع الأيام.","اترك مراجعة نهائية."],"موضوع يوميًا ثم يوم للأسئلة.","إدارة الوقت"],
+["راجع أصعب نقطة أولًا","معالجة أكبر نقطة ضعف مبكرًا تعطيك وقتًا للتدريب.",["حدد الأصعب.","خصص له جلسة.","اختبر نفسك بعد الجلسة."],"ابدأ بالدرس الذي أخطأت فيه أكثر.","الدراسة"],
+["استخدم دفتر مراجعة سريع","ملخص القوانين والمفاهيم في مكان واحد يسهل المراجعة الأخيرة.",["اكتب المختصر.","حدّثه بعد الدرس.","راجعه قبل الاختبار."],"دفتر صغير للقوانين والتعريفات.","الدراسة"],
+["وازن بين الدراسة والراحة","التوازن يساعدك على الاستمرار دون أن تجعل يومك كله ضغطًا.",["حدد أهداف الدراسة.","حدد وقت الراحة.","التزم بالاثنين."],"بعد إنجاز أهدافك اليومية خصص وقتًا للعائلة أو الهواية.","الصحة"]
+].map((x,i)=>({id:i+1,title:x[0],why:x[1],how:x[2],example:x[3],category:x[4]}));
+
+const methods=[
+{icon:"🍅",title:"بومودورو",desc:"جلسات تركيز قصيرة تتخللها استراحات.",steps:["اختر مهمة واحدة.","ادرس 25 دقيقة.","استرح 5 دقائق.","كرر أربع دورات.","خذ استراحة أطول."],when:"مناسبة عند المماطلة أو صعوبة بدء الدراسة."},
+{icon:"🧠",title:"الاستدعاء النشط",desc:"استرجاع المعلومة من الذاكرة بدل إعادة القراءة.",steps:["اقرأ الموضوع.","أغلق الكتاب.","اكتب أو قل ما تتذكره.","قارن بالمصدر.","أعد النقاط التي نسيتها."],when:"ممتاز للمراجعة والاختبارات."},
+{icon:"🔁",title:"التكرار المتباعد",desc:"مراجعة المعلومات على فترات متباعدة.",steps:["راجع اليوم.","راجع غدًا.","راجع بعد عدة أيام.","راجع بعد أسبوع.","زد الفاصل مع الإتقان."],when:"مفيد للحفظ والمصطلحات واللغات."},
+{icon:"👨‍🏫",title:"فاينمان",desc:"شرح الفكرة ببساطة لاكتشاف فجوات الفهم.",steps:["اختر مفهومًا.","اشرحه بلغة بسيطة.","حدد ما لم تستطع شرحه.","ارجع للمصدر.","أعد الشرح."],when:"مفيد للمفاهيم المعقدة والعلوم."},
+{icon:"🗂️",title:"ليتنر",desc:"تنظيم البطاقات حسب مستوى الإتقان.",steps:["ضع كل البطاقات في صندوق البداية.","انقل الصحيحة لصندوق لاحق.","أعد الخاطئة للصندوق الأول.","راجع الصناديق وفق جدول."],when:"مفيد للمفردات والتعريفات."},
+{icon:"📝",title:"كورنيل",desc:"ملاحظات + أسئلة + ملخص في صفحة منظمة.",steps:["اكتب الملاحظات الرئيسية.","ضع أسئلة في الهامش.","اكتب ملخصًا أسفل الصفحة.","اختبر نفسك بأسئلة الهامش."],when:"مفيد للمحاضرات والدروس النظرية."},
+{icon:"📖",title:"SQ3R",desc:"تصفح، اسأل، اقرأ، استرجع، راجع.",steps:["تصفح الفصل.","حوّل العناوين إلى أسئلة.","اقرأ للبحث عن الإجابات.","استرجع دون كتاب.","راجع."],when:"مفيد للفصول والكتب الطويلة."},
+{icon:"🗺️",title:"الخريطة الذهنية",desc:"ربط الأفكار في مخطط بصري.",steps:["ضع الموضوع في المنتصف.","أضف الفروع الرئيسية.","أضف التفاصيل.","اربط العلاقات."],when:"مفيد للموضوعات التي فيها علاقات وأجزاء كثيرة."},
+{icon:"🔀",title:"المزج بين الأسئلة",desc:"التنقل بين أنواع مختلفة من المسائل.",steps:["اختر عدة أنواع من الأسئلة.","امزجها بدل حل نوع واحد.","حدد طريقة الحل لكل سؤال.","راجع الأخطاء."],when:"مفيد خصوصًا للمواد التي تتعدد فيها طرق الحل."},
+{icon:"🗣️",title:"الشرح للآخرين",desc:"تعلم ثم اشرح لشخص آخر دون الكتاب.",steps:["تعلم المفهوم.","أغلق المصدر.","اشرح بصوتك.","اسمح بالأسئلة.","راجع النقاط الناقصة."],when:"مفيد لتثبيت الفهم والاستعداد للمناقشات."}
+];
+
+let favorites=JSON.parse(localStorage.getItem('studentFavorites')||'[]');
+let done=JSON.parse(localStorage.getItem('studentDone')||'[]');
+let category='الكل', currentId=null;
+const grid=document.getElementById('grid'), search=document.getElementById('search'), count=document.getElementById('count'), modal=document.getElementById('modal');
+function renderMethods(){document.getElementById('methods').innerHTML=methods.map((m,i)=>`<article class="method" onclick="openMethod(${i})"><div class="methodIcon">${m.icon}</div><h3>${m.title}</h3><p>${m.desc}</p></article>`).join('')}
+function render(){const q=search.value.trim().toLowerCase();const data=tips.filter(t=>(category==='الكل'||t.category===category)&&(t.title+' '+t.why+' '+t.how.join(' ')+' '+t.example).toLowerCase().includes(q));grid.innerHTML=data.length?data.map(t=>`<article class="card" onclick="openTip(${t.id})"><div class="top"><div class="badgeNum">${t.id}</div><button class="heart ${favorites.includes(t.id)?'active':''}" onclick="event.stopPropagation();toggleFav(${t.id})">${favorites.includes(t.id)?'❤️':'🤍'}</button></div><h3>${t.title}</h3><p class="why">${t.why}</p><div class="howPreview"><b>🎯 التطبيق:</b> ${t.how[0]}</div><span class="tag">${t.category}</span></article>`).join(''):'<div class="empty"><div class="emptyIcon">🔎</div><h3>لم نجد نصائح مطابقة</h3><p>جرّب كلمة أخرى أو غير التصنيف.</p></div>';count.textContent=`عرض ${data.length} من أصل ${tips.length} نصيحة`;updateStats()}
+function updateStats(){document.getElementById('favCount').textContent=favorites.length;document.getElementById('doneCount').textContent=done.length}
+function openTip(id){const t=tips[id-1];if(!t)return;currentId=id;document.getElementById('mLabel').textContent=`النصيحة رقم ${id} • ${t.category}`;document.getElementById('mTitle').textContent=t.title;document.getElementById('mWhy').textContent=t.why;document.getElementById('mSteps').innerHTML=t.how.map((s,i)=>`<div class="step"><b>الخطوة ${i+1}:</b> ${s}</div>`).join('');document.getElementById('mExample').textContent=t.example;document.getElementById('mFav').style.display='inline-block';document.getElementById('mDone').style.display='inline-block';updateModalButtons();modal.classList.add('show')}
+function openMethod(i){const m=methods[i];currentId=null;document.getElementById('mLabel').textContent='طريقة دراسة';document.getElementById('mTitle').textContent=`${m.icon} ${m.title}`;document.getElementById('mWhy').textContent=m.desc;document.getElementById('mSteps').innerHTML=m.steps.map((s,i)=>`<div class="step"><b>الخطوة ${i+1}:</b> ${s}</div>`).join('');document.getElementById('mExample').textContent=m.when;document.getElementById('mFav').style.display='none';document.getElementById('mDone').style.display='none';modal.classList.add('show')}
+function updateModalButtons(){if(currentId===null)return;document.getElementById('mFav').textContent=favorites.includes(currentId)?'❤️ إزالة من المفضلة':'🤍 إضافة إلى المفضلة';const isDone=done.includes(currentId);document.getElementById('mDone').textContent=isDone?'✅ تم تطبيقها':'☐ لم أطبقها بعد';document.getElementById('mDone').className='action '+(isDone?'done':'secondary')}
+function toggleFav(id){favorites=favorites.includes(id)?favorites.filter(x=>x!==id):[...favorites,id];localStorage.setItem('studentFavorites',JSON.stringify(favorites));render();if(currentId===id)updateModalButtons()}
+function toggleCurrentFav(){if(currentId)toggleFav(currentId)}
+function toggleDone(id){done=done.includes(id)?done.filter(x=>x!==id):[...done,id];localStorage.setItem('studentDone',JSON.stringify(done));updateStats();if(currentId===id)updateModalButtons()}
+function toggleCurrentDone(){if(currentId)toggleDone(currentId)}
+function randomTip(){openTip(Math.floor(Math.random()*tips.length)+1)}
+function getDaily(){return tips[(new Date().getDate()-1)%tips.length]}
+function openDaily(){openTip(getDaily().id)}
+function renderDaily(){const t=getDaily();document.getElementById('dailyTitle').textContent=t.title;document.getElementById('dailyText').textContent=t.why}
+function closeModal(){modal.classList.remove('show');currentId=null}
+function goTips(){document.getElementById('tipsAnchor').scrollIntoView({behavior:'smooth'})}
+search.addEventListener('input',render);
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');category=b.dataset.cat;render()}));
+document.getElementById('favBtn').addEventListener('click',()=>{const fav=tips.filter(t=>favorites.includes(t.id));grid.innerHTML=fav.length?fav.map(t=>`<article class="card" onclick="openTip(${t.id})"><div class="top"><div class="badgeNum">${t.id}</div><button class="heart active" onclick="event.stopPropagation();toggleFav(${t.id})">❤️</button></div><h3>${t.title}</h3><p class="why">${t.why}</p><div class="howPreview"><b>🎯 التطبيق:</b> ${t.how[0]}</div><span class="tag">${t.category}</span></article>`).join(''):'<div class="empty"><div class="emptyIcon">❤️</div><h3>لا توجد نصائح محفوظة</h3><p>اضغط على ❤️ في أي نصيحة لإضافتها.</p></div>';count.textContent=`عرض ${fav.length} نصيحة محفوظة`;document.getElementById('tipsAnchor').scrollIntoView({behavior:'smooth'})});
+document.getElementById('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('dark');localStorage.setItem('studentTheme',document.body.classList.contains('dark')?'dark':'light')});
+if(localStorage.getItem('studentTheme')==='dark')document.body.classList.add('dark');
+modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+renderMethods();renderDaily();render();updateStats();
+</script>
 </body>
 </html>
