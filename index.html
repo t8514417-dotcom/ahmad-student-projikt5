@@ -4,34 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#2563eb">
-<meta name="description" content="100 نصيحة للطالب - منصة الطالب التعليمية">
-<title>100 نصيحة للطالب | منصة الطالب</title>
+<meta name="description" content="منصة الطالب - أدوات الدراسة والتخطيط والاختبارات والمراجعة">
+<title>منصة الطالب | 100 نصيحة للطالب</title>
 
 <style>
 /* =========================================================
-   100 نصيحة للطالب
-   التصميم الرئيسي
-========================================================= */
+   منصة الطالب - إصدار شامل
+   ========================================================= */
 
 :root{
     --primary:#2563eb;
-    --primary-dark:#1d4ed8;
-    --secondary:#7c3aed;
+    --primary2:#4f46e5;
+    --secondary:#06b6d4;
     --success:#16a34a;
+    --warning:#f59e0b;
     --danger:#dc2626;
-    --warning:#d97706;
+    --purple:#7c3aed;
 
-    --bg:#f4f7fb;
+    --bg:#f5f7fb;
     --card:#ffffff;
     --text:#172033;
     --muted:#64748b;
     --border:#e2e8f0;
 
-    --sidebar:#0f172a;
-    --sidebar-text:#cbd5e1;
-
-    --radius:18px;
-    --shadow:0 8px 30px rgba(15,23,42,.08);
+    --shadow:0 10px 30px rgba(15,23,42,.08);
+    --radius:20px;
 }
 
 *{
@@ -46,19 +43,19 @@ html{
 
 body{
     font-family:
-        "Tahoma",
-        "Arial",
-        sans-serif;
+    "Segoe UI",
+    Tahoma,
+    Arial,
+    sans-serif;
     background:var(--bg);
     color:var(--text);
     line-height:1.7;
-    min-height:100vh;
 }
 
 button,
 input,
-textarea,
-select{
+select,
+textarea{
     font-family:inherit;
 }
 
@@ -67,274 +64,147 @@ button{
 }
 
 a{
-    text-decoration:none;
     color:inherit;
+    text-decoration:none;
 }
 
 /* =========================
-   الشاشة الرئيسية
+   HEADER
 ========================= */
 
-.app{
-    display:flex;
-    min-height:100vh;
-}
-
-/* =========================
-   الشريط الجانبي
-========================= */
-
-.sidebar{
-    width:270px;
-    background:var(--sidebar);
-    color:white;
-    position:fixed;
-    right:0;
+header{
+    position:sticky;
     top:0;
-    bottom:0;
-    overflow-y:auto;
     z-index:1000;
-    padding:20px 14px;
-    transition:.3s;
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(15px);
+    border-bottom:1px solid var(--border);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    min-height:72px;
+    padding:10px 20px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
 }
 
 .logo{
     display:flex;
     align-items:center;
-    gap:12px;
-    padding:10px 8px 22px;
-    border-bottom:1px solid rgba(255,255,255,.1);
-    margin-bottom:15px;
+    gap:10px;
+    font-weight:900;
+    font-size:20px;
 }
 
 .logo-icon{
-    width:48px;
-    height:48px;
-    border-radius:14px;
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    width:45px;
+    height:45px;
     display:grid;
     place-items:center;
-    font-size:24px;
+    border-radius:14px;
+    background:linear-gradient(135deg,var(--primary),var(--primary2));
+    color:white;
+    box-shadow:0 8px 20px rgba(37,99,235,.25);
 }
 
-.logo h1{
-    font-size:17px;
-}
-
-.logo small{
-    display:block;
-    color:#94a3b8;
-    font-size:11px;
-}
-
-.nav-section{
-    margin-top:18px;
-}
-
-.nav-title{
-    font-size:11px;
-    color:#64748b;
-    padding:5px 12px;
-    margin-bottom:5px;
-}
-
-.nav-btn{
-    width:100%;
-    display:flex;
-    align-items:center;
-    gap:10px;
-    color:var(--sidebar-text);
-    background:transparent;
-    border:0;
-    border-radius:12px;
-    padding:11px 13px;
-    margin-bottom:4px;
-    text-align:right;
-    font-size:14px;
-    transition:.2s;
-}
-
-.nav-btn:hover,
-.nav-btn.active{
-    background:#1e293b;
-    color:#fff;
-}
-
-.nav-icon{
-    width:24px;
-    text-align:center;
-}
-
-/* =========================
-   المحتوى
-========================= */
-
-.main{
-    width:calc(100% - 270px);
-    margin-right:270px;
-    min-width:0;
-}
-
-.topbar{
-    height:70px;
-    background:var(--card);
-    border-bottom:1px solid var(--border);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 28px;
-    position:sticky;
-    top:0;
-    z-index:500;
-}
-
-.topbar-title{
-    font-weight:bold;
-    font-size:18px;
-}
-
-.top-actions{
+.nav-actions{
     display:flex;
     gap:8px;
+    align-items:center;
 }
 
 .icon-btn{
+    width:43px;
+    height:43px;
     border:1px solid var(--border);
-    background:var(--card);
-    width:42px;
-    height:42px;
-    border-radius:12px;
+    background:white;
+    border-radius:13px;
     font-size:18px;
 }
 
-.icon-btn:hover{
-    background:#f1f5f9;
-}
-
-.menu-toggle{
+.menu-btn{
     display:none;
 }
 
-.content{
-    padding:28px;
-    max-width:1600px;
-    margin:auto;
-}
-
 /* =========================
-   الصفحات
-========================= */
-
-.page{
-    display:none;
-    animation:fade .25s ease;
-}
-
-.page.active{
-    display:block;
-}
-
-@keyframes fade{
-    from{
-        opacity:0;
-        transform:translateY(5px);
-    }
-    to{
-        opacity:1;
-        transform:none;
-    }
-}
-
-/* =========================
-   البطاقات
-========================= */
-
-.card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    padding:20px;
-}
-
-.card-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-    margin-bottom:16px;
-}
-
-.card-title h3{
-    font-size:17px;
-}
-
-.muted{
-    color:var(--muted);
-}
-
-/* =========================
-   الترحيب
+   HERO
 ========================= */
 
 .hero{
+    max-width:1400px;
+    margin:auto;
+    padding:55px 20px 30px;
+}
+
+.hero-box{
+    border-radius:30px;
+    padding:45px;
+    color:white;
     background:
-        linear-gradient(135deg,#1d4ed8,#4f46e5 55%,#7c3aed);
-    color:#fff;
-    border-radius:24px;
-    padding:30px;
-    margin-bottom:22px;
+      radial-gradient(circle at 90% 20%,rgba(255,255,255,.2),transparent 30%),
+      linear-gradient(135deg,#2563eb,#4f46e5 55%,#7c3aed);
     position:relative;
     overflow:hidden;
+    box-shadow:0 20px 50px rgba(37,99,235,.22);
 }
 
-.hero:after{
+.hero-box:after{
     content:"";
     position:absolute;
-    width:250px;
-    height:250px;
+    width:300px;
+    height:300px;
     border-radius:50%;
-    background:rgba(255,255,255,.08);
-    left:-70px;
-    bottom:-100px;
+    background:rgba(255,255,255,.07);
+    left:-100px;
+    bottom:-150px;
 }
 
-.hero-content{
-    position:relative;
-    z-index:2;
+.badge{
+    display:inline-flex;
+    padding:7px 12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.2);
+    margin-bottom:15px;
 }
 
-.hero h2{
-    font-size:28px;
-    margin-bottom:7px;
+.hero h1{
+    font-size:clamp(30px,5vw,58px);
+    line-height:1.15;
+    margin-bottom:15px;
 }
 
 .hero p{
-    color:#dbeafe;
-    max-width:700px;
+    max-width:800px;
+    color:#e0e7ff;
+    font-size:17px;
 }
 
-.hero-actions{
+.hero-buttons{
     display:flex;
-    gap:10px;
-    margin-top:20px;
     flex-wrap:wrap;
+    gap:10px;
+    margin-top:25px;
 }
 
 /* =========================
-   الأزرار
+   BUTTONS
 ========================= */
 
 .btn{
     border:0;
-    border-radius:12px;
-    padding:10px 16px;
-    font-size:14px;
+    padding:11px 17px;
+    border-radius:13px;
+    font-weight:800;
     transition:.2s;
 }
 
 .btn:hover{
-    transform:translateY(-1px);
+    transform:translateY(-2px);
 }
 
 .btn-primary{
@@ -342,17 +212,8 @@ a{
     color:white;
 }
 
-.btn-primary:hover{
-    background:var(--primary-dark);
-}
-
 .btn-success{
     background:var(--success);
-    color:white;
-}
-
-.btn-danger{
-    background:var(--danger);
     color:white;
 }
 
@@ -361,105 +222,186 @@ a{
     color:white;
 }
 
-.btn-light{
-    background:#f1f5f9;
-    color:var(--text);
+.btn-danger{
+    background:var(--danger);
+    color:white;
 }
 
-.btn-white{
-    background:#fff;
-    color:#1d4ed8;
+.btn-purple{
+    background:var(--purple);
+    color:white;
+}
+
+.btn-light{
+    background:white;
+    color:var(--text);
+    border:1px solid var(--border);
 }
 
 /* =========================
-   الإحصائيات
+   MAIN
 ========================= */
 
-.stats-grid{
+.container{
+    width:min(1400px,calc(100% - 30px));
+    margin:auto;
+}
+
+.section{
+    padding:25px 0;
+}
+
+.section-title{
+    margin-bottom:18px;
+}
+
+.section-title h2{
+    font-size:27px;
+}
+
+.section-title p{
+    color:var(--muted);
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
-    margin-bottom:22px;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
 }
 
 .stat{
-    display:flex;
-    align-items:center;
-    gap:14px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px;
+    box-shadow:var(--shadow);
 }
 
 .stat-icon{
-    width:52px;
-    height:52px;
-    border-radius:15px;
-    display:grid;
-    place-items:center;
-    background:#eff6ff;
-    font-size:24px;
+    font-size:25px;
 }
 
 .stat strong{
     display:block;
-    font-size:23px;
+    font-size:26px;
+    margin-top:5px;
 }
 
 .stat span{
     color:var(--muted);
-    font-size:12px;
+    font-size:13px;
 }
 
 /* =========================
-   الشبكات
+   GRID
 ========================= */
 
-.grid-2{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.grid-3{
+.grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:18px;
 }
 
-.grid-4{
+.grid-2{
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:15px;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
 }
 
-.section-gap{
-    margin-top:22px;
+.card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:22px;
+    box-shadow:var(--shadow);
+}
+
+.card h3{
+    margin-bottom:8px;
+}
+
+.muted{
+    color:var(--muted);
+}
+
+.card-icon{
+    font-size:32px;
+    margin-bottom:8px;
 }
 
 /* =========================
-   الحقول
+   DASHBOARD
+========================= */
+
+.dashboard{
+    display:grid;
+    grid-template-columns:2fr 1fr;
+    gap:18px;
+}
+
+.progress{
+    height:12px;
+    background:#e5e7eb;
+    border-radius:20px;
+    overflow:hidden;
+    margin:10px 0;
+}
+
+.progress span{
+    display:block;
+    height:100%;
+    background:linear-gradient(90deg,var(--primary),var(--secondary));
+    border-radius:20px;
+    transition:.5s;
+}
+
+.dashboard-list{
+    list-style:none;
+}
+
+.dashboard-list li{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 0;
+    border-bottom:1px solid var(--border);
+}
+
+/* =========================
+   INPUTS
 ========================= */
 
 .form-group{
-    margin-bottom:14px;
+    margin-bottom:13px;
 }
 
-.form-group label{
+label{
     display:block;
-    margin-bottom:6px;
-    font-size:13px;
-    font-weight:bold;
+    margin-bottom:5px;
+    font-weight:700;
 }
 
 input,
-textarea,
-select{
+select,
+textarea{
     width:100%;
-    padding:11px 13px;
+    padding:12px 13px;
     border:1px solid var(--border);
-    background:var(--card);
+    border-radius:12px;
+    background:white;
     color:var(--text);
-    border-radius:11px;
     outline:none;
-    font-size:14px;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:var(--primary);
+    box-shadow:0 0 0 3px rgba(37,99,235,.1);
 }
 
 textarea{
@@ -467,387 +409,356 @@ textarea{
     resize:vertical;
 }
 
-input:focus,
-textarea:focus,
-select:focus{
-    border-color:var(--primary);
-    box-shadow:0 0 0 3px rgba(37,99,235,.1);
-}
+/* =========================
+   QUICK ACTIONS
+========================= */
 
-.form-row{
+.quick-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(6,1fr);
     gap:12px;
 }
 
-/* =========================
-   النصائح
-========================= */
-
-.tip-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-}
-
-.tip-card{
-    background:var(--card);
+.quick{
+    padding:18px 10px;
+    text-align:center;
     border:1px solid var(--border);
-    border-radius:16px;
-    padding:18px;
+    background:white;
+    border-radius:17px;
     transition:.2s;
 }
 
-.tip-card:hover{
-    transform:translateY(-3px);
+.quick:hover{
+    transform:translateY(-4px);
     box-shadow:var(--shadow);
 }
 
-.tip-number{
-    width:36px;
-    height:36px;
-    border-radius:10px;
-    background:#eff6ff;
-    color:var(--primary);
-    display:grid;
-    place-items:center;
-    font-weight:bold;
-    margin-bottom:12px;
-}
-
-.tip-card h3{
-    font-size:15px;
-    margin-bottom:7px;
-}
-
-.tip-card p{
-    color:var(--muted);
-    font-size:13px;
-}
-
-.tip-actions{
-    margin-top:13px;
-    display:flex;
-    gap:7px;
+.quick div{
+    font-size:28px;
 }
 
 /* =========================
-   البحث
+   TABS
 ========================= */
 
-.search-box{
-    position:relative;
-    margin-bottom:18px;
-}
-
-.search-box input{
-    padding-right:42px;
-}
-
-.search-icon{
-    position:absolute;
-    right:14px;
-    top:50%;
-    transform:translateY(-50%);
-}
-
-/* =========================
-   التصنيفات
-========================= */
-
-.filters{
+.tabs{
     display:flex;
+    flex-wrap:wrap;
     gap:8px;
-    overflow:auto;
-    padding-bottom:8px;
     margin-bottom:15px;
 }
 
-.filter{
+.tab{
     border:1px solid var(--border);
-    background:var(--card);
-    border-radius:20px;
-    padding:7px 13px;
-    white-space:nowrap;
+    background:white;
+    padding:9px 14px;
+    border-radius:12px;
+    font-weight:700;
 }
 
-.filter.active{
+.tab.active{
     background:var(--primary);
     color:white;
     border-color:var(--primary);
 }
 
 /* =========================
-   المهام
+   TIPS
 ========================= */
 
-.task-list{
+.search-row{
     display:flex;
-    flex-direction:column;
-    gap:9px;
-}
-
-.task{
-    display:flex;
-    align-items:center;
     gap:10px;
+    margin-bottom:15px;
+}
+
+.tip-list{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:13px;
+}
+
+.tip{
     border:1px solid var(--border);
-    border-radius:12px;
-    padding:11px;
+    padding:17px;
+    border-radius:16px;
+    background:white;
 }
 
-.task.done{
-    opacity:.6;
+.tip-head{
+    display:flex;
+    justify-content:space-between;
+    gap:10px;
 }
 
-.task.done .task-name{
-    text-decoration:line-through;
+.tip-number{
+    color:var(--primary);
+    font-weight:900;
 }
 
-.task-check{
-    width:20px;
-    height:20px;
-    accent-color:var(--primary);
+.tip-actions{
+    display:flex;
+    gap:6px;
+    margin-top:12px;
 }
 
-.task-name{
-    flex:1;
-}
-
-.task-date{
-    color:var(--muted);
-    font-size:11px;
+.small-btn{
+    border:1px solid var(--border);
+    background:white;
+    border-radius:10px;
+    padding:7px 10px;
 }
 
 /* =========================
-   Pomodoro
+   TIMER
 ========================= */
 
 .timer{
     text-align:center;
-    padding:25px;
 }
 
-.timer-circle{
-    width:240px;
-    height:240px;
-    border-radius:50%;
-    margin:15px auto 25px;
-    display:grid;
-    place-items:center;
-    border:12px solid #dbeafe;
-    background:#f8fbff;
-}
-
-.timer-time{
-    font-size:42px;
-    font-weight:bold;
+.timer-display{
+    font-size:65px;
+    font-weight:900;
     direction:ltr;
+    margin:15px 0;
 }
 
 .timer-mode{
-    color:var(--primary);
-    font-weight:bold;
-}
-
-.timer-buttons{
     display:flex;
     justify-content:center;
-    gap:8px;
     flex-wrap:wrap;
+    gap:7px;
 }
 
 /* =========================
-   progress
+   TASKS
 ========================= */
 
-.progress{
-    height:10px;
-    background:#e2e8f0;
-    border-radius:10px;
-    overflow:hidden;
+.task{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    padding:13px 0;
+    border-bottom:1px solid var(--border);
 }
 
-.progress-bar{
-    height:100%;
-    background:linear-gradient(90deg,#2563eb,#7c3aed);
-    border-radius:inherit;
-    transition:.4s;
+.task.done{
+    opacity:.55;
+    text-decoration:line-through;
+}
+
+.task-check{
+    width:23px;
+    height:23px;
+    margin-top:4px;
+}
+
+.task-main{
+    flex:1;
+}
+
+.priority{
+    display:inline-block;
+    padding:3px 8px;
+    border-radius:999px;
+    font-size:11px;
+    margin-top:4px;
+}
+
+.high{
+    background:#fee2e2;
+    color:#b91c1c;
+}
+
+.medium{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.low{
+    background:#dcfce7;
+    color:#166534;
 }
 
 /* =========================
-   الملاحظات
+   SUBJECTS
 ========================= */
 
-.note{
-    border:1px solid var(--border);
-    padding:14px;
-    border-radius:13px;
-}
-
-.note h4{
-    margin-bottom:5px;
-}
-
-.note small{
-    color:var(--muted);
-}
-
-/* =========================
-   الاختبارات
-========================= */
-
-.quiz-option{
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:12px;
-    margin-top:8px;
-    cursor:pointer;
-}
-
-.quiz-option:hover{
-    background:#f8fafc;
-}
-
-.quiz-option.selected{
-    border-color:var(--primary);
-    background:#eff6ff;
-}
-
-.quiz-result{
-    text-align:center;
-    padding:20px;
-}
-
-/* =========================
-   الإنجازات
-========================= */
-
-.badges{
+.subject-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
-.badge{
+.subject{
+    padding:18px;
+    border-radius:17px;
+    background:linear-gradient(135deg,#fff,#f8fafc);
+    border:1px solid var(--border);
+}
+
+.subject .emoji{
+    font-size:30px;
+}
+
+/* =========================
+   STUDY PLAN
+========================= */
+
+.plan-day{
     border:1px solid var(--border);
     border-radius:15px;
     padding:15px;
+    margin-bottom:10px;
+}
+
+.plan-day h4{
+    color:var(--primary);
+}
+
+.plan-item{
+    padding:7px 0;
+}
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-option{
+    display:block;
+    width:100%;
+    text-align:right;
+    border:1px solid var(--border);
+    background:white;
+    padding:13px;
+    border-radius:12px;
+    margin:8px 0;
+}
+
+.quiz-option:hover{
+    border-color:var(--primary);
+}
+
+.quiz-option.correct{
+    background:#dcfce7;
+    border-color:#16a34a;
+}
+
+.quiz-option.wrong{
+    background:#fee2e2;
+    border-color:#dc2626;
+}
+
+/* =========================
+   FLASHCARDS
+========================= */
+
+.flashcard{
+    min-height:220px;
+    border-radius:20px;
+    padding:30px;
+    background:linear-gradient(135deg,#eef2ff,#ecfeff);
+    display:grid;
+    place-items:center;
     text-align:center;
+    font-size:24px;
+    font-weight:900;
 }
 
-.badge-icon{
-    font-size:30px;
-    margin-bottom:5px;
+/* =========================
+   ACHIEVEMENTS
+========================= */
+
+.achievement-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
 }
 
-.badge.locked{
+.achievement{
+    text-align:center;
+    border:1px solid var(--border);
+    border-radius:17px;
+    padding:20px;
+    background:white;
+}
+
+.achievement.locked{
     filter:grayscale(1);
     opacity:.45;
 }
 
-/* =========================
-   المساعد
-========================= */
-
-.ai-box{
-    height:450px;
-    display:flex;
-    flex-direction:column;
+.achievement-icon{
+    font-size:38px;
 }
 
-.ai-messages{
-    flex:1;
+/* =========================
+   TOOLS
+========================= */
+
+.tool-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.result{
+    margin-top:12px;
+    padding:12px;
+    border-radius:12px;
+    background:#eff6ff;
+    color:#1e40af;
+    font-weight:800;
+}
+
+/* =========================
+   NOTES
+========================= */
+
+.note{
+    border:1px solid var(--border);
+    border-radius:15px;
+    padding:15px;
+    margin-bottom:10px;
+}
+
+.note-actions{
+    margin-top:10px;
+}
+
+/* =========================
+   AI
+========================= */
+
+.chat{
+    height:390px;
     overflow:auto;
     padding:10px;
     background:#f8fafc;
-    border-radius:13px;
-    margin-bottom:10px;
+    border-radius:15px;
 }
 
 .message{
     max-width:80%;
-    padding:10px 13px;
-    border-radius:13px;
-    margin-bottom:9px;
-    font-size:13px;
+    padding:11px 14px;
+    border-radius:15px;
+    margin-bottom:10px;
 }
 
-.message.ai{
-    background:#fff;
+.bot{
+    background:white;
     border:1px solid var(--border);
 }
 
-.message.user{
-    background:#2563eb;
-    color:#fff;
+.user{
+    background:var(--primary);
+    color:white;
     margin-right:auto;
 }
 
 /* =========================
-   الأدوات
-========================= */
-
-.tool-card{
-    display:flex;
-    gap:12px;
-    align-items:flex-start;
-}
-
-.tool-icon{
-    font-size:25px;
-}
-
-/* =========================
-   الجداول
-========================= */
-
-.table-wrap{
-    overflow:auto;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-th,
-td{
-    padding:11px;
-    border-bottom:1px solid var(--border);
-    text-align:right;
-    font-size:13px;
-}
-
-th{
-    background:#f8fafc;
-}
-
-/* =========================
-   الإشعارات
-========================= */
-
-.toast{
-    position:fixed;
-    left:20px;
-    bottom:20px;
-    background:#0f172a;
-    color:#fff;
-    padding:13px 17px;
-    border-radius:12px;
-    z-index:5000;
-    transform:translateY(100px);
-    opacity:0;
-    transition:.3s;
-}
-
-.toast.show{
-    transform:none;
-    opacity:1;
-}
-
-/* =========================
-   نافذة
+   MODAL
 ========================= */
 
 .modal{
@@ -858,198 +769,225 @@ th{
     align-items:center;
     justify-content:center;
     padding:15px;
-    z-index:3000;
+    z-index:2000;
 }
 
 .modal.show{
     display:flex;
 }
 
-.modal-content{
-    width:min(600px,100%);
+.modal-box{
+    width:min(700px,100%);
     max-height:90vh;
     overflow:auto;
-    background:var(--card);
-    border-radius:20px;
-    padding:22px;
-}
-
-.modal-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:15px;
+    background:white;
+    border-radius:22px;
+    padding:25px;
 }
 
 /* =========================
-   الوضع الليلي
+   TOAST
+========================= */
+
+.toast{
+    position:fixed;
+    bottom:20px;
+    left:20px;
+    background:#111827;
+    color:white;
+    padding:13px 18px;
+    border-radius:13px;
+    opacity:0;
+    transform:translateY(20px);
+    pointer-events:none;
+    transition:.3s;
+    z-index:3000;
+}
+
+.toast.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    margin-top:50px;
+    background:#0f172a;
+    color:#cbd5e1;
+    padding:40px 20px;
+}
+
+.footer-inner{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:30px;
+}
+
+.footer-title{
+    color:white;
+    font-weight:900;
+    margin-bottom:10px;
+}
+
+/* =========================
+   DARK MODE
 ========================= */
 
 body.dark{
-    --bg:#020617;
-    --card:#0f172a;
-    --text:#e2e8f0;
+    --bg:#0b1120;
+    --card:#111827;
+    --text:#f8fafc;
     --muted:#94a3b8;
-    --border:#1e293b;
+    --border:#263244;
 }
 
-body.dark .stat-icon{
+body.dark header,
+body.dark input,
+body.dark select,
+body.dark textarea,
+body.dark .quick,
+body.dark .tip,
+body.dark .card,
+body.dark .stat,
+body.dark .subject,
+body.dark .achievement,
+body.dark .quiz-option,
+body.dark .small-btn,
+body.dark .tab{
+    background:#111827;
+    color:#f8fafc;
+}
+
+body.dark .chat{
+    background:#0f172a;
+}
+
+body.dark .flashcard{
     background:#172554;
 }
 
-body.dark .quiz-option:hover{
-    background:#1e293b;
-}
-
-body.dark th{
-    background:#1e293b;
-}
-
-body.dark .ai-messages{
-    background:#020617;
-}
-
 /* =========================
-   شريط الجوال
+   MOBILE
 ========================= */
 
-.mobile-bottom{
-    display:none;
-}
+@media(max-width:1100px){
+    .stats{
+        grid-template-columns:repeat(3,1fr);
+    }
 
-/* =========================
-   responsive
-========================= */
+    .quick-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
 
-@media(max-width:1200px){
-    .stats-grid{
+    .subject-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .grid-4{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .tip-grid{
+    .achievement-grid{
         grid-template-columns:repeat(2,1fr);
     }
 }
 
-@media(max-width:850px){
-
-    .sidebar{
-        transform:translateX(100%);
-        box-shadow:0 0 30px rgba(0,0,0,.2);
+@media(max-width:800px){
+    .hero-box{
+        padding:30px 22px;
     }
 
-    .sidebar.open{
-        transform:none;
+    .dashboard,
+    .grid-2,
+    .grid{
+        grid-template-columns:1fr;
     }
 
-    .main{
-        width:100%;
-        margin-right:0;
+    .tool-grid{
+        grid-template-columns:1fr;
     }
 
-    .menu-toggle{
-        display:grid;
+    .tip-list{
+        grid-template-columns:1fr;
     }
 
-    .topbar{
-        padding:0 15px;
+    .footer-inner{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+    .navbar{
+        min-height:60px;
+        padding:8px 12px;
     }
 
-    .content{
-        padding:15px;
-        padding-bottom:85px;
+    .logo{
+        font-size:16px;
+    }
+
+    .logo-icon{
+        width:38px;
+        height:38px;
+    }
+
+    .menu-btn{
+        display:block;
     }
 
     .hero{
-        padding:22px;
+        padding:20px 10px;
     }
 
-    .hero h2{
-        font-size:23px;
+    .hero-box{
+        border-radius:22px;
+        padding:25px 18px;
     }
 
-    .grid-2,
-    .grid-3,
-    .tip-grid{
-        grid-template-columns:1fr;
+    .container{
+        width:min(100% - 18px,1400px);
     }
 
-    .stats-grid{
+    .stats{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .badges{
+    .quick-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .mobile-bottom{
-        display:flex;
-        position:fixed;
-        bottom:0;
-        left:0;
-        right:0;
-        height:65px;
-        background:var(--card);
-        border-top:1px solid var(--border);
-        z-index:2000;
-        justify-content:space-around;
-        padding:6px;
-    }
-
-    .mobile-bottom button{
-        border:0;
-        background:transparent;
-        color:var(--muted);
-        font-size:10px;
-        min-width:55px;
-    }
-
-    .mobile-bottom button span{
-        display:block;
-        font-size:20px;
-    }
-}
-
-@media(max-width:500px){
-
-    .stats-grid{
+    .subject-grid{
         grid-template-columns:1fr 1fr;
-        gap:9px;
     }
 
-    .stat{
-        padding:13px;
+    .achievement-grid{
+        grid-template-columns:1fr 1fr;
     }
 
-    .stat-icon{
-        width:42px;
-        height:42px;
-        font-size:19px;
+    .search-row{
+        flex-direction:column;
     }
 
-    .stat strong{
-        font-size:19px;
+    .timer-display{
+        font-size:48px;
     }
 
-    .form-row{
-        grid-template-columns:1fr;
+    .card{
+        padding:16px;
+        border-radius:16px;
     }
 
-    .timer-circle{
-        width:200px;
-        height:200px;
+    .section{
+        padding:16px 0;
     }
 
-    .timer-time{
+    .hero h1{
         font-size:34px;
     }
 
-    .topbar-title{
-        font-size:15px;
+    .btn{
+        width:auto;
     }
 }
 </style>
@@ -1057,3637 +995,2423 @@ body.dark .ai-messages{
 
 <body>
 
-<div class="app">
-
 <!-- =====================================================
-     SIDEBAR
+     HEADER
 ===================================================== -->
 
-<aside class="sidebar" id="sidebar">
+<header>
+<div class="navbar">
 
-    <div class="logo">
-        <div class="logo-icon">🎓</div>
-        <div>
-            <h1>100 نصيحة للطالب</h1>
-            <small>منصة الطالب الذكية</small>
-        </div>
+    <a href="#home" class="logo">
+        <span class="logo-icon">🎓</span>
+        <span>منصة الطالب</span>
+    </a>
+
+    <div class="nav-actions">
+        <button class="icon-btn" onclick="toggleDark()" title="الوضع الليلي">🌙</button>
+        <button class="icon-btn" onclick="showSection('assistant')" title="المساعد">🤖</button>
+        <button class="icon-btn menu-btn" onclick="scrollToId('tools')" title="الأدوات">☰</button>
     </div>
 
-    <div class="nav-section">
-        <div class="nav-title">الرئيسية</div>
-
-        <button class="nav-btn active" data-page="dashboard">
-            <span class="nav-icon">🏠</span> لوحة التحكم
-        </button>
-
-        <button class="nav-btn" data-page="tips">
-            <span class="nav-icon">💡</span> 100 نصيحة
-        </button>
-
-        <button class="nav-btn" data-page="study">
-            <span class="nav-icon">📚</span> الدراسة
-        </button>
-
-        <button class="nav-btn" data-page="planner">
-            <span class="nav-icon">📅</span> مخطط الدراسة
-        </button>
-    </div>
-
-    <div class="nav-section">
-        <div class="nav-title">أدوات الدراسة</div>
-
-        <button class="nav-btn" data-page="pomodoro">
-            <span class="nav-icon">⏱️</span> بومودورو
-        </button>
-
-        <button class="nav-btn" data-page="tasks">
-            <span class="nav-icon">✅</span> المهام
-        </button>
-
-        <button class="nav-btn" data-page="quiz">
-            <span class="nav-icon">📝</span> الاختبارات
-        </button>
-
-        <button class="nav-btn" data-page="flashcards">
-            <span class="nav-icon">🗂️</span> البطاقات
-        </button>
-
-        <button class="nav-btn" data-page="notes">
-            <span class="nav-icon">📒</span> الملاحظات
-        </button>
-    </div>
-
-    <div class="nav-section">
-        <div class="nav-title">المنهج العراقي</div>
-
-        <button class="nav-btn" data-page="iraq">
-            <span class="nav-icon">🇮🇶</span> المنهج والكتب
-        </button>
-
-        <button class="nav-btn" data-page="methods">
-            <span class="nav-icon">🧠</span> طرق الدراسة
-        </button>
-    </div>
-
-    <div class="nav-section">
-        <div class="nav-title">المساعدة</div>
-
-        <button class="nav-btn" data-page="assistant">
-            <span class="nav-icon">🤖</span> مساعد الطالب
-        </button>
-
-        <button class="nav-btn" data-page="tools">
-            <span class="nav-icon">🧮</span> الحاسبات
-        </button>
-
-        <button class="nav-btn" data-page="stats">
-            <span class="nav-icon">📊</span> الإحصائيات
-        </button>
-
-        <button class="nav-btn" data-page="achievements">
-            <span class="nav-icon">🏆</span> الإنجازات
-        </button>
-
-        <button class="nav-btn" data-page="settings">
-            <span class="nav-icon">⚙️</span> الإعدادات
-        </button>
-    </div>
-
-</aside>
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main class="main">
-
-<header class="topbar">
-
-    <div style="display:flex;align-items:center;gap:10px">
-
-        <button class="icon-btn menu-toggle" id="menuToggle">
-            ☰
-        </button>
-
-        <div class="topbar-title" id="pageTitle">
-            لوحة التحكم
-        </div>
-
-    </div>
-
-    <div class="top-actions">
-
-        <button class="icon-btn" id="themeBtn" title="الوضع الليلي">
-            🌙
-        </button>
-
-        <button class="icon-btn" id="fontBtn" title="تكبير الخط">
-            🔤
-        </button>
-
-    </div>
-
+</div>
 </header>
 
-
-<div class="content">
-
 <!-- =====================================================
-     DASHBOARD
+     HERO
 ===================================================== -->
 
-<section class="page active" id="dashboard">
+<section class="hero" id="home">
 
-    <div class="hero">
+<div class="hero-box">
 
-        <div class="hero-content">
+    <span class="badge">🚀 الإصدار الشامل الجديد</span>
 
-            <h2 id="welcomeText">أهلًا بك في منصة الطالب 👋</h2>
+    <h1>كل ما يحتاجه الطالب في مكان واحد</h1>
 
-            <p>
-                كل ما تحتاجه للدراسة وتنظيم الوقت والمراجعة
-                والاختبارات في مكان واحد.
-            </p>
+    <p>
+        منصة عربية متكاملة للدراسة وتنظيم الوقت والاختبارات
+        والمراجعة والملاحظات والخطط والإنجازات والمناهج.
+    </p>
 
-            <div class="hero-actions">
+    <div class="hero-buttons">
+        <button class="btn btn-light" onclick="scrollToId('dashboard')">
+            📊 لوحة الطالب
+        </button>
 
-                <button class="btn btn-white"
-                        onclick="showPage('study')">
-                    📚 ابدأ الدراسة
-                </button>
+        <button class="btn btn-light" onclick="startPomodoro()">
+            🍅 ابدأ الدراسة
+        </button>
 
-                <button class="btn btn-white"
-                        onclick="showPage('pomodoro')">
-                    ⏱️ ابدأ جلسة
-                </button>
-
-            </div>
-
-        </div>
-
+        <button class="btn btn-light" onclick="scrollToId('assistant')">
+            🤖 مساعد الطالب
+        </button>
     </div>
 
-
-    <div class="stats-grid">
-
-        <div class="card stat">
-            <div class="stat-icon">📚</div>
-            <div>
-                <strong id="statStudy">0</strong>
-                <span>جلسات الدراسة</span>
-            </div>
-        </div>
-
-        <div class="card stat">
-            <div class="stat-icon">✅</div>
-            <div>
-                <strong id="statTasks">0</strong>
-                <span>المهام المكتملة</span>
-            </div>
-        </div>
-
-        <div class="card stat">
-            <div class="stat-icon">🔥</div>
-            <div>
-                <strong id="statStreak">0</strong>
-                <span>أيام متتالية</span>
-            </div>
-        </div>
-
-        <div class="card stat">
-            <div class="stat-icon">⭐</div>
-            <div>
-                <strong id="statXP">0</strong>
-                <span>نقاط XP</span>
-            </div>
-        </div>
-
-    </div>
-
-
-    <div class="grid-2">
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>🎯 هدفك اليوم</h3>
-                <button class="btn btn-light"
-                        onclick="showPage('planner')">
-                    تعديل
-                </button>
-            </div>
-
-            <div style="font-size:26px;font-weight:bold"
-                 id="todayGoal">
-                لم تحدد هدفًا بعد
-            </div>
-
-            <div style="margin:12px 0"
-                 class="progress">
-
-                <div class="progress-bar"
-                     id="todayProgress"
-                     style="width:0%">
-                </div>
-
-            </div>
-
-            <small class="muted"
-                   id="todayProgressText">
-                0% من الهدف
-            </small>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>⚡ إجراءات سريعة</h3>
-            </div>
-
-            <div class="grid-2">
-
-                <button class="btn btn-light"
-                        onclick="showPage('tasks')">
-                    ➕ مهمة
-                </button>
-
-                <button class="btn btn-light"
-                        onclick="showPage('notes')">
-                    📝 ملاحظة
-                </button>
-
-                <button class="btn btn-light"
-                        onclick="showPage('quiz')">
-                    🧪 اختبار
-                </button>
-
-                <button class="btn btn-light"
-                        onclick="showPage('assistant')">
-                    🤖 اسأل المساعد
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid-3 section-gap">
-
-        <div class="card tool-card">
-            <div class="tool-icon">💡</div>
-            <div>
-                <h3>نصيحة اليوم</h3>
-                <p class="muted" id="dailyTip"></p>
-            </div>
-        </div>
-
-        <div class="card tool-card">
-            <div class="tool-icon">🔥</div>
-            <div>
-                <h3>تحدي اليوم</h3>
-                <p class="muted">
-                    ادرس لمدة 25 دقيقة بدون هاتف.
-                </p>
-            </div>
-        </div>
-
-        <div class="card tool-card">
-            <div class="tool-icon">🎯</div>
-            <div>
-                <h3>تذكير</h3>
-                <p class="muted">
-                    لا تنتظر الحماس، ابدأ أولًا.
-                </p>
-            </div>
-        </div>
-
-    </div>
+</div>
 
 </section>
 
-
-<!-- =====================================================
-     TIPS
-===================================================== -->
-
-<section class="page" id="tips">
-
-    <div class="card">
-
-        <div class="card-title">
-            <div>
-                <h3>💡 100 نصيحة للطالب</h3>
-                <small class="muted">
-                    نصائح قصيرة وعملية
-                </small>
-            </div>
-        </div>
-
-        <div class="search-box">
-
-            <span class="search-icon">🔎</span>
-
-            <input id="tipSearch"
-                   placeholder="ابحث عن نصيحة...">
-
-        </div>
-
-        <div class="filters" id="tipFilters"></div>
-
-    </div>
-
-    <div class="tip-grid section-gap"
-         id="tipsContainer">
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     STUDY
-===================================================== -->
-
-<section class="page" id="study">
-
-    <div class="hero">
-
-        <div class="hero-content">
-
-            <h2>📚 مساحة الدراسة</h2>
-
-            <p>
-                اختر المادة وحدد مدة الدراسة وابدأ جلسة منظمة.
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="grid-2">
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>🎓 إعداد جلسة دراسة</h3>
-            </div>
-
-            <div class="form-group">
-                <label>المادة</label>
-
-                <select id="studySubject">
-
-                    <option>الرياضيات</option>
-                    <option>الفيزياء</option>
-                    <option>الكيمياء</option>
-                    <option>الأحياء</option>
-                    <option>اللغة العربية</option>
-                    <option>اللغة الإنكليزية</option>
-                    <option>اللغة الفرنسية</option>
-                    <option>التاريخ</option>
-                    <option>الجغرافية</option>
-                    <option>التربية الإسلامية</option>
-                    <option>علوم</option>
-                    <option>حاسوب</option>
-
-                </select>
-
-            </div>
-
-            <div class="form-row">
-
-                <div class="form-group">
-
-                    <label>مدة الدراسة</label>
-
-                    <select id="studyMinutes">
-
-                        <option value="25">25 دقيقة</option>
-                        <option value="45">45 دقيقة</option>
-                        <option value="60">60 دقيقة</option>
-                        <option value="90">90 دقيقة</option>
-                        <option value="120">120 دقيقة</option>
-
-                    </select>
-
-                </div>
-
-                <div class="form-group">
-
-                    <label>نوع الجلسة</label>
-
-                    <select id="studyType">
-
-                        <option>فهم</option>
-                        <option>حفظ</option>
-                        <option>مراجعة</option>
-                        <option>حل أسئلة</option>
-                        <option>تحضير امتحان</option>
-
-                    </select>
-
-                </div>
-
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="startStudySession()">
-                🚀 بدء الدراسة
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>📈 تقدمك</h3>
-            </div>
-
-            <p class="muted">
-                عدد جلسات الدراسة
-            </p>
-
-            <h2 id="studyCountBig">0</h2>
-
-            <div class="progress"
-                 style="margin:12px 0">
-
-                <div class="progress-bar"
-                     id="studyProgressBar"
-                     style="width:0%">
-                </div>
-
-            </div>
-
-            <p class="muted">
-                استهدف 4 جلسات يوميًا.
-            </p>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     PLANNER
-===================================================== -->
-
-<section class="page" id="planner">
-
-    <div class="grid-2">
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>🎯 الهدف اليومي</h3>
-            </div>
-
-            <div class="form-group">
-                <label>هدف اليوم</label>
-                <input id="goalInput"
-                       placeholder="مثال: إنهاء فصل الرياضيات">
-            </div>
-
-            <div class="form-group">
-                <label>عدد الجلسات المطلوبة</label>
-                <input id="goalSessions"
-                       type="number"
-                       value="4"
-                       min="1"
-                       max="20">
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="saveGoal()">
-                💾 حفظ الهدف
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>📅 مولد الخطة</h3>
-            </div>
-
-            <div class="form-group">
-
-                <label>عدد الأيام</label>
-
-                <select id="planDays">
-
-                    <option value="7">7 أيام</option>
-                    <option value="14">14 يومًا</option>
-                    <option value="21">21 يومًا</option>
-                    <option value="30">30 يومًا</option>
-
-                </select>
-
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="generatePlan()">
-                ✨ إنشاء خطة
-            </button>
-
-        </div>
-
-    </div>
-
-    <div class="card section-gap">
-
-        <div class="card-title">
-            <h3>🗓️ خطتك الدراسية</h3>
-        </div>
-
-        <div id="planContainer"></div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     POMODORO
-===================================================== -->
-
-<section class="page" id="pomodoro">
-
-    <div class="card timer">
-
-        <div class="timer-mode"
-             id="timerMode">
-            جلسة دراسة
-        </div>
-
-        <div class="timer-circle">
-
-            <div class="timer-time"
-                 id="timerDisplay">
-                25:00
-            </div>
-
-        </div>
-
-        <div class="timer-buttons">
-
-            <button class="btn btn-primary"
-                    onclick="startTimer()">
-                ▶ تشغيل
-            </button>
-
-            <button class="btn btn-warning"
-                    onclick="pauseTimer()">
-                ⏸ إيقاف
-            </button>
-
-            <button class="btn btn-danger"
-                    onclick="resetTimer()">
-                ↻ إعادة
-            </button>
-
-            <button class="btn btn-light"
-                    onclick="setBreak()">
-                ☕ استراحة
-            </button>
-
-        </div>
-
-        <div style="margin-top:20px">
-
-            <button class="btn btn-light"
-                    onclick="setCustomTimer()">
-                ⚙️ مؤقت مخصص
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <div class="grid-3 section-gap">
-
-        <div class="card">
-            <h3>🍅 بومودورو</h3>
-            <p class="muted">
-                25 دقيقة دراسة + 5 دقائق راحة.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>🎯 جلسة طويلة</h3>
-            <p class="muted">
-                استخدم 50 دقيقة للدراسة و10 للراحة.
-            </p>
-        </div>
-
-        <div class="card">
-            <h3>📵 وضع التركيز</h3>
-            <p class="muted">
-                أغلق المشتتات أثناء الجلسة.
-            </p>
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     TASKS
-===================================================== -->
-
-<section class="page" id="tasks">
-
-    <div class="grid-2">
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>➕ إضافة مهمة</h3>
-            </div>
-
-            <div class="form-group">
-                <label>المهمة</label>
-                <input id="taskInput"
-                       placeholder="مثال: حل 20 سؤال">
-            </div>
-
-            <div class="form-row">
-
-                <div class="form-group">
-                    <label>المادة</label>
-                    <select id="taskSubject">
-                        <option>الرياضيات</option>
-                        <option>الفيزياء</option>
-                        <option>الكيمياء</option>
-                        <option>الأحياء</option>
-                        <option>العربي</option>
-                        <option>الإنكليزي</option>
-                        <option>أخرى</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>التاريخ</label>
-                    <input type="date" id="taskDate">
-                </div>
-
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="addTask()">
-                إضافة المهمة
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>📊 نسبة الإنجاز</h3>
-            </div>
-
-            <h2 id="taskPercent">0%</h2>
-
-            <div class="progress"
-                 style="margin-top:10px">
-
-                <div class="progress-bar"
-                     id="taskProgress"
-                     style="width:0%">
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="card section-gap">
-
-        <div class="card-title">
-
-            <h3>📋 قائمة المهام</h3>
-
-            <button class="btn btn-danger"
-                    onclick="clearCompletedTasks()">
-                حذف المكتملة
-            </button>
-
-        </div>
-
-        <div class="task-list"
-             id="taskList"></div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     QUIZ
-===================================================== -->
-
-<section class="page" id="quiz">
-
-    <div class="grid-2">
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>🧪 اختبار سريع</h3>
-            </div>
-
-            <div class="form-group">
-
-                <label>اختر المادة</label>
-
-                <select id="quizSubject">
-
-                    <option>الرياضيات</option>
-                    <option>الفيزياء</option>
-                    <option>الكيمياء</option>
-                    <option>الأحياء</option>
-                    <option>العربي</option>
-                    <option>الإنكليزي</option>
-
-                </select>
-
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="startQuiz()">
-                بدء الاختبار
-            </button>
-
-        </div>
-
-        <div class="card">
-
-            <h3>📊 نتائجك</h3>
-
-            <p class="muted">
-                متوسط الاختبارات:
-            </p>
-
-            <h2 id="quizAverage">0%</h2>
-
-        </div>
-
-    </div>
-
-
-    <div class="card section-gap"
-         id="quizBox"
-         style="display:none">
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     FLASHCARDS
-===================================================== -->
-
-<section class="page" id="flashcards">
-
-    <div class="grid-2">
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>🗂️ إنشاء بطاقة</h3>
-            </div>
-
-            <div class="form-group">
-                <label>السؤال</label>
-                <textarea id="flashQuestion"></textarea>
-            </div>
-
-            <div class="form-group">
-                <label>الإجابة</label>
-                <textarea id="flashAnswer"></textarea>
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="addFlashcard()">
-                إضافة البطاقة
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>📚 بطاقاتك</h3>
-            </div>
-
-            <div id="flashcardList"></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     NOTES
-===================================================== -->
-
-<section class="page" id="notes">
-
-    <div class="grid-2">
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>📝 إضافة ملاحظة</h3>
-            </div>
-
-            <div class="form-group">
-
-                <label>العنوان</label>
-
-                <input id="noteTitle"
-                       placeholder="عنوان الملاحظة">
-
-            </div>
-
-            <div class="form-group">
-
-                <label>المحتوى</label>
-
-                <textarea id="noteContent"
-                          placeholder="اكتب ملاحظتك..."></textarea>
-
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="addNote()">
-                حفظ الملاحظة
-            </button>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>📒 ملاحظاتي</h3>
-            </div>
-
-            <div id="notesList"></div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     IRAQ
-===================================================== -->
-
-<section class="page" id="iraq">
-
-    <div class="hero">
-
-        <div class="hero-content">
-
-            <h2>🇮🇶 المنهج العراقي</h2>
-
-            <p>
-                قسم مخصص لتنظيم كتب وملازم وأسئلة الطالب العراقي.
-            </p>
-
-        </div>
-
-    </div>
-
-    <div class="grid-3">
-
-        <div class="card">
-            <h3>📘 الكتب</h3>
-            <p class="muted">
-                الكتب الدراسية الرسمية بصيغة PDF.
-            </p>
-            <button class="btn btn-primary"
-                    onclick="openResource('books')">
-                فتح القسم
-            </button>
-        </div>
-
-        <div class="card">
-            <h3>📕 الملازم</h3>
-            <p class="muted">
-                مكان مخصص لإضافة روابط الملازم.
-            </p>
-            <button class="btn btn-primary"
-                    onclick="openResource('notes')">
-                فتح القسم
-            </button>
-        </div>
-
-        <div class="card">
-            <h3>📝 الأسئلة الوزارية</h3>
-            <p class="muted">
-                تنظيم الأسئلة حسب المادة والسنة.
-            </p>
-            <button class="btn btn-primary"
-                    onclick="openResource('questions')">
-                فتح القسم
-            </button>
-        </div>
-
-    </div>
-
-
-    <div class="card section-gap">
-
-        <div class="card-title">
-            <h3>🎓 اختر مرحلتك</h3>
-        </div>
-
-        <div class="grid-3">
-
-            <button class="btn btn-light"
-                    onclick="selectGrade('الأول الابتدائي')">
-                الأول الابتدائي
-            </button>
-
-            <button class="btn btn-light"
-                    onclick="selectGrade('المتوسطة')">
-                المتوسطة
-            </button>
-
-            <button class="btn btn-light"
-                    onclick="selectGrade('الإعدادية')">
-                الإعدادية
-            </button>
-
-            <button class="btn btn-light"
-                    onclick="selectGrade('الرابع العلمي')">
-                الرابع العلمي
-            </button>
-
-            <button class="btn btn-light"
-                    onclick="selectGrade('الخامس العلمي')">
-                الخامس العلمي
-            </button>
-
-            <button class="btn btn-light"
-                    onclick="selectGrade('السادس العلمي')">
-                السادس العلمي
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     METHODS
-===================================================== -->
-
-<section class="page" id="methods">
-
-    <div class="card">
-
-        <div class="card-title">
-            <h3>🧠 طرق الدراسة الفعالة</h3>
-        </div>
-
-        <div class="grid-3"
-             id="methodsContainer"></div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     ASSISTANT
-===================================================== -->
-
-<section class="page" id="assistant">
-
-    <div class="card ai-box">
-
-        <div class="card-title">
-
-            <div>
-                <h3>🤖 مساعد الطالب</h3>
-                <small class="muted">
-                    مساعد محلي داخل الموقع
-                </small>
-            </div>
-
-            <button class="btn btn-light"
-                    onclick="clearAI()">
-                مسح المحادثة
-            </button>
-
-        </div>
-
-
-        <div class="ai-messages"
-             id="aiMessages">
-
-            <div class="message ai">
-                أهلًا بك 👋
-                أنا مساعد الدراسة. اسألني عن تنظيم الوقت،
-                الحفظ، المراجعة، بومودورو أو طرق الدراسة.
-            </div>
-
-        </div>
-
-
-        <div style="display:flex;gap:8px">
-
-            <input id="aiInput"
-                   placeholder="اكتب سؤالك هنا..."
-                   onkeydown="if(event.key==='Enter') askAI()">
-
-            <button class="btn btn-primary"
-                    onclick="askAI()">
-                إرسال
-            </button>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     TOOLS
-===================================================== -->
-
-<section class="page" id="tools">
-
-    <div class="grid-2">
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>🧮 حاسبة المعدل</h3>
-            </div>
-
-            <div class="form-row">
-
-                <input type="number"
-                       id="grade1"
-                       placeholder="الدرجة">
-
-                <input type="number"
-                       id="grade2"
-                       placeholder="الدرجة">
-
-            </div>
-
-            <div class="form-row"
-                 style="margin-top:10px">
-
-                <input type="number"
-                       id="grade3"
-                       placeholder="الدرجة">
-
-                <input type="number"
-                       id="grade4"
-                       placeholder="الدرجة">
-
-            </div>
-
-            <button class="btn btn-primary"
-                    style="margin-top:10px"
-                    onclick="calculateAverage()">
-                احسب
-            </button>
-
-            <h2 id="averageResult"
-                style="margin-top:12px">
-                —
-            </h2>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>🎯 الدرجة المطلوبة</h3>
-            </div>
-
-            <div class="form-group">
-                <label>هدفك النهائي</label>
-                <input type="number"
-                       id="targetGrade">
-            </div>
-
-            <div class="form-group">
-                <label>درجتك الحالية</label>
-                <input type="number"
-                       id="currentGrade">
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="calculateNeeded()">
-                احسب الدرجة المطلوبة
-            </button>
-
-            <h2 id="neededResult"
-                style="margin-top:12px">
-                —
-            </h2>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>📅 عداد الامتحان</h3>
-            </div>
-
-            <div class="form-group">
-
-                <label>تاريخ الامتحان</label>
-
-                <input type="date"
-                       id="examDate">
-
-            </div>
-
-            <button class="btn btn-primary"
-                    onclick="calculateExamDays()">
-                احسب الأيام
-            </button>
-
-            <h2 id="examResult"
-                style="margin-top:12px">
-                —
-            </h2>
-
-        </div>
-
-
-        <div class="card">
-
-            <div class="card-title">
-                <h3>📊 النسبة المئوية</h3>
-            </div>
-
-            <div class="form-row">
-
-                <input type="number"
-                       id="partValue"
-                       placeholder="حصلت على">
-
-                <input type="number"
-                       id="totalValue"
-                       placeholder="من">
-
-            </div>
-
-            <button class="btn btn-primary"
-                    style="margin-top:10px"
-                    onclick="calculatePercent()">
-                احسب النسبة
-            </button>
-
-            <h2 id="percentResult"
-                style="margin-top:12px">
-                —
-            </h2>
-
-        </div>
-
-    </div>
-
-</section>
-
+<main class="container">
 
 <!-- =====================================================
      STATS
 ===================================================== -->
 
-<section class="page" id="stats">
+<section class="section">
 
-    <div class="stats-grid">
+<div class="stats">
 
-        <div class="card stat">
-            <div class="stat-icon">📚</div>
-            <div>
-                <strong id="statsSessions">0</strong>
-                <span>جلسة</span>
-            </div>
-        </div>
+<div class="stat">
+<div class="stat-icon">💡</div>
+<strong id="statTips">100</strong>
+<span>نصيحة</span>
+</div>
 
-        <div class="card stat">
-            <div class="stat-icon">⏱️</div>
-            <div>
-                <strong id="statsMinutes">0</strong>
-                <span>دقيقة دراسة</span>
-            </div>
-        </div>
+<div class="stat">
+<div class="stat-icon">⏱️</div>
+<strong id="statMinutes">0</strong>
+<span>دقيقة دراسة</span>
+</div>
 
-        <div class="card stat">
-            <div class="stat-icon">📝</div>
-            <div>
-                <strong id="statsTasks">0</strong>
-                <span>مهمة</span>
-            </div>
-        </div>
+<div class="stat">
+<div class="stat-icon">✅</div>
+<strong id="statTasks">0</strong>
+<span>مهمة منجزة</span>
+</div>
 
-        <div class="card stat">
-            <div class="stat-icon">🏆</div>
-            <div>
-                <strong id="statsXP2">0</strong>
-                <span>XP</span>
-            </div>
-        </div>
+<div class="stat">
+<div class="stat-icon">📝</div>
+<strong id="statQuizzes">0</strong>
+<span>اختبار</span>
+</div>
 
-    </div>
+<div class="stat">
+<div class="stat-icon">🏆</div>
+<strong id="statXP">0</strong>
+<span>XP</span>
+</div>
 
+<div class="stat">
+<div class="stat-icon">🔥</div>
+<strong id="statStreak">0</strong>
+<span>سلسلة الدراسة</span>
+</div>
 
-    <div class="card">
-
-        <div class="card-title">
-            <h3>📈 ملخص الأداء</h3>
-        </div>
-
-        <div class="grid-3">
-
-            <div>
-                <p class="muted">المهام المكتملة</p>
-                <h2 id="completedTasksStats">0</h2>
-            </div>
-
-            <div>
-                <p class="muted">البطاقات</p>
-                <h2 id="flashStats">0</h2>
-            </div>
-
-            <div>
-                <p class="muted">الملاحظات</p>
-                <h2 id="notesStats">0</h2>
-            </div>
-
-        </div>
-
-    </div>
+</div>
 
 </section>
 
+<!-- =====================================================
+     QUICK ACTIONS
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+<h2>⚡ الوصول السريع</h2>
+<p>أهم أدوات الطالب بضغطة واحدة</p>
+</div>
+
+<div class="quick-grid">
+
+<button class="quick" onclick="scrollToId('tips')">
+<div>💡</div>
+نصائح
+</button>
+
+<button class="quick" onclick="scrollToId('timer')">
+<div>🍅</div>
+بومودورو
+</button>
+
+<button class="quick" onclick="scrollToId('tasks')">
+<div>✅</div>
+المهام
+</button>
+
+<button class="quick" onclick="scrollToId('planner')">
+<div>📅</div>
+الخطة
+</button>
+
+<button class="quick" onclick="scrollToId('quiz')">
+<div>📝</div>
+اختبار
+</button>
+
+<button class="quick" onclick="scrollToId('assistant')">
+<div>🤖</div>
+المساعد
+</button>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<section class="section" id="dashboard">
+
+<div class="section-title">
+<h2>📊 لوحة الطالب</h2>
+<p>تابع تقدمك الدراسي من مكان واحد</p>
+</div>
+
+<div class="dashboard">
+
+<div class="card">
+
+<h3>🎯 تقدمك العام</h3>
+
+<div style="font-size:38px;font-weight:900" id="overallProgress">
+0%
+</div>
+
+<div class="progress">
+<span id="progressBar" style="width:0%"></span>
+</div>
+
+<p class="muted">
+أكمل المهام، ادرس، اختبر نفسك، واجمع XP.
+</p>
+
+<div style="margin-top:20px">
+<button class="btn btn-primary" onclick="addXP(10)">
++10 XP لإنجاز الدراسة
+</button>
+</div>
+
+</div>
+
+<div class="card">
+
+<h3>📌 ملخص اليوم</h3>
+
+<ul class="dashboard-list">
+<li>
+<span>⏱️ وقت الدراسة</span>
+<strong id="todayMinutes">0 دقيقة</strong>
+</li>
+
+<li>
+<span>✅ المهام</span>
+<strong id="todayTasks">0</strong>
+</li>
+
+<li>
+<span>📝 الاختبارات</span>
+<strong id="todayQuizzes">0</strong>
+</li>
+
+<li>
+<span>⭐ XP</span>
+<strong id="todayXP">0</strong>
+</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     SUBJECTS
+===================================================== -->
+
+<section class="section" id="subjects">
+
+<div class="section-title">
+<h2>📚 موادي الدراسية</h2>
+<p>اختر المادة التي تريد الدراسة فيها</p>
+</div>
+
+<div class="subject-grid">
+
+<div class="subject">
+<div class="emoji">➗</div>
+<h3>الرياضيات</h3>
+<p class="muted">حساب، جبر، هندسة</p>
+</div>
+
+<div class="subject">
+<div class="emoji">⚛️</div>
+<h3>الفيزياء</h3>
+<p class="muted">قوانين ومسائل</p>
+</div>
+
+<div class="subject">
+<div class="emoji">🧪</div>
+<h3>الكيمياء</h3>
+<p class="muted">معادلات وتفاعلات</p>
+</div>
+
+<div class="subject">
+<div class="emoji">🧬</div>
+<h3>الأحياء</h3>
+<p class="muted">مراجعة ومصطلحات</p>
+</div>
+
+<div class="subject">
+<div class="emoji">📖</div>
+<h3>العربي</h3>
+<p class="muted">قواعد وأدب</p>
+</div>
+
+<div class="subject">
+<div class="emoji">🌍</div>
+<h3>الإنكليزي</h3>
+<p class="muted">كلمات وقواعد</p>
+</div>
+
+<div class="subject">
+<div class="emoji">🗺️</div>
+<h3>الاجتماعيات</h3>
+<p class="muted">تاريخ وجغرافيا</p>
+</div>
+
+<div class="subject">
+<div class="emoji">💻</div>
+<h3>الحاسوب</h3>
+<p class="muted">تقنية وبرمجة</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     TIPS
+===================================================== -->
+
+<section class="section" id="tips">
+
+<div class="section-title">
+<h2>💡 100 نصيحة للطالب</h2>
+<p>نصائح مختصرة مع طريقة التطبيق</p>
+</div>
+
+<div class="card">
+
+<div class="search-row">
+
+<input
+id="tipSearch"
+placeholder="🔎 ابحث عن نصيحة..."
+oninput="renderTips()">
+
+<button class="btn btn-primary" onclick="randomTip()">
+🎲 عشوائية
+</button>
+
+</div>
+
+<div class="tabs">
+<button class="tab active" onclick="setTipCategory('الكل',this)">الكل</button>
+<button class="tab" onclick="setTipCategory('الدراسة',this)">📚 الدراسة</button>
+<button class="tab" onclick="setTipCategory('الوقت',this)">⏰ الوقت</button>
+<button class="tab" onclick="setTipCategory('التركيز',this)">🧠 التركيز</button>
+<button class="tab" onclick="setTipCategory('الامتحان',this)">📝 الامتحان</button>
+<button class="tab" onclick="setTipCategory('الصحة',this)">❤️ الصحة</button>
+</div>
+
+<div class="tip-list" id="tipList"></div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     POMODORO
+===================================================== -->
+
+<section class="section" id="timer">
+
+<div class="grid-2">
+
+<div class="card timer">
+
+<h2>🍅 مؤقت الدراسة</h2>
+
+<p class="muted">
+ركز لفترة محددة ثم خذ استراحة.
+</p>
+
+<div class="timer-display" id="timerDisplay">
+25:00
+</div>
+
+<div class="form-group">
+<label>المادة</label>
+<input id="timerSubject" placeholder="مثال: الرياضيات">
+</div>
+
+<div class="form-group">
+<label>هدف الجلسة</label>
+<input id="timerGoal" placeholder="مثال: حل 10 أسئلة">
+</div>
+
+<div class="timer-mode">
+<button class="btn btn-primary" onclick="setTimer(25)">25/5</button>
+<button class="btn btn-primary" onclick="setTimer(45)">45/15</button>
+<button class="btn btn-primary" onclick="setTimer(50)">50/10</button>
+<button class="btn btn-warning" onclick="setTimer(60)">60/10</button>
+</div>
+
+<br>
+
+<button class="btn btn-success" onclick="startTimer()">▶️ ابدأ</button>
+<button class="btn btn-warning" onclick="pauseTimer()">⏸️ إيقاف</button>
+<button class="btn btn-danger" onclick="resetTimer()">🔄 إعادة</button>
+
+</div>
+
+<div class="card">
+
+<h3>📈 إحصائيات المؤقت</h3>
+
+<div class="stat" style="margin-top:12px">
+<strong id="sessionsToday">0</strong>
+<span>جلسات اليوم</span>
+</div>
+
+<div class="stat" style="margin-top:12px">
+<strong id="timerMinutes">0</strong>
+<span>دقائق اليوم</span>
+</div>
+
+<p class="muted" style="margin-top:15px">
+نصيحة: ضع هاتفك بعيدًا أثناء جلسة التركيز.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     TASKS
+===================================================== -->
+
+<section class="section" id="tasks">
+
+<div class="section-title">
+<h2>✅ واجباتي ومهامي</h2>
+<p>نظم الواجبات والمواعيد والأولويات</p>
+</div>
+
+<div class="grid-2">
+
+<div class="card">
+
+<div class="form-group">
+<label>اسم المهمة</label>
+<input id="taskName" placeholder="مثال: حل واجب الرياضيات">
+</div>
+
+<div class="form-group">
+<label>المادة</label>
+<input id="taskSubject" placeholder="الرياضيات">
+</div>
+
+<div class="form-group">
+<label>الموعد</label>
+<input id="taskDate" type="date">
+</div>
+
+<div class="form-group">
+<label>الأولوية</label>
+<select id="taskPriority">
+<option value="high">عالية</option>
+<option value="medium">متوسطة</option>
+<option value="low">منخفضة</option>
+</select>
+</div>
+
+<button class="btn btn-primary" onclick="addTask()">
+➕ إضافة المهمة
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>📋 قائمة المهام</h3>
+
+<div id="taskList"></div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     PLANNER
+===================================================== -->
+
+<section class="section" id="planner">
+
+<div class="section-title">
+<h2>📅 مولد خطة الدراسة</h2>
+<p>أنشئ خطة حسب الوقت والمواد والاختبار</p>
+</div>
+
+<div class="card">
+
+<div class="grid-2">
+
+<div>
+<div class="form-group">
+<label>المادة</label>
+<input id="planSubject" placeholder="مثال: الكيمياء">
+</div>
+
+<div class="form-group">
+<label>عدد الأيام</label>
+<input id="planDays" type="number" value="7" min="1" max="60">
+</div>
+
+<div class="form-group">
+<label>ساعات الدراسة يوميًا</label>
+<input id="planHours" type="number" value="2" min="0.5" step="0.5">
+</div>
+</div>
+
+<div>
+<div class="form-group">
+<label>المواضيع</label>
+<textarea id="planTopics" placeholder="الفصل الأول, الفصل الثاني, الفصل الثالث, مراجعة, أسئلة وزارية"></textarea>
+</div>
+
+<button class="btn btn-primary" onclick="generatePlan()">
+🗓️ إنشاء الخطة
+</button>
+</div>
+
+</div>
+
+<div id="planResult" style="margin-top:20px"></div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     QUIZ
+===================================================== -->
+
+<section class="section" id="quiz">
+
+<div class="section-title">
+<h2>📝 اختبر نفسك</h2>
+<p>اختبار سريع مع نتيجة فورية</p>
+</div>
+
+<div class="card">
+
+<div id="quizBox">
+
+<h3 id="quizQuestion">اضغط بدء الاختبار</h3>
+
+<div id="quizOptions"></div>
+
+<button class="btn btn-primary" onclick="startQuiz()">
+🚀 بدء اختبار جديد
+</button>
+
+</div>
+
+<div id="quizResult"></div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     FLASHCARDS
+===================================================== -->
+
+<section class="section" id="flashcards">
+
+<div class="section-title">
+<h2>🗂️ البطاقات التعليمية</h2>
+<p>طريقة فعالة للحفظ والمراجعة</p>
+</div>
+
+<div class="grid-2">
+
+<div class="card">
+
+<div class="form-group">
+<label>السؤال</label>
+<input id="flashQuestion" placeholder="ما هو قانون نيوتن الثاني؟">
+</div>
+
+<div class="form-group">
+<label>الإجابة</label>
+<textarea id="flashAnswer" placeholder="اكتب الإجابة"></textarea>
+</div>
+
+<button class="btn btn-primary" onclick="addFlashcard()">
+➕ إضافة بطاقة
+</button>
+
+</div>
+
+<div class="card">
+
+<div class="flashcard" id="flashCard">
+اضغط ابدأ
+</div>
+
+<div style="text-align:center;margin-top:15px">
+
+<button class="btn btn-primary" onclick="nextFlashcard()">
+▶️ بطاقة
+</button>
+
+<button class="btn btn-warning" onclick="flipFlashcard()">
+🔄 كشف الإجابة
+</button>
+
+<button class="btn btn-success" onclick="masterFlashcard()">
+✅ أعرفها
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     NOTES
+===================================================== -->
+
+<section class="section" id="notes">
+
+<div class="section-title">
+<h2>📒 ملاحظاتي</h2>
+<p>احفظ ملاحظاتك داخل المتصفح</p>
+</div>
+
+<div class="grid-2">
+
+<div class="card">
+
+<div class="form-group">
+<label>العنوان</label>
+<input id="noteTitle" placeholder="عنوان الملاحظة">
+</div>
+
+<div class="form-group">
+<label>المحتوى</label>
+<textarea id="noteContent" placeholder="اكتب ملاحظتك هنا..."></textarea>
+</div>
+
+<button class="btn btn-primary" onclick="addNote()">
+💾 حفظ الملاحظة
+</button>
+
+</div>
+
+<div class="card">
+
+<h3>📚 الملاحظات المحفوظة</h3>
+
+<div id="notesList"></div>
+
+</div>
+
+</div>
+
+</section>
 
 <!-- =====================================================
      ACHIEVEMENTS
 ===================================================== -->
 
-<section class="page" id="achievements">
+<section class="section">
 
-    <div class="card">
+<div class="section-title">
+<h2>🏆 الإنجازات</h2>
+<p>كلما درست أكثر افتح إنجازات جديدة</p>
+</div>
 
-        <div class="card-title">
-
-            <div>
-                <h3>🏆 الإنجازات</h3>
-                <p class="muted">
-                    اجمع XP وافتح الإنجازات.
-                </p>
-            </div>
-
-            <strong id="achievementXP">
-                0 XP
-            </strong>
-
-        </div>
-
-        <div class="badges"
-             id="badgesContainer"></div>
-
-    </div>
+<div class="achievement-grid" id="achievementList"></div>
 
 </section>
-
 
 <!-- =====================================================
-     SETTINGS
+     TOOLS
 ===================================================== -->
 
-<section class="page" id="settings">
+<section class="section" id="tools">
 
-    <div class="grid-2">
+<div class="section-title">
+<h2>🧮 أدوات الطالب</h2>
+<p>مجموعة من الأدوات والحاسبات المفيدة</p>
+</div>
 
-        <div class="card">
+<div class="tool-grid">
 
-            <div class="card-title">
-                <h3>👤 بيانات الطالب</h3>
-            </div>
+<!-- GPA -->
 
-            <div class="form-group">
-                <label>اسم الطالب</label>
-                <input id="studentName"
-                       placeholder="اكتب اسمك">
-            </div>
+<div class="card">
 
-            <div class="form-group">
-                <label>المرحلة</label>
-                <input id="studentGrade"
-                       placeholder="مثال: السادس العلمي">
-            </div>
+<h3>📊 حاسبة المتوسط</h3>
 
-            <button class="btn btn-primary"
-                    onclick="saveProfile()">
-                حفظ البيانات
-            </button>
+<input id="averageInput" placeholder="90,80,75,88">
 
-        </div>
+<button class="btn btn-primary" style="margin-top:10px"
+onclick="calculateAverage()">
+احسب
+</button>
 
+<div class="result" id="averageResult">—</div>
 
-        <div class="card">
+</div>
 
-            <div class="card-title">
-                <h3>💾 البيانات</h3>
-            </div>
+<!-- Required grade -->
 
-            <button class="btn btn-primary"
-                    onclick="exportData()">
-                ⬇️ تصدير البيانات
-            </button>
+<div class="card">
 
-            <label class="btn btn-light"
-                   style="display:inline-block;margin-top:8px">
-                ⬆️ استيراد البيانات
-                <input type="file"
-                       id="importFile"
-                       accept=".json"
-                       style="display:none"
-                       onchange="importData(event)">
-            </label>
+<h3>🎯 الدرجة المطلوبة</h3>
 
-            <button class="btn btn-danger"
-                    style="display:block;margin-top:8px"
-                    onclick="resetAllData()">
-                🗑️ حذف جميع البيانات
-            </button>
+<input id="currentGrade" type="number" placeholder="درجتك الحالية">
 
-        </div>
+<input id="targetGrade" type="number" placeholder="الهدف" style="margin-top:8px">
 
-    </div>
+<button class="btn btn-primary" style="margin-top:10px"
+onclick="calculateRequired()">
+احسب
+</button>
+
+<div class="result" id="requiredResult">—</div>
+
+</div>
+
+<!-- Time -->
+
+<div class="card">
+
+<h3>⏳ تقسيم وقت الدراسة</h3>
+
+<input id="studyHours" type="number" placeholder="عدد الساعات">
+
+<button class="btn btn-primary" style="margin-top:10px"
+onclick="calculateStudyTime()">
+احسب
+</button>
+
+<div class="result" id="studyTimeResult">—</div>
+
+</div>
+
+<!-- Age -->
+
+<div class="card">
+
+<h3>📅 الأيام حتى الامتحان</h3>
+
+<input id="examDate" type="date">
+
+<button class="btn btn-primary" style="margin-top:10px"
+onclick="daysUntilExam()">
+احسب
+</button>
+
+<div class="result" id="examResult">—</div>
+
+</div>
+
+<!-- Percentage -->
+
+<div class="card">
+
+<h3>📈 النسبة المئوية</h3>
+
+<input id="gotMarks" type="number" placeholder="الدرجة التي حصلت عليها">
+
+<input id="totalMarks" type="number" placeholder="الدرجة الكلية" style="margin-top:8px">
+
+<button class="btn btn-primary" style="margin-top:10px"
+onclick="calculatePercentage()">
+احسب
+</button>
+
+<div class="result" id="percentageResult">—</div>
+
+</div>
+
+<!-- Countdown -->
+
+<div class="card">
+
+<h3>⏱️ عداد بالدقائق</h3>
+
+<input id="customMinutes" type="number" placeholder="مثال: 90">
+
+<button class="btn btn-primary" style="margin-top:10px"
+onclick="customTimer()">
+ابدأ
+</button>
+
+<div class="result" id="customTimerResult">—</div>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- =====================================================
+     IRAQI CURRICULUM
+===================================================== -->
+
+<section class="section" id="curriculum">
+
+<div class="section-title">
+<h2>🇮🇶 المناهج العراقية</h2>
+<p>اختر المرحلة والصف والفرع للوصول إلى المواد</p>
+</div>
+
+<div class="card">
+
+<div class="grid-2">
+
+<div>
+<label>المرحلة</label>
+<select id="iraqStage" onchange="updateIraqClasses()">
+<option value="">اختر المرحلة</option>
+<option>الابتدائية</option>
+<option>المتوسطة</option>
+<option>الإعدادية</option>
+</select>
+</div>
+
+<div>
+<label>الصف</label>
+<select id="iraqClass">
+<option>اختر الصف</option>
+</select>
+</div>
 
 </div>
+
+<div id="curriculumResult" style="margin-top:20px"></div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     AI ASSISTANT
+===================================================== -->
+
+<section class="section" id="assistant">
+
+<div class="section-title">
+<h2>🤖 مساعد الطالب</h2>
+<p>مساعد محلي للتخطيط والشرح والاختبار وتنظيم الدراسة</p>
+</div>
+
+<div class="card">
+
+<div class="chat" id="chat">
+
+<div class="message bot">
+مرحبًا! 👋 أنا مساعد الطالب.
+<br><br>
+يمكنك أن تكتب:
+<br>
+• كيف أدرس الرياضيات؟
+<br>
+• لدي اختبار بعد 5 أيام
+<br>
+• كيف أحفظ بسرعة؟
+<br>
+• أريد جدول دراسة
+<br>
+• اختبرني
+</div>
+
+</div>
+
+<div style="display:flex;gap:8px;margin-top:10px">
+
+<input
+id="chatInput"
+placeholder="اكتب سؤالك الدراسي..."
+onkeydown="if(event.key==='Enter')sendChat()">
+
+<button class="btn btn-primary" onclick="sendChat()">
+إرسال
+</button>
+
+</div>
+
+<div class="tabs" style="margin-top:12px">
+
+<button class="tab" onclick="quickAI('كيف أركز؟')">
+🧠 التركيز
+</button>
+
+<button class="tab" onclick="quickAI('كيف أحفظ؟')">
+🧠 الحفظ
+</button>
+
+<button class="tab" onclick="quickAI('أريد جدول دراسة')">
+📅 جدول
+</button>
+
+<button class="tab" onclick="quickAI('اختبرني')">
+📝 اختبار
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     GENERATOR
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+<h2>✨ مولد السيناريو الدراسي</h2>
+<p>
+بدل إضافة ملايين العناصر يدويًا، يولّد النظام سيناريوهات دراسية مختلفة.
+</p>
+</div>
+
+<div class="card">
+
+<div class="grid">
+
+<div>
+<label>المادة</label>
+<select id="genSubject">
+<option>الرياضيات</option>
+<option>الفيزياء</option>
+<option>الكيمياء</option>
+<option>الأحياء</option>
+<option>العربي</option>
+<option>الإنكليزي</option>
+</select>
+</div>
+
+<div>
+<label>الهدف</label>
+<select id="genGoal">
+<option>الفهم</option>
+<option>الحفظ</option>
+<option>المراجعة</option>
+<option>حل الأسئلة</option>
+<option>الاستعداد للامتحان</option>
+</select>
+</div>
+
+<div>
+<label>المستوى</label>
+<select id="genLevel">
+<option>مبتدئ</option>
+<option>متوسط</option>
+<option>متقدم</option>
+</select>
+</div>
+
+</div>
+
+<button class="btn btn-purple" style="margin-top:15px"
+onclick="generateScenario()">
+✨ ولّد لي سيناريو
+</button>
+
+<div class="result" id="scenarioResult">
+اختر المعلومات واضغط توليد.
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     DATA
+===================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+<h2>💾 بياناتك</h2>
+<p>يمكنك تصدير بياناتك أو استيراد نسخة احتياطية</p>
+</div>
+
+<div class="card">
+
+<button class="btn btn-primary" onclick="exportData()">
+⬇️ تصدير البيانات
+</button>
+
+<button class="btn btn-success" onclick="document.getElementById('importFile').click()">
+⬆️ استيراد البيانات
+</button>
+
+<input
+id="importFile"
+type="file"
+accept=".json"
+style="display:none"
+onchange="importData(event)">
+
+<button class="btn btn-danger" onclick="clearData()">
+🗑️ مسح كل البيانات
+</button>
+
+</div>
+
+</section>
+
 </main>
 
-</div>
-
-
 <!-- =====================================================
-     MOBILE NAV
+     FOOTER
 ===================================================== -->
 
-<nav class="mobile-bottom">
+<footer>
 
-    <button onclick="showPage('dashboard')">
-        <span>🏠</span>
-        الرئيسية
-    </button>
+<div class="footer-inner">
 
-    <button onclick="showPage('tips')">
-        <span>💡</span>
-        النصائح
-    </button>
-
-    <button onclick="showPage('pomodoro')">
-        <span>⏱️</span>
-        المؤقت
-    </button>
-
-    <button onclick="showPage('tasks')">
-        <span>✅</span>
-        المهام
-    </button>
-
-    <button onclick="showPage('assistant')">
-        <span>🤖</span>
-        المساعد
-    </button>
-
-</nav>
-
-
-<div class="toast"
-     id="toast">
+<div>
+<div class="footer-title">🎓 منصة الطالب</div>
+<p>
+منصة تعليمية عربية تساعد الطالب على تنظيم الدراسة
+وإدارة الوقت والمراجعة والاستعداد للاختبارات.
+</p>
 </div>
 
+<div>
+<div class="footer-title">الأدوات</div>
+<p>🍅 بومودورو</p>
+<p>📝 الاختبارات</p>
+<p>📅 الخطط</p>
+<p>📒 الملاحظات</p>
+</div>
+
+<div>
+<div class="footer-title">المنصة</div>
+<p>💡 النصائح</p>
+<p>🤖 المساعد</p>
+<p>🏆 الإنجازات</p>
+<p>🧮 الحاسبات</p>
+</div>
+
+</div>
+
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
 <script>
 
-/* =========================================================
-   البيانات الأساسية
-========================================================= */
+/* =====================================================
+   DATABASE
+===================================================== */
 
-const STORAGE_KEY = "student_platform_v2";
+const DB_KEY = "student_platform_v3";
 
-let data = {
-
-    profile:{
-        name:"",
-        grade:""
-    },
-
-    sessions:0,
-    studyMinutes:0,
-    xp:0,
-    streak:0,
-
+let db = JSON.parse(localStorage.getItem(DB_KEY)) || {
     tasks:[],
-
     notes:[],
-
     flashcards:[],
-
-    quizResults:[],
-
-    goal:{
-        text:"",
-        sessions:4,
-        completed:0
-    },
-
-    plan:[],
-
-    settings:{
-        dark:false,
-        fontSize:100
-    }
-
+    favorites:[],
+    appliedTips:[],
+    xp:0,
+    minutes:0,
+    sessions:0,
+    quizzes:0,
+    streak:0,
+    lastStudy:null
 };
 
-
-/* =========================================================
-   تحميل البيانات
-========================================================= */
-
-function loadData(){
-
-    const saved =
-        localStorage.getItem(STORAGE_KEY);
-
-    if(saved){
-
-        try{
-
-            const parsed =
-                JSON.parse(saved);
-
-            data = Object.assign(
-                data,
-                parsed
-            );
-
-        }catch(e){
-
-            console.log(e);
-
-        }
-
-    }
-
+function saveDB(){
+    localStorage.setItem(DB_KEY,JSON.stringify(db));
+    updateDashboard();
 }
-
-
-function saveData(){
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(data)
-    );
-
-    updateUI();
-
-}
-
-
-/* =========================================================
-   Toast
-========================================================= */
 
 function toast(message){
-
-    const el =
-        document.getElementById("toast");
-
-    el.textContent = message;
-
+    const el=document.getElementById("toast");
+    el.textContent=message;
     el.classList.add("show");
 
     setTimeout(()=>{
         el.classList.remove("show");
     },2500);
-
 }
 
+/* =====================================================
+   NAVIGATION
+===================================================== */
 
-/* =========================================================
-   التنقل
-========================================================= */
-
-const pageNames = {
-
-    dashboard:"لوحة التحكم",
-    tips:"100 نصيحة",
-    study:"الدراسة",
-    planner:"مخطط الدراسة",
-    pomodoro:"بومودورو",
-    tasks:"المهام",
-    quiz:"الاختبارات",
-    flashcards:"البطاقات التعليمية",
-    notes:"الملاحظات",
-    iraq:"المنهج العراقي",
-    methods:"طرق الدراسة",
-    assistant:"مساعد الطالب",
-    tools:"الحاسبات",
-    stats:"الإحصائيات",
-    achievements:"الإنجازات",
-    settings:"الإعدادات"
-
-};
-
-
-function showPage(id){
-
-    document.querySelectorAll(".page")
-        .forEach(page=>{
-            page.classList.remove("active");
-        });
-
-    const page =
-        document.getElementById(id);
-
-    if(page){
-        page.classList.add("active");
-    }
-
-    document.querySelectorAll(".nav-btn")
-        .forEach(btn=>{
-            btn.classList.toggle(
-                "active",
-                btn.dataset.page === id
-            );
-        });
-
-    document.getElementById("pageTitle")
-        .textContent =
-        pageNames[id] || "منصة الطالب";
-
-    document.getElementById("sidebar")
-        .classList.remove("open");
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
+function scrollToId(id){
+    document.getElementById(id)?.scrollIntoView({
+        behavior:"smooth",
+        block:"start"
     });
-
 }
 
-
-document.querySelectorAll(".nav-btn")
-    .forEach(btn=>{
-
-        btn.addEventListener("click",()=>{
-
-            showPage(btn.dataset.page);
-
-        });
-
-    });
-
-
-document.getElementById("menuToggle")
-    .addEventListener("click",()=>{
-
-        document.getElementById("sidebar")
-            .classList.toggle("open");
-
-    });
-
-
-/* =========================================================
-   النصائح الـ100
-========================================================= */
-
-const tips = [
-
-["ابدأ مبكرًا","لا تؤجل الدراسة حتى ليلة الامتحان.","تنظيم"],
-["حدد هدفك","حدد ما تريد إنجازه قبل بداية الجلسة.","تنظيم"],
-["قسّم المادة","قسّم الفصل إلى أجزاء صغيرة.","تنظيم"],
-["استخدم بومودورو","ادرس 25 دقيقة ثم خذ استراحة قصيرة.","وقت"],
-["أبعد الهاتف","ضع الهاتف بعيدًا أثناء الدراسة.","تركيز"],
-["اكتب ملاحظات","اكتب الأفكار المهمة بأسلوبك.","دراسة"],
-["راجع يوميًا","المراجعة القصيرة اليومية أفضل من التراكم.","مراجعة"],
-["اختبر نفسك","لا تكتفِ بالقراءة، حاول الإجابة.","اختبارات"],
-["استخدم الاسترجاع","حاول تذكر المعلومة دون النظر للكتاب.","حفظ"],
-["كرر المعلومات","كرر المعلومات على فترات متباعدة.","حفظ"],
-["اشرح لغيرك","شرح الدرس يكشف نقاط ضعفك.","فهم"],
-["استخدم الخرائط","حوّل المعلومات إلى خريطة ذهنية.","فهم"],
-["نم جيدًا","النوم جزء مهم من التعلم.","صحة"],
-["اشرب الماء","حافظ على الترطيب أثناء الدراسة.","صحة"],
-["خذ استراحة","الراحة القصيرة تساعد على الاستمرار.","صحة"],
-["غيّر طريقة الدراسة","جرّب أكثر من طريقة حتى تجد الأنسب.","دراسة"],
-["حل أسئلة","الأسئلة تكشف مستوى فهمك.","اختبارات"],
-["راجع أخطاءك","الخطأ فرصة لمعرفة نقطة الضعف.","مراجعة"],
-["لا تحفظ دون فهم","افهم الفكرة قبل محاولة حفظها.","فهم"],
-["رتب مكتبك","بيئة مرتبة تقلل المشتتات.","تركيز"],
-["حدد وقتًا ثابتًا","اجعل للدراسة وقتًا شبه ثابت يوميًا.","تنظيم"],
-["ابدأ بخمس دقائق","إذا كنت متكاسلًا، ابدأ لمدة خمس دقائق.","تحفيز"],
-["كافئ نفسك","ضع مكافأة بسيطة بعد الإنجاز.","تحفيز"],
-["تجنب تعدد المهام","ركز على مهمة واحدة في كل مرة.","تركيز"],
-["اقرأ العناوين","خذ فكرة عامة قبل القراءة التفصيلية.","دراسة"],
-["ضع أسئلة","حوّل العناوين إلى أسئلة.","فهم"],
-["لخص","اختصر الدرس في نقاط قصيرة.","مراجعة"],
-["استخدم الأمثلة","اربط المعلومات بأمثلة عملية.","فهم"],
-["اربط المعلومات","اربط المعلومة بشيء تعرفه مسبقًا.","حفظ"],
-["استخدم الألوان","ميز النقاط المهمة بطريقة منظمة.","ملاحظات"],
-["لا تكثر الألوان","الإفراط بالألوان قد يشتت.","ملاحظات"],
-["راجع قبل النوم","راجع النقاط الأساسية باختصار.","مراجعة"],
-["ابدأ بالأصعب","يمكنك دراسة المادة الأصعب عندما يكون تركيزك مرتفعًا.","تنظيم"],
-["لا تهمل السهل","راجع المواد السهلة أيضًا.","مراجعة"],
-["اكتب قائمة","اكتب المهام التي تريد إنجازها.","تنظيم"],
-["رتب الأولويات","ابدأ بالأكثر أهمية.","تنظيم"],
-["حدد موعدًا نهائيًا","كل مهمة تحتاج موعدًا.","تنظيم"],
-["راقب تقدمك","سجل ما تنجزه.","إحصائيات"],
-["تعلم من نتيجتك","لا تجعل الدرجة هي الهدف الوحيد.","تحفيز"],
-["لا تقارن نفسك","قارن مستواك الحالي بمستواك السابق.","تحفيز"],
-["اطلب المساعدة","اسأل عندما تواجه نقطة صعبة.","فهم"],
-["لا تخجل من السؤال","السؤال جزء من التعلم.","فهم"],
-["استخدم مصادر متعددة","يمكنك استخدام الكتاب والفيديو والأسئلة.","مصادر"],
-["تحقق من المصدر","لا تعتمد على معلومة مجهولة المصدر.","مصادر"],
-["شاهد شرحًا","الفيديو قد يساعد في فهم بعض المواضيع.","مصادر"],
-["أوقف الفيديو عند الحاجة","لا تشاهد الشرح بشكل سلبي.","فهم"],
-["دوّن أثناء الفيديو","اكتب الأفكار المهمة.","ملاحظات"],
-["اختبر نفسك بعد الفيديو","حاول حل سؤال بعد الشرح.","اختبارات"],
-["راجع القوانين","اجمع القوانين المهمة في ورقة.","مراجعة"],
-["طبق القانون","لا تحفظ القانون دون معرفة استخدامه.","فهم"],
-["حل بالتدريج","ابدأ بسؤال سهل ثم ارفع الصعوبة.","اختبارات"],
-["احسب وقت السؤال","تدرب على السرعة عند الحاجة.","اختبارات"],
-["لا تستسلم","السؤال الصعب يحتاج محاولة.","تحفيز"],
-["خذ نفسًا","إذا شعرت بالتوتر، توقف لحظات وتنفس.","تركيز"],
-["جهز أدواتك","جهز الكتب والأقلام قبل البدء.","تنظيم"],
-["ضع جدولًا","اكتب جدولًا واقعيًا.","تنظيم"],
-["لا تضع 15 ساعة","الخطة الواقعية أفضل من الخطة المستحيلة.","تنظيم"],
-["اترك وقتًا للطوارئ","لا تجعل الجدول ممتلئًا بالكامل.","تنظيم"],
-["راجع الجدول","عدّل الخطة إذا لم تكن مناسبة.","تنظيم"],
-["استخدم مؤقتًا","المؤقت يساعدك على معرفة الوقت.","وقت"],
-["سجل ساعاتك","راقب كم درست فعلًا.","إحصائيات"],
-["حدد أفضل وقت","اكتشف متى يكون تركيزك أفضل.","وقت"],
-["لا تهمل الصباح","قد يكون الصباح مناسبًا لبعض الطلاب.","وقت"],
-["لا تهمل المساء","قد يكون المساء مناسبًا لآخرين.","وقت"],
-["اختبر البيئة","جرّب أماكن مختلفة للدراسة.","تركيز"],
-["خفف الضوضاء","اختر بيئة تساعدك على التركيز.","تركيز"],
-["استخدم سماعات عند الحاجة","يمكن استخدام أصوات هادئة إذا كانت مناسبة لك.","تركيز"],
-["لا تفتح مواقع كثيرة","قلل علامات التبويب غير الضرورية.","تركيز"],
-["أغلق الإشعارات","الإشعارات تقطع التركيز.","تركيز"],
-["حدد وقتًا للإنترنت","استخدم الإنترنت عند الحاجة فقط.","تركيز"],
-["استعمل البحث بذكاء","اكتب كلمات بحث واضحة.","مصادر"],
-["احفظ الروابط المهمة","احتفظ بالمصادر المفيدة.","مصادر"],
-["رتب ملفاتك","أنشئ مجلدًا لكل مادة.","تنظيم"],
-["سمِّ ملفاتك بوضوح","استخدم أسماء سهلة للعثور عليها.","تنظيم"],
-["احتفظ بنسخة احتياطية","لا تعتمد على جهاز واحد فقط.","تنظيم"],
-["استخدم السحابة","احفظ ملفاتك المهمة في مكان آمن.","تنظيم"],
-["راجع أسئلة سابقة","الأسئلة السابقة تساعد على التدريب.","اختبارات"],
-["حل بدون كتاب","اختبر نفسك بصدق.","اختبارات"],
-["صحح بنفسك","حدد سبب الخطأ وليس الخطأ فقط.","مراجعة"],
-["اكتب دفتر أخطاء","احتفظ بالأخطاء المتكررة.","مراجعة"],
-["راجع دفتر الأخطاء","عد إليه قبل الاختبار.","مراجعة"],
-["استخدم البطاقات","البطاقات مفيدة للمصطلحات والتعريفات.","حفظ"],
-["بدّل ترتيب البطاقات","لا تحفظ الترتيب فقط.","حفظ"],
-["اختبر من الاتجاهين","السؤال والإجابة كلاهما مهم.","حفظ"],
-["قسم الحفظ","احفظ مجموعات صغيرة.","حفظ"],
-["اربط الكلمات","استخدم روابط ذهنية.","حفظ"],
-["اصنع قصة","القصة تساعد أحيانًا على تذكر المعلومات.","حفظ"],
-["استخدم الاختصارات","اصنع اختصارًا للمعلومات الطويلة.","حفظ"],
-["كرر بصوتك","الشرح بصوت مرتفع قد يساعد.","حفظ"],
-["اكتب من الذاكرة","اكتب ما تتذكره ثم قارن.","استرجاع"],
-["ارسم المفهوم","الرسم مفيد لبعض المواد.","فهم"],
-["قارن بين المفاهيم","اكتب أوجه التشابه والاختلاف.","فهم"],
-["اسأل لماذا","السؤال لماذا يزيد الفهم.","فهم"],
-["اسأل كيف","حاول معرفة طريقة حدوث الشيء.","فهم"],
-["اسأل ماذا لو","غيّر الظروف واختبر فهمك.","فهم"],
-["علم نفسك","تصرف وكأنك تشرح لطلاب آخرين.","فهم"],
-["لا تخف من البداية","البداية أهم خطوة.","تحفيز"],
-["احتفل بالإنجاز","لاحظ تقدمك حتى لو كان بسيطًا.","تحفيز"],
-["استمر","الاستمرارية أهم من يوم مثالي واحد.","تحفيز"],
-["كن واقعيًا","لا تتوقع إتقان كل شيء في يوم واحد.","تحفيز"],
-["راجع أهدافك","تأكد من أن أهدافك ما زالت مناسبة.","تنظيم"],
-["استعد للامتحان مبكرًا","لا تجعل المراجعة النهائية بداية التعلم.","امتحان"],
-["جهز مستلزمات الامتحان","تأكد من أدواتك قبل الامتحان.","امتحان"],
-["اقرأ السؤال كاملًا","لا تتسرع في الإجابة.","امتحان"],
-["وزع وقتك","راقب الوقت أثناء الامتحان.","امتحان"],
-["اترك وقتًا للمراجعة","حاول ترك دقائق للمراجعة النهائية.","امتحان"],
-["لا تتوقف عند سؤال","انتقل وعد إليه إذا سمح الوقت.","امتحان"],
-["اقرأ الإجابة","تأكد من إجابتك قبل الانتقال.","امتحان"],
-["بعد الامتحان تعلم","حلل ما يحتاج إلى تحسين في المرات القادمة.","امتحان"],
-["ابدأ من جديد","كل يوم فرصة لبداية أفضل.","تحفيز"]
-
-];
-
-
-/* =========================================================
-   عرض النصائح
-========================================================= */
-
-let selectedTipCategory = "الكل";
-
-
-function renderTipFilters(){
-
-    const container =
-        document.getElementById("tipFilters");
-
-    const categories =
-        ["الكل", ...new Set(tips.map(t=>t[2]))];
-
-    container.innerHTML =
-        categories.map(category=>`
-
-            <button class="filter ${
-                category===selectedTipCategory
-                ?"active":""
-            }"
-            onclick="selectTipCategory('${category}')">
-                ${category}
-            </button>
-
-        `).join("");
-
+function showSection(id){
+    scrollToId(id);
 }
 
+/* =====================================================
+   DARK MODE
+===================================================== */
 
-function selectTipCategory(category){
+function toggleDark(){
 
-    selectedTipCategory = category;
+    document.body.classList.toggle("dark");
 
-    renderTipFilters();
-    renderTips();
-
-}
-
-
-function renderTips(){
-
-    const search =
-        document.getElementById("tipSearch")
-            .value
-            .trim()
-            .toLowerCase();
-
-    const container =
-        document.getElementById("tipsContainer");
-
-    let filtered =
-        tips.map((tip,index)=>({
-            tip,
-            index
-        }));
-
-    if(selectedTipCategory !== "الكل"){
-
-        filtered =
-            filtered.filter(x=>
-                x.tip[2] === selectedTipCategory
-            );
-
-    }
-
-    if(search){
-
-        filtered =
-            filtered.filter(x=>
-                x.tip.join(" ")
-                    .toLowerCase()
-                    .includes(search)
-            );
-
-    }
-
-    container.innerHTML =
-        filtered.map(x=>`
-
-            <div class="tip-card">
-
-                <div class="tip-number">
-                    ${x.index+1}
-                </div>
-
-                <h3>${x.tip[0]}</h3>
-
-                <p>${x.tip[1]}</p>
-
-                <div class="tip-actions">
-
-                    <button class="btn btn-light"
-                            onclick="favoriteTip(${x.index})">
-                        ⭐ حفظ
-                    </button>
-
-                    <button class="btn btn-primary"
-                            onclick="showTipDetails(${x.index})">
-                        شرح
-                    </button>
-
-                </div>
-
-            </div>
-
-        `).join("");
-
-}
-
-
-document.getElementById("tipSearch")
-    .addEventListener("input",renderTips);
-
-
-/* =========================================================
-   تفاصيل النصيحة
-========================================================= */
-
-function showTipDetails(index){
-
-    const tip = tips[index];
-
-    alert(
-        `النصيحة رقم ${index+1}\n\n`+
-        `${tip[0]}\n\n`+
-        `${tip[1]}\n\n`+
-        `التصنيف: ${tip[2]}`
+    localStorage.setItem(
+        "student_dark",
+        document.body.classList.contains("dark")
     );
 
 }
 
+if(localStorage.getItem("student_dark")==="true"){
+    document.body.classList.add("dark");
+}
 
-/* =========================================================
-   المفضلة
-========================================================= */
+/* =====================================================
+   XP
+===================================================== */
+
+function addXP(amount){
+
+    db.xp += amount;
+
+    saveDB();
+
+    toast(`🏆 حصلت على ${amount} XP`);
+
+    renderAchievements();
+}
+
+/* =====================================================
+   DASHBOARD
+===================================================== */
+
+function updateDashboard(){
+
+    const completed=db.tasks.filter(t=>t.done).length;
+
+    document.getElementById("statMinutes").textContent=db.minutes;
+    document.getElementById("statTasks").textContent=completed;
+    document.getElementById("statQuizzes").textContent=db.quizzes;
+    document.getElementById("statXP").textContent=db.xp;
+    document.getElementById("statStreak").textContent=db.streak;
+
+    document.getElementById("todayMinutes").textContent=
+        db.minutes+" دقيقة";
+
+    document.getElementById("todayTasks").textContent=completed;
+
+    document.getElementById("todayQuizzes").textContent=db.quizzes;
+
+    document.getElementById("todayXP").textContent=db.xp;
+
+    document.getElementById("sessionsToday").textContent=db.sessions;
+
+    document.getElementById("timerMinutes").textContent=db.minutes;
+
+    const progress=Math.min(
+        100,
+        Math.round(
+            (completed*10 + db.minutes/5 + db.xp/20)
+        )
+    );
+
+    document.getElementById("overallProgress").textContent=
+        progress+"%";
+
+    document.getElementById("progressBar").style.width=
+        progress+"%";
+}
+
+/* =====================================================
+   TIPS
+===================================================== */
+
+const tips=[
+["راجع قليلًا كل يوم","الدراسة اليومية أفضل من تراكم المادة.","خصص 20 إلى 30 دقيقة يوميًا.","الدراسة","📚"],
+["ابدأ بالأصعب","ابدأ بالمادة التي تحتاج أكبر تركيز.","ضعها في بداية جلسة الدراسة.","الدراسة","📚"],
+["استخدم بومودورو","قسم الدراسة إلى جلسات تركيز واستراحة.","ابدأ بـ25 دقيقة تركيز و5 دقائق راحة.","الوقت","⏰"],
+["أبعد الهاتف","الإشعارات تقلل التركيز.","ضع الهاتف على الوضع الصامت.","التركيز","🧠"],
+["اكتب أهدافك","الهدف الواضح يجعل الجلسة أكثر فاعلية.","اكتب مهمة واحدة قبل بدء الجلسة.","الوقت","⏰"],
+["اختبر نفسك","الاختبار يساعدك على اكتشاف نقاط الضعف.","حل الأسئلة دون النظر للإجابة.","الامتحان","📝"],
+["نم جيدًا","النوم جزء مهم من الاستعداد الدراسي.","حافظ على وقت نوم منتظم.","الصحة","❤️"],
+["اشرب الماء","الجفاف قد يؤثر على نشاطك.","ضع الماء بجانبك أثناء الدراسة.","الصحة","❤️"],
+["راجع أخطاءك","الخطأ فرصة للتعلم.","أنشئ دفترًا خاصًا بالأخطاء.","الدراسة","📚"],
+["استخدم البطاقات","البطاقات مناسبة للمصطلحات والقوانين.","ضع السؤال في جهة والإجابة في الجهة الأخرى.","الدراسة","📚"],
+["لا تحفظ كل شيء دفعة واحدة","قسم الفصل إلى أجزاء.","ادرس موضوعًا ثم راجعه.","الدراسة","📚"],
+["علم شخصًا آخر","شرح الفكرة يكشف مدى فهمك.","اشرح الدرس بصوتك.","الدراسة","📚"],
+["استخدم أمثلة","الأمثلة تجعل المعلومات أسهل للفهم.","بعد كل قاعدة حل مثالًا.","الدراسة","📚"],
+["نظم مكتبك","الفوضى قد تشتت الانتباه.","اترك أمامك ما تحتاجه فقط.","التركيز","🧠"],
+["حدد وقتًا للراحة","الراحة تساعد على الاستمرار.","خذ استراحة قصيرة بين الجلسات.","الوقت","⏰"],
+["لا تؤجل المهمة","ابدأ بخطوة صغيرة.","حل سؤالًا واحدًا ثم أكمل.","الوقت","⏰"],
+["راجع قبل النوم","المراجعة القصيرة مفيدة لبعض المعلومات.","راجع النقاط الأساسية فقط.","الدراسة","📚"],
+["استخدم الخرائط الذهنية","حول المعلومات إلى علاقات.","ضع الفكرة الرئيسية في الوسط.","الدراسة","📚"],
+["اقرأ السؤال جيدًا","قد يكون الخطأ بسبب سوء فهم السؤال.","حدد الكلمات المهمة.","الامتحان","📝"],
+["لا تترك سؤالًا فارغًا دون سبب","إدارة الوقت مهمة في الاختبار.","انتقل للسؤال التالي وعد إليه لاحقًا.","الامتحان","📝"],
+["تدرب على الوقت","المعرفة وحدها لا تكفي أحيانًا.","حل نموذجًا بوقت محدد.","الامتحان","📝"],
+["قسم الفصل","الفصل الطويل يبدو أسهل عند تقسيمه.","قسمه إلى عناوين.","الدراسة","📚"],
+["راجع القديم مع الجديد","لا تجعل المراجعة إلى آخر يوم.","خصص وقتًا أسبوعيًا للمراجعة.","الدراسة","📚"],
+["استخدم قلمًا واحدًا للأفكار المهمة","كثرة الألوان قد تشتت.","حدد لونًا واحدًا للعناوين المهمة.","التركيز","🧠"],
+["اجعل مكان الدراسة ثابتًا","المكان الثابت يساعدك على بناء عادة.","اختر مكانًا هادئًا.","التركيز","🧠"],
+["ابدأ الآن","لا تنتظر الشعور المثالي.","ابدأ بخمس دقائق فقط.","الوقت","⏰"],
+["حدد أولوياتك","ليست كل المهام بنفس الأهمية.","ابدأ بالأقرب والأكثر أهمية.","الوقت","⏰"],
+["استخدم قائمة مهام","القائمة تمنع نسيان الواجبات.","اكتب ثلاث مهام أساسية لليوم.","الوقت","⏰"],
+["راجع القوانين","القوانين تحتاج تكرارًا.","اكتبها من الذاكرة ثم تحقق منها.","الدراسة","📚"],
+["حل أسئلة متنوعة","التنوع يجهزك لطرق مختلفة للسؤال.","لا تعتمد على مثال واحد.","الامتحان","📝"],
+["اقرأ بصوت منخفض","قد يساعدك ذلك في بعض المواد.","جرب الطريقة واختر ما يناسبك.","الدراسة","📚"],
+["استخدم التكرار المتباعد","راجع المعلومات على فترات متباعدة.","راجع بعد يوم ثم عدة أيام.","الدراسة","📚"],
+["لا تقارن نفسك بالآخرين","قارن تقدمك بتقدمك السابق.","سجل ما أنجزته.","الصحة","❤️"],
+["كافئ نفسك","المكافأة الصغيرة تزيد الالتزام.","بعد إنجاز هدفك خذ استراحة.","الصحة","❤️"],
+["لا تدرس وأنت مشتت","أغلق المواقع غير الضرورية.","استخدم وضع التركيز.","التركيز","🧠"],
+["راجع عناوين الدرس أولًا","خذ صورة عامة قبل التفاصيل.","اقرأ العناوين الرئيسية.","الدراسة","📚"],
+["اكتب الأسئلة التي لا تعرفها","هذا يساعدك في تحديد نقاط الضعف.","اجمعها في قائمة.","الامتحان","📝"],
+["اطلب المساعدة عند الحاجة","السؤال أفضل من البقاء عالقًا.","حدد النقطة التي لم تفهمها.","الدراسة","📚"],
+["استفد من الفيديو التعليمي","الفيديو قد يساعد في المفاهيم الصعبة.","شاهد ثم طبق بنفسك.","الدراسة","📚"],
+["لا تشاهد فقط","المشاهدة وحدها ليست كافية.","أوقف الفيديو وحل بنفسك.","الدراسة","📚"],
+["راجع الملخص","الملخص يساعد على المراجعة السريعة.","أنشئ ملخصًا بعباراتك.","الدراسة","📚"],
+["استخدم جدولًا أسبوعيًا","خطط للأسبوع بدل كل يوم فقط.","حدد المواد مسبقًا.","الوقت","⏰"],
+["اترك وقتًا للطوارئ","قد تظهر مهمة غير متوقعة.","لا تملأ اليوم بالكامل.","الوقت","⏰"],
+["جهز أدواتك","لا تضيع وقت الدراسة في البحث عن الأدوات.","جهز الكتب والأقلام مسبقًا.","الوقت","⏰"],
+["ابدأ بموضوع تعرفه","قد يساعدك على الدخول في جو الدراسة.","ثم انتقل للأصعب.","الدراسة","📚"],
+["لا تكرر القراءة فقط","الاسترجاع أكثر نشاطًا.","أغلق الكتاب وحاول التذكر.","الدراسة","📚"],
+["اكتب ما تتذكره","الكتابة تكشف الفراغات.","ثم قارن بالمصدر.","الدراسة","📚"],
+["استخدم أسئلة لماذا؟","الأسئلة العميقة تزيد الفهم.","اسأل لماذا وكيف.","الدراسة","📚"],
+["حل قبل رؤية الحل","حتى المحاولة الخاطئة مفيدة.","أعط نفسك عدة دقائق.","الامتحان","📝"],
+["راجع قبل الاختبار بفترة","لا تجعل كل شيء ليلة الامتحان.","قسم المراجعة مسبقًا.","الامتحان","📝"],
+["جهز حقيبة الاختبار","قلل الأمور التي قد تسبب توترًا.","جهز الأدوات في الليلة السابقة.","الصحة","❤️"],
+["خذ نفسًا عميقًا","التنفس الهادئ قد يساعدك على الاستقرار.","خذ عدة أنفاس ببطء.","الصحة","❤️"],
+["اقرأ الاختبار كاملًا إذا سمح الوقت","تعرف على توزيع الأسئلة.","ضع خطة للوقت.","الامتحان","📝"],
+["لا تعلق طويلًا على سؤال","إذا تعثرت انتقل مؤقتًا.","ارجع إليه لاحقًا.","الامتحان","📝"],
+["راجع إجاباتك","اترك دقائق للمراجعة.","ابحث عن الأخطاء الواضحة.","الامتحان","📝"],
+["تعلم من الاختبارات السابقة","الاختبار القديم أداة تدريب.","حل ثم حلل أخطاءك.","الامتحان","📝"],
+["احتفظ بملف للملخصات","اجمع أفضل ملخصاتك.","رتبها حسب المادة.","الدراسة","📚"],
+["رتب ملفاتك","التنظيم يوفر وقتًا.","أنشئ مجلدًا لكل مادة.","الوقت","⏰"],
+["استخدم أسماء واضحة للملفات","يسهل الوصول إليها.","اكتب المادة والموضوع والتاريخ.","الوقت","⏰"],
+["لا تعتمد على مصدر واحد دائمًا","قارن الشرح عند صعوبة الموضوع.","استخدم كتابًا وشرحًا موثوقًا.","الدراسة","📚"],
+["اكتب خطة بديلة","إذا لم تستطع تنفيذ الخطة الأصلية.","حدد مهمة أصغر.","الوقت","⏰"],
+["اجعل أهدافك قابلة للقياس","بدل دراسة الرياضيات اكتب حل 20 سؤالًا.","هذا يجعل الإنجاز واضحًا.","الوقت","⏰"],
+["حدد نهاية للجلسة","الجلسة المفتوحة قد تفقد تركيزك.","استخدم مؤقتًا.","الوقت","⏰"],
+["قلل تعدد المهام","لا تدرس وتستخدم الهاتف في الوقت نفسه.","مهمة واحدة أفضل.","التركيز","🧠"],
+["اكتب أفكارك المشتتة","لا تجعلها توقف الدراسة.","اكتبها في ورقة وعد إليها لاحقًا.","التركيز","🧠"],
+["استمع إلى نفسك","لاحظ الطريقة التي تتعلم بها أفضل.","جرب القراءة والكتابة والأسئلة.","الدراسة","📚"],
+["غير طريقة المراجعة","لا تجعل كل المراجعة قراءة.","استخدم أسئلة وبطاقات.","الدراسة","📚"],
+["راجع نقاط الضعف أولًا","وقت المراجعة محدود.","ابدأ بما تخطئ فيه أكثر.","الامتحان","📝"],
+["حدد عدد الأسئلة","اجعل جلسة حل الأسئلة واضحة.","مثلًا 15 سؤالًا.","الامتحان","📝"],
+["استخدم مؤقتًا أثناء التدريب","تعود على ضغط الوقت.","جرب وقتًا قريبًا من الاختبار.","الامتحان","📝"],
+["اقرأ التعريف ثم حاول صياغته","هذا يساعد على الفهم.","اشرحه بكلماتك.","الدراسة","📚"],
+["اربط المعلومات","اربط الجديد بما تعرفه.","ابحث عن مثال من حياتك.","الدراسة","📚"],
+["استخدم الاختصارات باعتدال","قد تساعد في حفظ القوائم.","اصنع كلمة أو جملة سهلة.","الدراسة","📚"],
+["اجعل النوم أولوية","لا تجعل السهر عادة للدراسة.","حافظ على روتين مناسب.","الصحة","❤️"],
+["تحرك خلال الاستراحة","الاستراحة ليست شاشة فقط.","امشِ قليلًا.","الصحة","❤️"],
+["رتب وجبتك","الدراسة تحتاج طاقة.","تناول طعامًا مناسبًا لك.","الصحة","❤️"],
+["لا تشرب المنبهات بإفراط","راقب ما يناسبك.","خصوصًا قرب وقت النوم.","الصحة","❤️"],
+["خذ فواصل قصيرة","الفاصل القصير يعيد الانتباه.","استخدم 5 إلى 10 دقائق.","الصحة","❤️"],
+["حدد وقت الهاتف","ضع وقتًا واضحًا للتطبيقات.","لا تجعل الهاتف يتحكم بوقتك.","التركيز","🧠"],
+["أوقف الإشعارات","الإشعار الصغير قد يقطع جلسة كاملة.","أوقف غير الضروري.","التركيز","🧠"],
+["استخدم وضع عدم الإزعاج","خصوصًا أثناء جلسات التركيز.","فعّله مؤقتًا.","التركيز","🧠"],
+["ابدأ بترتيب سريع","رتب المكتب لدقيقتين فقط.","ثم ابدأ فورًا.","الوقت","⏰"],
+["لا تنتظر المزاج","العادة أهم من الحماس.","ابدأ بالخطوة الأولى.","الوقت","⏰"],
+["سجل إنجازاتك","رؤية تقدمك تحفزك.","اكتب ما أنجزته يوميًا.","الصحة","❤️"],
+["ضع هدفًا أسبوعيًا","اجعل هدف الأسبوع واضحًا.","راجع النتيجة في نهايته.","الوقت","⏰"],
+["ضع هدفًا للامتحان","حدد مستوى الأداء الذي تريده.","قسمه إلى أهداف صغيرة.","الامتحان","📝"],
+["تعلم من نتيجة الاختبار","الدرجة ليست النهاية.","حلل أين أخطأت.","الامتحان","📝"],
+["لا تخف من الخطأ","الخطأ جزء من التعلم.","ركز على تصحيحه.","الصحة","❤️"],
+["استخدم قائمة مراجعة","تأكد من تغطية كل المواضيع.","ضع علامة بعد الإنجاز.","الامتحان","📝"],
+["اترك يومًا للمراجعة","لا تجعل آخر ساعاتك للفهم الأول.","خطط للمراجعة مبكرًا.","الامتحان","📝"],
+["اجعل لكل مادة لونًا أو رمزًا","يساعدك في التنظيم البصري.","استخدمه في الملفات.","الوقت","⏰"],
+["احتفظ بنسخة احتياطية","لا تخاطر بفقدان ملاحظاتك.","صدّر بياناتك دوريًا.","الوقت","⏰"],
+["راجع أهدافك كل أسبوع","احذف ما لم يعد مهمًا.","حدث خطتك.","الوقت","⏰"],
+["احتفل بالتقدم الصغير","الاستمرارية أهم من يوم واحد.","كافئ نفسك بشكل مناسب.","الصحة","❤️"],
+["كن صبورًا","التعلم يحتاج وقتًا.","استمر حتى مع الأيام الصعبة.","الصحة","❤️"]
+];
+
+let tipCategory="الكل";
+
+function setTipCategory(category,button){
+
+    tipCategory=category;
+
+    document.querySelectorAll(".tabs .tab")
+        .forEach(x=>x.classList.remove("active"));
+
+    button.classList.add("active");
+
+    renderTips();
+}
+
+function renderTips(){
+
+    const search=
+        document.getElementById("tipSearch")
+        .value
+        .toLowerCase();
+
+    const list=document.getElementById("tipList");
+
+    const filtered=tips
+        .map((t,i)=>({...t,index:i}))
+        .filter(t=>{
+
+            const matchesSearch=
+                t[0].toLowerCase().includes(search) ||
+                t[1].toLowerCase().includes(search);
+
+            const matchesCategory=
+                tipCategory==="الكل" ||
+                t[3]===tipCategory;
+
+            return matchesSearch && matchesCategory;
+        });
+
+    list.innerHTML=filtered.map(t=>`
+
+<div class="tip">
+
+<div class="tip-head">
+
+<div>
+<span class="tip-number">#${t.index+1}</span>
+<h3>${t[4]} ${t[0]}</h3>
+</div>
+
+<button class="small-btn"
+onclick="favoriteTip(${t.index})">
+${db.favorites.includes(t.index)?"❤️":"🤍"}
+</button>
+
+</div>
+
+<p>${t[1]}</p>
+
+<p class="muted">
+<strong>كيف تطبقها؟</strong>
+${t[2]}
+</p>
+
+<div class="tip-actions">
+
+<button class="small-btn"
+onclick="applyTip(${t.index})">
+${db.appliedTips.includes(t.index)?"✅ طبقتها":"☑️ طبقتها"}
+</button>
+
+<button class="small-btn"
+onclick="openTip(${t.index})">
+📖 التفاصيل
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+    document.getElementById("statTips").textContent=tips.length;
+}
 
 function favoriteTip(index){
 
-    let favorites =
-        JSON.parse(
-            localStorage.getItem("student_tip_favorites")
-            || "[]"
-        );
-
-    if(!favorites.includes(index)){
-
-        favorites.push(index);
-
-        localStorage.setItem(
-            "student_tip_favorites",
-            JSON.stringify(favorites)
-        );
-
-        addXP(2);
-
-        toast("⭐ تمت إضافة النصيحة للمفضلة");
-
+    if(db.favorites.includes(index)){
+        db.favorites=db.favorites.filter(x=>x!==index);
     }else{
-
-        toast("النصيحة موجودة مسبقًا");
-
+        db.favorites.push(index);
+        addXP(2);
     }
 
+    saveDB();
+    renderTips();
 }
 
+function applyTip(index){
 
-/* =========================================================
-   Pomodoro
-========================================================= */
+    if(!db.appliedTips.includes(index)){
+        db.appliedTips.push(index);
+        addXP(5);
+        toast("✅ تم تسجيل تطبيق النصيحة");
+    }
 
-let timerSeconds = 25*60;
-let timerInterval = null;
-let timerRunning = false;
-let timerIsBreak = false;
+    saveDB();
+    renderTips();
+}
 
+function openTip(index){
+
+    const t=tips[index];
+
+    alert(
+        `${t[4]} ${t[0]}\n\n`+
+        `${t[1]}\n\n`+
+        `كيف تطبقها؟\n${t[2]}`
+    );
+}
+
+function randomTip(){
+
+    const index=Math.floor(Math.random()*tips.length);
+
+    document.getElementById("tipSearch").value=tips[index][0];
+
+    tipCategory="الكل";
+
+    renderTips();
+
+    scrollToId("tips");
+}
+
+/* =====================================================
+   POMODORO
+===================================================== */
+
+let timerSeconds=1500;
+let timerInterval=null;
+let timerRunning=false;
 
 function updateTimerDisplay(){
 
-    const min =
-        Math.floor(timerSeconds/60)
-            .toString()
-            .padStart(2,"0");
+    const min=Math.floor(timerSeconds/60)
+        .toString().padStart(2,"0");
 
-    const sec =
-        (timerSeconds%60)
-            .toString()
-            .padStart(2,"0");
+    const sec=(timerSeconds%60)
+        .toString().padStart(2,"0");
 
     document.getElementById("timerDisplay")
-        .textContent =
-        `${min}:${sec}`;
-
+        .textContent=`${min}:${sec}`;
 }
 
+function setTimer(minutes){
+
+    pauseTimer();
+
+    timerSeconds=minutes*60;
+
+    updateTimerDisplay();
+}
 
 function startTimer(){
 
-    if(timerRunning) return;
+    if(timerRunning)return;
 
-    timerRunning = true;
+    timerRunning=true;
 
-    timerInterval =
-        setInterval(()=>{
+    timerInterval=setInterval(()=>{
 
-            timerSeconds--;
+        if(timerSeconds<=0){
 
-            updateTimerDisplay();
+            pauseTimer();
 
-            if(timerSeconds <= 0){
+            db.sessions++;
+            db.minutes += 25;
+            db.streak++;
 
-                clearInterval(timerInterval);
+            addXP(25);
+            saveDB();
 
-                timerRunning = false;
+            toast("🎉 انتهت جلسة الدراسة!");
 
-                if(!timerIsBreak){
+            return;
+        }
 
-                    data.sessions++;
-                    data.studyMinutes += 25;
+        timerSeconds--;
 
-                    addXP(20);
+        updateTimerDisplay();
 
-                    toast("🎉 أحسنت! أكملت جلسة دراسة.");
-
-                }else{
-
-                    toast("☕ انتهت الاستراحة.");
-
-                }
-
-                setStudyTimer();
-
-                saveData();
-
-            }
-
-        },1000);
-
+    },1000);
 }
-
 
 function pauseTimer(){
 
-    clearInterval(timerInterval);
+    timerRunning=false;
 
-    timerRunning = false;
-
+    if(timerInterval){
+        clearInterval(timerInterval);
+        timerInterval=null;
+    }
 }
-
 
 function resetTimer(){
 
     pauseTimer();
 
-    setStudyTimer();
-
-}
-
-
-function setStudyTimer(){
-
-    timerIsBreak = false;
-    timerSeconds = 25*60;
-
-    document.getElementById("timerMode")
-        .textContent =
-        "جلسة دراسة";
+    timerSeconds=1500;
 
     updateTimerDisplay();
-
 }
 
+function startPomodoro(){
 
-function setBreak(){
+    scrollToId("timer");
 
-    pauseTimer();
+    setTimer(25);
 
-    timerIsBreak = true;
-
-    timerSeconds = 5*60;
-
-    document.getElementById("timerMode")
-        .textContent =
-        "☕ استراحة";
-
-    updateTimerDisplay();
-
+    startTimer();
 }
 
-
-function setCustomTimer(){
-
-    const minutes =
-        Number(prompt("كم دقيقة تريد؟",25));
-
-    if(!minutes || minutes<1) return;
-
-    pauseTimer();
-
-    timerIsBreak = false;
-
-    timerSeconds =
-        Math.floor(minutes)*60;
-
-    document.getElementById("timerMode")
-        .textContent =
-        "جلسة مخصصة";
-
-    updateTimerDisplay();
-
-    showPage("pomodoro");
-
-}
-
-
-/* =========================================================
-   الدراسة
-========================================================= */
-
-function startStudySession(){
-
-    const subject =
-        document.getElementById("studySubject").value;
-
-    const minutes =
-        Number(
-            document.getElementById("studyMinutes").value
-        );
-
-    const type =
-        document.getElementById("studyType").value;
-
-    timerSeconds = minutes*60;
-    timerIsBreak = false;
-
-    document.getElementById("timerMode")
-        .textContent =
-        `${subject} - ${type}`;
-
-    updateTimerDisplay();
-
-    showPage("pomodoro");
-
-    toast(
-        `📚 تم تجهيز جلسة ${minutes} دقيقة`
-    );
-
-}
-
-
-/* =========================================================
-   المهام
-========================================================= */
+/* =====================================================
+   TASKS
+===================================================== */
 
 function addTask(){
 
-    const name =
-        document.getElementById("taskInput")
-            .value.trim();
+    const name=document.getElementById("taskName").value.trim();
 
     if(!name){
-
         toast("اكتب اسم المهمة أولًا");
-
         return;
-
     }
 
-    const subject =
-        document.getElementById("taskSubject").value;
-
-    const date =
-        document.getElementById("taskDate").value;
-
-    data.tasks.push({
-
+    db.tasks.push({
         id:Date.now(),
-
         name,
-
-        subject,
-
-        date,
-
-        done:false,
-
-        created:new Date().toISOString()
-
+        subject:document.getElementById("taskSubject").value,
+        date:document.getElementById("taskDate").value,
+        priority:document.getElementById("taskPriority").value,
+        done:false
     });
 
-    document.getElementById("taskInput").value="";
+    saveDB();
 
-    addXP(3);
+    document.getElementById("taskName").value="";
 
-    saveData();
+    renderTasks();
 
     toast("✅ تمت إضافة المهمة");
 
 }
 
+function renderTasks(){
+
+    const list=document.getElementById("taskList");
+
+    if(!db.tasks.length){
+
+        list.innerHTML=
+        `<p class="muted">لا توجد مهام حاليًا.</p>`;
+
+        return;
+    }
+
+    list.innerHTML=db.tasks.map(task=>`
+
+<div class="task ${task.done?"done":""}">
+
+<input
+class="task-check"
+type="checkbox"
+${task.done?"checked":""}
+onchange="toggleTask(${task.id})">
+
+<div class="task-main">
+
+<strong>${escapeHTML(task.name)}</strong>
+
+<div class="muted">
+${escapeHTML(task.subject||"بدون مادة")}
+${task.date?" • "+task.date:""}
+</div>
+
+<span class="priority ${task.priority}">
+${
+task.priority==="high"
+?"عالية"
+:task.priority==="medium"
+?"متوسطة"
+:"منخفضة"
+}
+</span>
+
+</div>
+
+<button
+class="small-btn"
+onclick="deleteTask(${task.id})">
+🗑️
+</button>
+
+</div>
+
+`).join("");
+}
 
 function toggleTask(id){
 
-    const task =
-        data.tasks.find(t=>t.id===id);
+    const task=db.tasks.find(x=>x.id===id);
 
-    if(!task) return;
+    if(!task)return;
 
-    task.done = !task.done;
+    task.done=!task.done;
 
     if(task.done){
-
-        data.goal.completed++;
-
         addXP(10);
-
+        toast("🎉 أحسنت! تم إنجاز المهمة");
     }
 
-    saveData();
-
+    saveDB();
+    renderTasks();
 }
-
 
 function deleteTask(id){
 
-    data.tasks =
-        data.tasks.filter(t=>t.id!==id);
+    db.tasks=db.tasks.filter(x=>x.id!==id);
 
-    saveData();
+    saveDB();
 
+    renderTasks();
 }
 
+/* =====================================================
+   STUDY PLAN
+===================================================== */
 
-function clearCompletedTasks(){
+function generatePlan(){
 
-    data.tasks =
-        data.tasks.filter(t=>!t.done);
+    const subject=
+        document.getElementById("planSubject").value ||
+        "المادة";
 
-    saveData();
+    const days=
+        Math.max(1,
+        Number(document.getElementById("planDays").value)||7);
 
-    toast("تم حذف المهام المكتملة");
+    const hours=
+        Number(document.getElementById("planHours").value)||2;
 
-}
+    let topics=
+        document.getElementById("planTopics")
+        .value
+        .split(",")
+        .map(x=>x.trim())
+        .filter(Boolean);
 
-
-function renderTasks(){
-
-    const container =
-        document.getElementById("taskList");
-
-    if(!data.tasks.length){
-
-        container.innerHTML =
-            `<p class="muted">
-                لا توجد مهام حتى الآن.
-            </p>`;
-
-        return;
-
+    if(!topics.length){
+        topics=["الموضوع الأول","الموضوع الثاني","المراجعة","الأسئلة"];
     }
 
-    container.innerHTML =
-        data.tasks
-            .slice()
-            .reverse()
-            .map(task=>`
+    const result=document.getElementById("planResult");
 
-                <div class="task ${
-                    task.done?"done":""
-                }">
+    let html="";
 
-                    <input
-                        class="task-check"
-                        type="checkbox"
-                        ${
-                            task.done?"checked":""
-                        }
-                        onchange="toggleTask(${task.id})">
+    for(let day=1;day<=days;day++){
 
-                    <div class="task-name">
+        const topic=topics[(day-1)%topics.length];
 
-                        ${escapeHTML(task.name)}
+        html+=`
 
-                        <div class="task-date">
-                            ${escapeHTML(task.subject)}
-                            ${task.date ? " • "+task.date:""}
-                        </div>
+<div class="plan-day">
 
-                    </div>
+<h4>اليوم ${day}</h4>
 
-                    <button
-                        class="btn btn-danger"
-                        onclick="deleteTask(${task.id})">
-                        حذف
-                    </button>
+<div class="plan-item">
+📚 المادة: ${escapeHTML(subject)}
+</div>
 
-                </div>
+<div class="plan-item">
+🎯 الهدف: ${escapeHTML(topic)}
+</div>
 
-            `).join("");
+<div class="plan-item">
+⏱️ الوقت: ${hours} ساعة
+</div>
 
-}
+<div class="plan-item">
+🍅 اقتراح: ${Math.max(1,Math.round(hours*2))}
+ جلسات تركيز
+</div>
 
+<div class="plan-item">
+📝 في النهاية: اختبر نفسك بـ5 أسئلة
+</div>
 
-/* =========================================================
-   الملاحظات
-========================================================= */
+</div>
 
-function addNote(){
-
-    const title =
-        document.getElementById("noteTitle")
-            .value.trim();
-
-    const content =
-        document.getElementById("noteContent")
-            .value.trim();
-
-    if(!title || !content){
-
-        toast("أكمل بيانات الملاحظة");
-
-        return;
-
+`;
     }
 
-    data.notes.push({
+    result.innerHTML=html;
 
-        id:Date.now(),
-
-        title,
-
-        content,
-
-        date:new Date().toLocaleDateString("ar-IQ")
-
-    });
-
-    document.getElementById("noteTitle").value="";
-    document.getElementById("noteContent").value="";
-
-    addXP(3);
-
-    saveData();
-
-    toast("📝 تم حفظ الملاحظة");
+    addXP(5);
 
 }
 
+/* =====================================================
+   QUIZ
+===================================================== */
 
-function deleteNote(id){
+const quizQuestions=[
+{
+q:"ما الطريقة المناسبة لتقسيم جلسة الدراسة إلى فترات قصيرة؟",
+o:["بومودورو","الحفظ العشوائي","عدم التخطيط","الدراسة دون توقف"],
+a:0
+},
+{
+q:"ما الذي يساعد على تقليل المشتتات؟",
+o:["فتح الإشعارات","وضع الهاتف جانبًا","فتح عدة تطبيقات","مشاهدة الفيديو أثناء الدراسة"],
+a:1
+},
+{
+q:"ما الأفضل عند وجود سؤال صعب في الاختبار؟",
+o:["إضاعة كل الوقت عليه","ترك الاختبار","الانتقال مؤقتًا ثم العودة","عدم قراءة السؤال"],
+a:2
+},
+{
+q:"ما فائدة البطاقات التعليمية؟",
+o:["تنظيم الاسترجاع","إضاعة الوقت","إلغاء المراجعة","استبدال الفهم"],
+a:0
+},
+{
+q:"ماذا تفعل بعد الخطأ في سؤال؟",
+o:["تتجاهله","تحلله وتعرف السبب","تمسحه","تترك المادة"],
+a:1
+}
+];
 
-    data.notes =
-        data.notes.filter(n=>n.id!==id);
+let quizIndex=0;
+let quizScore=0;
+let quizStarted=false;
 
-    saveData();
+function startQuiz(){
 
+    quizIndex=0;
+    quizScore=0;
+    quizStarted=true;
+
+    document.getElementById("quizResult").innerHTML="";
+
+    renderQuizQuestion();
 }
 
+function renderQuizQuestion(){
 
-function renderNotes(){
+    const q=quizQuestions[quizIndex];
 
-    const container =
-        document.getElementById("notesList");
+    document.getElementById("quizQuestion")
+        .textContent=
+        `السؤال ${quizIndex+1} من ${quizQuestions.length}: ${q.q}`;
 
-    if(!data.notes.length){
+    document.getElementById("quizOptions").innerHTML=
+        q.o.map((option,i)=>`
 
-        container.innerHTML =
-            `<p class="muted">
-                لا توجد ملاحظات.
-            </p>`;
+<button
+class="quiz-option"
+onclick="answerQuiz(${i})">
+${option}
+</button>
 
-        return;
+`).join("");
+}
 
+function answerQuiz(index){
+
+    if(!quizStarted)return;
+
+    const q=quizQuestions[quizIndex];
+
+    document.querySelectorAll(".quiz-option")
+        .forEach(x=>x.disabled=true);
+
+    if(index===q.a){
+        quizScore++;
+        toast("✅ إجابة صحيحة");
+    }else{
+        toast("❌ إجابة غير صحيحة");
     }
 
-    container.innerHTML =
-        data.notes
-            .slice()
-            .reverse()
-            .map(note=>`
+    setTimeout(()=>{
 
-                <div class="note"
-                     style="margin-bottom:10px">
+        quizIndex++;
 
-                    <h4>
-                        ${escapeHTML(note.title)}
-                    </h4>
+        if(quizIndex>=quizQuestions.length){
 
-                    <p>
-                        ${escapeHTML(note.content)}
-                    </p>
+            quizStarted=false;
 
-                    <small>
-                        ${note.date}
-                    </small>
+            db.quizzes++;
 
-                    <div style="margin-top:8px">
+            const xp=quizScore*10;
 
-                        <button
-                            class="btn btn-danger"
-                            onclick="deleteNote(${note.id})">
-                            حذف
-                        </button>
+            addXP(xp);
 
-                    </div>
+            document.getElementById("quizQuestion")
+                .textContent="🎉 انتهى الاختبار";
 
-                </div>
+            document.getElementById("quizOptions")
+                .innerHTML="";
 
-            `).join("");
+            document.getElementById("quizResult")
+                .innerHTML=`
+<div class="result">
+نتيجتك: ${quizScore}/${quizQuestions.length}
+<br>
+حصلت على ${xp} XP
+</div>`;
 
+            saveDB();
+
+        }else{
+
+            renderQuizQuestion();
+
+        }
+
+    },700);
 }
 
+/* =====================================================
+   FLASHCARDS
+===================================================== */
 
-/* =========================================================
-   البطاقات
-========================================================= */
+let flashIndex=-1;
+let flashShowingAnswer=false;
 
 function addFlashcard(){
 
-    const question =
-        document.getElementById("flashQuestion")
-            .value.trim();
+    const q=document.getElementById("flashQuestion").value.trim();
+    const a=document.getElementById("flashAnswer").value.trim();
 
-    const answer =
-        document.getElementById("flashAnswer")
-            .value.trim();
-
-    if(!question || !answer){
-
-        toast("اكتب السؤال والإجابة");
-
+    if(!q||!a){
+        toast("أدخل السؤال والإجابة");
         return;
-
     }
 
-    data.flashcards.push({
-
-        id:Date.now(),
-
-        question,
-
-        answer,
-
-        known:false
-
+    db.flashcards.push({
+        q,
+        a,
+        mastered:false
     });
+
+    saveDB();
 
     document.getElementById("flashQuestion").value="";
     document.getElementById("flashAnswer").value="";
 
-    addXP(4);
+    toast("🗂️ تمت إضافة البطاقة");
 
-    saveData();
-
+    if(flashIndex===-1){
+        nextFlashcard();
+    }
 }
 
+function nextFlashcard(){
 
-function deleteFlashcard(id){
+    if(!db.flashcards.length){
 
-    data.flashcards =
-        data.flashcards.filter(
-            card=>card.id!==id
-        );
-
-    saveData();
-
-}
-
-
-function renderFlashcards(){
-
-    const container =
-        document.getElementById("flashcardList");
-
-    if(!data.flashcards.length){
-
-        container.innerHTML =
-            `<p class="muted">
-                أضف أول بطاقة لك.
-            </p>`;
+        document.getElementById("flashCard")
+            .textContent="أضف بطاقة أولًا";
 
         return;
-
     }
 
-    container.innerHTML =
-        data.flashcards
-            .slice()
-            .reverse()
-            .map(card=>`
+    flashIndex=(flashIndex+1)%db.flashcards.length;
 
-                <div class="card"
-                     style="box-shadow:none;
-                            margin-bottom:10px">
+    flashShowingAnswer=false;
 
-                    <strong>
-                        ❓ ${escapeHTML(card.question)}
-                    </strong>
-
-                    <p class="muted"
-                       style="margin-top:8px">
-
-                        💡 ${escapeHTML(card.answer)}
-
-                    </p>
-
-                    <div style="display:flex;
-                                gap:6px;
-                                margin-top:8px">
-
-                        <button
-                            class="btn ${
-                                card.known
-                                ?"btn-success"
-                                :"btn-primary"
-                            }"
-                            onclick="toggleFlashcard(${card.id})">
-
-                            ${
-                                card.known
-                                ?"✓ أتقنتها"
-                                :"لم أتقنها"
-                            }
-
-                        </button>
-
-                        <button
-                            class="btn btn-danger"
-                            onclick="deleteFlashcard(${card.id})">
-                            حذف
-                        </button>
-
-                    </div>
-
-                </div>
-
-            `).join("");
-
+    document.getElementById("flashCard")
+        .textContent=db.flashcards[flashIndex].q;
 }
 
+function flipFlashcard(){
 
-function toggleFlashcard(id){
+    if(flashIndex<0)return;
 
-    const card =
-        data.flashcards.find(
-            c=>c.id===id
-        );
+    flashShowingAnswer=!flashShowingAnswer;
 
-    if(card){
+    const card=db.flashcards[flashIndex];
 
-        card.known=!card.known;
-
-        if(card.known){
-
-            addXP(5);
-
-        }
-
-        saveData();
-
-    }
-
+    document.getElementById("flashCard")
+        .textContent=
+        flashShowingAnswer?card.a:card.q;
 }
 
+function masterFlashcard(){
 
-/* =========================================================
-   الخطة
-========================================================= */
+    if(flashIndex<0)return;
 
-function saveGoal(){
+    db.flashcards[flashIndex].mastered=true;
 
-    const text =
-        document.getElementById("goalInput")
-            .value.trim();
+    addXP(3);
 
-    const sessions =
-        Number(
-            document.getElementById("goalSessions")
-                .value
-        ) || 4;
+    saveDB();
 
-    data.goal.text=text;
-    data.goal.sessions=sessions;
-
-    saveData();
-
-    toast("🎯 تم حفظ الهدف");
-
+    nextFlashcard();
 }
 
+/* =====================================================
+   NOTES
+===================================================== */
 
-function generatePlan(){
+function addNote(){
 
-    const days =
-        Number(
-            document.getElementById("planDays").value
-        );
+    const title=document.getElementById("noteTitle").value.trim();
+    const content=document.getElementById("noteContent").value.trim();
 
-    const subjects = [
-        "الرياضيات",
-        "الفيزياء",
-        "الكيمياء",
-        "الأحياء",
-        "العربي",
-        "الإنكليزي"
-    ];
-
-    data.plan=[];
-
-    for(let i=0;i<days;i++){
-
-        data.plan.push({
-
-            day:i+1,
-
-            subject:
-                subjects[i%subjects.length],
-
-            sessions:3,
-
-            done:false
-
-        });
-
-    }
-
-    saveData();
-
-    toast("✨ تم إنشاء خطة الدراسة");
-
-}
-
-
-function renderPlan(){
-
-    const container =
-        document.getElementById("planContainer");
-
-    if(!data.plan.length){
-
-        container.innerHTML =
-            `<p class="muted">
-                لم تنشئ خطة بعد.
-            </p>`;
-
+    if(!title||!content){
+        toast("أدخل عنوان ومحتوى الملاحظة");
         return;
-
     }
 
-    container.innerHTML =
-        data.plan.map((item,index)=>`
+    db.notes.unshift({
+        id:Date.now(),
+        title,
+        content,
+        date:new Date().toLocaleString("ar-IQ")
+    });
 
-            <div class="task ${
-                item.done?"done":""
-            }">
+    saveDB();
 
-                <input
-                    type="checkbox"
-                    class="task-check"
-                    ${
-                        item.done?"checked":""
-                    }
-                    onchange="togglePlanDay(${index})">
+    document.getElementById("noteTitle").value="";
+    document.getElementById("noteContent").value="";
 
-                <div class="task-name">
+    renderNotes();
 
-                    <strong>
-                        اليوم ${item.day}
-                    </strong>
-
-                    <div class="task-date">
-                        ${item.subject}
-                        • ${item.sessions} جلسات
-                    </div>
-
-                </div>
-
-            </div>
-
-        `).join("");
-
+    addXP(3);
 }
 
+function renderNotes(){
 
-function togglePlanDay(index){
+    const list=document.getElementById("notesList");
 
-    data.plan[index].done =
-        !data.plan[index].done;
-
-    if(data.plan[index].done){
-
-        addXP(15);
-
+    if(!db.notes.length){
+        list.innerHTML=
+        `<p class="muted">لا توجد ملاحظات.</p>`;
+        return;
     }
 
-    saveData();
+    list.innerHTML=db.notes.map(note=>`
 
+<div class="note">
+
+<h3>📒 ${escapeHTML(note.title)}</h3>
+
+<p>${escapeHTML(note.content)}</p>
+
+<small class="muted">${note.date}</small>
+
+<div class="note-actions">
+
+<button
+class="small-btn"
+onclick="deleteNote(${note.id})">
+🗑️ حذف
+</button>
+
+</div>
+
+</div>
+
+`).join("");
 }
 
+function deleteNote(id){
 
-/* =========================================================
-   الاختبارات
-========================================================= */
+    db.notes=db.notes.filter(x=>x.id!==id);
 
-const quizQuestions = [
+    saveDB();
 
-{
-    q:"ما أفضل طريقة لاختبار فهمك؟",
-    options:[
-        "إعادة القراءة فقط",
-        "حل الأسئلة والاسترجاع",
-        "ترك الكتاب مغلقًا دائمًا",
-        "الدراسة بدون راحة"
-    ],
-    correct:1
-},
-
-{
-    q:"ما نظام بومودورو الشائع؟",
-    options:[
-        "25 دقيقة دراسة و5 راحة",
-        "5 دقائق دراسة و25 راحة",
-        "ساعتان بدون توقف",
-        "10 دقائق فقط"
-    ],
-    correct:0
-},
-
-{
-    q:"ما فائدة التكرار المتباعد؟",
-    options:[
-        "نسيان المعلومات",
-        "مراجعة المعلومات على فترات",
-        "إلغاء المراجعة",
-        "زيادة عدد الكتب"
-    ],
-    correct:1
-},
-
-{
-    q:"ماذا تفعل عند الخطأ في سؤال؟",
-    options:[
-        "تتجاهله",
-        "تحلل سبب الخطأ",
-        "تحذف السؤال",
-        "توقف الدراسة"
-    ],
-    correct:1
-},
-
-{
-    q:"ما الأفضل عند وضع خطة دراسة؟",
-    options:[
-        "خطة مستحيلة",
-        "خطة واقعية",
-        "عدم وجود خطة",
-        "الدراسة طوال اليوم"
-    ],
-    correct:1
+    renderNotes();
 }
 
+/* =====================================================
+   ACHIEVEMENTS
+===================================================== */
+
+const achievements=[
+["🌱","البداية","ابدأ أول جلسة",()=>db.sessions>=1],
+["📚","طالب نشيط","أكمل 5 مهام",()=>db.tasks.filter(x=>x.done).length>=5],
+["🔥","استمرارية","سجل 3 جلسات",()=>db.sessions>=3],
+["🏆","100 XP","اجمع 100 XP",()=>db.xp>=100],
+["📝","مختبر","أكمل اختبارًا",()=>db.quizzes>=1],
+["🗂️","مراجع","أنشئ 5 بطاقات",()=>db.flashcards.length>=5],
+["📒","كاتب","أنشئ 5 ملاحظات",()=>db.notes.length>=5],
+["💡","حكيم","طبق 10 نصائح",()=>db.appliedTips.length>=10]
 ];
 
+function renderAchievements(){
 
-let currentQuiz = [];
-let currentQuestion = 0;
-let quizScore = 0;
+    document.getElementById("achievementList").innerHTML=
+        achievements.map(a=>`
 
+<div class="achievement ${a[3]()?"":"locked"}">
 
-function startQuiz(){
+<div class="achievement-icon">${a[0]}</div>
 
-    currentQuiz =
-        [...quizQuestions]
-            .sort(()=>Math.random()-.5);
+<h3>${a[1]}</h3>
 
-    currentQuestion=0;
-    quizScore=0;
+<p class="muted">${a[2]}</p>
 
-    document.getElementById("quizBox")
-        .style.display="block";
+</div>
 
-    renderQuizQuestion();
-
+`).join("");
 }
 
+/* =====================================================
+   CALCULATORS
+===================================================== */
 
-function renderQuizQuestion(){
+function calculateAverage(){
 
-    const box =
-        document.getElementById("quizBox");
+    const values=document.getElementById("averageInput")
+        .value
+        .split(",")
+        .map(Number)
+        .filter(x=>!isNaN(x));
 
-    if(currentQuestion >= currentQuiz.length){
+    if(!values.length)return;
 
-        finishQuiz();
+    const avg=
+        values.reduce((a,b)=>a+b,0)/values.length;
 
-        return;
+    document.getElementById("averageResult")
+        .textContent=
+        `المتوسط: ${avg.toFixed(2)}`;
+}
 
+function calculateRequired(){
+
+    const current=
+        Number(document.getElementById("currentGrade").value);
+
+    const target=
+        Number(document.getElementById("targetGrade").value);
+
+    if(isNaN(current)||isNaN(target))return;
+
+    document.getElementById("requiredResult")
+        .textContent=
+        `تحتاج إلى رفع نتيجتك بمقدار ${(target-current).toFixed(2)} درجة.`;
+}
+
+function calculateStudyTime(){
+
+    const hours=
+        Number(document.getElementById("studyHours").value);
+
+    if(!hours)return;
+
+    const minutes=Math.round(hours*60);
+
+    document.getElementById("studyTimeResult")
+        .textContent=
+        `${minutes} دقيقة ≈ ${Math.max(1,Math.floor(minutes/25))} جلسة بومودورو`;
+}
+
+function daysUntilExam(){
+
+    const date=document.getElementById("examDate").value;
+
+    if(!date)return;
+
+    const now=new Date();
+
+    const exam=new Date(date);
+
+    const days=Math.ceil(
+        (exam-now)/(1000*60*60*24)
+    );
+
+    document.getElementById("examResult")
+        .textContent=
+        days>=0
+        ?`باقي ${days} يوم`
+        :"موعد الاختبار مضى";
+}
+
+function calculatePercentage(){
+
+    const got=Number(
+        document.getElementById("gotMarks").value
+    );
+
+    const total=Number(
+        document.getElementById("totalMarks").value
+    );
+
+    if(!total)return;
+
+    const p=(got/total)*100;
+
+    document.getElementById("percentageResult")
+        .textContent=
+        `النسبة: ${p.toFixed(2)}%`;
+}
+
+function customTimer(){
+
+    const minutes=
+        Number(document.getElementById("customMinutes").value);
+
+    if(!minutes)return;
+
+    setTimer(minutes);
+
+    scrollToId("timer");
+
+    startTimer();
+}
+
+/* =====================================================
+   IRAQI CURRICULUM
+===================================================== */
+
+function updateIraqClasses(){
+
+    const stage=document.getElementById("iraqStage").value;
+
+    const select=document.getElementById("iraqClass");
+
+    select.innerHTML="";
+
+    let classes=[];
+
+    if(stage==="الابتدائية"){
+        classes=[
+            "الأول الابتدائي",
+            "الثاني الابتدائي",
+            "الثالث الابتدائي",
+            "الرابع الابتدائي",
+            "الخامس الابتدائي",
+            "السادس الابتدائي"
+        ];
     }
 
-    const question =
-        currentQuiz[currentQuestion];
+    if(stage==="المتوسطة"){
+        classes=[
+            "الأول المتوسط",
+            "الثاني المتوسط",
+            "الثالث المتوسط"
+        ];
+    }
 
-    box.innerHTML = `
+    if(stage==="الإعدادية"){
+        classes=[
+            "الرابع الإعدادي",
+            "الخامس الإعدادي",
+            "السادس الإعدادي"
+        ];
+    }
 
-        <div class="quiz-result">
+    classes.forEach(c=>{
 
-            <p class="muted">
-                السؤال ${currentQuestion+1}
-                من ${currentQuiz.length}
-            </p>
+        const option=document.createElement("option");
 
-            <h2 style="margin:15px 0">
-                ${question.q}
-            </h2>
+        option.textContent=c;
 
-        </div>
-
-        <div id="quizOptions"></div>
-
-    `;
-
-    const options =
-        document.getElementById("quizOptions");
-
-    question.options.forEach((option,index)=>{
-
-        const div =
-            document.createElement("div");
-
-        div.className="quiz-option";
-
-        div.textContent=option;
-
-        div.onclick=()=>{
-
-            if(index === question.correct){
-
-                quizScore++;
-
-                div.style.borderColor =
-                    "#16a34a";
-
-            }else{
-
-                div.style.borderColor =
-                    "#dc2626";
-
-            }
-
-            setTimeout(()=>{
-
-                currentQuestion++;
-
-                renderQuizQuestion();
-
-            },500);
-
-        };
-
-        options.appendChild(div);
+        select.appendChild(option);
 
     });
 
+    document.getElementById("curriculumResult").innerHTML=
+    stage
+    ?`
+    <div class="result">
+    🇮🇶 تم اختيار المرحلة: ${stage}
+    <br><br>
+    يمكنك تخصيص المواد والكتب والملفات لكل صف داخل هذه المنصة.
+    </div>
+    `
+    :"";
 }
 
+/* =====================================================
+   AI LOCAL ASSISTANT
+===================================================== */
 
-function finishQuiz(){
+function sendChat(){
 
-    const percent =
-        Math.round(
-            quizScore/currentQuiz.length*100
-        );
+    const input=document.getElementById("chatInput");
 
-    data.quizResults.push({
+    const text=input.value.trim();
 
-        score:quizScore,
+    if(!text)return;
 
-        total:currentQuiz.length,
-
-        percent,
-
-        date:new Date().toISOString()
-
-    });
-
-    addXP(percent);
-
-    saveData();
-
-    document.getElementById("quizBox")
-        .innerHTML=`
-
-            <div class="quiz-result">
-
-                <div style="font-size:50px">
-                    ${
-                        percent>=80
-                        ?"🏆"
-                        :percent>=50
-                        ?"👍"
-                        :"📚"
-                    }
-                </div>
-
-                <h2>
-                    نتيجتك ${percent}%
-                </h2>
-
-                <p class="muted">
-                    أجبت بشكل صحيح عن
-                    ${quizScore}
-                    من
-                    ${currentQuiz.length}
-                </p>
-
-                <button class="btn btn-primary"
-                        onclick="startQuiz()">
-                    إعادة الاختبار
-                </button>
-
-            </div>
-
-        `;
-
-}
-
-
-/* =========================================================
-   طرق الدراسة
-========================================================= */
-
-const methods = [
-
-["🍅","بومودورو","25 دقيقة دراسة ثم 5 دقائق راحة."],
-["🧠","الاسترجاع النشط","اختبر نفسك بدل القراءة المتكررة."],
-["🔁","التكرار المتباعد","راجع المعلومات على فترات متباعدة."],
-["👨‍🏫","طريقة فاينمان","اشرح الفكرة بلغة بسيطة."],
-["🗺️","الخريطة الذهنية","اربط المفاهيم بصريًا."],
-["📒","طريقة Cornell","قسم الورقة إلى ملاحظات وأسئلة وملخص."],
-["❓","التعلم بالأسئلة","حوّل العناوين إلى أسئلة."],
-["✍️","الكتابة من الذاكرة","اكتب ما تتذكره ثم قارن بالمصدر."],
-["🔀","التداخل","بدّل بين أنواع المسائل والموضوعات."],
-["🎯","جلسة التركيز","حدد مهمة واحدة وأنجزها دون مشتتات."],
-["📖","القراءة النشطة","اقرأ بهدف واسأل نفسك أثناء القراءة."],
-["🧩","تقسيم المعلومات","حوّل المادة الكبيرة إلى وحدات صغيرة."]
-];
-
-
-function renderMethods(){
-
-    document.getElementById("methodsContainer")
-        .innerHTML =
-        methods.map(method=>`
-
-            <div class="card"
-                 style="box-shadow:none">
-
-                <div style="font-size:30px">
-                    ${method[0]}
-                </div>
-
-                <h3>${method[1]}</h3>
-
-                <p class="muted">
-                    ${method[2]}
-                </p>
-
-            </div>
-
-        `).join("");
-
-}
-
-
-/* =========================================================
-   المساعد المحلي
-========================================================= */
-
-function askAI(){
-
-    const input =
-        document.getElementById("aiInput");
-
-    const text =
-        input.value.trim();
-
-    if(!text) return;
-
-    addAIMessage(text,"user");
+    addMessage(text,"user");
 
     input.value="";
 
     setTimeout(()=>{
 
-        const answer =
-            generateAIAnswer(text);
+        const answer=generateAIAnswer(text);
 
-        addAIMessage(answer,"ai");
+        addMessage(answer,"bot");
 
-    },400);
-
+    },350);
 }
 
+function quickAI(text){
 
-function addAIMessage(text,type){
+    document.getElementById("chatInput").value=text;
 
-    const box =
-        document.getElementById("aiMessages");
-
-    const div =
-        document.createElement("div");
-
-    div.className =
-        `message ${type}`;
-
-    div.textContent=text;
-
-    box.appendChild(div);
-
-    box.scrollTop=box.scrollHeight;
-
+    sendChat();
 }
 
+function addMessage(text,type){
 
-function generateAIAnswer(question){
+    const chat=document.getElementById("chat");
 
-    const q =
-        question.toLowerCase();
+    const div=document.createElement("div");
 
-    if(q.includes("بومودورو")){
+    div.className=`message ${type}`;
 
-        return "جرب 25 دقيقة دراسة بتركيز ثم 5 دقائق راحة. بعد أربع جلسات خذ استراحة أطول.";
+    div.innerHTML=escapeHTML(text).replace(/\n/g,"<br>");
 
-    }
+    chat.appendChild(div);
 
-    if(
-        q.includes("حفظ") ||
-        q.includes("احفظ")
-    ){
-
-        return "للحفظ: افهم المعلومة أولًا، ثم استخدم الاسترجاع النشط والتكرار المتباعد والبطاقات التعليمية.";
-
-    }
-
-    if(
-        q.includes("وقت") ||
-        q.includes("جدول")
-    ){
-
-        return "حدد 2 إلى 4 أهداف واقعية لليوم، ثم وزعها على جلسات قصيرة مع فترات راحة.";
-
-    }
-
-    if(
-        q.includes("رياضيات") ||
-        q.includes("مسائل")
-    ){
-
-        return "في الرياضيات ركز على فهم خطوات الحل، ثم حل أمثلة بدون النظر إلى الحل، وبعدها راجع أخطاءك.";
-
-    }
-
-    if(
-        q.includes("امتحان") ||
-        q.includes("اختبار")
-    ){
-
-        return "قبل الامتحان ركز على المراجعة والاسترجاع وحل الأسئلة السابقة، ولا تجعل آخر ليلة بداية الدراسة.";
-
-    }
-
-    if(
-        q.includes("تركيز") ||
-        q.includes("مشتت")
-    ){
-
-        return "أبعد الهاتف، أغلق الإشعارات، حدد مهمة واحدة، واستخدم مؤقتًا لمدة 25 دقيقة.";
-
-    }
-
-    if(
-        q.includes("كسل") ||
-        q.includes("متكاسل")
-    ){
-
-        return "لا تنتظر الحماس. ابدأ بخمس دقائق فقط. غالبًا ستكون البداية أصعب من الاستمرار.";
-
-    }
-
-    return "أنصحك بتحويل سؤالك إلى هدف صغير يمكن تنفيذه الآن. اختر مادة واحدة، مهمة واحدة، وابدأ بجلسة تركيز قصيرة.";
-
-
+    chat.scrollTop=chat.scrollHeight;
 }
 
+function generateAIAnswer(text){
 
-function clearAI(){
+    const q=text.toLowerCase();
 
-    document.getElementById("aiMessages")
-        .innerHTML=`
+    if(q.includes("ركز")||q.includes("تركيز")){
 
-            <div class="message ai">
-                تم مسح المحادثة.
-                كيف أساعدك في الدراسة؟
-            </div>
-
+        return `
+لتحسين التركيز:
+1. أغلق الإشعارات.
+2. ضع الهاتف بعيدًا.
+3. حدد مهمة واحدة.
+4. استخدم جلسة 25 دقيقة.
+5. خذ استراحة قصيرة.
+6. اكتب أي فكرة مشتتة على ورقة وأكمل.
         `;
-
-}
-
-
-/* =========================================================
-   الحاسبات
-========================================================= */
-
-function calculateAverage(){
-
-    const values = [
-
-        Number(document.getElementById("grade1").value),
-        Number(document.getElementById("grade2").value),
-        Number(document.getElementById("grade3").value),
-        Number(document.getElementById("grade4").value)
-
-    ].filter(v=>!isNaN(v));
-
-    if(!values.length){
-
-        document.getElementById("averageResult")
-            .textContent="—";
-
-        return;
-
     }
 
-    const avg =
-        values.reduce((a,b)=>a+b,0)
-        /values.length;
+    if(q.includes("احفظ")||q.includes("حفظ")){
 
-    document.getElementById("averageResult")
-        .textContent =
-        avg.toFixed(2);
-
-}
-
-
-function calculateNeeded(){
-
-    const target =
-        Number(
-            document.getElementById("targetGrade").value
-        );
-
-    const current =
-        Number(
-            document.getElementById("currentGrade").value
-        );
-
-    if(!target){
-
-        return;
-
+        return `
+جرب هذه الطريقة:
+• افهم المعلومة أولًا.
+• أغلق الكتاب وحاول استرجاعها.
+• استخدم بطاقات تعليمية.
+• راجع بعد يوم.
+• ثم راجع بعد عدة أيام.
+• اختبر نفسك بدل القراءة فقط.
+        `;
     }
 
-    const needed =
-        target-current;
+    if(q.includes("جدول")||q.includes("خطة")){
 
-    document.getElementById("neededResult")
-        .textContent =
-        `${Math.max(0,needed).toFixed(2)} درجة`;
+        return `
+خطة مقترحة:
+جلسة 1: فهم الموضوع.
+استراحة.
+جلسة 2: حل الأسئلة.
+استراحة.
+جلسة 3: مراجعة الأخطاء.
+وفي نهاية اليوم اختبر نفسك.
+        `;
+    }
 
+    if(q.includes("اختبرني")){
+
+        return `
+حسنًا 📝
+
+سؤال:
+ما الطريقة التي تقسم الدراسة إلى فترات تركيز واستراحة؟
+
+أ) بومودورو
+ب) الدراسة العشوائية
+ج) عدم التخطيط
+
+الإجابة الصحيحة: أ) بومودورو.
+        `;
+    }
+
+    if(q.includes("امتحان")){
+
+        return `
+إذا كان لديك اختبار:
+1. احصر المواضيع.
+2. حدد نقاط ضعفك.
+3. أنشئ خطة للأيام المتبقية.
+4. حل أسئلة.
+5. راجع الأخطاء.
+6. اترك وقتًا للمراجعة النهائية.
+        `;
+    }
+
+    return `
+أستطيع مساعدتك في:
+• الدراسة
+• الحفظ
+• التركيز
+• تنظيم الوقت
+• إنشاء خطة
+• الاختبارات
+• البطاقات
+• المراجعة
+
+اكتب لي ما تحتاجه بشكل مباشر.
+    `;
 }
 
+/* =====================================================
+   SCENARIO GENERATOR
+===================================================== */
 
-function calculateExamDays(){
+function generateScenario(){
 
-    const value =
-        document.getElementById("examDate").value;
+    const subject=
+        document.getElementById("genSubject").value;
 
-    if(!value) return;
+    const goal=
+        document.getElementById("genGoal").value;
 
-    const exam =
-        new Date(value+"T00:00:00");
+    const level=
+        document.getElementById("genLevel").value;
 
-    const now =
-        new Date();
+    const methods=[
+        "بومودورو",
+        "الاسترجاع النشط",
+        "التكرار المتباعد",
+        "البطاقات التعليمية",
+        "حل الأسئلة",
+        "الخريطة الذهنية"
+    ];
 
-    const diff =
-        Math.ceil(
-            (exam-now)/(1000*60*60*24)
-        );
+    const method=
+        methods[Math.floor(Math.random()*methods.length)];
 
-    document.getElementById("examResult")
-        .textContent =
-        diff>=0
-        ?`${diff} يوم متبقٍ`
-        :"تاريخ الامتحان مضى";
+    const minutes=
+        [25,30,45,50][
+            Math.floor(Math.random()*4)
+        ];
 
+    const scenario=
+`
+📚 المادة: ${subject}
+🎯 الهدف: ${goal}
+📈 المستوى: ${level}
+🧠 الطريقة: ${method}
+⏱️ مدة الجلسة: ${minutes} دقيقة
+
+الخطة:
+1. ابدأ بمراجعة سريعة.
+2. حدد نقطة واحدة تريد إتقانها.
+3. ادرس لمدة ${minutes} دقيقة.
+4. حل 5 أسئلة.
+5. سجل الأخطاء.
+6. خذ استراحة.
+7. اختبر نفسك في النهاية.
+
+🎁 المكافأة المقترحة:
++${10 + Math.floor(Math.random()*30)} XP
+`;
+
+    document.getElementById("scenarioResult")
+        .textContent=scenario;
+
+    addXP(2);
 }
 
-
-function calculatePercent(){
-
-    const part =
-        Number(
-            document.getElementById("partValue").value
-        );
-
-    const total =
-        Number(
-            document.getElementById("totalValue").value
-        );
-
-    if(!total) return;
-
-    document.getElementById("percentResult")
-        .textContent =
-        `${((part/total)*100).toFixed(2)}%`;
-
-}
-
-
-/* =========================================================
-   الإنجازات
-========================================================= */
-
-const badges = [
-
-["🌱","البداية","أكمل أول جلسة",()=>data.sessions>=1],
-["📚","طالب مجتهد","أكمل 5 جلسات",()=>data.sessions>=5],
-["🔥","الاستمرارية","أكمل 10 جلسات",()=>data.sessions>=10],
-["🏆","المثابر","أكمل 25 جلسة",()=>data.sessions>=25],
-["⭐","جامع XP","احصل على 100 XP",()=>data.xp>=100],
-["💎","متقدم","احصل على 500 XP",()=>data.xp>=500],
-["📝","منظم","أنشئ 5 مهام",()=>data.tasks.length>=5],
-["📒","كاتب","أنشئ 5 ملاحظات",()=>data.notes.length>=5],
-["🗂️","مراجع","أنشئ 10 بطاقات",()=>data.flashcards.length>=10],
-["🧪","مختبر","أكمل 3 اختبارات",()=>data.quizResults.length>=3],
-["🎯","صاحب هدف","حدد هدفًا",()=>!!data.goal.text],
-["📅","مخطط","أنشئ خطة",()=>data.plan.length>0],
-["⏱️","سيد الوقت","أكمل 20 جلسة",()=>data.sessions>=20],
-["🚀","متقدم جدًا","احصل على 1000 XP",()=>data.xp>=1000],
-["👑","أسطورة الدراسة","أكمل 50 جلسة",()=>data.sessions>=50],
-["🧠","عقل متعلم","أنشئ 20 بطاقة",()=>data.flashcards.length>=20]
-
-];
-
-
-function renderBadges(){
-
-    const container =
-        document.getElementById("badgesContainer");
-
-    container.innerHTML =
-        badges.map(badge=>{
-
-            const unlocked =
-                badge[3]();
-
-            return `
-
-                <div class="badge ${
-                    unlocked?"":"locked"
-                }">
-
-                    <div class="badge-icon">
-                        ${badge[0]}
-                    </div>
-
-                    <strong>
-                        ${badge[1]}
-                    </strong>
-
-                    <small class="muted">
-                        ${badge[2]}
-                    </small>
-
-                    <div style="margin-top:5px">
-                        ${
-                            unlocked
-                            ?"✓ مفتوحة"
-                            :"🔒 مغلقة"
-                        }
-                    </div>
-
-                </div>
-
-            `;
-
-        }).join("");
-
-}
-
-
-function addXP(amount){
-
-    data.xp += Number(amount)||0;
-
-    toast(`⭐ +${amount} XP`);
-
-}
-
-
-/* =========================================================
-   الإحصائيات
-========================================================= */
-
-function updateStats(){
-
-    const completed =
-        data.tasks.filter(t=>t.done).length;
-
-    const average =
-        data.quizResults.length
-        ?
-        Math.round(
-            data.quizResults
-                .reduce((a,b)=>a+b.percent,0)
-            /
-            data.quizResults.length
-        )
-        :0;
-
-    const percent =
-        data.tasks.length
-        ?
-        Math.round(
-            completed/data.tasks.length*100
-        )
-        :0;
-
-    document.getElementById("statStudy")
-        .textContent=data.sessions;
-
-    document.getElementById("statTasks")
-        .textContent=completed;
-
-    document.getElementById("statStreak")
-        .textContent=data.streak;
-
-    document.getElementById("statXP")
-        .textContent=data.xp;
-
-    document.getElementById("studyCountBig")
-        .textContent=data.sessions;
-
-    document.getElementById("studyProgressBar")
-        .style.width =
-        Math.min(
-            data.sessions/4*100,
-            100
-        )+"%";
-
-    document.getElementById("taskPercent")
-        .textContent=percent+"%";
-
-    document.getElementById("taskProgress")
-        .style.width=percent+"%";
-
-    document.getElementById("quizAverage")
-        .textContent=average+"%";
-
-    document.getElementById("statsSessions")
-        .textContent=data.sessions;
-
-    document.getElementById("statsMinutes")
-        .textContent=data.studyMinutes;
-
-    document.getElementById("statsTasks")
-        .textContent=data.tasks.length;
-
-    document.getElementById("statsXP2")
-        .textContent=data.xp;
-
-    document.getElementById("completedTasksStats")
-        .textContent=completed;
-
-    document.getElementById("flashStats")
-        .textContent=data.flashcards.length;
-
-    document.getElementById("notesStats")
-        .textContent=data.notes.length;
-
-    document.getElementById("achievementXP")
-        .textContent=data.xp+" XP";
-
-}
-
-
-function updateGoal(){
-
-    document.getElementById("todayGoal")
-        .textContent =
-        data.goal.text ||
-        "لم تحدد هدفًا بعد";
-
-    const percent =
-        data.goal.sessions
-        ?
-        Math.min(
-            data.goal.completed/
-            data.goal.sessions*100,
-            100
-        )
-        :0;
-
-    document.getElementById("todayProgress")
-        .style.width=percent+"%";
-
-    document.getElementById("todayProgressText")
-        .textContent =
-        `${Math.round(percent)}% من الهدف`;
-
-}
-
-
-/* =========================================================
-   البروفايل
-========================================================= */
-
-function saveProfile(){
-
-    data.profile.name =
-        document.getElementById("studentName")
-            .value.trim();
-
-    data.profile.grade =
-        document.getElementById("studentGrade")
-            .value.trim();
-
-    saveData();
-
-    toast("👤 تم حفظ بياناتك");
-
-}
-
-
-function updateProfile(){
-
-    document.getElementById("studentName")
-        .value =
-        data.profile.name || "";
-
-    document.getElementById("studentGrade")
-        .value =
-        data.profile.grade || "";
-
-    document.getElementById("welcomeText")
-        .textContent =
-        data.profile.name
-        ?`أهلًا ${data.profile.name} 👋`
-        :"أهلًا بك في منصة الطالب 👋";
-
-}
-
-
-/* =========================================================
-   المنهج
-========================================================= */
-
-function selectGrade(grade){
-
-    data.profile.grade=grade;
-
-    document.getElementById("studentGrade")
-        .value=grade;
-
-    saveData();
-
-    toast(`🎓 تم اختيار ${grade}`);
-
-}
-
-
-function openResource(type){
-
-    const names={
-
-        books:"الكتب الدراسية",
-        notes:"الملازم",
-        questions:"الأسئلة الوزارية"
-
-    };
-
-    toast(
-        `قسم ${names[type] || type} جاهز لإضافة الروابط`
-    );
-
-}
-
-
-/* =========================================================
-   الثيم
-========================================================= */
-
-function updateTheme(){
-
-    document.body.classList.toggle(
-        "dark",
-        data.settings.dark
-    );
-
-}
-
-
-document.getElementById("themeBtn")
-    .addEventListener("click",()=>{
-
-        data.settings.dark =
-            !data.settings.dark;
-
-        updateTheme();
-
-        saveData();
-
-    });
-
-
-/* =========================================================
-   الخط
-========================================================= */
-
-document.getElementById("fontBtn")
-    .addEventListener("click",()=>{
-
-        data.settings.fontSize += 10;
-
-        if(data.settings.fontSize>130){
-
-            data.settings.fontSize=100;
-
-        }
-
-        document.documentElement.style.fontSize =
-            data.settings.fontSize+"%";
-
-        saveData();
-
-        toast(
-            `حجم الخط ${data.settings.fontSize}%`
-        );
-
-    });
-
-
-/* =========================================================
-   تصدير البيانات
-========================================================= */
+/* =====================================================
+   DATA EXPORT
+===================================================== */
 
 function exportData(){
 
-    const blob =
-        new Blob(
-            [
-                JSON.stringify(
-                    data,
-                    null,
-                    2
-                )
-            ],
-            {
-                type:"application/json"
-            }
-        );
+    const data=JSON.stringify(db,null,2);
 
-    const url =
-        URL.createObjectURL(blob);
+    const blob=new Blob(
+        [data],
+        {type:"application/json"}
+    );
 
-    const a =
-        document.createElement("a");
+    const url=URL.createObjectURL(blob);
+
+    const a=document.createElement("a");
 
     a.href=url;
 
-    a.download=
-        "بيانات-الطالب.json";
+    a.download="student-platform-backup.json";
 
     a.click();
 
     URL.revokeObjectURL(url);
 
     toast("⬇️ تم تصدير بياناتك");
-
 }
-
-
-/* =========================================================
-   استيراد البيانات
-========================================================= */
 
 function importData(event){
 
-    const file =
-        event.target.files[0];
+    const file=event.target.files[0];
 
-    if(!file) return;
+    if(!file)return;
 
-    const reader =
-        new FileReader();
+    const reader=new FileReader();
 
-    reader.onload=()=>{
+    reader.onload=e=>{
 
         try{
 
-            const imported =
-                JSON.parse(reader.result);
+            const imported=JSON.parse(e.target.result);
 
-            data =
-                Object.assign(
-                    data,
-                    imported
-                );
+            db={
+                ...db,
+                ...imported
+            };
 
-            saveData();
+            saveDB();
 
-            toast("⬆️ تم استيراد البيانات");
+            renderTasks();
+            renderNotes();
+            renderTips();
+            renderAchievements();
 
-        }catch(e){
+            toast("✅ تم استيراد البيانات");
 
-            toast("الملف غير صالح");
+        }catch{
+
+            toast("❌ الملف غير صالح");
 
         }
 
     };
 
     reader.readAsText(file);
-
 }
 
+function clearData(){
 
-/* =========================================================
-   حذف البيانات
-========================================================= */
+    if(!confirm("هل أنت متأكد من مسح جميع بيانات الموقع؟")){
+        return;
+    }
 
-function resetAllData(){
-
-    const yes =
-        confirm(
-            "هل أنت متأكد؟ سيتم حذف بيانات الموقع من هذا الجهاز."
-        );
-
-    if(!yes) return;
-
-    localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem(DB_KEY);
 
     location.reload();
-
 }
 
-
-/* =========================================================
-   نصيحة اليوم
-========================================================= */
-
-function updateDailyTip(){
-
-    const day =
-        Math.floor(
-            Date.now()/
-            (1000*60*60*24)
-        );
-
-    const tip =
-        tips[day % tips.length];
-
-    document.getElementById("dailyTip")
-        .textContent =
-        `${tip[0]} — ${tip[1]}`;
-
-}
-
-
-/* =========================================================
-   HTML SECURITY
-========================================================= */
+/* =====================================================
+   SECURITY / TEXT
+===================================================== */
 
 function escapeHTML(value){
 
@@ -4697,99 +3421,80 @@ function escapeHTML(value){
         .replaceAll(">","&gt;")
         .replaceAll('"',"&quot;")
         .replaceAll("'","&#039;");
-
 }
 
+/* =====================================================
+   INITIALIZE
+===================================================== */
 
-/* =========================================================
-   تحديث الواجهة
-========================================================= */
+renderTips();
+renderTasks();
+renderNotes();
+renderAchievements();
+updateDashboard();
+updateTimerDisplay();
 
-function updateUI(){
+/* =====================================================
+   KEYBOARD SHORTCUTS
+===================================================== */
 
-    renderTasks();
-    renderNotes();
-    renderFlashcards();
-    renderPlan();
-    renderBadges();
+document.addEventListener("keydown",e=>{
 
-    updateStats();
-    updateGoal();
-    updateProfile();
-    updateTheme();
+    if(e.ctrlKey && e.key==="k"){
 
-}
+        e.preventDefault();
 
+        document.getElementById("tipSearch")
+            .focus();
 
-/* =========================================================
-   تهيئة الموقع
-========================================================= */
+    }
 
-function init(){
-
-    loadData();
-
-    renderTipFilters();
-    renderTips();
-    renderMethods();
-
-    updateUI();
-
-    setStudyTimer();
-
-    updateDailyTip();
-
-    const today =
-        new Date()
-            .toISOString()
-            .split("T")[0];
-
-    document.getElementById("taskDate")
-        .value=today;
-
-}
-
-
-init();
-
-
-/* =========================================================
-   اختصارات لوحة المفاتيح
-========================================================= */
-
-document.addEventListener("keydown",event=>{
-
-    if(event.ctrlKey && event.key.toLowerCase()==="k"){
-
-        event.preventDefault();
-
-        showPage("tips");
-
-        setTimeout(()=>{
-
-            document.getElementById("tipSearch")
-                .focus();
-
-        },100);
-
+    if(e.key==="Escape"){
+        pauseTimer();
     }
 
 });
 
+/* =====================================================
+   DAILY STUDY
+===================================================== */
 
-/* =========================================================
-   منع فقدان البيانات
-========================================================= */
+function updateStreak(){
 
-window.addEventListener("beforeunload",()=>{
+    const today=new Date().toISOString().slice(0,10);
 
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(data)
-    );
+    if(db.lastStudy!==today){
 
-});
+        if(db.lastStudy){
 
+            const previous=new Date(db.lastStudy);
+            const current=new Date(today);
+
+            const difference=
+                Math.round(
+                    (current-previous)/
+                    (1000*60*60*24)
+                );
+
+            if(difference===1){
+                db.streak++;
+            }else if(difference>1){
+                db.streak=1;
+            }
+
+        }else{
+
+            db.streak=1;
+
+        }
+
+        db.lastStudy=today;
+
+        saveDB();
+    }
+}
+
+updateStreak();
 
 </script>
 
