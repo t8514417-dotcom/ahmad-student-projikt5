@@ -2,314 +2,2616 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Student OS | منصة الطالب الذكية</title>
-<meta name="description" content="منصة عربية للطالب: مخطط دراسة، مؤقت بومودورو، اختبارات، بطاقات، ملاحظات، حاسبات ونصائح للدراسة. تعمل بدون إنترنت وتحفظ بياناتك على جهازك.">
-<meta property="og:title" content="Student OS | منصة الطالب الذكية">
-<meta property="og:description" content="ادرس بذكاء وليس لساعات أطول.">
-<meta name="theme-color" content="#07111f">
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#2563eb">
+<meta name="description" content="Student OS - منصة الطالب الذكية للدراسة والتنظيم والمراجعة">
+<title>Student OS | منصة الطالب</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-:root{--bg:#07111f;--card:#0f1f35;--line:#1f3553;--tx:#e8f0fa;--mu:#8fa6c2;--ac:#5eead4;--ac2:#fbbf24;--ok:#4ade80;--bad:#f87171}
-:root[data-t=light]{--bg:#f3f7fb;--card:#fff;--line:#d5e0ec;--tx:#0d1b2e;--mu:#56708f;--ac:#0d9488;--ac2:#b45309}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--tx);font-family:Tajawal,system-ui,sans-serif;line-height:1.7;padding-bottom:76px}
-button,input,select,textarea{font:inherit;color:inherit}
-button{cursor:pointer}
-:focus-visible{outline:3px solid var(--ac2);outline-offset:2px}
-header{position:sticky;top:0;z-index:5;display:flex;gap:10px;align-items:center;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px));background:var(--card);border-bottom:1px solid var(--line)}
-header h1{font-size:1.15rem;margin:0;flex:1}
-.ib{background:none;border:1px solid var(--line);border-radius:10px;width:40px;height:40px}
-nav{display:flex;gap:6px;overflow-x:auto;padding:10px 16px}
-nav button{white-space:nowrap;border:1px solid var(--line);background:var(--card);border-radius:20px;padding:6px 14px}
-nav button.on{background:var(--ac);color:#04221e;border-color:var(--ac);font-weight:700}
-main{max-width:920px;margin:auto;padding:8px 16px}
-section{display:none}section.on{display:block}
-h2{font-size:1.5rem;margin:14px 0 4px}
-.sub{color:var(--mu);margin:0 0 14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.big{font-size:2rem;font-weight:800;color:var(--ac)}
-.btn{background:var(--ac);color:#04221e;border:0;border-radius:10px;padding:8px 16px;font-weight:700}
-.btn.g{background:none;color:var(--tx);border:1px solid var(--line)}
-.btn.d{background:none;color:var(--bad);border:1px solid var(--bad)}
-input,select,textarea{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%;margin:4px 0 8px}
-.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{width:auto}.row input{flex:1;min-width:120px}
-.item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
-.item span{flex:1}.item.done span{text-decoration:line-through;color:var(--mu)}
-.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .4s}
-.tag{font-size:.8rem;color:var(--ac2)}
-.timer{font-size:4rem;font-weight:800;text-align:center;font-variant-numeric:tabular-nums}
-.fc{min-height:130px;display:grid;place-items:center;text-align:center;font-size:1.3rem;cursor:pointer}
-.opt{display:block;width:100%;text-align:right;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;margin:6px 0}
-.opt.ok{border-color:var(--ok);background:rgba(74,222,128,.15)}.opt.no{border-color:var(--bad);background:rgba(248,113,113,.15)}
-.chat{max-height:300px;overflow:auto}.m{padding:8px 12px;border-radius:12px;margin:6px 0;max-width:85%}
-.m.u{background:var(--ac);color:#04221e;margin-inline-start:auto}.m.b{background:var(--bg);border:1px solid var(--line)}
-.tabs{position:fixed;bottom:0;inset-inline:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
-.tabs button{flex:1;background:none;border:0;padding:10px 2px;font-size:.8rem;color:var(--mu)}
-.tabs button.on{color:var(--ac);font-weight:700}
-.toast{position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--ac);color:#04221e;padding:8px 18px;border-radius:20px;font-weight:700;opacity:0;pointer-events:none;transition:.3s;z-index:9}
-.toast.s{opacity:1}
-@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* =========================================================
+   Student OS
+   نسخة عربية متجاوبة مع الهاتف والكمبيوتر
+   ========================================================= */
+
+:root{
+  --bg:#f5f7fb;
+  --surface:#ffffff;
+  --surface2:#f8fafc;
+  --text:#172033;
+  --muted:#687386;
+  --primary:#2563eb;
+  --primary2:#1d4ed8;
+  --secondary:#7c3aed;
+  --success:#16a34a;
+  --warning:#f59e0b;
+  --danger:#dc2626;
+  --info:#0891b2;
+  --border:#e5e7eb;
+  --shadow:0 10px 30px rgba(15,23,42,.08);
+  --radius:20px;
+  --header:72px;
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"Tajawal",system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  min-height:100vh;
+}
+
+body.dark{
+  --bg:#0b1120;
+  --surface:#111827;
+  --surface2:#172033;
+  --text:#f3f4f6;
+  --muted:#aab4c4;
+  --border:#273449;
+  --shadow:0 12px 35px rgba(0,0,0,.25);
+}
+
+button,
+input,
+textarea,
+select{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+}
+
+.container{
+  width:min(1180px, calc(100% - 28px));
+  margin:auto;
+}
+
+/* ================= HEADER ================= */
+
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  height:var(--header);
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+}
+
+body.dark header{
+  background:rgba(17,24,39,.92);
+}
+
+.header-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:900;
+  font-size:1.15rem;
+  white-space:nowrap;
+}
+
+.logo-icon{
+  width:42px;
+  height:42px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  background:linear-gradient(135deg,var(--primary),var(--secondary));
+  box-shadow:0 8px 20px rgba(37,99,235,.25);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  border:1px solid var(--border);
+  border-radius:13px;
+  background:var(--surface);
+  color:var(--text);
+  display:grid;
+  place-items:center;
+  transition:.2s;
+}
+
+.icon-btn:hover{
+  transform:translateY(-2px);
+  border-color:var(--primary);
+  color:var(--primary);
+}
+
+.menu-btn{
+  display:none;
+}
+
+/* ================= NAV ================= */
+
+.navbar{
+  border-bottom:1px solid var(--border);
+  background:var(--surface);
+}
+
+.nav-inner{
+  display:flex;
+  gap:6px;
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+
+.nav-inner::-webkit-scrollbar{
+  display:none;
+}
+
+.nav-link{
+  border:0;
+  background:transparent;
+  color:var(--muted);
+  padding:12px 16px;
+  white-space:nowrap;
+  border-bottom:3px solid transparent;
+  font-weight:700;
+}
+
+.nav-link:hover,
+.nav-link.active{
+  color:var(--primary);
+  border-bottom-color:var(--primary);
+}
+
+/* ================= MAIN ================= */
+
+main{
+  padding:28px 0 70px;
+}
+
+.page{
+  display:none;
+  animation:fade .25s ease;
+}
+
+.page.active{
+  display:block;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(5px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  position:relative;
+  overflow:hidden;
+  border-radius:30px;
+  padding:38px;
+  color:#fff;
+  background:
+    radial-gradient(circle at 90% 10%,rgba(255,255,255,.22),transparent 30%),
+    radial-gradient(circle at 10% 90%,rgba(124,58,237,.45),transparent 35%),
+    linear-gradient(135deg,#2563eb,#4338ca);
+  box-shadow:var(--shadow);
+  margin-bottom:22px;
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:220px;
+  height:220px;
+  border-radius:50%;
+  left:-80px;
+  bottom:-120px;
+  background:rgba(255,255,255,.08);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:760px;
+}
+
+.hero-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  background:rgba(255,255,255,.14);
+  border:1px solid rgba(255,255,255,.22);
+  padding:7px 12px;
+  border-radius:999px;
+  font-size:.85rem;
+  margin-bottom:15px;
+}
+
+.hero h1{
+  font-size:clamp(1.8rem,4vw,3rem);
+  line-height:1.2;
+  margin-bottom:12px;
+}
+
+.hero p{
+  color:rgba(255,255,255,.86);
+  max-width:680px;
+}
+
+.hero-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:22px;
+}
+
+.btn{
+  border:0;
+  border-radius:13px;
+  padding:11px 17px;
+  font-weight:800;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.btn-primary{
+  background:var(--primary);
+  color:#fff;
+}
+
+.btn-light{
+  background:#fff;
+  color:#1e40af;
+}
+
+.btn-soft{
+  background:var(--surface2);
+  color:var(--text);
+  border:1px solid var(--border);
+}
+
+.btn-danger{
+  background:#fee2e2;
+  color:#b91c1c;
+}
+
+.btn-success{
+  background:#dcfce7;
+  color:#166534;
+}
+
+/* ================= CARDS ================= */
+
+.section-title{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:15px;
+  margin:28px 0 14px;
+}
+
+.section-title h2{
+  font-size:1.35rem;
+}
+
+.section-title p{
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+}
+
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+
+.card:hover{
+  border-color:rgba(37,99,235,.3);
+}
+
+.feature-card{
+  position:relative;
+  overflow:hidden;
+  min-height:150px;
+}
+
+.feature-icon{
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  display:grid;
+  place-items:center;
+  font-size:1.3rem;
+  margin-bottom:13px;
+  background:#eff6ff;
+  color:var(--primary);
+}
+
+body.dark .feature-icon{
+  background:#172554;
+}
+
+.feature-card h3{
+  font-size:1rem;
+  margin-bottom:5px;
+}
+
+.feature-card p{
+  color:var(--muted);
+  font-size:.87rem;
+}
+
+.card-action{
+  display:inline-flex;
+  margin-top:12px;
+  color:var(--primary);
+  font-size:.85rem;
+  font-weight:800;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  margin-bottom:22px;
+}
+
+.stat{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:16px;
+}
+
+.stat-label{
+  color:var(--muted);
+  font-size:.85rem;
+}
+
+.stat-value{
+  font-size:1.7rem;
+  font-weight:900;
+  margin-top:4px;
+}
+
+.progress{
+  height:9px;
+  background:var(--surface2);
+  border-radius:99px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:linear-gradient(90deg,var(--primary),var(--secondary));
+  border-radius:inherit;
+  transition:.5s;
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+  position:relative;
+  margin-bottom:18px;
+}
+
+.search-box input{
+  width:100%;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:16px;
+  padding:14px 48px 14px 15px;
+  outline:none;
+}
+
+.search-box span{
+  position:absolute;
+  right:16px;
+  top:50%;
+  transform:translateY(-50%);
+}
+
+/* ================= TIPS ================= */
+
+.tip-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.tip{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:18px;
+  padding:18px;
+  position:relative;
+}
+
+.tip-number{
+  position:absolute;
+  top:15px;
+  left:15px;
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  background:var(--surface2);
+  color:var(--primary);
+  display:grid;
+  place-items:center;
+  font-weight:900;
+}
+
+.tip h3{
+  padding-left:45px;
+  margin-bottom:8px;
+}
+
+.tip p{
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+.tip small{
+  display:block;
+  margin-top:10px;
+  color:var(--primary);
+  font-weight:700;
+}
+
+/* ================= FORMS ================= */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.field.full{
+  grid-column:1/-1;
+}
+
+.field label{
+  font-weight:700;
+  font-size:.9rem;
+}
+
+.field input,
+.field textarea,
+.field select{
+  width:100%;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:13px;
+  padding:12px;
+  outline:none;
+}
+
+.field textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus{
+  border-color:var(--primary);
+  box-shadow:0 0 0 3px rgba(37,99,235,.1);
+}
+
+/* ================= TODO ================= */
+
+.todo-list{
+  display:flex;
+  flex-direction:column;
+  gap:9px;
+  margin-top:15px;
+}
+
+.todo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px;
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--surface2);
+}
+
+.todo.done .todo-text{
+  text-decoration:line-through;
+  opacity:.55;
+}
+
+.todo-text{
+  flex:1;
+}
+
+.todo-delete{
+  border:0;
+  background:transparent;
+  color:var(--danger);
+}
+
+/* ================= POMODORO ================= */
+
+.timer{
+  text-align:center;
+  padding:28px 15px;
+}
+
+.timer-mode{
+  color:var(--muted);
+  font-weight:800;
+}
+
+.timer-display{
+  font-size:clamp(4rem,12vw,7rem);
+  font-weight:900;
+  line-height:1;
+  margin:25px 0;
+  letter-spacing:2px;
+}
+
+.timer-controls{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+}
+
+.timer-settings{
+  display:flex;
+  justify-content:center;
+  gap:8px;
+  margin-top:18px;
+  flex-wrap:wrap;
+}
+
+.timer-settings input{
+  width:90px;
+  text-align:center;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:10px;
+  padding:8px;
+}
+
+/* ================= SCHEDULE ================= */
+
+.schedule{
+  overflow-x:auto;
+}
+
+.schedule table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:650px;
+}
+
+.schedule th,
+.schedule td{
+  border:1px solid var(--border);
+  padding:12px;
+  text-align:center;
+}
+
+.schedule th{
+  background:var(--surface2);
+}
+
+.schedule td{
+  background:var(--surface);
+}
+
+/* ================= NOTES ================= */
+
+.notes-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.note{
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:18px;
+  padding:16px;
+}
+
+.note-title{
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.note-text{
+  color:var(--muted);
+  white-space:pre-wrap;
+}
+
+/* ================= CALCULATOR ================= */
+
+.calculator{
+  max-width:420px;
+  margin:auto;
+}
+
+.calc-display{
+  width:100%;
+  border:1px solid var(--border);
+  background:var(--surface2);
+  color:var(--text);
+  border-radius:15px;
+  padding:18px;
+  font-size:2rem;
+  text-align:left;
+  direction:ltr;
+  margin-bottom:10px;
+}
+
+.calc-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+}
+
+.calc-btn{
+  min-height:58px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  color:var(--text);
+  border-radius:13px;
+  font-weight:800;
+  font-size:1.1rem;
+}
+
+.calc-btn:hover{
+  background:var(--surface2);
+}
+
+.calc-equal{
+  background:var(--primary);
+  color:#fff;
+}
+
+/* ================= SUBJECTS ================= */
+
+.subjects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.subject{
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:18px;
+  padding:18px;
+}
+
+.subject-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+  margin-bottom:14px;
+}
+
+.subject-icon{
+  width:42px;
+  height:42px;
+  border-radius:12px;
+  background:var(--surface2);
+  display:grid;
+  place-items:center;
+}
+
+.subject-percent{
+  font-weight:900;
+  color:var(--primary);
+}
+
+/* ================= RESOURCES ================= */
+
+.resources{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+
+.resource{
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:18px;
+  padding:18px;
+}
+
+.resource-icon{
+  font-size:2rem;
+  margin-bottom:8px;
+}
+
+.resource h3{
+  margin-bottom:5px;
+}
+
+.resource p{
+  color:var(--muted);
+  font-size:.88rem;
+}
+
+.resource a{
+  display:inline-block;
+  margin-top:12px;
+  color:var(--primary);
+  font-weight:800;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(2,6,23,.62);
+  z-index:3000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:15px;
+}
+
+.modal.show{
+  display:flex;
+}
+
+.modal-box{
+  width:min(600px,100%);
+  max-height:90vh;
+  overflow:auto;
+  background:var(--surface);
+  border-radius:22px;
+  border:1px solid var(--border);
+  padding:22px;
+}
+
+.modal-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:15px;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  z-index:5000;
+  background:#111827;
+  color:#fff;
+  padding:12px 17px;
+  border-radius:13px;
+  opacity:0;
+  transform:translateY(15px);
+  pointer-events:none;
+  transition:.3s;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  border-top:1px solid var(--border);
+  background:var(--surface);
+  padding:30px 0;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  color:var(--muted);
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+  .grid{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .subjects,
+  .resources{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:700px){
+  :root{
+    --header:62px;
+  }
+
+  .container{
+    width:min(100% - 18px,1180px);
+  }
+
+  header{
+    height:var(--header);
+  }
+
+  .logo{
+    font-size:1rem;
+  }
+
+  .logo-icon{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+  }
+
+  .header-actions .icon-btn{
+    width:38px;
+    height:38px;
+  }
+
+  .menu-btn{
+    display:grid;
+  }
+
+  .navbar{
+    display:none;
+  }
+
+  .navbar.open{
+    display:block;
+  }
+
+  .nav-inner{
+    flex-direction:column;
+    padding:8px 0;
+  }
+
+  .nav-link{
+    text-align:right;
+    border-bottom:0;
+    border-right:3px solid transparent;
+    border-radius:8px;
+  }
+
+  .nav-link.active{
+    border-right-color:var(--primary);
+    background:var(--surface2);
+  }
+
+  main{
+    padding-top:15px;
+  }
+
+  .hero{
+    padding:25px 18px;
+    border-radius:22px;
+  }
+
+  .hero h1{
+    font-size:1.8rem;
+  }
+
+  .hero-buttons{
+    display:grid;
+    grid-template-columns:1fr;
+  }
+
+  .hero-buttons .btn{
+    width:100%;
+  }
+
+  .grid,
+  .tip-list,
+  .subjects,
+  .resources,
+  .notes-grid{
+    grid-template-columns:1fr;
+  }
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+  }
+
+  .stat{
+    padding:13px;
+  }
+
+  .stat-value{
+    font-size:1.4rem;
+  }
+
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+
+  .field.full{
+    grid-column:auto;
+  }
+
+  .card{
+    padding:15px;
+    border-radius:17px;
+  }
+
+  .section-title{
+    align-items:flex-start;
+    flex-direction:column;
+    gap:2px;
+  }
+
+  .footer-inner{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .toast{
+    left:12px;
+    right:12px;
+    bottom:12px;
+    text-align:center;
+  }
+}
+
+@media(max-width:390px){
+  .stats{
+    grid-template-columns:1fr;
+  }
+
+  .header-actions .icon-btn:nth-child(2){
+    display:none;
+  }
+
+  .timer-display{
+    font-size:4rem;
+  }
+}
 </style>
 </head>
+
 <body>
+
+<!-- ================= HEADER ================= -->
+
 <header>
-  <h1>🎓 Student OS <small style="color:var(--mu);font-weight:400">— <span id="hi"></span></small></h1>
-  <button class="ib" id="th" aria-label="تبديل الوضع الداكن والفاتح">◐</button>
-</header>
-<nav id="nav" aria-label="الأقسام"></nav>
-<main>
+  <div class="container header-inner">
 
-<section id="home">
-  <h2>ادرس بذكاء، وليس لساعات أطول</h2>
-  <p class="sub" id="tip0"></p>
-  <div class="grid">
-    <div class="card"><div class="big" id="pc">0%</div>نسبة إنجاز مهام اليوم<div class="bar"><i id="pb"></i></div></div>
-    <div class="card"><div class="big" id="xp">0</div>نقاط الخبرة · المستوى <b id="lv">1</b></div>
-    <div class="card"><div class="big" id="st">0</div>أيام الدراسة المتتالية 🔥</div>
-    <div class="card"><div class="big" id="ss">0</div>دقائق تركيز اليوم</div>
+    <a href="#" class="logo" onclick="showPage('home');return false;">
+      <span class="logo-icon">🎓</span>
+      <span>Student OS</span>
+    </a>
+
+    <div class="header-actions">
+      <button class="icon-btn" id="themeBtn" title="الوضع الليلي">🌙</button>
+      <button class="icon-btn" onclick="showPage('search')" title="البحث">🔎</button>
+      <button class="icon-btn menu-btn" id="menuBtn" title="القائمة">☰</button>
+    </div>
+
   </div>
-  <div class="card"><b>🎯 تحدي اليوم (+20 نقطة)</b><p>أنهِ جلسة بومودورو واحدة (25 دقيقة) بدون فتح وسائل التواصل.</p><button class="btn" data-go="pomo">ابدأ الجلسة</button></div>
+</header>
+
+<nav class="navbar" id="navbar">
+  <div class="container nav-inner">
+    <button class="nav-link active" data-page="home">🏠 الرئيسية</button>
+    <button class="nav-link" data-page="tips">💡 النصائح</button>
+    <button class="nav-link" data-page="study">📚 الدراسة</button>
+    <button class="nav-link" data-page="tools">🛠️ الأدوات</button>
+    <button class="nav-link" data-page="tasks">✅ المهام</button>
+    <button class="nav-link" data-page="schedule">📅 الجدول</button>
+    <button class="nav-link" data-page="resources">📖 المصادر</button>
+    <button class="nav-link" data-page="notes">📝 الملاحظات</button>
+  </div>
+</nav>
+
+<main class="container">
+
+<!-- ================= HOME ================= -->
+
+<section class="page active" id="home">
+
+  <div class="hero">
+    <div class="hero-content">
+
+      <span class="hero-badge">✨ منصة الطالب الذكية</span>
+
+      <h1>كل ما يحتاجه الطالب في مكان واحد</h1>
+
+      <p>
+        نظّم وقتك، خطط لدراستك، تابع مهامك،
+        استخدم بومودورو، واحفظ ملاحظاتك بطريقة سهلة
+        من الهاتف أو الكمبيوتر.
+      </p>
+
+      <div class="hero-buttons">
+        <button class="btn btn-light" onclick="showPage('study')">
+          🚀 ابدأ الدراسة
+        </button>
+
+        <button class="btn btn-light" onclick="showPage('tips')">
+          💡 نصائح للطالب
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="stats">
+
+    <div class="stat">
+      <div class="stat-label">المهام المكتملة</div>
+      <div class="stat-value" id="statDone">0</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-label">المهام المتبقية</div>
+      <div class="stat-value" id="statTodo">0</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-label">جلسات بومودورو</div>
+      <div class="stat-value" id="statPomodoro">0</div>
+    </div>
+
+    <div class="stat">
+      <div class="stat-label">نسبة الإنجاز</div>
+      <div class="stat-value" id="statProgress">0%</div>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <div>
+      <h2>🚀 أدوات سريعة</h2>
+      <p>ابدأ مباشرة من هنا</p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card feature-card">
+      <div class="feature-icon">⏱️</div>
+      <h3>بومودورو</h3>
+      <p>جلسات تركيز تساعدك على الدراسة بدون تشتت.</p>
+      <button class="card-action" onclick="showPage('tools')">فتح الأداة ←</button>
+    </div>
+
+    <div class="card feature-card">
+      <div class="feature-icon">✅</div>
+      <h3>قائمة المهام</h3>
+      <p>اكتب واجباتك ومهامك وتابع ما أنجزته.</p>
+      <button class="card-action" onclick="showPage('tasks')">فتح المهام ←</button>
+    </div>
+
+    <div class="card feature-card">
+      <div class="feature-icon">📅</div>
+      <h3>جدول الدراسة</h3>
+      <p>رتب المواد والوقت الخاص بكل مادة.</p>
+      <button class="card-action" onclick="showPage('schedule')">فتح الجدول ←</button>
+    </div>
+
+    <div class="card feature-card">
+      <div class="feature-icon">📝</div>
+      <h3>الملاحظات</h3>
+      <p>احفظ أفكارك وملاحظاتك المهمة على جهازك.</p>
+      <button class="card-action" onclick="showPage('notes')">فتح الملاحظات ←</button>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <div>
+      <h2>⭐ لماذا Student OS؟</h2>
+      <p>مجموعة أدوات عملية للطالب</p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card feature-card">
+      <div class="feature-icon">📱</div>
+      <h3>متوافق مع الهاتف</h3>
+      <p>واجهة متجاوبة تعمل على الهاتف والتابلت والكمبيوتر.</p>
+    </div>
+
+    <div class="card feature-card">
+      <div class="feature-icon">💾</div>
+      <h3>حفظ تلقائي</h3>
+      <p>يتم حفظ المهام والملاحظات والإعدادات محليًا.</p>
+    </div>
+
+    <div class="card feature-card">
+      <div class="feature-icon">🌙</div>
+      <h3>الوضع الليلي</h3>
+      <p>غيّر مظهر الموقع للدراسة في الليل بشكل مريح.</p>
+    </div>
+
+    <div class="card feature-card">
+      <div class="feature-icon">🔎</div>
+      <h3>بحث سريع</h3>
+      <p>ابحث داخل النصائح والمصادر والمحتوى بسرعة.</p>
+    </div>
+
+  </div>
+
 </section>
 
-<section id="tips">
-  <h2>💡 نصائح الدراسة</h2><p class="sub">اضغط ☆ لحفظ النصيحة في المفضلة</p>
-  <div class="row"><input id="tq" placeholder="ابحث في النصائح..." aria-label="بحث"><select id="tc" aria-label="التصنيف"></select></div>
-  <div id="tl"></div>
+
+<!-- ================= TIPS ================= -->
+
+<section class="page" id="tips">
+
+  <div class="section-title">
+    <div>
+      <h2>💡 30 نصيحة مختصرة للطالب</h2>
+      <p>نصائح عملية يمكنك تطبيقها يوميًا</p>
+    </div>
+  </div>
+
+  <div class="search-box">
+    <span>🔎</span>
+    <input id="tipSearch" placeholder="ابحث عن نصيحة..." oninput="filterTips()">
+  </div>
+
+  <div class="tip-list" id="tipsList"></div>
+
 </section>
 
-<section id="plan">
-  <h2>📅 مخطط الدراسة</h2><p class="sub">مهام اليوم تُصفَّر تلقائياً كل يوم</p>
-  <div class="card"><div class="row"><input id="ti" placeholder="مهمة جديدة..." aria-label="مهمة"><button class="btn" id="ta">+ إضافة</button></div><div id="tk"></div></div>
-  <div class="card"><b>✨ مولّد الخطة</b>
-    <div class="row"><select id="gs"><option>رياضيات</option><option>فيزياء</option><option>كيمياء</option><option>أحياء</option><option>عربي</option><option>إنكليزي</option><option>تاريخ</option><option>حاسوب</option></select>
-    <select id="gg"><option>فهم الدرس</option><option>حل الأسئلة</option><option>الحفظ</option><option>الاستعداد للامتحان</option></select>
-    <select id="gm"><option>25</option><option>50</option><option>90</option><option>120</option></select><button class="btn" id="gb">توليد</button></div>
-    <div id="gp"></div></div>
+
+<!-- ================= STUDY ================= -->
+
+<section class="page" id="study">
+
+  <div class="section-title">
+    <div>
+      <h2>📚 مركز الدراسة</h2>
+      <p>نظم جلسة دراسية واضحة</p>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="feature-icon">🎯</div>
+      <h3>حدد هدف الجلسة</h3>
+      <p>
+        لا تبدأ بعبارة "سأدرس". حدد هدفًا واضحًا مثل:
+        حل 20 سؤالًا أو مراجعة فصل واحد.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="feature-icon">📖</div>
+      <h3>المراجعة النشطة</h3>
+      <p>
+        حاول استرجاع المعلومات من ذاكرتك بدل قراءة الصفحة
+        عدة مرات فقط.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="feature-icon">🧠</div>
+      <h3>التكرار المتباعد</h3>
+      <p>
+        راجع المعلومات على فترات متباعدة بدل حشرها
+        في جلسة واحدة.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="feature-icon">❓</div>
+      <h3>اختبر نفسك</h3>
+      <p>
+        بعد كل موضوع، اكتب أسئلة وحاول الإجابة عنها
+        دون النظر إلى الكتاب.
+      </p>
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <div>
+      <h2>📊 تقدم المواد</h2>
+      <p>مثال يمكنك تعديله حسب دراستك</p>
+    </div>
+  </div>
+
+  <div class="subjects">
+
+    <div class="subject">
+      <div class="subject-header">
+        <div class="subject-icon">➗</div>
+        <div>
+          <strong>الرياضيات</strong>
+          <div class="subject-percent">65%</div>
+        </div>
+      </div>
+      <div class="progress"><div class="progress-bar" style="width:65%"></div></div>
+    </div>
+
+    <div class="subject">
+      <div class="subject-header">
+        <div class="subject-icon">🔬</div>
+        <div>
+          <strong>العلوم</strong>
+          <div class="subject-percent">45%</div>
+        </div>
+      </div>
+      <div class="progress"><div class="progress-bar" style="width:45%"></div></div>
+    </div>
+
+    <div class="subject">
+      <div class="subject-header">
+        <div class="subject-icon">📚</div>
+        <div>
+          <strong>العربي</strong>
+          <div class="subject-percent">80%</div>
+        </div>
+      </div>
+      <div class="progress"><div class="progress-bar" style="width:80%"></div></div>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:15px">
+
+    <h3>🧠 خطة جلسة دراسية</h3>
+
+    <div class="form-grid" style="margin-top:15px">
+
+      <div class="field">
+        <label>المادة</label>
+        <input id="studySubject" placeholder="مثال: الرياضيات">
+      </div>
+
+      <div class="field">
+        <label>الهدف</label>
+        <input id="studyGoal" placeholder="مثال: حل 15 سؤال">
+      </div>
+
+      <div class="field full">
+        <label>ملاحظات</label>
+        <textarea id="studyNotes" placeholder="اكتب ما تريد إنجازه..."></textarea>
+      </div>
+
+    </div>
+
+    <button class="btn btn-primary" onclick="saveStudyPlan()" style="margin-top:12px">
+      💾 حفظ الخطة
+    </button>
+
+  </div>
+
 </section>
 
-<section id="pomo">
-  <h2>⏱️ مؤقت بومودورو</h2><p class="sub">ركّز ثم استرح</p>
-  <div class="card"><div class="timer" id="tm">25:00</div><p style="text-align:center" id="tmode">جلسة تركيز</p>
-  <div class="row" style="justify-content:center"><button class="btn g" data-m="25">25</button><button class="btn g" data-m="45">45</button><button class="btn g" data-m="50">50</button><button class="btn g" data-m="5">راحة 5</button></div><br>
-  <div class="row" style="justify-content:center"><button class="btn" id="ps">▶ ابدأ</button><button class="btn g" id="pr">↺ إعادة</button></div></div>
+
+<!-- ================= TOOLS ================= -->
+
+<section class="page" id="tools">
+
+  <div class="section-title">
+    <div>
+      <h2>🛠️ أدوات الطالب</h2>
+      <p>أدوات تساعدك على تنظيم الدراسة</p>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <div class="timer">
+
+      <div class="timer-mode" id="timerMode">جلسة تركيز</div>
+
+      <div class="timer-display" id="timerDisplay">25:00</div>
+
+      <div class="timer-controls">
+        <button class="btn btn-primary" id="timerStart">▶ بدء</button>
+        <button class="btn btn-soft" id="timerPause">⏸ إيقاف</button>
+        <button class="btn btn-soft" id="timerReset">↻ إعادة</button>
+      </div>
+
+      <div class="timer-settings">
+        <label>
+          تركيز
+          <input id="focusMinutes" type="number" min="1" max="180" value="25">
+        </label>
+
+        <label>
+          استراحة
+          <input id="breakMinutes" type="number" min="1" max="60" value="5">
+        </label>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="section-title">
+    <div>
+      <h2>🧮 حاسبة سريعة</h2>
+    </div>
+  </div>
+
+  <div class="card calculator">
+
+    <input class="calc-display" id="calcDisplay" value="0" readonly>
+
+    <div class="calc-grid">
+
+      <button class="calc-btn" onclick="calcClear()">AC</button>
+      <button class="calc-btn" onclick="calcInput('(')">(</button>
+      <button class="calc-btn" onclick="calcInput(')')">)</button>
+      <button class="calc-btn" onclick="calcInput('/')">÷</button>
+
+      <button class="calc-btn" onclick="calcInput('7')">7</button>
+      <button class="calc-btn" onclick="calcInput('8')">8</button>
+      <button class="calc-btn" onclick="calcInput('9')">9</button>
+      <button class="calc-btn" onclick="calcInput('*')">×</button>
+
+      <button class="calc-btn" onclick="calcInput('4')">4</button>
+      <button class="calc-btn" onclick="calcInput('5')">5</button>
+      <button class="calc-btn" onclick="calcInput('6')">6</button>
+      <button class="calc-btn" onclick="calcInput('-')">−</button>
+
+      <button class="calc-btn" onclick="calcInput('1')">1</button>
+      <button class="calc-btn" onclick="calcInput('2')">2</button>
+      <button class="calc-btn" onclick="calcInput('3')">3</button>
+      <button class="calc-btn" onclick="calcInput('+')">+</button>
+
+      <button class="calc-btn" onclick="calcInput('0')">0</button>
+      <button class="calc-btn" onclick="calcInput('.')">.</button>
+      <button class="calc-btn calc-equal" style="grid-column:span 2" onclick="calcResult()">=</button>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section id="quiz">
-  <h2>🧠 اختبار سريع</h2><p class="sub">أسئلة عامة متنوعة</p>
-  <div class="card" id="qb"></div>
+
+<!-- ================= TASKS ================= -->
+
+<section class="page" id="tasks">
+
+  <div class="section-title">
+    <div>
+      <h2>✅ قائمة المهام</h2>
+      <p>أضف واجباتك ومهامك اليومية</p>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+
+      <input
+        id="taskInput"
+        placeholder="مثال: حل واجب الرياضيات"
+        style="flex:1;min-width:220px;border:1px solid var(--border);background:var(--surface);color:var(--text);border-radius:13px;padding:12px"
+        onkeydown="if(event.key==='Enter') addTask()"
+      >
+
+      <button class="btn btn-primary" onclick="addTask()">➕ إضافة</button>
+
+    </div>
+
+    <div class="todo-list" id="todoList"></div>
+
+  </div>
+
 </section>
 
-<section id="cards">
-  <h2>🃏 البطاقات التعليمية</h2><p class="sub">اضغط على البطاقة لقلبها</p>
-  <div class="card fc" id="fc" tabindex="0" role="button">أضف بطاقتك الأولى</div>
-  <div class="row"><button class="btn g" id="fp">السابق</button><button class="btn g" id="fn">التالي</button><button class="btn d" id="fd">حذف</button></div>
-  <div class="card"><div class="row"><input id="fq" placeholder="السؤال" aria-label="السؤال"><input id="fa" placeholder="الجواب" aria-label="الجواب"><button class="btn" id="fx">+ بطاقة</button></div></div>
+
+<!-- ================= SCHEDULE ================= -->
+
+<section class="page" id="schedule">
+
+  <div class="section-title">
+    <div>
+      <h2>📅 جدول الدراسة</h2>
+      <p>نموذج أسبوعي قابل للتعديل</p>
+    </div>
+  </div>
+
+  <div class="card schedule">
+
+    <table>
+      <thead>
+        <tr>
+          <th>اليوم</th>
+          <th>الجلسة 1</th>
+          <th>الجلسة 2</th>
+          <th>الجلسة 3</th>
+          <th>المراجعة</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr>
+          <th>الأحد</th>
+          <td contenteditable="true">رياضيات</td>
+          <td contenteditable="true">عربي</td>
+          <td contenteditable="true">علوم</td>
+          <td contenteditable="true">مراجعة</td>
+        </tr>
+
+        <tr>
+          <th>الاثنين</th>
+          <td contenteditable="true">فيزياء</td>
+          <td contenteditable="true">إنجليزي</td>
+          <td contenteditable="true">رياضيات</td>
+          <td contenteditable="true">مراجعة</td>
+        </tr>
+
+        <tr>
+          <th>الثلاثاء</th>
+          <td contenteditable="true">عربي</td>
+          <td contenteditable="true">كيمياء</td>
+          <td contenteditable="true">رياضيات</td>
+          <td contenteditable="true">مراجعة</td>
+        </tr>
+
+        <tr>
+          <th>الأربعاء</th>
+          <td contenteditable="true">علوم</td>
+          <td contenteditable="true">إنجليزي</td>
+          <td contenteditable="true">فيزياء</td>
+          <td contenteditable="true">مراجعة</td>
+        </tr>
+
+        <tr>
+          <th>الخميس</th>
+          <td contenteditable="true">رياضيات</td>
+          <td contenteditable="true">عربي</td>
+          <td contenteditable="true">كيمياء</td>
+          <td contenteditable="true">اختبار</td>
+        </tr>
+
+        <tr>
+          <th>الجمعة</th>
+          <td contenteditable="true">راحة</td>
+          <td contenteditable="true">مراجعة</td>
+          <td contenteditable="true">اختبار ذاتي</td>
+          <td contenteditable="true">تخطيط</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <button class="btn btn-primary" onclick="saveSchedule()" style="margin-top:12px">
+    💾 حفظ الجدول
+  </button>
+
 </section>
 
-<section id="notes">
-  <h2>📝 ملاحظاتي</h2><p class="sub">محفوظة على جهازك فقط</p>
-  <div class="card"><input id="nt" placeholder="العنوان" aria-label="العنوان"><textarea id="nb" rows="4" placeholder="اكتب ملاحظتك..." aria-label="النص"></textarea><button class="btn" id="nx">حفظ الملاحظة</button></div>
-  <div id="nl"></div>
+
+<!-- ================= RESOURCES ================= -->
+
+<section class="page" id="resources">
+
+  <div class="section-title">
+    <div>
+      <h2>📖 مصادر الطالب</h2>
+      <p>أماكن لإضافة الكتب والملازم والفيديوهات</p>
+    </div>
+  </div>
+
+  <div class="resources">
+
+    <div class="resource">
+      <div class="resource-icon">📚</div>
+      <h3>الكتب الدراسية</h3>
+      <p>يمكنك وضع روابط الكتب الرسمية بصيغة PDF هنا.</p>
+      <a href="#" onclick="resourceMessage();return false;">إضافة كتاب ←</a>
+    </div>
+
+    <div class="resource">
+      <div class="resource-icon">📝</div>
+      <h3>الملازم</h3>
+      <p>قسم خاص للملازم والملخصات الدراسية.</p>
+      <a href="#" onclick="resourceMessage();return false;">إضافة ملزمة ←</a>
+    </div>
+
+    <div class="resource">
+      <div class="resource-icon">🎥</div>
+      <h3>الفيديوهات</h3>
+      <p>ضع روابط الدروس التعليمية على YouTube.</p>
+      <a href="#" onclick="resourceMessage();return false;">إضافة فيديو ←</a>
+    </div>
+
+    <div class="resource">
+      <div class="resource-icon">📋</div>
+      <h3>الأسئلة الوزارية</h3>
+      <p>مكان مخصص لإضافة نماذج وأسئلة المراجعة.</p>
+      <a href="#" onclick="resourceMessage();return false;">فتح القسم ←</a>
+    </div>
+
+    <div class="resource">
+      <div class="resource-icon">🧠</div>
+      <h3>ملخصات</h3>
+      <p>اختصر الدروس المهمة في صفحات سهلة للمراجعة.</p>
+      <a href="#" onclick="resourceMessage();return false;">فتح القسم ←</a>
+    </div>
+
+    <div class="resource">
+      <div class="resource-icon">🔗</div>
+      <h3>روابط مفيدة</h3>
+      <p>اجمع المواقع التعليمية التي تستخدمها في مكان واحد.</p>
+      <a href="#" onclick="resourceMessage();return false;">إضافة رابط ←</a>
+    </div>
+
+  </div>
+
+  <div class="card" style="margin-top:18px">
+
+    <h3>🇮🇶 قسم المنهج العراقي</h3>
+
+    <p style="color:var(--muted);margin-top:7px">
+      يمكن تخصيص هذه الصفحة لاحقًا حسب المرحلة الدراسية
+      وإضافة الكتب والملازم والمواد الخاصة بكل صف.
+    </p>
+
+    <div class="grid" style="margin-top:15px">
+
+      <div class="feature-card card">
+        <div class="feature-icon">1️⃣</div>
+        <h3>الابتدائية</h3>
+        <p>مواد وملفات المرحلة الابتدائية.</p>
+      </div>
+
+      <div class="feature-card card">
+        <div class="feature-icon">2️⃣</div>
+        <h3>المتوسطة</h3>
+        <p>مواد وملفات المرحلة المتوسطة.</p>
+      </div>
+
+      <div class="feature-card card">
+        <div class="feature-icon">3️⃣</div>
+        <h3>الإعدادية</h3>
+        <p>مواد وملفات المرحلة الإعدادية.</p>
+      </div>
+
+      <div class="feature-card card">
+        <div class="feature-icon">🎓</div>
+        <h3>الجامعة</h3>
+        <p>أدوات ومصادر للطالب الجامعي.</p>
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section id="calc">
-  <h2>🧮 الحاسبات</h2>
-  <div class="card"><b>حساب النسبة المئوية</b>
-    <div class="row"><input id="c1" type="number" placeholder="الدرجة" aria-label="الدرجة"><input id="c2" type="number" placeholder="الدرجة الكاملة" aria-label="الكاملة"><button class="btn" id="cb">احسب</button></div><p id="cr">—</p></div>
-  <div class="card"><b>معدل عدة مواد</b><p class="sub">اكتب الدرجات مفصولة بفاصلة: 85, 90, 72</p>
-    <div class="row"><input id="a1" placeholder="85, 90, 72" aria-label="الدرجات"><button class="btn" id="ab">احسب المعدل</button></div><p id="ar">—</p></div>
-  <div class="card"><b>ساعات الدراسة المطلوبة</b>
-    <div class="row"><input id="h1" type="number" placeholder="عدد الأيام" aria-label="الأيام"><input id="h2" type="number" placeholder="ساعات يومياً" aria-label="الساعات"><button class="btn" id="hb">احسب</button></div><p id="hr">—</p></div>
+
+<!-- ================= NOTES ================= -->
+
+<section class="page" id="notes">
+
+  <div class="section-title">
+    <div>
+      <h2>📝 ملاحظاتي</h2>
+      <p>احفظ ملاحظاتك على جهازك</p>
+    </div>
+  </div>
+
+  <div class="card">
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>عنوان الملاحظة</label>
+        <input id="noteTitle" placeholder="مثال: قوانين الرياضيات">
+      </div>
+
+      <div class="field">
+        <label>المادة</label>
+        <input id="noteSubject" placeholder="مثال: رياضيات">
+      </div>
+
+      <div class="field full">
+        <label>المحتوى</label>
+        <textarea id="noteContent" placeholder="اكتب ملاحظتك هنا..."></textarea>
+      </div>
+
+    </div>
+
+    <button class="btn btn-primary" onclick="addNote()" style="margin-top:12px">
+      ➕ حفظ الملاحظة
+    </button>
+
+  </div>
+
+  <div class="notes-grid" id="notesList" style="margin-top:15px"></div>
+
 </section>
 
-<section id="src">
-  <h2>📚 المصادر</h2><p class="sub">احفظ روابط كتبك وملازمك</p>
-  <div class="card"><input id="rt" placeholder="اسم المصدر" aria-label="الاسم"><input id="ru" type="url" placeholder="https://..." aria-label="الرابط" dir="ltr">
-  <div class="row"><select id="rk"><option>كتاب PDF</option><option>ملزمة</option><option>فيديو</option><option>بنك أسئلة</option><option>موقع</option></select><button class="btn" id="rx">+ مصدر</button></div></div>
-  <div id="rl"></div>
+
+<!-- ================= SEARCH ================= -->
+
+<section class="page" id="search">
+
+  <div class="section-title">
+    <div>
+      <h2>🔎 البحث</h2>
+      <p>ابحث في محتوى الموقع</p>
+    </div>
+  </div>
+
+  <div class="search-box">
+    <span>🔎</span>
+    <input id="globalSearch" placeholder="اكتب كلمة للبحث..." oninput="globalSearch()">
+  </div>
+
+  <div id="searchResults"></div>
+
 </section>
 
-<section id="bot">
-  <h2>🤖 مساعد الدراسة</h2><p class="sub">مساعد محلي بردود جاهزة حسب كلماتك، وليس ذكاءً اصطناعياً حقيقياً</p>
-  <div class="card chat" id="ch"></div>
-  <div class="row"><input id="bi" placeholder="اسأل: كيف أركز؟ كيف أحفظ؟" aria-label="سؤالك"><button class="btn" id="bs">إرسال</button></div>
-  <div class="row" id="bq" style="margin-top:8px"></div>
-</section>
-
-<section id="ach">
-  <h2>🏆 الإنجازات</h2><p class="sub">تقدمك يتحول إلى نقاط</p><div id="al"></div>
-</section>
-
-<section id="set">
-  <h2>⚙️ الإعدادات</h2>
-  <div class="card"><label>اسم الطالب<input id="sn"></label>
-  <label>المرحلة<select id="sg"><option>ابتدائي</option><option>متوسط</option><option>إعدادي</option><option>جامعة</option><option>أخرى</option></select></label>
-  <button class="btn" id="sv">حفظ الإعدادات</button></div>
-  <div class="card"><b>💾 بياناتك</b><p class="sub">انسخ بياناتك احتياطياً من وقت لآخر، فهي محفوظة في متصفحك فقط.</p>
-  <div class="row"><button class="btn" id="ex">📤 تصدير</button><button class="btn g" id="im">📥 استيراد</button><button class="btn d" id="wp">🗑️ حذف الكل</button></div>
-  <input type="file" id="fi" accept=".json" hidden></div>
-</section>
 </main>
 
-<div class="tabs" id="tabs"></div>
-<div class="toast" id="toast" role="status"></div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+  <div class="container footer-inner">
+
+    <div>
+      <strong>🎓 Student OS</strong>
+      <div>منصة الطالب الذكية</div>
+    </div>
+
+    <div>
+      © <span id="year"></span> جميع الحقوق محفوظة
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ================= TOAST ================= -->
+
+<div class="toast" id="toast"></div>
+
 
 <script>
-const $=id=>document.getElementById(id);
-const V=[['home','⌂','الرئيسية'],['tips','💡','النصائح'],['plan','📅','المخطط'],['pomo','⏱️','المؤقت'],['quiz','🧠','اختبار'],['cards','🃏','بطاقات'],['notes','📝','ملاحظات'],['calc','🧮','حاسبات'],['src','📚','مصادر'],['bot','🤖','مساعد'],['ach','🏆','إنجازات'],['set','⚙️','إعدادات']];
-const KEY='studentos.v2',today=()=>new Date().toISOString().slice(0,10);
-let S={name:'',grade:'',xp:0,tasks:[],cards:[],notes:[],src:[],favs:[],days:[],mins:{},done:{},theme:'dark',date:today()};
-try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
-if(S.date!==today()){S.tasks=S.tasks.filter(t=>!t.d);S.date=today()}
-const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function toast(t){const e=$('toast');e.textContent=t;e.classList.add('s');setTimeout(()=>e.classList.remove('s'),1800)}
-function xp(n,m){S.xp+=n;save();toast('+'+n+' نقطة'+(m?' · '+m:''));render()}
+/* =========================================================
+   Student OS - JavaScript
+   ========================================================= */
 
-/* التنقل */
-function go(v){document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===v));
- document.querySelectorAll('[data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));scrollTo(0,0);location.hash=v}
-$('nav').innerHTML=V.map(v=>`<button data-v="${v[0]}">${v[1]} ${v[2]}</button>`).join('');
-$('tabs').innerHTML=['home','plan','pomo','quiz','bot'].map(k=>{const v=V.find(x=>x[0]===k);return `<button data-v="${k}">${v[1]}<br>${v[2]}</button>`}).join('');
-document.addEventListener('click',e=>{const b=e.target.closest('[data-v],[data-go]');if(b)go(b.dataset.v||b.dataset.go)});
+const $ = id => document.getElementById(id);
 
-/* النصائح: تصنيف|النصيحة|طريقة التطبيق (أضف أسطراً جديدة لتصل إلى 100) */
-const TIPS=`تنظيم|حدّد هدف اليوم من الليلة السابقة|اكتب ثلاث مهام فقط على ورقة قبل النوم.
-تنظيم|ابدأ بالمادة الأصعب|ادرسها أول الجلسة وأنت في أعلى تركيزك.
-تنظيم|قسّم المنهج إلى أجزاء صغيرة|وزّع الفصول على أيام الأسبوع في جدول.
-تنظيم|خصص وقتاً ثابتاً للدراسة|اختر ساعة يومية ولا تغيّرها.
-تنظيم|جهّز أدواتك قبل أن تجلس|ضع الكتب والأقلام والماء على المكتب.
-تنظيم|راجع أسبوعك كل جمعة|اسأل نفسك: ما الذي أنجزت وما الذي تأخر؟
-مذاكرة|استرجع المعلومة من ذاكرتك|أغلق الكتاب واكتب ما تتذكره ثم قارن.
-مذاكرة|اشرح الدرس لشخص آخر|إن استطعت شرحه ببساطة فقد فهمته.
-مذاكرة|وزّع المراجعة على أيام|راجع بعد يوم ثم 3 أيام ثم أسبوع.
-مذاكرة|استخدم البطاقات للحفظ|اكتب سؤالاً على وجه وجواباً على الآخر.
-مذاكرة|حلّ المسائل بدل قراءة الحل|حاول أولاً ثم راجع خطأك.
-مذاكرة|اربط المعلومة الجديدة بما تعرفه|ارسم خريطة ذهنية للدرس.
-مذاكرة|لخّص بأسلوبك الخاص|صفحة واحدة لكل فصل.
-امتحانات|حلّ أسئلة السنوات السابقة|احسب الوقت كأنك في القاعة.
-امتحانات|نم جيداً ليلة الامتحان|7 ساعات على الأقل، فالنوم يثبّت الحفظ.
-امتحانات|اقرأ الأسئلة كلها قبل البدء|ابدأ بالأسهل لتكسب الثقة والوقت.
-امتحانات|راجع الأخطاء المتكررة|دفتر صغير للأخطاء تقرؤه قبل الامتحان.
-امتحانات|تناول فطوراً خفيفاً|اختر أطعمة بسيطة وابتعد عن السكريات الكثيرة.
-امتحانات|اترك 10 دقائق للمراجعة النهائية|تأكد من الأرقام والوحدات والأسماء.
-تركيز|ابعد هاتفك عنك|اتركه في غرفة أخرى أو فعّل وضع الطيران.
-تركيز|استخدم طريقة بومودورو|25 دقيقة تركيز ثم 5 راحة.
-تركيز|اجعل مكان الدراسة ثابتاً|يتعوّد عقلك أن هذا المكان للتركيز.
-تركيز|أغلق الإشعارات|الإشعار الواحد يضيع عليك دقائق.
-تركيز|دوّن الأفكار المشتتة|اكتبها على ورقة جانبية وارجع للدرس.
-تركيز|استمع لموسيقى هادئة بلا كلمات|أو اجلس في صمت إن كان أفضل لك.
-صحة|اشرب الماء بانتظام|كوب كل ساعة تقريباً.
-صحة|تحرك كل ساعة|قف وامشِ دقيقتين وافرد ظهرك.
-صحة|نم في وقت ثابت|السهر يضعف التركيز والذاكرة.
-صحة|ريّح عينيك|انظر لبعيد 20 ثانية كل 20 دقيقة.
-صحة|تحدّث مع من تثق عند الضغط|الضغط طبيعي ومشاركته تخفف عنك.
-صحة|مارس الرياضة ولو مشياً|20 دقيقة تحسّن المزاج والتركيز.
-تقنية|استخدم تطبيق ملاحظات منظماً|مجلد لكل مادة.
-تقنية|احفظ نسخاً احتياطية|صدّر بياناتك من الإعدادات كل أسبوع.
-تقنية|استفد من الفيديوهات التعليمية|شاهد بسرعة 1.25 ودوّن النقاط.
-تقنية|حدّد وقت وسائل التواصل|ضع مؤقتاً 20 دقيقة فقط بعد الدراسة.
-تقنية|اعتمد على مصادر موثوقة|تأكد من المصدر قبل حفظ المعلومة.`.split('\n').map(l=>l.split('|'));
-const cats=['الكل','المفضلة',...new Set(TIPS.map(t=>t[0]))];
-$('tc').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
-function tips(){const q=$('tq').value.trim(),c=$('tc').value;
- const l=TIPS.map((t,i)=>({t,i})).filter(({t,i})=>(c==='الكل'||(c==='المفضلة'?S.favs.includes(i):t[0]===c))&&(t[1]+t[2]).includes(q));
- $('tl').innerHTML=l.length?l.map(({t,i})=>`<div class="card"><div class="row"><b style="flex:1">${i+1}. ${t[1]}</b><button class="ib" data-f="${i}" aria-label="مفضلة">${S.favs.includes(i)?'★':'☆'}</button></div><span class="tag">${t[0]}</span><div>${t[2]}</div></div>`).join(''):'<p class="sub">لا توجد نتائج. جرّب كلمة أخرى.</p>'}
-$('tq').oninput=tips;$('tc').onchange=tips;
-$('tl').onclick=e=>{const b=e.target.closest('[data-f]');if(!b)return;const i=+b.dataset.f;S.favs=S.favs.includes(i)?S.favs.filter(x=>x!==i):[...S.favs,i];save();tips()};
 
-/* المهام */
-function tasks(){$('tk').innerHTML=S.tasks.length?S.tasks.map((t,i)=>`<div class="item ${t.d?'done':''}"><input type="checkbox" style="width:auto;margin:0" data-k="${i}" ${t.d?'checked':''} aria-label="إنجاز"><span>${esc(t.t)}</span><button class="ib" data-x="${i}" aria-label="حذف">✕</button></div>`).join(''):'<p class="sub">لا مهام بعد. أضف أول مهمة لليوم.</p>'}
-const addTask=t=>{t=t.trim();if(!t)return;S.tasks.push({t,d:0});save();render()};
-$('ta').onclick=()=>{addTask($('ti').value);$('ti').value=''};
-$('ti').onkeydown=e=>{if(e.key==='Enter')$('ta').click()};
-$('tk').onclick=e=>{const k=e.target.closest('[data-k]'),x=e.target.closest('[data-x]');
- if(k){const t=S.tasks[+k.dataset.k];t.d=k.checked?1:0;save();if(t.d)xp(5);else render()}
- if(x){S.tasks.splice(+x.dataset.x,1);save();render()}};
-$('gb').onclick=()=>{const s=$('gs').value,g=$('gg').value,m=+$('gm').value;
- const a=Math.round(m*.2),b=Math.round(m*.5),c=m-a-b;
- $('gp').innerHTML=`<p>خطة ${s} (${g}) · ${m} دقيقة:</p><ol><li>${a} د: مراجعة سريعة لما سبق</li><li>${b} د: ${g} في ${s} بتركيز كامل</li><li>${c} د: اختبر نفسك ولخّص</li></ol><button class="btn g" id="gadd">أضف للمهام</button>`;
- $('gadd').onclick=()=>{addTask(`${s}: ${g} (${m} د)`);toast('تمت الإضافة')}};
+/* ================= STORAGE ================= */
 
-/* بومودورو */
-let len=25*60,left=len,iv=null,focus=true;
-const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
-const showT=()=>{$('tm').textContent=fmt(left);document.title=(iv?fmt(left)+' · ':'')+'Student OS'};
-function stop(){clearInterval(iv);iv=null;$('ps').textContent='▶ ابدأ';showT()}
-document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{stop();focus=+b.dataset.m>5;len=left=+b.dataset.m*60;$('tmode').textContent=focus?'جلسة تركيز':'وقت الراحة';showT()});
-$('ps').onclick=()=>{if(iv)return stop();$('ps').textContent='⏸ إيقاف';
- iv=setInterval(()=>{left--;if(left<=0){const mins=len/60;stop();left=len;showT();
-  if(focus){S.mins[today()]=(S.mins[today()]||0)+mins;if(!S.days.includes(today()))S.days.push(today());if(!S.done.focus){S.done.focus=1;xp(20,'تم تحدي اليوم')}else xp(10)}
-  else toast('انتهت الراحة');try{navigator.vibrate&&navigator.vibrate(300)}catch(e){}}showT()},1000)};
-$('pr').onclick=()=>{stop();left=len;showT()};
+function getData(key, fallback){
+  try{
+    const value = localStorage.getItem(key);
+    return value ? JSON.parse(value) : fallback;
+  }catch{
+    return fallback;
+  }
+}
 
-/* الاختبار */
-const Q=[['ما عاصمة العراق؟',['بغداد','البصرة','الموصل','أربيل'],0],['كم يساوي 12 × 8؟',['86','96','106','92'],1],['ما الغاز الذي نتنفسه ونحتاجه للحياة؟',['النيتروجين','الأكسجين','الهيدروجين','الهيليوم'],1],['أي كوكب هو الأقرب للشمس؟',['الزهرة','الأرض','عطارد','المريخ'],2],['الجذر التربيعي للعدد 81 هو:',['7','8','9','10'],2],['ما الرمز الكيميائي للماء؟',['CO2','H2O','O2','NaCl'],1],['كم عدد أضلاع المسدس؟',['5','6','7','8'],1],['من مؤلف كتاب «المقدمة»؟',['ابن خلدون','ابن سينا','الجاحظ','المتنبي'],0],['أكبر محيط في العالم:',['الهندي','الأطلسي','الهادئ','المتجمد'],2],['ناتج 15% من 200 هو:',['20','25','30','35'],2]];
-let qi=0,qs=0,qo=[];
-const shuf=a=>[...a].sort(()=>Math.random()-.5);
-function qnew(){qo=shuf(Q);qi=0;qs=0;qshow()}
-function qshow(){const b=$('qb');
- if(qi>=qo.length){if(qs>=8&&!S.done.q){S.done.q=1;xp(30,'متفوق!')}b.innerHTML=`<div class="big">${qs}/${qo.length}</div><p>إجابات صحيحة</p><button class="btn" id="qn">اختبار جديد</button>`;$('qn').onclick=qnew;return}
- const q=qo[qi];b.innerHTML=`<p class="tag">السؤال ${qi+1} من ${qo.length}</p><h3>${q[0]}</h3>`+q[1].map((o,i)=>`<button class="opt" data-o="${i}">${o}</button>`).join('');
- b.onclick=e=>{const o=e.target.closest('[data-o]');if(!o||b.dataset.l)return;b.dataset.l=1;const i=+o.dataset.o;
-  b.querySelectorAll('.opt').forEach((x,j)=>{if(j===q[2])x.classList.add('ok');else if(j===i)x.classList.add('no')});
-  if(i===q[2])qs++;setTimeout(()=>{delete b.dataset.l;qi++;qshow()},900)}}
+function setData(key,value){
+  localStorage.setItem(key,JSON.stringify(value));
+}
 
-/* البطاقات */
-let ci=0,flip=false;
-function cards(){const c=S.cards[ci];$('fc').textContent=c?(flip?'✔ '+c[1]:'؟ '+c[0]):'أضف بطاقتك الأولى'}
-$('fc').onclick=()=>{flip=!flip;cards()};
-$('fn').onclick=()=>{if(S.cards.length){ci=(ci+1)%S.cards.length;flip=false;cards()}};
-$('fp').onclick=()=>{if(S.cards.length){ci=(ci-1+S.cards.length)%S.cards.length;flip=false;cards()}};
-$('fd').onclick=()=>{S.cards.splice(ci,1);ci=0;flip=false;save();cards()};
-$('fx').onclick=()=>{const q=$('fq').value.trim(),a=$('fa').value.trim();if(!q||!a)return toast('اكتب السؤال والجواب');S.cards.push([q,a]);ci=S.cards.length-1;flip=false;$('fq').value=$('fa').value='';save();cards();xp(3)};
 
-/* الملاحظات والمصادر */
-function notes(){$('nl').innerHTML=S.notes.length?S.notes.map((n,i)=>`<div class="card"><div class="row"><b style="flex:1">${esc(n[0]||'بدون عنوان')}</b><button class="ib" data-n="${i}" aria-label="حذف">✕</button></div><div style="white-space:pre-wrap">${esc(n[1])}</div></div>`).join(''):'<p class="sub">لا ملاحظات بعد.</p>'}
-$('nx').onclick=()=>{const t=$('nt').value,b=$('nb').value.trim();if(!b)return toast('اكتب نص الملاحظة');S.notes.unshift([t,b]);$('nt').value=$('nb').value='';save();notes();xp(2)};
-$('nl').onclick=e=>{const x=e.target.closest('[data-n]');if(x){S.notes.splice(+x.dataset.n,1);save();notes()}};
-function src(){$('rl').innerHTML=S.src.length?S.src.map((r,i)=>{const ok=/^https?:\/\//.test(r[1]);return `<div class="card"><div class="row"><div style="flex:1">${ok?`<a style="color:var(--ac)" href="${esc(r[1])}" target="_blank" rel="noopener noreferrer">${esc(r[0])}</a>`:esc(r[0])}<br><span class="tag">${r[2]}</span></div><button class="ib" data-r="${i}" aria-label="حذف">✕</button></div></div>`}).join(''):'<p class="sub">لم تضف مصادر بعد.</p>'}
-$('rx').onclick=()=>{const t=$('rt').value.trim(),u=$('ru').value.trim();if(!t)return toast('اكتب اسم المصدر');S.src.push([t,u,$('rk').value]);$('rt').value=$('ru').value='';save();src()};
-$('rl').onclick=e=>{const x=e.target.closest('[data-r]');if(x){S.src.splice(+x.dataset.r,1);save();src()}};
+/* ================= TOAST ================= */
 
-/* الحاسبات */
-$('cb').onclick=()=>{const a=+$('c1').value,b=+$('c2').value;$('cr').textContent=b>0?`النسبة: ${(a/b*100).toFixed(1)}%`:'أدخل درجة كاملة أكبر من صفر'};
-$('ab').onclick=()=>{const n=$('a1').value.split(/[,،\s]+/).filter(s=>s!=='').map(Number).filter(x=>!isNaN(x));
- $('ar').textContent=n.length?`المعدل: ${(n.reduce((a,b)=>a+b,0)/n.length).toFixed(2)} (من ${n.length} مواد)`:'أدخل درجات صحيحة'};
-$('hb').onclick=()=>{const d=+$('h1').value,h=+$('h2').value;$('hr').textContent=d>0&&h>0?`المجموع: ${d*h} ساعة`:'أدخل أرقاماً صحيحة'};
+let toastTimer;
 
-/* المساعد */
-const R=[[/ركز|تشتت|هاتف/,'أبعد هاتفك، واستخدم بومودورو 25/5، وسجّل الأفكار المشتتة على ورقة جانبية.'],[/احفظ|حفظ/,'كرّر بالاسترجاع لا بالقراءة: بطاقات + مراجعة بعد يوم ثم 3 أيام ثم أسبوع.'],[/امتحان|مراجعة/,'حلّ أسئلة سنوات سابقة بوقت محدد، وراجع أخطاءك، ولا تسهر ليلة الامتحان.'],[/ابدأ|بداية|كيف ادرس/,'اختر 3 مهام لليوم، وابدأ بأصعبها في جلسة 25 دقيقة.'],[/نوم|تعب|ضغط/,'النوم 7 ساعات وحركة قصيرة كل ساعة يرفعان تركيزك أكثر من ساعة إضافية من السهر.'],[/جدول|خطة|وقت/,'جرّب «مولّد الخطة» في قسم المخطط، ثم أضف الخطة لمهام اليوم.']];
-const say=(t,c)=>{$('ch').insertAdjacentHTML('beforeend',`<div class="m ${c}">${esc(t)}</div>`);$('ch').scrollTop=1e5};
-function ask(q){q=q.trim();if(!q)return;say(q,'u');const r=R.find(x=>x[0].test(q));say(r?r[1]:'لم أفهم سؤالك. جرّب كلمات مثل: تركيز، حفظ، امتحان، خطة.','b')}
-$('bs').onclick=()=>{ask($('bi').value);$('bi').value=''};$('bi').onkeydown=e=>{if(e.key==='Enter')$('bs').click()};
-$('bq').innerHTML=['كيف أبدأ الدراسة؟','كيف أتخلص من التشتت؟','كيف أراجع قبل الامتحان؟','أفضل طريقة للحفظ؟'].map(q=>`<button class="btn g">${q}</button>`).join('');
-$('bq').onclick=e=>{if(e.target.tagName==='BUTTON')ask(e.target.textContent)};
-say('أهلاً! اسألني عن التركيز أو الحفظ أو الامتحانات.','b');
+function toast(message){
+  const el = $("toast");
 
-/* الإنجازات والإعدادات */
-function ach(){const dn=S.tasks.filter(t=>t.d).length,A=[['أول خطوة','أنجز مهمة واحدة',dn>=1],['منظّم','أنجز 5 مهام اليوم',dn>=5],['مركّز','أكمل جلسة تركيز',!!S.done.focus],['متفوق','احصل على 8/10 في الاختبار',!!S.done.q],['حافظ','أنشئ 5 بطاقات',S.cards.length>=5],['كاتب','احفظ 3 ملاحظات',S.notes.length>=3],['مثابر','ادرس 3 أيام',S.days.length>=3],['خبير','اجمع 100 نقطة',S.xp>=100]];
- $('al').innerHTML=A.map(a=>`<div class="card" style="opacity:${a[2]?1:.55}"><b>${a[2]?'🏆':'🔒'} ${a[0]}</b><div class="sub" style="margin:0">${a[1]}</div></div>`).join('')}
-$('sv').onclick=()=>{S.name=$('sn').value.trim();S.grade=$('sg').value;save();render();toast('تم الحفظ')};
-$('ex').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:'application/json'}));a.download='student-os-backup.json';a.click()};
-$('im').onclick=()=>$('fi').click();
-$('fi').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(typeof d!=='object'||!d)throw 0;Object.assign(S,d);save();location.reload()}catch(x){toast('الملف غير صالح')}};r.readAsText(f)};
-$('wp').onclick=()=>{if(confirm('سيتم حذف كل بياناتك نهائياً. هل أنت متأكد؟')){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}};
-$('th').onclick=()=>{S.theme=S.theme==='dark'?'light':'dark';save();render()};
+  el.textContent = message;
+  el.classList.add("show");
 
-/* الرسم العام */
-function streak(){let n=0,d=new Date();while(S.days.includes(d.toISOString().slice(0,10))){n++;d.setDate(d.getDate()-1)}return n}
-function render(){document.documentElement.dataset.t=S.theme;
- const dn=S.tasks.filter(t=>t.d).length,p=S.tasks.length?Math.round(dn/S.tasks.length*100):0;
- $('pc').textContent=p+'%';$('pb').style.width=p+'%';$('xp').textContent=S.xp;$('lv').textContent=Math.floor(S.xp/100)+1;
- $('st').textContent=streak();$('ss').textContent=S.mins[today()]||0;
- $('hi').textContent=S.name?'مرحباً '+S.name:'مرحباً بك';$('sn').value=S.name;if(S.grade)$('sg').value=S.grade;
- const t=TIPS[new Date().getDate()%TIPS.length];$('tip0').textContent='💡 نصيحة اليوم: '+t[1]+' — '+t[2];
- tasks();ach()}
-render();tips();notes();src();cards();qnew();showT();
-const h=location.hash.slice(1);go(V.some(v=>v[0]===h)?h:'home');
+  clearTimeout(toastTimer);
+
+  toastTimer = setTimeout(()=>{
+    el.classList.remove("show");
+  },2500);
+}
+
+
+/* ================= NAVIGATION ================= */
+
+function showPage(page){
+
+  document.querySelectorAll(".page").forEach(section=>{
+    section.classList.remove("active");
+  });
+
+  const target = $(page);
+
+  if(target){
+    target.classList.add("active");
+  }
+
+  document.querySelectorAll(".nav-link").forEach(btn=>{
+    btn.classList.toggle(
+      "active",
+      btn.dataset.page === page
+    );
+  });
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+
+  $("navbar").classList.remove("open");
+}
+
+document.querySelectorAll(".nav-link").forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    showPage(btn.dataset.page);
+  });
+});
+
+
+/* ================= MOBILE MENU ================= */
+
+$("menuBtn").addEventListener("click",()=>{
+  $("navbar").classList.toggle("open");
+});
+
+
+/* ================= DARK MODE ================= */
+
+function loadTheme(){
+
+  const theme = localStorage.getItem("student-theme");
+
+  if(theme === "dark"){
+    document.body.classList.add("dark");
+    $("themeBtn").textContent = "☀️";
+  }else{
+    document.body.classList.remove("dark");
+    $("themeBtn").textContent = "🌙";
+  }
+}
+
+$("themeBtn").addEventListener("click",()=>{
+
+  document.body.classList.toggle("dark");
+
+  const dark = document.body.classList.contains("dark");
+
+  localStorage.setItem(
+    "student-theme",
+    dark ? "dark" : "light"
+  );
+
+  $("themeBtn").textContent = dark ? "☀️" : "🌙";
+});
+
+loadTheme();
+
+
+/* ================= TIPS ================= */
+
+const tips = [
+  ["ابدأ بهدف واضح","حدد ما تريد إنجازه قبل بداية جلسة الدراسة.","مثال: حل 10 مسائل."],
+  ["ابتعد عن الهاتف","ضع الهاتف على الصامت أو بعيدًا عن مكان الدراسة.","قلل مصادر التشتيت."],
+  ["استخدم بومودورو","ادرس لفترة تركيز ثم خذ استراحة قصيرة.","ابدأ بـ 25 دقيقة."],
+  ["راجع بانتظام","لا تؤجل المراجعة إلى ليلة الامتحان.","وزع المراجعة على أيام."],
+  ["اختبر نفسك","حاول الإجابة من الذاكرة قبل النظر إلى الكتاب.","الاختبار يكشف نقاط الضعف."],
+  ["اشرح لنفسك","تخيل أنك تشرح الدرس لشخص آخر.","إذا عجزت عن الشرح راجع النقطة."],
+  ["اكتب ملاحظات مختصرة","لا تنسخ الكتاب كاملًا.","اكتب الأفكار والقوانين المهمة."],
+  ["نم جيدًا","النوم جزء مهم من الاستعداد للدراسة.","حافظ على روتين مناسب."],
+  ["اشرب الماء","ضع الماء بجانبك أثناء الدراسة.","لا تنتظر حتى تشعر بالعطش."],
+  ["رتب مكانك","اجعل الأدوات التي تحتاجها قريبة منك.","المكان المرتب يقلل المقاطعات."],
+  ["قسم الدرس","لا تحاول إنهاء كل شيء مرة واحدة.","قسم الفصل إلى أجزاء."],
+  ["ابدأ بالأصعب","ضع المادة التي تحتاج تركيزًا أكبر في وقت نشاطك.","ثم انتقل للأسهل."],
+  ["استخدم الأسئلة","حوّل العناوين إلى أسئلة.","ثم حاول الإجابة عنها."],
+  ["راجع أخطاءك","الأخطاء مصدر مهم للتعلم.","اكتب الخطأ وطريقة تصحيحه."],
+  ["حدد وقتًا للتوقف","حدد نهاية للجلسة حتى لا تدرس بعشوائية.","الراحة جزء من الخطة."],
+  ["لا تعتمد على القراءة فقط","استخدم الحل والكتابة والاسترجاع.","غيّر طريقة التعلم."],
+  ["ضع قائمة يومية","اكتب 3 إلى 5 مهام أساسية.","لا تجعل القائمة مستحيلة."],
+  ["ابدأ الآن","لا تنتظر المزاج المثالي.","ابدأ بخمس دقائق فقط."],
+  ["راجع قبل النوم","يمكنك مراجعة النقاط الرئيسية.","اجعلها مراجعة خفيفة."],
+  ["استخدم بطاقات المراجعة","اكتب سؤالًا في جهة والإجابة في الجهة الأخرى.","مفيدة للمصطلحات."],
+  ["ذاكر مع زميل بذكاء","ناقش الأسئلة والمفاهيم.","لا تجعل الجلسة دردشة فقط."],
+  ["ضع مؤقتًا","حدد وقتًا واضحًا للمهمة.","هذا يساعد على التركيز."],
+  ["كافئ نفسك","بعد إنجاز مهمة، خذ استراحة أو مكافأة بسيطة.","اربط الإنجاز بشيء إيجابي."],
+  ["تخلص من تعدد المهام","لا تفتح عدة دروس في الوقت نفسه.","مهمة واحدة أفضل."],
+  ["ضع خطة للامتحان","حدد المواد والموضوعات والأيام.","لا تترك التخطيط لآخر لحظة."],
+  ["حل نماذج","التدريب على الأسئلة مهم.","راجع إجاباتك بعد الحل."],
+  ["اعرف نقاط ضعفك","لا تركز فقط على الأشياء التي تعرفها.","خصص وقتًا للنقاط الصعبة."],
+  ["اطلب المساعدة","إذا لم تفهم فكرة، اسأل المعلم أو زميلًا.","لا تجعل السؤال يتراكم."],
+  ["تابع تقدمك","سجل ما أنجزته.","رؤية التقدم تشجعك على الاستمرار."],
+  ["كن واقعيًا","ضع خطة تناسب وقتك وطاقة يومك.","الاستمرارية أهم من الخطة المثالية."]
+];
+
+function renderTips(list=tips){
+
+  const container = $("tipsList");
+
+  container.innerHTML = "";
+
+  if(!list.length){
+    container.innerHTML = `
+      <div class="card">
+        <h3>لا توجد نتائج</h3>
+        <p style="color:var(--muted)">جرب كلمة بحث مختلفة.</p>
+      </div>
+    `;
+    return;
+  }
+
+  list.forEach((tip,index)=>{
+
+    const card = document.createElement("article");
+
+    card.className = "tip";
+
+    card.innerHTML = `
+      <div class="tip-number">${tips.indexOf(tip)+1}</div>
+      <h3>${escapeHTML(tip[0])}</h3>
+      <p>${escapeHTML(tip[1])}</p>
+      <small>💡 التطبيق: ${escapeHTML(tip[2])}</small>
+    `;
+
+    container.appendChild(card);
+  });
+}
+
+function filterTips(){
+
+  const query = $("tipSearch").value.trim().toLowerCase();
+
+  const result = tips.filter(tip=>
+    tip.join(" ").toLowerCase().includes(query)
+  );
+
+  renderTips(result);
+}
+
+renderTips();
+
+
+/* ================= TASKS ================= */
+
+let tasks = getData("student-tasks",[]);
+
+function renderTasks(){
+
+  const list = $("todoList");
+
+  list.innerHTML = "";
+
+  if(!tasks.length){
+
+    list.innerHTML = `
+      <div style="text-align:center;color:var(--muted);padding:20px">
+        لا توجد مهام حتى الآن 🎯
+      </div>
+    `;
+
+    updateStats();
+    return;
+  }
+
+  tasks.forEach((task,index)=>{
+
+    const row = document.createElement("div");
+
+    row.className = "todo" + (task.done ? " done" : "");
+
+    row.innerHTML = `
+      <input type="checkbox" ${task.done ? "checked" : ""}>
+      <span class="todo-text">${escapeHTML(task.text)}</span>
+      <button class="todo-delete" title="حذف">🗑️</button>
+    `;
+
+    row.querySelector("input").addEventListener("change",()=>{
+      tasks[index].done = !tasks[index].done;
+      saveTasks();
+      renderTasks();
+    });
+
+    row.querySelector(".todo-delete").addEventListener("click",()=>{
+      tasks.splice(index,1);
+      saveTasks();
+      renderTasks();
+    });
+
+    list.appendChild(row);
+  });
+
+  updateStats();
+}
+
+function addTask(){
+
+  const input = $("taskInput");
+
+  const text = input.value.trim();
+
+  if(!text){
+    toast("اكتب المهمة أولًا");
+    return;
+  }
+
+  tasks.push({
+    text,
+    done:false,
+    created:Date.now()
+  });
+
+  saveTasks();
+
+  input.value = "";
+
+  renderTasks();
+
+  toast("تمت إضافة المهمة ✅");
+}
+
+function saveTasks(){
+  setData("student-tasks",tasks);
+}
+
+
+/* ================= STATS ================= */
+
+function updateStats(){
+
+  const done = tasks.filter(t=>t.done).length;
+
+  const total = tasks.length;
+
+  const remaining = total - done;
+
+  const percent = total
+    ? Math.round((done/total)*100)
+    : 0;
+
+  $("statDone").textContent = done;
+  $("statTodo").textContent = remaining;
+  $("statProgress").textContent = percent + "%";
+
+  $("statPomodoro").textContent =
+    Number(localStorage.getItem("pomodoro-sessions") || 0);
+}
+
+renderTasks();
+
+
+/* ================= POMODORO ================= */
+
+let timerSeconds = 25 * 60;
+let timerRunning = false;
+let timerInterval = null;
+let timerMode = "focus";
+
+function getFocusSeconds(){
+  return Math.max(
+    1,
+    Number($("focusMinutes").value || 25)
+  ) * 60;
+}
+
+function getBreakSeconds(){
+  return Math.max(
+    1,
+    Number($("breakMinutes").value || 5)
+  ) * 60;
+}
+
+function updateTimer(){
+
+  const minutes = Math.floor(timerSeconds / 60);
+
+  const seconds = timerSeconds % 60;
+
+  $("timerDisplay").textContent =
+    String(minutes).padStart(2,"0") +
+    ":" +
+    String(seconds).padStart(2,"0");
+
+  $("timerMode").textContent =
+    timerMode === "focus"
+      ? "جلسة تركيز"
+      : "استراحة";
+}
+
+function startTimer(){
+
+  if(timerRunning) return;
+
+  timerRunning = true;
+
+  timerInterval = setInterval(()=>{
+
+    timerSeconds--;
+
+    updateTimer();
+
+    if(timerSeconds <= 0){
+
+      clearInterval(timerInterval);
+
+      timerRunning = false;
+
+      if(timerMode === "focus"){
+
+        let sessions =
+          Number(localStorage.getItem("pomodoro-sessions") || 0);
+
+        sessions++;
+
+        localStorage.setItem(
+          "pomodoro-sessions",
+          sessions
+        );
+
+        timerMode = "break";
+        timerSeconds = getBreakSeconds();
+
+        toast("أحسنت! حان وقت الاستراحة ☕");
+
+      }else{
+
+        timerMode = "focus";
+        timerSeconds = getFocusSeconds();
+
+        toast("انتهت الاستراحة! لنبدأ جلسة جديدة 🚀");
+      }
+
+      updateStats();
+      updateTimer();
+    }
+
+  },1000);
+}
+
+function pauseTimer(){
+
+  clearInterval(timerInterval);
+
+  timerRunning = false;
+}
+
+function resetTimer(){
+
+  clearInterval(timerInterval);
+
+  timerRunning = false;
+
+  timerMode = "focus";
+
+  timerSeconds = getFocusSeconds();
+
+  updateTimer();
+}
+
+$("timerStart").addEventListener("click",startTimer);
+
+$("timerPause").addEventListener("click",pauseTimer);
+
+$("timerReset").addEventListener("click",resetTimer);
+
+$("focusMinutes").addEventListener("change",()=>{
+  if(!timerRunning && timerMode==="focus"){
+    timerSeconds = getFocusSeconds();
+    updateTimer();
+  }
+});
+
+$("breakMinutes").addEventListener("change",()=>{
+  if(!timerRunning && timerMode==="break"){
+    timerSeconds = getBreakSeconds();
+    updateTimer();
+  }
+});
+
+updateTimer();
+
+
+/* ================= NOTES ================= */
+
+let notes = getData("student-notes",[]);
+
+function renderNotes(){
+
+  const list = $("notesList");
+
+  list.innerHTML = "";
+
+  if(!notes.length){
+
+    list.innerHTML = `
+      <div class="card">
+        <h3>📝 لا توجد ملاحظات</h3>
+        <p style="color:var(--muted)">
+          أضف أول ملاحظة باستخدام النموذج أعلاه.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  notes.forEach((note,index)=>{
+
+    const card = document.createElement("article");
+
+    card.className = "note";
+
+    card.innerHTML = `
+      <div class="note-title">
+        ${escapeHTML(note.title)}
+      </div>
+
+      <div style="color:var(--primary);font-size:.8rem;margin-bottom:8px">
+        ${escapeHTML(note.subject || "عام")}
+      </div>
+
+      <div class="note-text">
+        ${escapeHTML(note.content)}
+      </div>
+
+      <button
+        class="btn btn-danger"
+        style="margin-top:12px"
+        onclick="deleteNote(${index})">
+        🗑️ حذف
+      </button>
+    `;
+
+    list.appendChild(card);
+  });
+}
+
+function addNote(){
+
+  const title = $("noteTitle").value.trim();
+
+  const subject = $("noteSubject").value.trim();
+
+  const content = $("noteContent").value.trim();
+
+  if(!title || !content){
+    toast("اكتب عنوان ومحتوى الملاحظة");
+    return;
+  }
+
+  notes.unshift({
+    title,
+    subject,
+    content,
+    date:new Date().toLocaleDateString("ar-IQ")
+  });
+
+  setData("student-notes",notes);
+
+  $("noteTitle").value = "";
+  $("noteSubject").value = "";
+  $("noteContent").value = "";
+
+  renderNotes();
+
+  toast("تم حفظ الملاحظة 📝");
+}
+
+function deleteNote(index){
+
+  if(!confirm("هل تريد حذف هذه الملاحظة؟")){
+    return;
+  }
+
+  notes.splice(index,1);
+
+  setData("student-notes",notes);
+
+  renderNotes();
+
+  toast("تم حذف الملاحظة");
+}
+
+renderNotes();
+
+
+/* ================= CALCULATOR ================= */
+
+let calcValue = "";
+
+function calcInput(value){
+
+  if(calcValue.length > 35) return;
+
+  calcValue += value;
+
+  $("calcDisplay").value = calcValue || "0";
+}
+
+function calcClear(){
+
+  calcValue = "";
+
+  $("calcDisplay").value = "0";
+}
+
+function calcResult(){
+
+  if(!calcValue) return;
+
+  try{
+
+    if(!/^[0-9+\-*/().\s]+$/.test(calcValue)){
+      throw new Error();
+    }
+
+    const result = Function(
+      '"use strict";return (' + calcValue + ')'
+    )();
+
+    if(!Number.isFinite(result)){
+      throw new Error();
+    }
+
+    calcValue = String(result);
+
+    $("calcDisplay").value = calcValue;
+
+  }catch{
+
+    $("calcDisplay").value = "خطأ";
+
+    calcValue = "";
+  }
+}
+
+
+/* ================= STUDY PLAN ================= */
+
+function saveStudyPlan(){
+
+  const plan = {
+    subject:$("studySubject").value.trim(),
+    goal:$("studyGoal").value.trim(),
+    notes:$("studyNotes").value.trim()
+  };
+
+  setData("study-plan",plan);
+
+  toast("تم حفظ خطة الدراسة 📚");
+}
+
+function loadStudyPlan(){
+
+  const plan = getData("study-plan",null);
+
+  if(!plan) return;
+
+  $("studySubject").value = plan.subject || "";
+
+  $("studyGoal").value = plan.goal || "";
+
+  $("studyNotes").value = plan.notes || "";
+}
+
+loadStudyPlan();
+
+
+/* ================= SCHEDULE ================= */
+
+function saveSchedule(){
+
+  const cells =
+    [...document.querySelectorAll(".schedule td")];
+
+  const values =
+    cells.map(cell=>cell.innerText);
+
+  setData("student-schedule",values);
+
+  toast("تم حفظ الجدول 📅");
+}
+
+function loadSchedule(){
+
+  const values =
+    getData("student-schedule",null);
+
+  if(!values) return;
+
+  const cells =
+    [...document.querySelectorAll(".schedule td")];
+
+  cells.forEach((cell,index)=>{
+
+    if(values[index] !== undefined){
+      cell.innerText = values[index];
+    }
+
+  });
+}
+
+loadSchedule();
+
+
+/* ================= GLOBAL SEARCH ================= */
+
+function globalSearch(){
+
+  const query =
+    $("globalSearch").value.trim().toLowerCase();
+
+  const results =
+    $("searchResults");
+
+  results.innerHTML = "";
+
+  if(!query){
+
+    results.innerHTML = `
+      <div class="card">
+        <h3>🔎 اكتب كلمة للبحث</h3>
+        <p style="color:var(--muted)">
+          يمكنك البحث مثل: بومودورو، مراجعة، هاتف، رياضيات...
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  const matches = [];
+
+  tips.forEach((tip,index)=>{
+
+    if(tip.join(" ").toLowerCase().includes(query)){
+
+      matches.push({
+        type:"نصيحة",
+        title:tip[0],
+        text:tip[1],
+        action:()=>{
+          showPage("tips");
+        }
+      });
+
+    }
+
+  });
+
+  const staticContent = [
+    {
+      title:"بومودورو",
+      text:"مؤقت يساعدك على تنظيم جلسات التركيز والاستراحة.",
+      page:"tools"
+    },
+    {
+      title:"قائمة المهام",
+      text:"أضف المهام الدراسية وتابع إنجازها.",
+      page:"tasks"
+    },
+    {
+      title:"جدول الدراسة",
+      text:"نظم موادك خلال أيام الأسبوع.",
+      page:"schedule"
+    },
+    {
+      title:"الملاحظات",
+      text:"احفظ ملاحظاتك الدراسية محليًا.",
+      page:"notes"
+    },
+    {
+      title:"المصادر",
+      text:"قسم الكتب والملازم والفيديوهات.",
+      page:"resources"
+    }
+  ];
+
+  staticContent.forEach(item=>{
+
+    if(
+      (item.title+" "+item.text)
+      .toLowerCase()
+      .includes(query)
+    ){
+
+      matches.push({
+        type:"قسم",
+        title:item.title,
+        text:item.text,
+        action:()=>showPage(item.page)
+      });
+
+    }
+
+  });
+
+  if(!matches.length){
+
+    results.innerHTML = `
+      <div class="card">
+        <h3>لا توجد نتائج ❌</h3>
+        <p style="color:var(--muted)">
+          جرّب كلمة أخرى.
+        </p>
+      </div>
+    `;
+
+    return;
+  }
+
+  matches.forEach(match=>{
+
+    const card = document.createElement("div");
+
+    card.className = "card";
+
+    card.style.marginBottom = "10px";
+
+    card.innerHTML = `
+      <div style="color:var(--primary);font-size:.8rem;font-weight:800">
+        ${escapeHTML(match.type)}
+      </div>
+
+      <h3 style="margin-top:4px">
+        ${escapeHTML(match.title)}
+      </h3>
+
+      <p style="color:var(--muted)">
+        ${escapeHTML(match.text)}
+      </p>
+
+      <button class="btn btn-soft" style="margin-top:10px">
+        فتح ←
+      </button>
+    `;
+
+    card.querySelector("button")
+      .addEventListener("click",match.action);
+
+    results.appendChild(card);
+
+  });
+}
+
+
+/* ================= RESOURCES ================= */
+
+function resourceMessage(){
+
+  toast("يمكنك إضافة الرابط لاحقًا داخل الكود 📚");
+}
+
+
+/* ================= SECURITY ================= */
+
+function escapeHTML(value){
+
+  return String(value)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+
+/* ================= KEYBOARD ================= */
+
+document.addEventListener("keydown",event=>{
+
+  if(
+    (event.ctrlKey || event.metaKey) &&
+    event.key.toLowerCase() === "k"
+  ){
+
+    event.preventDefault();
+
+    showPage("search");
+
+    setTimeout(()=>{
+      $("globalSearch").focus();
+    },100);
+
+  }
+
+});
+
+
+/* ================= YEAR ================= */
+
+$("year").textContent =
+  new Date().getFullYear();
+
+
+/* ================= SAVE BEFORE LEAVE ================= */
+
+window.addEventListener("beforeunload",()=>{
+
+  try{
+    saveSchedule();
+  }catch{}
+
+});
+
+
+/* ================= START ================= */
+
+updateStats();
+
 </script>
+
 </body>
 </html>
