@@ -6,9 +6,6 @@
 <title>Student OS PRO v4.0 - أحمد</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
-/* ============================================
-   STUDENT OS PRO v4.0 - كل التصميم
-   ============================================ */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
@@ -18,8 +15,6 @@
   --danger: #ef4444;
   --warning: #f59e0b;
   --dark: #1e293b;
-  --light: #f8fafc;
-  --gray: #64748b;
   --border: #e2e8f0;
 }
 
@@ -217,6 +212,8 @@ button:hover { background: var(--primary-dark); transform: translateY(-2px); box
 
 /* الأصوات */
 .sound-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.sound-grid button { padding: 20px; font-size: 16px; }
+.sound-grid button.active { background: var(--success); }
 
 /* الجدول */
 .schedule-table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
@@ -253,6 +250,8 @@ button:hover { background: var(--primary-dark); transform: translateY(-2px); box
   .course-row { grid-template-columns: 1fr 1fr; }
   .topbar { padding: 12px 15px; }
   .logo { font-size: 16px; }
+  .floating-timer { bottom: 10px; left: 10px; padding: 8px 12px; }
+  .floating-timer span { font-size: 16px; }
 }
 </style>
 </head>
@@ -372,11 +371,17 @@ button:hover { background: var(--primary-dark); transform: translateY(-2px); box
 <section id="sounds" class="card">
   <h2>🎵 أصوات التركيز</h2>
   <div class="sound-grid">
-    <button onclick="playSound('rain')">🌧️ مطر</button>
-    <button onclick="playSound('fire')">🔥 مدفأة</button>
-    <button onclick="playSound('forest')">🌲 غابة</button>
-    <button onclick="stopSound()">⏹️ إيقاف</button>
+    <button onclick="playSound('rain', this)">🌧️ مطر</button>
+    <button onclick="playSound('fire', this)">🔥 مدفأة</button>
+    <button onclick="playSound('forest', this)">🌲 غابة</button>
+    <button onclick="playSound('ocean', this)">🌊 أمواج</button>
+    <button onclick="playSound('white', this)">⚪ ضوضاء بيضاء</button>
+    <button onclick="playSound('brown', this)">🟤 ضوضاء بنية</button>
+    <button onclick="stopSound()">⏹️ إيقاف الكل</button>
   </div>
+  <p style="margin-top:15px;color:#64748b;font-size:14px;text-align:center">
+    💡 اضغط على أي زر لتشغيل الصوت — يعمل بشكل مستمر حتى تضغط "إيقاف الكل"
+  </p>
 </section>
 
 <!-- الجدول -->
@@ -404,7 +409,7 @@ button:hover { background: var(--primary-dark); transform: translateY(-2px); box
 
 <script>
 /* ============================================
-   STUDENT OS PRO v4.0 - كل الوظائف
+   STUDENT OS PRO v4.0
    ============================================ */
 
 let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
@@ -412,9 +417,8 @@ let sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
 let flashcards = JSON.parse(localStorage.getItem('flashcards') || '[]');
 let streak = parseInt(localStorage.getItem('streak') || '0');
 let currentCard = null;
-let audioNodes = [];
 
-/* الإشعارات */
+/* ===== الإشعارات ===== */
 function notify(message, type = 'success') {
   const n = document.createElement('div');
   n.className = 'notification';
@@ -426,26 +430,26 @@ function notify(message, type = 'success') {
   setTimeout(() => {
     n.classList.remove('show');
     setTimeout(() => n.remove(), 500);
-  }, 3000);
+  }, 2500);
 }
 
-/* التمرير */
+/* ===== التمرير ===== */
 function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
 
-/* الوضع الليلي */
+/* ===== الوضع الليلي ===== */
 function toggleDarkMode() {
   document.body.classList.toggle('dark-mode');
   const isDark = document.body.classList.contains('dark-mode');
   localStorage.setItem('darkMode', isDark);
-  notify(isDark ? '🌙 الوضع الليلي مفعّل' : '☀️ الوضع النهاري مفعّل');
+  notify(isDark ? '🌙 الوضع الليلي' : '☀️ الوضع النهاري');
 }
 if (localStorage.getItem('darkMode') === 'true') {
   document.body.classList.add('dark-mode');
 }
 
-/* الاقتباسات */
+/* ===== الاقتباسات ===== */
 const quotes = [
   "النجاح ليس تصادفاً، بل هو عمل جاد.",
   "لا تؤجل عمل اليوم إلى الغد.",
@@ -470,7 +474,7 @@ function showQuote() {
   notify('💡 ' + q);
 }
 
-/* المهام */
+/* ===== المهام ===== */
 function addTask() {
   const input = document.getElementById('taskInput');
   const priority = document.getElementById('taskPriority').value;
@@ -500,9 +504,7 @@ function deleteTask(id) {
   notify('🗑️ تم حذف المهمة');
 }
 
-function saveTasks() {
-  localStorage.setItem('tasks', JSON.stringify(tasks));
-}
+function saveTasks() { localStorage.setItem('tasks', JSON.stringify(tasks)); }
 
 function renderTasks() {
   const list = document.getElementById('taskList');
@@ -523,7 +525,7 @@ function renderTasks() {
   updateStats();
 }
 
-/* الإحصائيات */
+/* ===== الإحصائيات ===== */
 function updateStats() {
   const completed = tasks.filter(t => t.done).length;
   const hours = (sessions.length * 25 / 60).toFixed(1);
@@ -542,7 +544,7 @@ function setDailyGoal(value) {
   updateStats();
 }
 
-/* Streak */
+/* ===== Streak ===== */
 function checkStreak() {
   const today = new Date().toDateString();
   const lastDate = localStorage.getItem('lastStudyDate');
@@ -555,7 +557,7 @@ function checkStreak() {
   }
 }
 
-/* البومودورو */
+/* ===== البومودورو ===== */
 class PomodoroTimer {
   constructor() {
     this.time = 25 * 60;
@@ -613,10 +615,9 @@ class PomodoroTimer {
 }
 
 const pomodoro = new PomodoroTimer();
-
 function setPomodoroMode(min) { pomodoro.setMode(min); }
 
-/* صوت التنبيه */
+/* ===== صوت التنبيه ===== */
 function playBeep() {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
@@ -633,67 +634,77 @@ function playBeep() {
   } catch (e) {}
 }
 
-/* GPA */
-function addCourse() {
-  const list = document.getElementById('coursesList');
-  const row = document.createElement('div');
-  row.className = 'course-row';
-  row.innerHTML = `
-    <input type="text" placeholder="اسم المادة" class="c-name">
-    <input type="number" placeholder="الساعات" class="c-credits" min="1" max="6">
-    <select class="c-grade">
-      <option value="A+">A+ (4.0)</option>
-      <option value="A">A (4.0)</option>
-      <option value="A-">A- (3.7)</option>
-      <option value="B+">B+ (3.3)</option>
-      <option value="B">B (3.0)</option>
-      <option value="B-">B- (2.7)</option>
-      <option value="C+">C+ (2.3)</option>
-      <option value="C">C (2.0)</option>
-      <option value="C-">C- (1.7)</option>
-      <option value="D">D (1.0)</option>
-      <option value="F">F (0)</option>
-    </select>
-    <button onclick="this.parentElement.remove()">✕</button>
-  `;
-  list.appendChild(row);
+/* ============================================
+   🎵 الأصوات الحقيقية (Web Audio API)
+   ============================================ */
+let audioCtx = null;
+let activeNodes = [];
+let activeButton = null;
+
+function initAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') {
+    audioCtx.resume();
+  }
+  return audioCtx;
 }
 
-function calculateGPA() {
-  const rows = document.querySelectorAll('.course-row');
-  if (rows.length === 0) { notify('⚠️ أضف مادة أولاً', 'warning'); return; }
-  const map = { 'A+':4.0,'A':4.0,'A-':3.7,'B+':3.3,'B':3.0,'B-':2.7,'C+':2.3,'C':2.0,'C-':1.7,'D':1.0,'F':0 };
-  let total = 0, credits = 0;
-  rows.forEach(r => {
-    const c = parseFloat(r.querySelector('.c-credits').value) || 0;
-    const g = map[r.querySelector('.c-grade').value] || 0;
-    total += c * g;
-    credits += c;
+function stopSound() {
+  activeNodes.forEach(node => {
+    try { node.stop(); } catch(e) {}
+    try { node.disconnect(); } catch(e) {}
   });
-  const gpa = credits ? (total / credits).toFixed(2) : 0;
-  const pct = ((gpa / 4) * 100).toFixed(1);
-  document.getElementById('gpaResult').innerHTML = `المعدل: ${gpa} — النسبة: ${pct}%`;
-  notify('🧮 تم حساب المعدل');
+  activeNodes = [];
+  if (activeButton) {
+    activeButton.classList.remove('active');
+    activeButton = null;
+  }
+  notify('⏹️ تم إيقاف الصوت');
 }
 
-/* البطاقات الذكية */
-function addFlashcard() {
-  const front = document.getElementById('fcFront').value.trim();
-  const back = document.getElementById('fcBack').value.trim();
-  if (!front || !back) { notify('⚠️ املأ السؤال والجواب', 'warning'); return; }
-  flashcards.push({ id: Date.now(), front, back });
-  localStorage.setItem('flashcards', JSON.stringify(flashcards));
-  document.getElementById('fcFront').value = '';
-  document.getElementById('fcBack').value = '';
-  notify('✅ تمت إضافة البطاقة');
-}
+function playSound(type, btn) {
+  stopSound();
+  const ctx = initAudio();
+  const masterGain = ctx.createGain();
+  masterGain.gain.value = 0.25;
+  masterGain.connect(ctx.destination);
 
-function showRandomCard() {
-  if (flashcards.length === 0) { notify('⚠️ لا توجد بطاقات', 'warning'); return; }
-  currentCard = flashcards[Math.floor(Math.random() * flashcards.length)];
-  document.getElementById('fcDisplay').innerHTML = `<p>${currentCard.front}</p>`;
-}
+  const bufferSize = 2 * ctx.sampleRate;
+  const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+  const data = buffer.getChannelData(0);
 
-function flipCard() {
-  if (!currentCard) { showRandomCard(); return; }
- 
+  if (type === 'rain') {
+    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
+    const noise = ctx.createBufferSource();
+    noise.buffer = buffer;
+    noise.loop = true;
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 1200;
+    noise.connect(filter);
+    filter.connect(masterGain);
+    noise.start();
+    activeNodes.push(noise);
+
+  } else if (type === 'fire') {
+    let last = 0;
+    for (let i = 0; i < bufferSize; i++) {
+      const w = Math.random() * 2 - 1;
+      last = (last + 0.02 * w) / 1.02;
+      data[i] = last * 3.5;
+    }
+    const noise = ctx.createBufferSource();
+    noise.buffer = buffer;
+    noise.loop = true;
+    const filter = ctx.createBiquadFilter();
+    filter.type = 'lowpass';
+    filter.frequency.value = 500;
+    noise.connect(filter);
+    filter.connect(masterGain);
+    noise.start();
+    activeNodes.push(noise);
+
+  } else if (type === 'forest') {
+    for (let i = 0; i < bufferSize; i++) data[i] = (Math.random() * 2 - 1)
