@@ -2,603 +2,491 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student OS PRO v5.0 - أحمد</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Student OS PRO | منصة الطالب الذكية</title>
+<meta name="description" content="منصة عربية للطالب: مخطط دراسة، مؤقت بومودورو، اختبارات، بطاقات، ملاحظات، حاسبات ونصائح للدراسة. تعمل بدون إنترنت وتحفظ بياناتك على جهازك.">
+<meta property="og:title" content="Student OS | منصة الطالب الذكية">
+<meta property="og:description" content="ادرس بذكاء وليس لساعات أطول.">
+<meta name="theme-color" content="#07111f">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="format-detection" content="telephone=no">
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+:root{--bg:#07111f;--card:#0f1f35;--line:#1f3553;--tx:#e8f0fa;--mu:#8fa6c2;--ac:#5eead4;--ac2:#fbbf24;--ok:#4ade80;--bad:#f87171}
+:root[data-t=light]{--bg:#f3f7fb;--card:#fff;--line:#d5e0ec;--tx:#0d1b2e;--mu:#56708f;--ac:#0d9488;--ac2:#b45309}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:Tajawal,system-ui,sans-serif;line-height:1.7;padding-bottom:76px}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--ac2);outline-offset:2px}
+header{position:sticky;top:0;z-index:5;display:flex;gap:10px;align-items:center;padding:10px 16px;padding-top:calc(10px + env(safe-area-inset-top,0px));background:var(--card);border-bottom:1px solid var(--line)}
+header h1{font-size:1.15rem;margin:0;flex:1}
+.ib{background:none;border:1px solid var(--line);border-radius:10px;width:40px;height:40px}
+nav{display:flex;gap:6px;overflow-x:auto;padding:10px 16px}
+nav button{white-space:nowrap;border:1px solid var(--line);background:var(--card);border-radius:20px;padding:6px 14px}
+nav button.on{background:var(--ac);color:#04221e;border-color:var(--ac);font-weight:700}
+main{max-width:920px;margin:auto;padding:8px 16px}
+section{display:none}section.on{display:block}
+h2{font-size:1.5rem;margin:14px 0 4px}
+.sub{color:var(--mu);margin:0 0 14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;margin-bottom:12px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+.hero{background:linear-gradient(135deg,#0f766e,#1e3a8a 70%,#4c1d95);color:#fff;border-radius:22px;padding:24px 20px;margin:10px 0 14px}
+.hero h2{margin:0 0 6px;font-size:1.7rem}.hero p{margin:0;color:#dbeafe}
+.lvbar{margin-top:10px}
+body{background-image:radial-gradient(circle at 90% -10%,rgba(94,234,212,.12),transparent 40%)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.big{font-size:2rem;font-weight:800;color:var(--ac)}
+.btn{background:var(--ac);color:#04221e;border:0;border-radius:10px;padding:8px 16px;font-weight:700}
+.btn.g{background:none;color:var(--tx);border:1px solid var(--line)}
+.btn.d{background:none;color:var(--bad);border:1px solid var(--bad)}
+input,select,textarea{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;width:100%;margin:4px 0 8px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.row>*{width:auto}.row input{flex:1;min-width:120px}
+.item{display:flex;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.item span{flex:1}.item.done span{text-decoration:line-through;color:var(--mu)}
+.bar{height:10px;background:var(--line);border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--ac);width:0;transition:width .4s}
+.tag{font-size:.8rem;color:var(--ac2)}
+.timer{font-size:4rem;font-weight:800;text-align:center;font-variant-numeric:tabular-nums}
+.fc{min-height:130px;display:grid;place-items:center;text-align:center;font-size:1.3rem;cursor:pointer}
+.opt{display:block;width:100%;text-align:right;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:10px;margin:6px 0}
+.opt.ok{border-color:var(--ok);background:rgba(74,222,128,.15)}.opt.no{border-color:var(--bad);background:rgba(248,113,113,.15)}
+.chat{max-height:300px;overflow:auto}.m{padding:8px 12px;border-radius:12px;margin:6px 0;max-width:85%}
+.m.u{background:var(--ac);color:#04221e;margin-inline-start:auto}.m.b{background:var(--bg);border:1px solid var(--line)}
+.tabs{position:fixed;bottom:0;inset-inline:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px)}
+.tabs button{flex:1;background:none;border:0;padding:10px 2px;font-size:.8rem;color:var(--mu)}
+.tabs button.on{color:var(--ac);font-weight:700}
+.toast{position:fixed;top:70px;left:50%;transform:translateX(-50%);background:var(--ac);color:#04221e;padding:8px 18px;border-radius:20px;font-weight:700;opacity:0;pointer-events:none;transition:.3s;z-index:9}
+.toast.s{opacity:1}
 
-:root {
-  --primary: #4f46e5;
-  --primary-dark: #4338ca;
-  --success: #10b981;
-  --danger: #ef4444;
-  --warning: #f59e0b;
-  --dark: #1e293b;
-  --border: #e2e8f0;
+.wk{display:flex;gap:6px;align-items:flex-end;height:120px}.wk div{flex:1;text-align:center;font-size:.72rem;color:var(--mu);display:flex;flex-direction:column;justify-content:flex-end;height:100%}
+.wk i{display:block;background:var(--ac);border-radius:6px 6px 0 0;min-height:3px;margin-bottom:4px}.wk b{color:var(--tx);font-size:.72rem}
+.cd{font-size:2.4rem;font-weight:800;color:var(--ac2)}
+.tbl{width:100%;border-collapse:collapse;min-width:540px}.tbl th,.tbl td{border:1px solid var(--line);padding:2px}.tbl th{background:var(--bg);font-size:.85rem;padding:6px}.tbl input{margin:0;border:0;background:transparent;min-width:95px}
+.snd{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}.snd button{padding:14px;border-radius:14px;border:1px solid var(--line);background:var(--card)}.snd button.on{background:var(--ac);color:#04221e;font-weight:700}
+/* ===== توافق الهاتف ===== */
+html{-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{overflow-x:hidden;word-break:break-word;padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));-webkit-tap-highlight-color:transparent}
+button,.opt,.fc{touch-action:manipulation}
+input,select,textarea{font-size:16px}
+.btn,.opt,nav button{min-height:44px}
+.ib{width:44px;height:44px;flex:none}
+nav{scrollbar-width:none;-webkit-overflow-scrolling:touch}nav::-webkit-scrollbar{display:none}
+.tabs button{min-height:56px}
+@media(max-width:640px){
+ main{padding:6px 12px}
+ header{padding-inline:12px}
+ header h1{font-size:1rem}header h1 small{display:none}
+ h2{font-size:1.25rem}
+ .hero{padding:18px 16px;border-radius:18px}.hero h2{font-size:1.3rem}
+ .grid{grid-template-columns:1fr 1fr;gap:10px}
+ .card{padding:12px;border-radius:16px}
+ .big{font-size:1.6rem}
+ .timer{font-size:3.2rem}
+ .row{gap:8px}
+ .row>.btn,.row>select{flex:1 1 calc(50% - 8px)}
+ .row input{flex:1 1 100%}
+ .item{flex-wrap:nowrap}
+ .m{max-width:92%}
+ .toast{top:64px;max-width:90vw;text-align:center}
+ .fc{min-height:150px;font-size:1.15rem}
+ input[type=checkbox]{width:22px!important;height:22px}
 }
-
-body {
-  font-family: 'Cairo', sans-serif;
-  background: #f1f5f9;
-  color: var(--dark);
-  line-height: 1.6;
-  padding-bottom: 80px;
-  transition: 0.3s;
-}
-
-body.dark-mode { background: #0f172a; color: #e2e8f0; }
-body.dark-mode .card { background: #1e293b; color: #e2e8f0; }
-body.dark-mode input, body.dark-mode select, body.dark-mode textarea {
-  background: #334155; color: #e2e8f0; border-color: #475569;
-}
-body.dark-mode .task-card { background: #1e293b; color: #e2e8f0; }
-body.dark-mode .guide-card { background: #334155; color: #e2e8f0; }
-body.dark-mode .guide-tip { background: #1e293b; color: #e2e8f0; }
-
-/* الشريط العلوي */
-.topbar {
-  background: var(--dark); color: white; padding: 15px 30px;
-  display: flex; justify-content: space-between; align-items: center;
-  position: sticky; top: 0; z-index: 100;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-.logo { font-size: 22px; font-weight: 700; }
-.logo span { color: var(--warning); font-size: 14px; }
-.topbar-actions { display: flex; gap: 10px; }
-.topbar-actions button {
-  background: rgba(255,255,255,0.1); border: none; color: white;
-  width: 40px; height: 40px; border-radius: 10px; font-size: 18px;
-  cursor: pointer; transition: 0.3s;
-}
-.topbar-actions button:hover { background: var(--primary); transform: scale(1.1); }
-
-/* الشريط الجانبي */
-.quick-sidebar {
-  position: fixed; right: 15px; top: 50%; transform: translateY(-50%);
-  display: flex; flex-direction: column; gap: 8px; z-index: 99;
-}
-.quick-sidebar button {
-  width: 45px; height: 45px; border-radius: 50%; border: none;
-  background: var(--primary); color: white; font-size: 18px;
-  cursor: pointer; box-shadow: 0 4px 12px rgba(79,70,229,0.4);
-  transition: 0.3s;
-}
-.quick-sidebar button:hover { transform: scale(1.2) translateX(-5px); background: var(--warning); }
-
-/* المؤقت العائم */
-.floating-timer {
-  position: fixed; bottom: 20px; left: 20px; background: var(--dark);
-  color: white; padding: 12px 18px; border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3); z-index: 99;
-  display: flex; gap: 8px; align-items: center;
-}
-.floating-timer span { font-size: 22px; font-weight: bold; font-family: monospace; color: var(--warning); }
-.floating-timer button {
-  background: var(--primary); border: none; color: white;
-  width: 32px; height: 32px; border-radius: 8px; cursor: pointer;
-}
-.floating-timer button:hover { background: var(--success); }
-
-/* الأقسام */
-section { max-width: 1100px; margin: 25px auto; padding: 0 20px; }
-.card {
-  background: white; border-radius: 20px; padding: 30px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06); transition: 0.3s;
-}
-.card h2 {
-  color: var(--primary); margin-bottom: 20px; font-size: 22px;
-  border-right: 4px solid var(--warning); padding-right: 15px;
-}
-
-/* الترحيب */
-.hero { text-align: center; padding-top: 30px; }
-.hero h1 { font-size: 32px; margin-bottom: 20px; color: var(--primary); }
-.quote-box {
-  background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white; padding: 25px; border-radius: 15px;
-  margin: 20px auto; font-style: italic; font-size: 18px;
-  max-width: 700px; box-shadow: 0 10px 30px rgba(102,126,234,0.3);
-}
-
-/* الإحصائيات */
-.stats-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px; margin: 25px 0;
-}
-.stat-box {
-  background: linear-gradient(135deg, var(--primary), #7c3aed);
-  color: white; padding: 20px; border-radius: 15px;
-  text-align: center; transition: 0.3s;
-}
-.stat-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(79,70,229,0.3); }
-.stat-box h3 { font-size: 32px; margin: 0; }
-.stat-box p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
-
-/* الهدف */
-.goal-section { max-width: 600px; margin: 20px auto; }
-.goal-section label { display: block; margin-bottom: 10px; font-weight: 600; }
-.goal-section input {
-  width: 100px; padding: 10px; border: 2px solid var(--border);
-  border-radius: 10px; font-size: 16px; margin-bottom: 15px; font-family: inherit;
-}
-.progress-bar {
-  width: 100%; height: 15px; background: #e5e7eb;
-  border-radius: 10px; overflow: hidden;
-}
-.progress-fill {
-  height: 100%; background: linear-gradient(90deg, var(--primary), var(--success));
-  transition: width 0.5s; border-radius: 10px;
-}
-
-/* الإدخال */
-.input-row { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-.input-row input, .input-row select {
-  flex: 1; min-width: 150px; padding: 12px 15px;
-  border: 2px solid var(--border); border-radius: 10px;
-  font-family: inherit; font-size: 15px; transition: 0.3s;
-}
-.input-row input:focus, .input-row select:focus { outline: none; border-color: var(--primary); }
-
-button {
-  padding: 12px 20px; border: none; background: var(--primary);
-  color: white; border-radius: 10px; cursor: pointer;
-  font-family: inherit; font-size: 15px; font-weight: 600; transition: 0.3s;
-}
-button:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 8px 20px rgba(79,70,229,0.3); }
-
-/* المهام */
-.task-card {
-  background: white; padding: 15px 20px; margin: 10px 0;
-  border-radius: 12px; border-right: 5px solid var(--primary);
-  display: flex; justify-content: space-between; align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08); transition: 0.3s;
-}
-.task-card:hover { transform: translateX(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-.task-card.done { opacity: 0.6; text-decoration: line-through; border-right-color: var(--success); }
-.task-card[data-priority="high"] { border-right-color: var(--danger); }
-.task-card[data-priority="medium"] { border-right-color: var(--warning); }
-.task-actions { display: flex; gap: 8px; }
-.task-actions button { width: 35px; height: 35px; padding: 0; border-radius: 50%; font-size: 14px; }
-.task-actions .btn-done { background: var(--success); }
-.task-actions .btn-del { background: var(--danger); }
-
-/* البومودورو */
-.pomodoro-display {
-  font-size: 80px; font-weight: 900; text-align: center;
-  color: var(--primary); font-family: monospace; margin: 20px 0;
-  text-shadow: 0 4px 15px rgba(79,70,229,0.3);
-}
-.pomodoro-controls, .mode-switch {
-  display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 15px 0;
-}
-.mode-switch button { background: var(--warning); }
-.mode-switch button:hover { background: #d97706; }
-
-/* GPA */
-#coursesList { margin-bottom: 15px; }
-.course-row { display: grid; grid-template-columns: 2fr 1fr 1fr 50px; gap: 10px; margin-bottom: 10px; }
-.course-row input, .course-row select {
-  padding: 10px; border: 2px solid var(--border); border-radius: 8px; font-family: inherit;
-}
-.course-row button { background: var(--danger); padding: 0; width: 50px; }
-.gpa-result {
-  margin-top: 20px; padding: 20px;
-  background: linear-gradient(135deg, var(--success), #059669);
-  color: white; border-radius: 12px; font-size: 24px;
-  font-weight: bold; text-align: center;
-}
-
-/* البطاقات */
-.fc-input { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-.fc-input input {
-  flex: 1; min-width: 150px; padding: 12px;
-  border: 2px solid var(--border); border-radius: 10px; font-family: inherit;
-}
-.flashcard-display {
-  background: linear-gradient(135deg, var(--primary), #7c3aed);
-  color: white; padding: 60px 20px; border-radius: 15px;
-  text-align: center; font-size: 22px; font-weight: bold;
-  cursor: pointer; margin: 15px 0; min-height: 150px;
-  display: flex; align-items: center; justify-content: center;
-  transition: 0.4s; box-shadow: 0 10px 30px rgba(79,70,229,0.3);
-}
-.flashcard-display:hover { transform: scale(1.02); }
-
-/* الملاحظات */
-#notesArea {
-  width: 100%; min-height: 200px; padding: 15px;
-  border: 2px solid var(--border); border-radius: 12px;
-  font-family: inherit; font-size: 15px; resize: vertical; margin-bottom: 15px;
-}
-
-/* الأصوات */
-.sound-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
-.sound-grid button { padding: 20px; font-size: 16px; }
-.sound-grid button.active { background: var(--success); }
-
-/* ===== دليل الطالب ===== */
-.guide-tabs {
-  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;
-  border-bottom: 2px solid var(--border); padding-bottom: 15px;
-}
-.guide-tabs button {
-  background: #f1f5f9; color: var(--dark);
-  padding: 10px 18px; border-radius: 30px; font-size: 14px;
-}
-.guide-tabs button.active {
-  background: var(--primary); color: white;
-}
-.guide-tabs button:hover { transform: translateY(-2px); }
-
-.guide-content { display: none; }
-.guide-content.active { display: block; animation: fadeIn 0.5s; }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.guide-card {
-  background: #f8fafc; padding: 20px; border-radius: 15px;
-  margin-bottom: 15px; border-right: 4px solid var(--primary);
-  transition: 0.3s;
-}
-.guide-card:hover { transform: translateX(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
-.guide-card h3 {
-  color: var(--primary); margin-bottom: 12px; font-size: 18px;
-  display: flex; align-items: center; gap: 10px;
-}
-.guide-card p { margin-bottom: 10px; color: #475569; }
-body.dark-mode .guide-card p { color: #cbd5e1; }
-
-.guide-tip {
-  background: white; padding: 12px 15px; border-radius: 10px;
-  margin: 8px 0; border-right: 3px solid var(--warning);
-  font-size: 14px;
-}
-.guide-tip strong { color: var(--primary); }
-
-.guide-list { list-style: none; padding: 0; }
-.guide-list li {
-  padding: 10px 15px; margin: 8px 0; background: white;
-  border-radius: 10px; border-right: 3px solid var(--success);
-  font-size: 15px;
-}
-body.dark-mode .guide-list li { background: #1e293b; }
-
-.technique-badge {
-  display: inline-block; padding: 5px 12px;
-  background: var(--primary); color: white;
-  border-radius: 20px; font-size: 12px;
-  margin: 5px 5px 5px 0;
-}
-
-/* الجدول */
-.schedule-table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
-.schedule-table th, .schedule-table td {
-  border: 1px solid var(--border); padding: 12px; text-align: center; min-width: 120px;
-}
-.schedule-table th { background: var(--primary); color: white; }
-.schedule-table td[contenteditable]:focus { background: #fef3c7; outline: none; }
-
-/* الإشعار */
-.notification {
-  position: fixed; top: 80px; left: 50%;
-  transform: translateX(-50%) translateY(-100px);
-  background: var(--success); color: white;
-  padding: 15px 30px; border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-  z-index: 10000; transition: 0.5s; font-weight: 600;
-}
-.notification.show { transform: translateX(-50%) translateY(0); }
-
-/* الفوتر */
-.enhanced-footer {
-  background: var(--dark); color: white; padding: 40px 20px;
-  text-align: center; margin-top: 50px; border-radius: 25px 25px 0 0;
-}
-.enhanced-footer p { margin: 5px 0; opacity: 0.8; }
-
-/* الجوال */
-@media (max-width: 768px) {
-  .quick-sidebar { right: 5px; gap: 5px; }
-  .quick-sidebar button { width: 38px; height: 38px; font-size: 15px; }
-  .hero h1 { font-size: 22px; }
-  .pomodoro-display { font-size: 55px; }
-  .course-row { grid-template-columns: 1fr 1fr; }
-  .topbar { padding: 12px 15px; }
-  .logo { font-size: 16px; }
-  .floating-timer { bottom: 10px; left: 10px; padding: 8px 12px; }
-  .floating-timer span { font-size: 16px; }
-}
+@media(max-width:360px){.grid{grid-template-columns:1fr}.tabs button{font-size:.72rem}}
+@media(orientation:landscape) and (max-height:500px){.tabs{position:static}body{padding-bottom:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-
-<!-- الشريط العلوي -->
-<header class="topbar">
-  <div class="logo">🎓 Student OS <span>PRO v5.0</span></div>
-  <div class="topbar-actions">
-    <button onclick="toggleDarkMode()" title="الوضع الليلي">🌙</button>
-    <button onclick="showQuote()" title="اقتباس">💡</button>
-    <button onclick="exportData()" title="تصدير">💾</button>
-    <button onclick="document.getElementById('importFile').click()" title="استيراد">📥</button>
-    <input type="file" id="importFile" accept=".json" style="display:none" onchange="importData(this.files[0])">
-  </div>
+<header>
+  <h1>🎓 Student OS <small style="color:var(--mu);font-weight:400">— <span id="hi"></span></small></h1>
+  <button class="ib" id="th" aria-label="تبديل الوضع الداكن والفاتح">◐</button>
 </header>
+<nav id="nav" aria-label="الأقسام"></nav>
+<main>
 
-<!-- الشريط الجانبي -->
-<aside class="quick-sidebar">
-  <button onclick="scrollToSection('dashboard')" title="الرئيسية">🏠</button>
-  <button onclick="scrollToSection('tasks')" title="المهام">📝</button>
-  <button onclick="scrollToSection('pomodoro')" title="البومودورو">⏱️</button>
-  <button onclick="scrollToSection('guide')" title="دليل الطالب">📚</button>
-  <button onclick="scrollToSection('gpa')" title="المعدل">📊</button>
-  <button onclick="scrollToSection('flashcards')" title="البطاقات">🃏</button>
-  <button onclick="scrollToSection('notes')" title="الملاحظات">📒</button>
-  <button onclick="scrollToSection('sounds')" title="الأصوات">🎵</button>
-  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" title="للأعلى">⬆️</button>
-</aside>
-
-<!-- المؤقت العائم -->
-<div class="floating-timer">
-  <span id="pomodoroDisplay">25:00</span>
-  <button onclick="pomodoro.start()">▶</button>
-  <button onclick="pomodoro.pause()">⏸</button>
-  <button onclick="pomodoro.reset()">🔄</button>
-</div>
-
-<!-- الرئيسية -->
-<section id="dashboard" class="hero">
-  <h1>مرحباً بك مجدداً أحمد 👋</h1>
-  <div class="quote-box" id="quoteBox">"النجاح ليس تصادفاً، بل هو عمل جاد."</div>
-  <div class="stats-grid">
-    <div class="stat-box"><h3 id="statHours">0.0</h3><p>ساعات التركيز</p></div>
-    <div class="stat-box"><h3 id="statTasks">0</h3><p>المهام المكتملة</p></div>
-    <div class="stat-box"><h3 id="statSessions">0</h3><p>جلسات البومودورو</p></div>
-    <div class="stat-box"><h3 id="statStreak">0 🔥</h3><p>أيام متتالية</p></div>
+<section id="home">
+  <div class="hero"><h2>ادرس بذكاء، وليس لساعات أطول</h2><p id="tip0"></p><p id="qt" style="margin-top:8px;font-weight:700"></p><button class="btn g" id="qtb" style="margin-top:10px;color:#fff;border-color:#ffffff88">💬 اقتباس جديد</button><div class="bar lvbar" aria-label="تقدم المستوى"><i id="lb" style="background:#fbbf24"></i></div></div>
+  <div class="grid">
+    <div class="card"><div class="big" id="pc">0%</div>نسبة إنجاز مهام اليوم<div class="bar"><i id="pb"></i></div></div>
+    <div class="card"><div class="big" id="xp">0</div>نقاط الخبرة · المستوى <b id="lv">1</b></div>
+    <div class="card"><div class="big" id="st">0</div>أيام الدراسة المتتالية 🔥</div>
+    <div class="card"><div class="big" id="ss">0</div>دقائق تركيز اليوم</div>
   </div>
-  <div class="goal-section">
-    <label>🎯 الهدف اليومي (ساعات):</label>
-    <input type="number" id="dailyGoal" value="4" min="1" max="16" onchange="setDailyGoal(this.value)">
-    <div class="progress-bar"><div class="progress-fill" id="dailyProgress" style="width:0%"></div></div>
-  </div>
+  <div class="card"><b>🎯 هدف اليوم: <span id="gl">60</span> دقيقة</b><div class="bar" style="margin-top:8px"><i id="gbar"></i></div><p class="sub" id="gtx" style="margin:6px 0 0"></p></div>
+  <div class="card"><b>📊 دقائق التركيز آخر 7 أيام</b><div class="wk" id="wk" style="margin-top:10px"></div></div>
+  <div class="card"><b>⏳ العد التنازلي للامتحان</b><div id="ex1"></div>
+    <div class="row"><input id="en" placeholder="اسم الامتحان" aria-label="اسم الامتحان"><input id="ed" type="date" aria-label="تاريخ الامتحان"><button class="btn" id="eb">حفظ</button></div></div>
+  <div class="card"><b>🎯 تحدي اليوم (+20 نقطة)</b><p>أنهِ جلسة بومودورو واحدة (25 دقيقة) بدون فتح وسائل التواصل.</p><button class="btn" data-go="pomo">ابدأ الجلسة</button></div>
 </section>
 
-<!-- المهام -->
-<section id="tasks" class="card">
-  <h2>📝 قائمة المهام الدراسية</h2>
-  <div class="input-row">
-    <input type="text" id="taskInput" placeholder="أضف مهمة جديدة..." onkeypress="if(event.key==='Enter')addTask()">
-    <select id="taskPriority">
-      <option value="low">🟢 عادية</option>
-      <option value="medium" selected>🟡 متوسطة</option>
-      <option value="high">🔴 عاجلة</option>
-    </select>
-    <button onclick="addTask()">➕ إضافة</button>
-  </div>
-  <div id="taskList"></div>
+<section id="tips">
+  <h2>💡 نصائح الدراسة</h2><p class="sub">اضغط ☆ لحفظ النصيحة في المفضلة</p>
+  <div class="row"><input id="tq" placeholder="ابحث في النصائح..." aria-label="بحث"><select id="tc" aria-label="التصنيف"></select></div>
+  <div id="tl"></div>
 </section>
 
-<!-- بومودورو -->
-<section id="pomodoro" class="card">
-  <h2>⏱️ جلسة بومودورو</h2>
-  <div class="pomodoro-display" id="bigPomodoro">25:00</div>
-  <div class="pomodoro-controls">
-    <button onclick="pomodoro.start()">▶ ابدأ</button>
-    <button onclick="pomodoro.pause()">⏸ إيقاف</button>
-    <button onclick="pomodoro.reset()">🔄 إعادة</button>
-  </div>
-  <div class="mode-switch">
-    <button onclick="setPomodoroMode(25)">تركيز 25د</button>
-    <button onclick="setPomodoroMode(5)">راحة 5د</button>
-    <button onclick="setPomodoroMode(15)">راحة طويلة 15د</button>
-  </div>
+<section id="plan">
+  <h2>📅 مخطط الدراسة</h2><p class="sub">مهام اليوم تُصفَّر تلقائياً كل يوم</p>
+  <div class="card"><div class="row"><input id="ti" placeholder="مهمة جديدة..." aria-label="مهمة"><select id="tp" aria-label="الأولوية"><option value="0">🟢 عادية</option><option value="1">🟡 متوسطة</option><option value="2">🔴 عاجلة</option></select><button class="btn" id="ta">+ إضافة</button></div><div id="tk"></div></div>
+  <div class="card"><b>✨ مولّد الخطة</b>
+    <div class="row"><select id="gs"><option>رياضيات</option><option>فيزياء</option><option>كيمياء</option><option>أحياء</option><option>عربي</option><option>إنكليزي</option><option>تاريخ</option><option>حاسوب</option></select>
+    <select id="gg"><option>فهم الدرس</option><option>حل الأسئلة</option><option>الحفظ</option><option>الاستعداد للامتحان</option></select>
+    <select id="gm"><option>25</option><option>50</option><option>90</option><option>120</option></select><button class="btn" id="gb">توليد</button></div>
+    <div id="gp"></div></div>
 </section>
 
-<!-- ==================== دليل الطالب ==================== -->
-<section id="guide" class="card">
-  <h2>📚 دليل الطالب الشامل</h2>
-  
-  <div class="guide-tabs">
-    <button class="active" onclick="showGuideTab('study', this)">📖 طرق الدراسة</button>
-    <button onclick="showGuideTab('memory', this)">🧠 تقوية الذاكرة</button>
-    <button onclick="showGuideTab('time', this)">⏰ إدارة الوقت</button>
-    <button onclick="showGuideTab('exam', this)">📝 قبل الاختبار</button>
-    <button onclick="showGuideTab('motivation', this)">🔥 التحفيز</button>
-    <button onclick="showGuideTab('health', this)">💪 الصحة والتركيز</button>
-    <button onclick="showGuideTab('tech', this)">🛠️ أدوات مساعدة</button>
-  </div>
+<section id="pomo">
+  <h2>⏱️ مؤقت بومودورو</h2><p class="sub">ركّز ثم استرح</p>
+  <div class="card"><div class="timer" id="tm">25:00</div><p style="text-align:center" id="tmode">جلسة تركيز</p>
+  <div class="row" style="justify-content:center"><button class="btn g" data-m="25">25</button><button class="btn g" data-m="45">45</button><button class="btn g" data-m="50">50</button><button class="btn g" data-m="5" data-b="1">راحة 5</button><button class="btn g" data-m="15" data-b="1">راحة طويلة 15</button></div><br>
+  <div class="row" style="justify-content:center"><button class="btn" id="ps">▶ ابدأ</button><button class="btn g" id="pr">↺ إعادة</button></div></div>
+</section>
 
-  <!-- 1. طرق الدراسة -->
-  <div id="guide-study" class="guide-content active">
-    <div class="guide-card">
-      <h3>🎯 تقنية Feynman (فاينمان)</h3>
-      <p>أفضل طريقة لفهم أي مفهوم معقد:</p>
-      <ul class="guide-list">
-        <li>1️⃣ اختر المفهوم واكتبه على ورقة</li>
-        <li>2️⃣ اشرحه بكلماتك البسيطة كأنك تشرح لطفل</li>
-        <li>3️⃣ اكتشف الثغرات في فهمك وأعد الدراسة</li>
-        <li>4️⃣ بسّط واختصر حتى يصبح الشرح واضحاً</li>
-      </ul>
-    </div>
+<section id="quiz">
+  <h2>🧠 اختبار سريع</h2><p class="sub">أسئلة عامة متنوعة</p>
+  <div class="card" id="qb"></div>
+</section>
 
-    <div class="guide-card">
-      <h3>📝 طريقة SQ3R للقراءة الفعّالة</h3>
-      <div class="guide-tip"><strong>S - Survey:</strong> تصفح الفصل بسرعة قبل القراءة</div>
-      <div class="guide-tip"><strong>Q - Question:</strong> حوّل العناوين إلى أسئلة</div>
-      <div class="guide-tip"><strong>R1 - Read:</strong> اقرأ للبحث عن الإجابات</div>
-      <div class="guide-tip"><strong>R2 - Recite:</strong> أعد صياغة ما فهمته بصوتك</div>
-      <div class="guide-tip"><strong>R3 - Review:</strong> راجع بشكل دوري</div>
-    </div>
+<section id="cards">
+  <h2>🃏 البطاقات التعليمية</h2><p class="sub">اضغط على البطاقة لقلبها</p>
+  <div class="card fc" id="fc" tabindex="0" role="button">أضف بطاقتك الأولى</div>
+  <div class="row"><button class="btn g" id="fp">السابق</button><button class="btn g" id="fn">التالي</button><button class="btn g" id="fr">🎲 عشوائية</button><button class="btn d" id="fd">حذف</button></div>
+  <div class="card"><div class="row"><input id="fq" placeholder="السؤال" aria-label="السؤال"><input id="fa" placeholder="الجواب" aria-label="الجواب"><button class="btn" id="fx">+ بطاقة</button></div></div>
+</section>
 
-    <div class="guide-card">
-      <h3>✍️ طريقة كورنيل للتدوين</h3>
-      <p>قسّم الورقة إلى 3 أقسام:</p>
-      <ul class="guide-list">
-        <li>📌 العمود الأيمن (70%): الملاحظات الرئيسية</li>
-        <li>📌 العمود الأيسر (30%): الأسئلة والكلمات المفتاحية</li>
-        <li>📌 الأسفل: الملخص في 3-5 أسطر</li>
-      </ul>
-    </div>
+<section id="notes">
+  <h2>📝 ملاحظاتي</h2><p class="sub">محفوظة على جهازك فقط</p>
+  <div class="card"><input id="nt" placeholder="العنوان" aria-label="العنوان"><textarea id="nb" rows="4" placeholder="اكتب ملاحظتك..." aria-label="النص"></textarea><button class="btn" id="nx">حفظ الملاحظة</button></div>
+  <div id="nl"></div>
+</section>
 
-    <div class="guide-card">
-      <h3>🧩 تقنية الخرائط الذهنية</h3>
-      <p>ارسم المفهوم الرئيسي في المنتصف، وتفرّع منه الأفكار الفرعية بخطوط وألوان مختلفة. مثالية للمواد التي تحتوي على مفاهيم مترابطة.</p>
-      <span class="technique-badge">مثالية للعلوم</span>
-      <span class="technique-badge">مثالية للتاريخ</span>
-    </div>
+<section id="calc">
+  <h2>🧮 الحاسبات</h2>
+  <div class="card"><b>حساب النسبة المئوية</b>
+    <div class="row"><input id="c1" type="number" placeholder="الدرجة" aria-label="الدرجة"><input id="c2" type="number" placeholder="الدرجة الكاملة" aria-label="الكاملة"><button class="btn" id="cb">احسب</button></div><p id="cr">—</p></div>
+  <div class="card"><b>معدل عدة مواد</b><p class="sub">اكتب الدرجات مفصولة بفاصلة: 85, 90, 72</p>
+    <div class="row"><input id="a1" placeholder="85, 90, 72" aria-label="الدرجات"><button class="btn" id="ab">احسب المعدل</button></div><p id="ar">—</p></div>
+  <div class="card"><b>ساعات الدراسة المطلوبة</b>
+    <div class="row"><input id="h1" type="number" placeholder="عدد الأيام" aria-label="الأيام"><input id="h2" type="number" placeholder="ساعات يومياً" aria-label="الساعات"><button class="btn" id="hb">احسب</button></div><p id="hr">—</p></div>
+</section>
 
-    <div class="guide-card">
-      <h3>👥 الدراسة الجماعية</h3>
-      <div class="guide-tip">✅ <strong>افعل:</strong> اشرح المفاهيم لزملائك، اسألوا بعضكم، حددوا وقتاً محدداً</div>
-      <div class="guide-tip">❌ <strong>لا تفعل:</strong> تحويل الجلسة إلى دردشة، الاعتماد على الآخرين</div>
-    </div>
-  </div>
+<section id="src">
+  <h2>📚 المصادر</h2><p class="sub">احفظ روابط كتبك وملازمك</p>
+  <div class="card"><input id="rt" placeholder="اسم المصدر" aria-label="الاسم"><input id="ru" type="url" placeholder="https://..." aria-label="الرابط" dir="ltr">
+  <div class="row"><select id="rk"><option>كتاب PDF</option><option>ملزمة</option><option>فيديو</option><option>بنك أسئلة</option><option>موقع</option></select><button class="btn" id="rx">+ مصدر</button></div></div>
+  <div id="rl"></div>
+</section>
 
-  <!-- 2. تقوية الذاكرة -->
-  <div id="guide-memory" class="guide-content">
-    <div class="guide-card">
-      <h3>🔁 المراجعة المتباعدة (Spaced Repetition)</h3>
-      <p>راجع المعلومة في فترات متباعدة:</p>
-      <ul class="guide-list">
-        <li>📅 بعد 1 يوم من التعلم</li>
-        <li>📅 بعد 3 أيام</li>
-        <li>📅 بعد أسبوع</li>
-        <li>📅 بعد أسبوعين</li>
-        <li>📅 بعد شهر</li>
-      </ul>
-      <p>💡 استخدم قسم "البطاقات الذكية" في هذا الموقع لتطبيقها.</p>
-    </div>
+<section id="bot">
+  <h2>🤖 مساعد الدراسة</h2><p class="sub">مساعد محلي بردود جاهزة حسب كلماتك، وليس ذكاءً اصطناعياً حقيقياً</p>
+  <div class="card chat" id="ch"></div>
+  <div class="row"><input id="bi" placeholder="اسأل: كيف أركز؟ كيف أحفظ؟" aria-label="سؤالك"><button class="btn" id="bs">إرسال</button></div>
+  <div class="row" id="bq" style="margin-top:8px"></div>
+</section>
 
-    <div class="guide-card">
-      <h3>🎨 تقنيات الحفظ السريع</h3>
-      <div class="guide-tip"><strong>الاختصارات:</strong> اجمع أول حرف من كل كلمة في كلمة سهلة</div>
-      <div class="guide-tip"><strong>القصة:</strong> اربط المعلومات في قصة متسلسلة</div>
-      <div class="guide-tip"><strong>قصر الذاكرة:</strong> تخيل مكاناً مألوفاً وضع فيه المعلومات</div>
-      <div class="guide-tip"><strong>الإيقاع:</strong> حوّل المعلومات إلى أغنية أو نشيد</div>
-      <div class="guide-tip"><strong>الصور الذهنية:</strong> اربط كل معلومة بصورة غريبة وطريفة</div>
-    </div>
+<section id="ach">
+  <h2>🏆 الإنجازات</h2><p class="sub">تقدمك يتحول إلى نقاط</p><div id="al"></div>
+</section>
 
-    <div class="guide-card">
-      <h3>🧠 منحنى النسيان (Ebbinghaus)</h3>
-      <p>في أول 24 ساعة تفقد 50-70% من المعلومات إذا لم تراجعها!</p>
-      <ul class="guide-list">
-        <li>⚡ راجع بعد 10 دقائق من التعلم → تثبيت 90%</li>
-        <li>⚡ راجع بعد ساعة → تثبيت 80%</li>
-        <li>⚡ راجع بعد يوم → تثبيت 70%</li>
-      </ul>
-    </div>
+<section id="snd">
+  <h2>🎵 أصوات التركيز</h2><p class="sub">أصوات تُولَّد داخل المتصفح وتعمل بلا إنترنت</p>
+  <div class="card"><div class="snd" id="sndl"></div><br><label>مستوى الصوت<input id="sndv" type="range" min="0.05" max="0.6" step="0.05" value="0.25"></label><button class="btn d" id="sstp">⏹ إيقاف الصوت</button></div>
+</section>
 
-    <div class="guide-card">
-      <h3>🎯 قاعدة 80/20 للحفظ</h3>
-      <p>20% من المعلومات تعطيك 80% من النتائج. ركّز على:</p>
-      <ul class="guide-list">
-        <li>✅ المفاهيم الأساسية</li>
-        <li>✅ الأمثلة الشائعة</li>
-        <li>✅ الأسئلة المتكررة في الاختبارات</li>
-        <li>✅ النقاط التي يشدّد عليها الأستاذ</li>
-      </ul>
-    </div>
-  </div>
+<section id="tt">
+  <h2>🗓️ الجدول الأسبوعي</h2><p class="sub">اكتب موادك في الخانات وتُحفظ تلقائياً</p>
+  <div class="card" style="overflow-x:auto"><table class="tbl"><thead><tr><th>اليوم</th><th>08:00 - 09:30</th><th>10:00 - 11:30</th><th>12:00 - 01:30</th><th>02:00 - 03:30</th></tr></thead><tbody id="ttb"></tbody></table></div>
+</section>
 
-  <!-- 3. إدارة الوقت -->
-  <div id="guide-time" class="guide-content">
-    <div class="guide-card">
-      <h3>🍅 تقنية البومودورو</h3>
-      <ul class="guide-list">
-        <li>25 دقيقة تركيز كامل</li>
-        <li>5 دقائق راحة قصيرة</li>
-        <li>بعد 4 جلسات: راحة 15-30 دقيقة</li>
-      </ul>
-      <p>💡 استخدم المؤقت في هذا الموقع!</p>
-    </div>
+<section id="gpa">
+  <h2>🎓 حاسبة المعدل</h2><p class="sub">المعدل الموزون حسب عدد الوحدات</p>
+  <div class="card"><div class="row"><input id="gpn" placeholder="المادة" aria-label="المادة"><input id="gpg" type="number" min="0" max="100" placeholder="الدرجة" aria-label="الدرجة"><input id="gph" type="number" min="1" max="20" placeholder="الوحدات" aria-label="الوحدات"><button class="btn" id="gpx">+ إضافة</button></div><div id="gpl"></div><p class="big" id="gpr" style="font-size:1.3rem">—</p></div>
+</section>
 
-    <div class="guide-card">
-      <h3>📊 مصفوفة أيزنهاور</h3>
-      <p>صنّف مهامك حسب الأهمية والاستعجال:</p>
-      <div class="guide-tip"><strong>🔴 عاجل + مهم:</strong> افعله فوراً</div>
-      <div class="guide-tip"><strong>🟡 مهم + غير عاجل:</strong> خطط له (الأهم!)</div>
-      <div class="guide-tip"><strong>🟠 عاجل + غير مهم:</strong> فوّضه لغيرك</div>
-      <div class="guide-tip"><strong>⚪ غير عاجل + غير مهم:</strong> احذفه</div>
-    </div>
+<section id="set">
+  <h2>⚙️ الإعدادات</h2>
+  <div class="card"><label>اسم الطالب<input id="sn"></label>
+  <label>المرحلة<select id="sg"><option>ابتدائي</option><option>متوسط</option><option>إعدادي</option><option>جامعة</option><option>أخرى</option></select></label>
+  <label>هدف الدراسة اليومي (بالدقائق)<input id="sgl" type="number" min="10" max="600" step="5"></label>
+  <button class="btn" id="sv">حفظ الإعدادات</button></div>
+  <div class="card"><b>💾 بياناتك</b><p class="sub">انسخ بياناتك احتياطياً من وقت لآخر، فهي محفوظة في متصفحك فقط.</p>
+  <div class="row"><button class="btn" id="ex">📤 تصدير</button><button class="btn g" id="im">📥 استيراد</button><button class="btn d" id="wp">🗑️ حذف الكل</button></div>
+  <input type="file" id="fi" accept=".json" hidden></div>
+</section>
+</main>
 
-    <div class="guide-card">
-      <h3>🐸 قاعدة "أكل الضفدع"</h3>
-      <p>ابدأ يومك بأصعب مهمة وأكثرها إزعاجاً. عندما تُنجزها، يكون باقي اليوم سهلاً.</p>
-    </div>
+<div class="tabs" id="tabs"></div>
+<div class="toast" id="toast" role="status"></div>
 
-    <div class="guide-card">
-      <h3>⏱️ قاعدة الدقيقتين</h3>
-      <p>إذا كانت المهمة تستغرق أقل من دقيقتين، افعلها فوراً ولا تؤجلها.</p>
-    </div>
+<script>
+const $=id=>document.getElementById(id);
+const V=[['home','⌂','الرئيسية'],['tips','💡','النصائح'],['plan','📅','المخطط'],['pomo','⏱️','المؤقت'],['quiz','🧠','اختبار'],['cards','🃏','بطاقات'],['notes','📝','ملاحظات'],['calc','🧮','حاسبات'],['src','📚','مصادر'],['bot','🤖','مساعد'],['snd','🎵','أصوات'],['tt','🗓️','الجدول'],['gpa','🎓','المعدل'],['ach','🏆','إنجازات'],['set','⚙️','إعدادات']];
+const KEY='studentos.v2',today=()=>new Date().toISOString().slice(0,10);
+let S={name:'',grade:'',xp:0,tasks:[],cards:[],notes:[],src:[],favs:[],days:[],mins:{},done:{},theme:'dark',date:today(),goal:60,exam:null,tt:{},gpa:[]};
+try{Object.assign(S,JSON.parse(localStorage.getItem(KEY)||'{}'))}catch(e){}
+if(S.date!==today()){S.tasks=S.tasks.filter(t=>!t.d);S.date=today()}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(t){const e=$('toast');e.textContent=t;e.classList.add('s');setTimeout(()=>e.classList.remove('s'),1800)}
+function xp(n,m){S.xp+=n;save();toast('+'+n+' نقطة'+(m?' · '+m:''));render()}
 
-    <div class="guide-card">
-      <h3>📅 خطة الأسبوع</h3>
-      <ul class="guide-list">
-        <li>📌 الأحد: تخطيط الأسبوع + دراسة</li>
-        <li>📌 الاثنين-الأربعاء: دراسة مكثفة</li>
-        <li>📌 الخميس: مراجعة شاملة</li>
-        <li>📌 الجمعة-السبت: راحة + مراجعة خفيفة</li>
-      </ul>
-    </div>
-  </div>
+/* التنقل */
+function go(v){document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===v));
+ document.querySelectorAll('[data-v]').forEach(b=>b.classList.toggle('on',b.dataset.v===v));scrollTo(0,0);location.hash=v}
+$('nav').innerHTML=V.map(v=>`<button data-v="${v[0]}">${v[1]} ${v[2]}</button>`).join('');
+$('tabs').innerHTML=['home','plan','pomo','quiz','bot'].map(k=>{const v=V.find(x=>x[0]===k);return `<button data-v="${k}">${v[1]}<br>${v[2]}</button>`}).join('');
+document.addEventListener('click',e=>{const b=e.target.closest('[data-v],[data-go]');if(b)go(b.dataset.v||b.dataset.go)});
 
-  <!-- 4. قبل الاختبار -->
-  <div id="guide-exam" class="guide-content">
-    <div class="guide-card">
-      <h3>📅 قبل أسبوع من الاختبار</h3>
-      <ul class="guide-list">
-        <li>✅ راجع جميع الملخصات</li>
-        <li>✅ حل نماذج اختبارات سابقة</li>
-        <li>✅ ركّز على نقاط الضعف</li>
-        <li>✅ نظّم جدول مراجعة واضح</li>
-      </ul>
-    </div>
+/* النصائح: تصنيف|النصيحة|طريقة التطبيق (أضف أسطراً جديدة لتزيد النصائح) */
+const TIPS=`تنظيم|حدّد هدف اليوم من الليلة السابقة|اكتب ثلاث مهام فقط على ورقة قبل النوم.
+تنظيم|ابدأ بالمادة الأصعب|ادرسها أول الجلسة وأنت في أعلى تركيزك.
+تنظيم|قسّم المنهج إلى أجزاء صغيرة|وزّع الفصول على أيام الأسبوع في جدول.
+تنظيم|خصص وقتاً ثابتاً للدراسة|اختر ساعة يومية ولا تغيّرها.
+تنظيم|جهّز أدواتك قبل أن تجلس|ضع الكتب والأقلام والماء على المكتب.
+تنظيم|راجع أسبوعك كل جمعة|اسأل نفسك: ما الذي أنجزت وما الذي تأخر؟
+مذاكرة|استرجع المعلومة من ذاكرتك|أغلق الكتاب واكتب ما تتذكره ثم قارن.
+مذاكرة|اشرح الدرس لشخص آخر|إن استطعت شرحه ببساطة فقد فهمته.
+مذاكرة|وزّع المراجعة على أيام|راجع بعد يوم ثم 3 أيام ثم أسبوع.
+مذاكرة|استخدم البطاقات للحفظ|اكتب سؤالاً على وجه وجواباً على الآخر.
+مذاكرة|حلّ المسائل بدل قراءة الحل|حاول أولاً ثم راجع خطأك.
+مذاكرة|اربط المعلومة الجديدة بما تعرفه|ارسم خريطة ذهنية للدرس.
+مذاكرة|لخّص بأسلوبك الخاص|صفحة واحدة لكل فصل.
+امتحانات|حلّ أسئلة السنوات السابقة|احسب الوقت كأنك في القاعة.
+امتحانات|نم جيداً ليلة الامتحان|7 ساعات على الأقل، فالنوم يثبّت الحفظ.
+امتحانات|اقرأ الأسئلة كلها قبل البدء|ابدأ بالأسهل لتكسب الثقة والوقت.
+امتحانات|راجع الأخطاء المتكررة|دفتر صغير للأخطاء تقرؤه قبل الامتحان.
+امتحانات|تناول فطوراً خفيفاً|اختر أطعمة بسيطة وابتعد عن السكريات الكثيرة.
+امتحانات|اترك 10 دقائق للمراجعة النهائية|تأكد من الأرقام والوحدات والأسماء.
+تركيز|ابعد هاتفك عنك|اتركه في غرفة أخرى أو فعّل وضع الطيران.
+تركيز|استخدم طريقة بومودورو|25 دقيقة تركيز ثم 5 راحة.
+تركيز|اجعل مكان الدراسة ثابتاً|يتعوّد عقلك أن هذا المكان للتركيز.
+تركيز|أغلق الإشعارات|الإشعار الواحد يضيع عليك دقائق.
+تركيز|دوّن الأفكار المشتتة|اكتبها على ورقة جانبية وارجع للدرس.
+تركيز|استمع لموسيقى هادئة بلا كلمات|أو اجلس في صمت إن كان أفضل لك.
+صحة|اشرب الماء بانتظام|كوب كل ساعة تقريباً.
+صحة|تحرك كل ساعة|قف وامشِ دقيقتين وافرد ظهرك.
+صحة|نم في وقت ثابت|السهر يضعف التركيز والذاكرة.
+صحة|ريّح عينيك|انظر لبعيد 20 ثانية كل 20 دقيقة.
+صحة|تحدّث مع من تثق عند الضغط|الضغط طبيعي ومشاركته تخفف عنك.
+صحة|مارس الرياضة ولو مشياً|20 دقيقة تحسّن المزاج والتركيز.
+تقنية|استخدم تطبيق ملاحظات منظماً|مجلد لكل مادة.
+تقنية|احفظ نسخاً احتياطية|صدّر بياناتك من الإعدادات كل أسبوع.
+تقنية|استفد من الفيديوهات التعليمية|شاهد بسرعة 1.25 ودوّن النقاط.
+تقنية|حدّد وقت وسائل التواصل|ضع مؤقتاً 20 دقيقة فقط بعد الدراسة.
+تقنية|اعتمد على مصادر موثوقة|تأكد من المصدر قبل حفظ المعلومة.
+تنظيم|اكتب جدولك بخط اليد|علّقه أمامك في مكان واضح.
+تنظيم|حدّد موعد انتهاء لكل مهمة|مهمة بلا موعد تتأجل دائماً.
+تنظيم|ابدأ بخمس دقائق فقط|البدء هو الأصعب، وبعده يسهل الاستمرار.
+تنظيم|رتّب المهام حسب الأهمية|الأهم والأقرب موعداً أولاً.
+تنظيم|اترك وقتاً فارغاً في جدولك|الطوارئ تحدث، فلا تملأ كل ساعة.
+تنظيم|خصص يوماً للمراجعة الشاملة|مرة كل أسبوعين على الأقل.
+تنظيم|اجعل مكتبك مرتباً|المكان المرتب يصفّي الذهن.
+تنظيم|ضع أهدافاً صغيرة قابلة للقياس|مثلاً: حل 10 مسائل لا «أدرس الرياضيات».
+تنظيم|كافئ نفسك بعد الإنجاز|استراحة أو وجبة تحبها بعد إنهاء الهدف.
+تنظيم|لا تؤجل عمل اليوم للغد|ابدأ بأصغر خطوة الآن.
+مذاكرة|اقرأ العناوين قبل الدرس|خذ نظرة سريعة لتعرف ما ينتظرك.
+مذاكرة|اطرح أسئلة أثناء القراءة|حوّل كل عنوان إلى سؤال وأجب عنه.
+مذاكرة|استخدم الألوان بحكمة|لونان فقط: الأساسي والمهم.
+مذاكرة|افهم قبل أن تحفظ|الفهم يجعل الحفظ أسرع وأثبت.
+مذاكرة|درّس نفسك بصوت عالٍ|الشرح الصوتي يكشف ما لا تفهمه.
+مذاكرة|استخدم الأمثلة الواقعية|اربط القانون بموقف من حياتك.
+مذاكرة|اكتب القوانين في ورقة واحدة|راجعها يومياً دقيقتين.
+مذاكرة|ادرس مادتين بالتناوب|التنويع يمنع الملل ويقوّي الذاكرة.
+مذاكرة|راجع قبل النوم|المعلومة الأخيرة تثبت أثناء النوم.
+مذاكرة|لا تحفظ دون تطبيق|كل درس يحتاج تمريناً.
+مذاكرة|اسأل المعلم عما لا تفهمه|السؤال ليس ضعفاً.
+مذاكرة|ادرس مع صديق جاد|تبادلا الأسئلة والشرح.
+مذاكرة|استعن بالرسم والمخططات|الصورة تُحفظ أسرع من الكلام.
+امتحانات|تعرّف على شكل الامتحان|عدد الأسئلة والوقت والدرجات.
+امتحانات|وزّع وقتك على الأسئلة|لا تقضِ نصف الوقت على سؤال واحد.
+امتحانات|اترك السؤال الصعب وارجع له|ضع علامة وانتقل للتالي.
+امتحانات|لا تغيّر إجابتك دون سبب قوي|الحدس الأول غالباً صحيح.
+امتحانات|اكتب بخط واضح ومرتب|التنظيم يحسّن انطباع المصحح.
+امتحانات|احضر مبكراً للامتحان|الاستعجال يربك التفكير.
+امتحانات|تنفّس بعمق عند التوتر|شهيق 4 ثوانٍ وزفير 6 ثوانٍ.
+امتحانات|تجنّب الحديث عن الأجوبة بعد الامتحان|ركّز على المادة القادمة.
+امتحانات|جهّز أدواتك من الليلة السابقة|قلم احتياطي وهوية وآلة حاسبة.
+امتحانات|لا تدرس مادة جديدة قبل الامتحان بساعة|راجع الملخصات فقط.
+تركيز|ابدأ بطقس ثابت|كوب ماء ثم فتح الكتاب ثم المؤقت.
+تركيز|اجعل الإضاءة جيدة|الإضاءة الضعيفة تتعب العين والتركيز.
+تركيز|أزل كل ما يشتتك من المكتب|دع الكتاب والدفتر فقط.
+تركيز|ادرس في وقت نشاطك|بعضهم صباحاً وبعضهم مساءً، اعرف وقتك.
+تركيز|لا تدرس في السرير|السرير للنوم فقط.
+تركيز|خذ استراحة حقيقية|لا تقضها على الهاتف، امشِ أو تمدد.
+تركيز|مهمة واحدة في كل مرة|تعدد المهام يبطّئ الإنجاز.
+تركيز|اختر جلسات قصيرة متكررة|خير من جلسة طويلة مشتتة.
+صحة|تناول وجبات متوازنة|بروتين وخضار وفواكه لطاقة مستقرة.
+صحة|قلّل المشروبات المنبهة|الكافيين الكثير يزيد التوتر ويفسد النوم.
+صحة|اجلس بوضعية صحيحة|ظهر مستقيم وقدمان على الأرض.
+صحة|تعرّض لضوء الشمس|15 دقيقة يومياً تحسّن المزاج.
+صحة|خذ وقتاً للعائلة والأصدقاء|الدعم الاجتماعي يخفف الضغط.
+صحة|لا تقارن نفسك بالآخرين|قارن نفسك بنفسك أمس.
+صحة|تقبّل الأخطاء|هي جزء من التعلم وليست نهاية الطريق.
+صحة|لا تهمل فطورك|الدماغ يحتاج وقوداً صباحاً.
+تقنية|استخدم المنبهات والتذكيرات|للامتحانات والتسليمات المهمة.
+تقنية|حمّل المواد للاستخدام دون إنترنت|لا تعتمد على اتصال ضعيف.
+تقنية|استخدم وضع عدم الإزعاج|أثناء جلسات الدراسة كلها.
+تقنية|نظّم ملفاتك بأسماء واضحة|مادة ثم فصل ثم تاريخ.
+تقنية|قلّل التبديل بين التطبيقات|كل تبديل يكسر تركيزك.
+تقنية|لا تعتمد على الذكاء الاصطناعي لحل الواجب|استخدمه للشرح ثم حلّ بنفسك.
+تقنية|احذف التطبيقات المضيّعة للوقت|أو انقلها إلى مجلد بعيد.
+تقنية|سجّل ملخصاً صوتياً وراجعه|مفيد أثناء المشي أو السفر.
+تنظيم|اقرأ خطتك صباحاً|دقيقة واحدة تحدد يومك كله.
+مذاكرة|اكتب أسئلة الامتحان بنفسك|ثم أجب عنها بعد يومين.
+امتحانات|راجع الملخص قبل الدخول|نظرة أخيرة سريعة على القوانين.
+تركيز|حدّد هدفاً لكل جلسة|مثلاً: أنهي الفصل الثاني فقط.
+صحة|امنح نفسك يوم راحة أسبوعياً|الراحة جزء من الخطة لا مضيعة.
+تقنية|راجع تقدمك من لوحة الطالب|الأرقام تحفزك على الاستمرار.`.split('\n').map(l=>l.split('|'));
+const cats=['الكل','المفضلة',...new Set(TIPS.map(t=>t[0]))];
+$('tc').innerHTML=cats.map(c=>`<option>${c}</option>`).join('');
+function tips(){const q=$('tq').value.trim(),c=$('tc').value;
+ const l=TIPS.map((t,i)=>({t,i})).filter(({t,i})=>(c==='الكل'||(c==='المفضلة'?S.favs.includes(i):t[0]===c))&&(t[1]+t[2]).includes(q));
+ $('tl').innerHTML=l.length?l.map(({t,i})=>`<div class="card"><div class="row"><b style="flex:1">${i+1}. ${t[1]}</b><button class="ib" data-f="${i}" aria-label="مفضلة">${S.favs.includes(i)?'★':'☆'}</button></div><span class="tag">${t[0]}</span><div>${t[2]}</div></div>`).join(''):'<p class="sub">لا توجد نتائج. جرّب كلمة أخرى.</p>'}
+$('tq').oninput=tips;$('tc').onchange=tips;
+$('tl').onclick=e=>{const b=e.target.closest('[data-f]');if(!b)return;const i=+b.dataset.f;S.favs=S.favs.includes(i)?S.favs.filter(x=>x!==i):[...S.favs,i];save();tips()};
 
-    <div class="guide-card">
-      <h3>📅 قبل يوم من الاختبار</h3>
-      <ul class="guide-list">
-        <li>✅ مراجعة سريعة للملخصات فقط</li>
-        <li>✅ نم مبكراً (7-8 ساعات كافية)</li>
-        <li>✅ جهّز أدواتك (أقلام، آلة حاسبة، بطاقة)</li>
-        <li>❌ لا تحاول حفظ مواد جديدة</li>
-      </ul>
-    </div>
+/* المهام */
+function tasks(){$('tk').innerHTML=S.tasks.length?S.tasks.map((t,i)=>`<div class="item ${t.d?'done':''}"><input type="checkbox" style="width:auto;margin:0" data-k="${i}" ${t.d?'checked':''} aria-label="إنجاز"><span>${['🟢','🟡','🔴'][t.p||0]} ${esc(t.t)}</span><button class="ib" data-x="${i}" aria-label="حذف">✕</button></div>`).join(''):'<p class="sub">لا مهام بعد. أضف أول مهمة لليوم.</p>'}
+const addTask=t=>{t=t.trim();if(!t)return;S.tasks.push({t,d:0,p:+$('tp').value||0});save();render()};
+$('ta').onclick=()=>{addTask($('ti').value);$('ti').value=''};
+$('ti').onkeydown=e=>{if(e.key==='Enter')$('ta').click()};
+$('tk').onclick=e=>{const k=e.target.closest('[data-k]'),x=e.target.closest('[data-x]');
+ if(k){const t=S.tasks[+k.dataset.k];t.d=k.checked?1:0;save();if(t.d)xp(5);else render()}
+ if(x){S.tasks.splice(+x.dataset.x,1);save();render()}};
+$('gb').onclick=()=>{const s=$('gs').value,g=$('gg').value,m=+$('gm').value;
+ const a=Math.round(m*.2),b=Math.round(m*.5),c=m-a-b;
+ $('gp').innerHTML=`<p>خطة ${s} (${g}) · ${m} دقيقة:</p><ol><li>${a} د: مراجعة سريعة لما سبق</li><li>${b} د: ${g} في ${s} بتركيز كامل</li><li>${c} د: اختبر نفسك ولخّص</li></ol><button class="btn g" id="gadd">أضف للمهام</button>`;
+ $('gadd').onclick=()=>{addTask(`${s}: ${g} (${m} د)`);toast('تمت الإضافة')}};
 
-    <div class="guide-card">
-      <h3>⏰ صباح الاختبار</h3>
-      <ul class="guide-list">
-        <li>🍳 تناول فطور خفيف ومغذٍّ</li>
-        <li>💧 اشرب ماء كافٍ</li>
-        <li>🧘 تنفّس بعمق وقل: "أنا جاهز"</li>
-        <li>⏱️ اذهب مبكراً (15 دقيقة قبل الموعد)</li>
-      </ul>
-    </div>
+/* بومودورو */
+let len=25*60,left=len,iv=null,focus=true;
+const fmt=s=>String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');
+const showT=()=>{$('tm').textContent=fmt(left);document.title=(iv?fmt(left)+' · ':'')+'Student OS'};
+function beep(){try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator();o.connect(c.destination);o.frequency.value=880;o.start();setTimeout(()=>{o.stop();c.close()},500)}catch(e){}}
+function stop(){clearInterval(iv);iv=null;$('ps').textContent='▶ ابدأ';showT()}
+document.querySelectorAll('[data-m]').forEach(b=>b.onclick=()=>{stop();focus=!b.dataset.b;len=left=+b.dataset.m*60;$('tmode').textContent=focus?'جلسة تركيز':'وقت الراحة';showT()});
+$('ps').onclick=()=>{if(iv)return stop();$('ps').textContent='⏸ إيقاف';
+ const end=Date.now()+left*1000;iv=setInterval(()=>{left=Math.max(0,Math.round((end-Date.now())/1000));if(left<=0){const mins=len/60;stop();beep();left=len;showT();
+  if(focus){S.mins[today()]=(S.mins[today()]||0)+mins;if(!S.days.includes(today()))S.days.push(today());if(!S.done.focus){S.done.focus=1;xp(20,'تم تحدي اليوم')}else xp(10)}
+  else toast('انتهت الراحة');try{navigator.vibrate&&navigator.vibrate(300)}catch(e){}}showT()},1000)};
+$('pr').onclick=()=>{stop();left=len;showT()};
 
-    <div class="guide-card">
-      <h3>✍️ داخل قاعة الاختبار</h3>
-      <div class="guide-tip"><strong>1.</strong> اقرأ كل الأسئلة أولاً (دقيقتان)</div>
-      <div class="guide-tip"><strong>2.</strong> ابدأ بالأسئلة السهلة</div>
-      <div class="guide-tip"><strong>3.</strong> خصص وقتاً لكل سؤال حسب درجته</div>
-      <div class="guide-tip"><strong>4.</strong> اترك 5 دقائق للمراجعة النهائية</div>
-      <div class="guide-tip"><strong>5.</strong> لا تترك سؤالاً فارغاً أبداً</div>
-    </div>
+/* الاختبار */
+const Q=[['ما عاصمة العراق؟',['بغداد','البصرة','الموصل','أربيل'],0],['كم يساوي 12 × 8؟',['86','96','106','92'],1],['ما الغاز الذي نتنفسه ونحتاجه للحياة؟',['النيتروجين','الأكسجين','الهيدروجين','الهيليوم'],1],['أي كوكب هو الأقرب للشمس؟',['الزهرة','الأرض','عطارد','المريخ'],2],['الجذر التربيعي للعدد 81 هو:',['7','8','9','10'],2],['ما الرمز الكيميائي للماء؟',['CO2','H2O','O2','NaCl'],1],['كم عدد أضلاع المسدس؟',['5','6','7','8'],1],['من مؤلف كتاب «المقدمة»؟',['ابن خلدون','ابن سينا','الجاحظ','المتنبي'],0],['أكبر محيط في العالم:',['الهندي','الأطلسي','الهادئ','المتجمد'],2],['ناتج 15% من 200 هو:',['20','25','30','35'],2],['ما أسرع حيوان بري؟',['الأسد','الفهد','الحصان','الذئب'],1],['كم دقيقة في ثلاث ساعات؟',['120','150','180','210'],2],['ما عاصمة مصر؟',['الإسكندرية','القاهرة','الجيزة','أسوان'],1],['العضو المسؤول عن ضخ الدم:',['الكبد','الرئة','القلب','الكلية'],2],['ناتج 7² هو:',['14','49','42','56'],1],['ما أطول نهر في العراق؟',['دجلة','الفرات','الزاب','ديالى'],1],['مجموع زوايا المثلث:',['90','180','270','360'],1],['الكوكب الأحمر هو:',['المشتري','زحل','المريخ','نبتون'],2],['ما لغة صفحات الويب الأساسية؟',['HTML','SQL','PHP','C'],0],['كم يساوي 1000 غرام؟',['1 كغ','10 كغ','100 كغ','0.1 كغ'],0]];
+let qi=0,qs=0,qo=[];
+const shuf=a=>[...a].sort(()=>Math.random()-.5);
+function qnew(){qo=shuf(Q).slice(0,10);qi=0;qs=0;qshow()}
+function qshow(){const b=$('qb');
+ if(qi>=qo.length){if(qs>=8&&!S.done.q){S.done.q=1;xp(30,'متفوق!')}b.innerHTML=`<div class="big">${qs}/${qo.length}</div><p>إجابات صحيحة</p><button class="btn" id="qn">اختبار جديد</button>`;$('qn').onclick=qnew;return}
+ const q=qo[qi];b.innerHTML=`<p class="tag">السؤال ${qi+1} من ${qo.length}</p><h3>${q[0]}</h3>`+q[1].map((o,i)=>`<button class="opt" data-o="${i}">${o}</button>`).join('');
+ b.onclick=e=>{const o=e.target.closest('[data-o]');if(!o||b.dataset.l)return;b.dataset.l=1;const i=+o.dataset.o;
+  b.querySelectorAll('.opt').forEach((x,j)=>{if(j===q[2])x.classList.add('ok');else if(j===i)x.classList.add('no')});
+  if(i===q[2])qs++;setTimeout(()=>{delete b.dataset.l;qi++;qshow()},900)}}
 
-    <div class="guide-card">
-      <h3>🚫 أخطاء يجب تجنبها</h3>
-      <ul class="guide-list">
-        <li>❌ السهر الطويل قبل الاختبار</li>
-        <li>❌ المراجعة مع أشخاص متوترين</li>
-        <li>❌ مقارنة نفسك بالآخرين</li>
-        <li>❌ الاستعجال في الخروج من القاعة</li>
-      </ul>
-    </div>
-  </div>
+/* البطاقات */
+let ci=0,flip=false;
+function cards(){const c=S.cards[ci];$('fc').textContent=c?(flip?'✔ '+c[1]:'؟ '+c[0]):'أضف بطاقتك الأولى'}
+$('fc').onclick=()=>{flip=!flip;cards()};
+$('fn').onclick=()=>{if(S.cards.length){ci=(ci+1)%S.cards.length;flip=false;cards()}};
+$('fp').onclick=()=>{if(S.cards.length){ci=(ci-1+S.cards.length)%S.cards.length;flip=false;cards()}};
+$('fd').onclick=()=>{S.cards.splice(ci,1);ci=0;flip=false;save();cards()};
+$('fx').onclick=()=>{const q=$('fq').value.trim(),a=$('fa').value.trim();if(!q||!a)return toast('اكتب السؤال والجواب');S.cards.push([q,a]);ci=S.cards.length-1;flip=false;$('fq').value=$('fa').value='';save();cards();xp(3)};
 
-  <!-- 5. التحفيز -->
-  <div id="guide-motivation" class="guide-content">
-    <div class="guide-card">
-      <h3>🎯 ضع "لماذا" واض
-      
+/* الملاحظات والمصادر */
+function notes(){$('nl').innerHTML=S.notes.length?S.notes.map((n,i)=>`<div class="card"><div class="row"><b style="flex:1">${esc(n[0]||'بدون عنوان')}</b><button class="ib" data-n="${i}" aria-label="حذف">✕</button></div><div style="white-space:pre-wrap">${esc(n[1])}</div></div>`).join(''):'<p class="sub">لا ملاحظات بعد.</p>'}
+$('nx').onclick=()=>{const t=$('nt').value,b=$('nb').value.trim();if(!b)return toast('اكتب نص الملاحظة');S.notes.unshift([t,b]);$('nt').value=$('nb').value='';save();notes();xp(2)};
+$('nl').onclick=e=>{const x=e.target.closest('[data-n]');if(x){S.notes.splice(+x.dataset.n,1);save();notes()}};
+function src(){$('rl').innerHTML=S.src.length?S.src.map((r,i)=>{const ok=/^https?:\/\//.test(r[1]);return `<div class="card"><div class="row"><div style="flex:1">${ok?`<a style="color:var(--ac)" href="${esc(r[1])}" target="_blank" rel="noopener noreferrer">${esc(r[0])}</a>`:esc(r[0])}<br><span class="tag">${r[2]}</span></div><button class="ib" data-r="${i}" aria-label="حذف">✕</button></div></div>`}).join(''):'<p class="sub">لم تضف مصادر بعد.</p>'}
+$('rx').onclick=()=>{const t=$('rt').value.trim(),u=$('ru').value.trim();if(!t)return toast('اكتب اسم المصدر');S.src.push([t,u,$('rk').value]);$('rt').value=$('ru').value='';save();src()};
+$('rl').onclick=e=>{const x=e.target.closest('[data-r]');if(x){S.src.splice(+x.dataset.r,1);save();src()}};
+
+/* الحاسبات */
+$('cb').onclick=()=>{const a=+$('c1').value,b=+$('c2').value;$('cr').textContent=b>0?`النسبة: ${(a/b*100).toFixed(1)}%`:'أدخل درجة كاملة أكبر من صفر'};
+$('ab').onclick=()=>{const n=$('a1').value.split(/[,،\s]+/).filter(s=>s!=='').map(Number).filter(x=>!isNaN(x));
+ $('ar').textContent=n.length?`المعدل: ${(n.reduce((a,b)=>a+b,0)/n.length).toFixed(2)} (من ${n.length} مواد)`:'أدخل درجات صحيحة'};
+$('hb').onclick=()=>{const d=+$('h1').value,h=+$('h2').value;$('hr').textContent=d>0&&h>0?`المجموع: ${d*h} ساعة`:'أدخل أرقاماً صحيحة'};
+
+/* المساعد */
+const R=[[/ركز|تشتت|هاتف/,'أبعد هاتفك، واستخدم بومودورو 25/5، وسجّل الأفكار المشتتة على ورقة جانبية.'],[/احفظ|حفظ/,'كرّر بالاسترجاع لا بالقراءة: بطاقات + مراجعة بعد يوم ثم 3 أيام ثم أسبوع.'],[/امتحان|مراجعة/,'حلّ أسئلة سنوات سابقة بوقت محدد، وراجع أخطاءك، ولا تسهر ليلة الامتحان.'],[/ابدأ|بداية|كيف ادرس/,'اختر 3 مهام لليوم، وابدأ بأصعبها في جلسة 25 دقيقة.'],[/نوم|تعب|ضغط/,'النوم 7 ساعات وحركة قصيرة كل ساعة يرفعان تركيزك أكثر من ساعة إضافية من السهر.'],[/جدول|خطة|وقت/,'جرّب «مولّد الخطة» في قسم المخطط، ثم أضف الخطة لمهام اليوم.']];
+const say=(t,c)=>{$('ch').insertAdjacentHTML('beforeend',`<div class="m ${c}">${esc(t)}</div>`);$('ch').scrollTop=1e5};
+function ask(q){q=q.trim();if(!q)return;say(q,'u');const r=R.find(x=>x[0].test(q));say(r?r[1]:'لم أفهم سؤالك. جرّب كلمات مثل: تركيز، حفظ، امتحان، خطة.','b')}
+$('bs').onclick=()=>{ask($('bi').value);$('bi').value=''};$('bi').onkeydown=e=>{if(e.key==='Enter')$('bs').click()};
+$('bq').innerHTML=['كيف أبدأ الدراسة؟','كيف أتخلص من التشتت؟','كيف أراجع قبل الامتحان؟','أفضل طريقة للحفظ؟'].map(q=>`<button class="btn g">${q}</button>`).join('');
+$('bq').onclick=e=>{if(e.target.tagName==='BUTTON')ask(e.target.textContent)};
+say('أهلاً! اسألني عن التركيز أو الحفظ أو الامتحانات.','b');
+
+/* الإنجازات والإعدادات */
+function ach(){const dn=S.tasks.filter(t=>t.d).length,A=[['أول خطوة','أنجز مهمة واحدة',dn>=1],['منظّم','أنجز 5 مهام اليوم',dn>=5],['مركّز','أكمل جلسة تركيز',!!S.done.focus],['متفوق','احصل على 8/10 في الاختبار',!!S.done.q],['حافظ','أنشئ 5 بطاقات',S.cards.length>=5],['كاتب','احفظ 3 ملاحظات',S.notes.length>=3],['مثابر','ادرس 3 أيام',S.days.length>=3],['خبير','اجمع 100 نقطة',S.xp>=100]];
+ $('al').innerHTML=A.map(a=>`<div class="card" style="opacity:${a[2]?1:.55}"><b>${a[2]?'🏆':'🔒'} ${a[0]}</b><div class="sub" style="margin:0">${a[1]}</div></div>`).join('')}
+$('sv').onclick=()=>{S.name=$('sn').value.trim();S.grade=$('sg').value;S.goal=Math.min(600,Math.max(10,+$('sgl').value||60));save();render();toast('تم الحفظ')};
+$('ex').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(S)],{type:'application/json'}));a.download='student-os-backup.json';a.click()};
+$('im').onclick=()=>$('fi').click();
+$('fi').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(typeof d!=='object'||!d)throw 0;Object.assign(S,d);save();location.reload()}catch(x){toast('الملف غير صالح')}};r.readAsText(f)};
+$('wp').onclick=()=>{if(confirm('سيتم حذف كل بياناتك نهائياً. هل أنت متأكد؟')){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}};
+$('eb').onclick=()=>{const d=$('ed').value;if(!d)return toast('اختر تاريخ الامتحان');S.exam={n:$('en').value.trim(),d};save();render();toast('تم الحفظ')};
+$('th').onclick=()=>{S.theme=S.theme==='dark'?'light':'dark';save();render()};
+
+/* الرسم العام */
+function streak(){let n=0,d=new Date();while(S.days.includes(d.toISOString().slice(0,10))){n++;d.setDate(d.getDate()-1)}return n}
+function render(){document.documentElement.dataset.t=S.theme;
+ const dn=S.tasks.filter(t=>t.d).length,p=S.tasks.length?Math.round(dn/S.tasks.length*100):0;
+ $('pc').textContent=p+'%';$('pb').style.width=p+'%';$('xp').textContent=S.xp;$('lv').textContent=Math.floor(S.xp/100)+1;$('lb').style.width=(S.xp%100)+'%';
+ $('st').textContent=streak();$('ss').textContent=S.mins[today()]||0;
+ $('hi').textContent=S.name?'مرحباً '+S.name:'مرحباً بك';$('sn').value=S.name;if(S.grade)$('sg').value=S.grade;
+ const t=TIPS[new Date().getDate()%TIPS.length];$('tip0').textContent='💡 نصيحة اليوم: '+t[1]+' — '+t[2];
+ const g=S.goal||60,m=S.mins[today()]||0;
+ $('gl').textContent=g;$('gbar').style.width=Math.min(100,Math.round(m/g*100))+'%';
+ $('gtx').textContent=m>=g?'🎉 حققت هدفك اليوم، أحسنت!':`درست ${m} من ${g} دقيقة، باقي ${g-m}.`;
+ const days=[...Array(7)].map((_,i)=>{const d=new Date();d.setDate(d.getDate()-(6-i));const k=d.toISOString().slice(0,10);return[k,S.mins[k]||0,d.toLocaleDateString('ar',{weekday:'short'})]});
+ const mx=Math.max(30,...days.map(x=>x[1]));
+ $('wk').innerHTML=days.map(x=>`<div><b>${x[1]||''}</b><i style="height:${Math.round(x[1]/mx*80)}px"></i>${x[2]}</div>`).join('');
+ if(S.exam&&S.exam.d){const n=Math.ceil((new Date(S.exam.d)-new Date(today()))/864e5);
+  $('ex1').innerHTML=n>0?`<div class="cd">${n} يوم</div><p class="sub" style="margin:0 0 8px">تبقّى على امتحان ${esc(S.exam.n||'')}</p>`:n===0?'<div class="cd">اليوم!</div><p class="sub">بالتوفيق 🤍</p>':'<p class="sub">انتهى موعد الامتحان. أضف موعداً جديداً.</p>'}else $('ex1').innerHTML='<p class="sub">أضف موعد امتحانك لتعرف كم باقي.</p>';
+ $('sgl').value=g;
+ tasks();ach()}
+/* الاقتباسات */
+const QT=["النجاح ليس تصادفاً، بل هو عمل جاد.","الاستمرارية أهم من الكمال.","كل خطوة صغيرة تقربك من هدفك.","ابدأ الآن، لا غداً.","من جدّ وجد ومن زرع حصد.","التركيز هو المفتاح.","أنت أقوى مما تتخيل.","ادرس بذكاء لا بجهد فقط.","الوقت كالسيف إن لم تقطعه قطعك.","التعلم رحلة وليس وجهة."];
+const quote=()=>{$('qt').textContent='«'+QT[Math.floor(Math.random()*QT.length)]+'»'};
+$('qtb').onclick=quote;quote();
+
+/* بطاقة عشوائية */
+$('fr').onclick=()=>{if(S.cards.length){ci=Math.floor(Math.random()*S.cards.length);flip=false;cards()}};
+
+/* الأصوات */
+let AC=null,SN=[],SB=null,MG=null;
+const SD=[['rain','🌧️ مطر',['lowpass',1400]],['fire','🔥 مدفأة',['lowpass',600]],['forest','🌲 غابة',['bandpass',900]],['waves','🌊 أمواج',['lowpass',700]],['white','⚪ ضوضاء بيضاء',['allpass',0]],['brown','🟤 ضوضاء بنية',['lowpass',400]]];
+$('sndl').innerHTML=SD.map(x=>`<button data-s="${x[0]}">${x[1]}</button>`).join('');
+function sstop(){SN.forEach(n=>{try{n.stop()}catch(e){}});SN=[];if(SB){SB.classList.remove('on');SB=null}}
+function splay(t,btn){sstop();try{AC=AC||new(window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();
+ MG=AC.createGain();MG.gain.value=+$('sndv').value;MG.connect(AC.destination);
+ const n=AC.sampleRate*2,b=AC.createBuffer(1,n,AC.sampleRate),d=b.getChannelData(0),br=['fire','brown','waves'].includes(t);let l=0;
+ for(let i=0;i<n;i++){const w=Math.random()*2-1;if(br){l=(l+.02*w)/1.02;d[i]=l*3.5}else d[i]=w}
+ const src=AC.createBufferSource();src.buffer=b;src.loop=true;
+ const C=SD.find(x=>x[0]===t)[2],f=AC.createBiquadFilter();f.type=C[0];f.frequency.value=C[1]||1000;src.connect(f);
+ if(t==='waves'){const g=AC.createGain(),o=AC.createOscillator(),og=AC.createGain();g.gain.value=.6;o.frequency.value=.12;og.gain.value=.4;o.connect(og);og.connect(g.gain);f.connect(g);g.connect(MG);o.start();SN.push(o)}else f.connect(MG);
+ src.start();SN.push(src);btn.classList.add('on');SB=btn}catch(e){toast('المتصفح لا يدعم الصوت')}}
+$('sndl').onclick=e=>{const b=e.target.closest('[data-s]');if(!b)return;if(b===SB)sstop();else splay(b.dataset.s,b)};
+$('sstp').onclick=sstop;
+$('sndv').oninput=()=>{if(MG)MG.gain.value=+$('sndv').value};
+
+/* الجدول */
+const DY=['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس'];
+$('ttb').innerHTML=DY.map((d,i)=>`<tr><th>${d}</th>`+[0,1,2,3].map(j=>`<td><input data-c="${i}-${j}" value="${esc(S.tt[i+'-'+j]||'')}" aria-label="${d} فترة ${j+1}"></td>`).join('')+'</tr>').join('');
+$('ttb').oninput=e=>{const c=e.target.dataset.c;if(c){S.tt[c]=e.target.value;save()}};
+
+/* المعدل */
+function gpa(){$('gpl').innerHTML=S.gpa.map((x,i)=>`<div class="item"><span>${esc(x.n||'مادة')} · ${x.g} · ${x.h} وحدة</span><button class="ib" data-g="${i}" aria-label="حذف">✕</button></div>`).join('');
+ const H=S.gpa.reduce((a,x)=>a+x.h,0);$('gpr').textContent=H?`المعدل الموزون: ${(S.gpa.reduce((a,x)=>a+x.g*x.h,0)/H).toFixed(2)}%`:'أضف مادة لحساب المعدل'}
+$('gpx').onclick=()=>{const g=+$('gpg').value,h=+$('gph').value;if($('gpg').value===''||g<0||g>100||!(h>0))return toast('أدخل درجة من 0 إلى 100 ووحدات صحيحة');S.gpa.push({n:$('gpn').value.trim(),g,h});$('gpn').value=$('gpg').value=$('gph').value='';save();gpa()};
+$('gpl').onclick=e=>{const x=e.target.closest('[data-g]');if(x){S.gpa.splice(+x.dataset.g,1);save();gpa()}};
+
+render();tips();notes();src();cards();qnew();showT();gpa();
+const h=location.hash.slice(1);go(V.some(v=>v[0]===h)?h:'home');
+if('serviceWorker' in navigator&&location.protocol.startsWith('http'))addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+</script>
+</body>
+</html>
