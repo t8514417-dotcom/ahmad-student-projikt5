@@ -3,734 +3,548 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Student OS PRO v6.0 - أحمد</title>
-<meta name="description" content="منصة الطالب الذكية - مؤقت، مهام، حاسبة معدل، بطاقات ذكية، ودليل شامل مع ثيمات وأصوات قابلة للتخصيص">
-<meta name="keywords" content="منصة طالب, مؤقت بومودورو, تنظيم الدراسة, GPA calculator, بطاقات الحفظ, دليل الطالب">
+<title>Student OS PRO v7.0 - أحمد</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
 :root {
-  --primary: #4f46e5;
-  --primary-dark: #4338ca;
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
   --success: #10b981;
   --danger: #ef4444;
   --warning: #f59e0b;
-  --dark: #1e293b;
+  --dark: #0f172a;
   --border: #e2e8f0;
-  --bg-main: #f1f5f9;
+  --bg-main: #f8fafc;
   --bg-card: #ffffff;
-  --text-color: #1e293b;
-  --timer-bg: linear-gradient(135deg, #667eea, #764ba2);
+  --text-color: #0f172a;
+  --timer-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   --timer-text: #ffffff;
 }
-
 body {
   font-family: 'Cairo', sans-serif;
   background: var(--bg-main);
   color: var(--text-color);
   line-height: 1.6;
-  padding-bottom: 80px;
-  transition: all 0.5s ease;
+  padding-bottom: 100px;
+  transition: all 0.4s ease;
+  min-height: 100vh;
 }
-
-/* ===== الثيمات الجاهزة ===== */
-body.theme-default {
-  --bg-main: #f1f5f9;
-  --bg-card: #ffffff;
-  --text-color: #1e293b;
-  --primary: #4f46e5;
-}
-body.theme-dark {
-  --bg-main: #0f172a;
-  --bg-card: #1e293b;
-  --text-color: #e2e8f0;
-  --border: #475569;
-}
-body.theme-sunset {
-  --bg-main: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
-  --bg-card: rgba(255,255,255,0.9);
-  --text-color: #7c2d12;
-  --primary: #ea580c;
-}
-body.theme-ocean {
-  --bg-main: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --bg-card: rgba(255,255,255,0.95);
-  --text-color: #1e3a8a;
-  --primary: #3b82f6;
-}
-body.theme-forest {
-  --bg-main: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  --bg-card: rgba(255,255,255,0.95);
-  --text-color: #064e3b;
-  --primary: #059669;
-}
-body.theme-midnight {
-  --bg-main: linear-gradient(135deg, #232526 0%, #414345 100%);
-  --bg-card: rgba(30,30,30,0.9);
-  --text-color: #f1f5f9;
-  --primary: #8b5cf6;
-}
-body.theme-sakura {
-  --bg-main: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-  --bg-card: rgba(255,255,255,0.9);
-  --text-color: #831843;
-  --primary: #ec4899;
-}
-
-body.theme-dark .card,
-body.theme-midnight .card {
-  background: var(--bg-card);
-  color: var(--text-color);
-}
-body.theme-dark input,
-body.theme-dark select,
-body.theme-dark textarea,
-body.theme-midnight input,
-body.theme-midnight select,
-body.theme-midnight textarea {
-  background: #334155;
-  color: #e2e8f0;
-  border-color: #475569;
-}
-
-/* الشريط العلوي */
+body.theme-default { --bg-main: #f8fafc; --bg-card: #ffffff; --text-color: #0f172a; }
+body.theme-dark { --bg-main: #0f172a; --bg-card: #1e293b; --text-color: #f1f5f9; --border: #334155; }
+body.theme-sunset { --bg-main: linear-gradient(135deg, #ff9a9e, #fecfef); --bg-card: rgba(255,255,255,0.95); --text-color: #7c2d12; --primary: #ea580c; }
+body.theme-ocean { --bg-main: linear-gradient(135deg, #667eea, #764ba2); --bg-card: rgba(255,255,255,0.97); --text-color: #1e3a8a; --primary: #3b82f6; }
+body.theme-forest { --bg-main: linear-gradient(135deg, #a8edea, #fed6e3); --bg-card: rgba(255,255,255,0.97); --text-color: #064e3b; --primary: #059669; }
+body.theme-sakura { --bg-main: linear-gradient(135deg, #ffecd2, #fcb69f); --bg-card: rgba(255,255,255,0.95); --text-color: #831843; --primary: #ec4899; }
+body.theme-dark input, body.theme-dark select, body.theme-dark textarea { background: #334155; color: #f1f5f9; border-color: #475569; }
 .topbar {
-  background: var(--dark);
+  background: rgba(15,23,42,0.95);
+  backdrop-filter: blur(20px);
   color: white;
-  padding: 15px 30px;
+  padding: 14px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 .logo { font-size: 22px; font-weight: 700; }
-.logo span { color: var(--warning); font-size: 14px; }
-.topbar-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.logo span {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 14px;
+}
+.topbar-actions { display: flex; gap: 8px; }
 .topbar-actions button {
-  background: rgba(255,255,255,0.1);
-  border: none;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.1);
   color: white;
-  width: 40px; height: 40px;
-  border-radius: 10px;
+  width: 42px; height: 42px;
+  border-radius: 12px;
   font-size: 18px;
   cursor: pointer;
-  transition: 0.3s;
+  transition: all 0.3s;
 }
-.topbar-actions button:hover { background: var(--primary); transform: scale(1.1); }
-
-/* الشريط الجانبي */
+.topbar-actions button:hover { background: var(--primary); transform: translateY(-2px); }
 .quick-sidebar {
-  position: fixed;
-  right: 15px;
-  top: 50%;
+  position: fixed; right: 15px; top: 50%;
   transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  z-index: 99;
+  display: flex; flex-direction: column;
+  gap: 10px; z-index: 99;
 }
 .quick-sidebar button {
-  width: 45px; height: 45px;
-  border-radius: 50%;
-  border: none;
-  background: var(--primary);
-  color: white;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(79,70,229,0.4);
-  transition: 0.3s;
+  width: 48px; height: 48px;
+  border-radius: 14px; border: none;
+  background: rgba(255,255,255,0.95);
+  color: var(--primary);
+  font-size: 20px; cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: all 0.3s;
 }
-.quick-sidebar button:hover { transform: scale(1.2) translateX(-5px); background: var(--warning); }
-
-/* المؤقت العائم */
+.quick-sidebar button:hover { transform: scale(1.15) translateX(-5px); background: var(--primary); color: white; }
 .floating-timer {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: var(--dark);
-  color: white;
-  padding: 12px 18px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  z-index: 99;
-  display: flex;
-  gap: 8px;
-  align-items: center;
+  position: fixed; bottom: 25px; left: 25px;
+  background: rgba(15,23,42,0.95);
+  backdrop-filter: blur(20px);
+  color: white; padding: 12px 20px;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  z-index: 99; display: flex;
+  gap: 10px; align-items: center;
 }
 .floating-timer span {
-  font-size: 22px;
-  font-weight: bold;
-  font-family: monospace;
-  color: var(--warning);
+  font-size: 24px; font-weight: 900;
+  font-family: 'Courier New', monospace;
+  color: var(--warning); min-width: 75px;
+  text-align: center;
 }
 .floating-timer button {
-  background: var(--primary);
-  border: none;
-  color: white;
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  cursor: pointer;
+  background: rgba(255,255,255,0.1);
+  border: none; color: white;
+  width: 36px; height: 36px;
+  border-radius: 10px; cursor: pointer;
+  font-size: 15px;
 }
-.floating-timer button:hover { background: var(--success); }
-
-/* الأقسام */
-section { max-width: 1100px; margin: 25px auto; padding: 0 20px; }
+.floating-timer button:hover { background: var(--primary); }
+section { max-width: 1150px; margin: 30px auto; padding: 0 20px; }
 .card {
   background: var(--bg-card);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-  transition: 0.3s;
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.06);
+  transition: all 0.3s;
 }
 .card h2 {
   color: var(--primary);
-  margin-bottom: 20px;
-  font-size: 22px;
-  border-right: 4px solid var(--warning);
-  padding-right: 15px;
+  margin-bottom: 24px;
+  font-size: 24px;
+  font-weight: 700;
+  padding-right: 18px;
+  border-right: 5px solid var(--warning);
 }
-
-/* الترحيب */
-.hero { text-align: center; padding-top: 30px; }
-.hero h1 { font-size: 32px; margin-bottom: 20px; color: var(--primary); }
+.hero { text-align: center; padding-top: 40px; }
+.hero h1 {
+  font-size: 38px; margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--primary), var(--warning));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+}
 .quote-box {
   background: linear-gradient(135deg, #667eea, #764ba2);
-  color: white;
-  padding: 25px;
-  border-radius: 15px;
-  margin: 20px auto;
-  font-style: italic;
-  font-size: 18px;
-  max-width: 700px;
-  box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+  color: white; padding: 28px;
+  border-radius: 20px; margin: 25px auto;
+  font-style: italic; font-size: 19px;
+  max-width: 750px;
+  box-shadow: 0 20px 40px rgba(102,126,234,0.3);
 }
-
-/* الإحصائيات */
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 15px;
-  margin: 25px 0;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px; margin: 28px 0;
 }
 .stat-box {
-  background: linear-gradient(135deg, var(--primary), #7c3aed);
-  color: white;
-  padding: 20px;
-  border-radius: 15px;
-  text-align: center;
-  transition: 0.3s;
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  color: white; padding: 24px 20px;
+  border-radius: 18px; text-align: center;
+  transition: all 0.4s;
 }
-.stat-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(79,70,229,0.3); }
-.stat-box h3 { font-size: 32px; margin: 0; }
-.stat-box p { margin: 5px 0 0; font-size: 14px; opacity: 0.9; }
-
-/* الهدف */
-.goal-section { max-width: 600px; margin: 20px auto; }
-.goal-section label { display: block; margin-bottom: 10px; font-weight: 600; }
+.stat-box:hover { transform: translateY(-8px); }
+.stat-box h3 { font-size: 36px; margin: 0; font-weight: 900; }
+.stat-box p { margin: 6px 0 0; font-size: 14px; opacity: 0.95; }
+.goal-section { max-width: 650px; margin: 25px auto; }
+.goal-section label { display: block; margin-bottom: 12px; font-weight: 600; }
 .goal-section input {
-  width: 100px;
-  padding: 10px;
+  width: 110px; padding: 12px;
   border: 2px solid var(--border);
-  border-radius: 10px;
-  font-size: 16px;
-  margin-bottom: 15px;
-  font-family: inherit;
+  border-radius: 12px; font-size: 16px;
+  margin-bottom: 18px; font-family: inherit;
+  text-align: center; font-weight: 700;
+  color: var(--primary);
 }
 .progress-bar {
-  width: 100%;
-  height: 15px;
-  background: #e5e7eb;
-  border-radius: 10px;
-  overflow: hidden;
+  width: 100%; height: 18px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 12px; overflow: hidden;
 }
 .progress-fill {
   height: 100%;
   background: linear-gradient(90deg, var(--primary), var(--success));
-  transition: width 0.5s;
-  border-radius: 10px;
+  transition: width 0.6s ease;
+  border-radius: 12px;
 }
-
-/* الإدخال */
-.input-row { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-.input-row input, .input-row select {
-  flex: 1;
-  min-width: 150px;
-  padding: 12px 15px;
-  border: 2px solid var(--border);
-  border-radius: 10px;
-  font-family: inherit;
-  font-size: 15px;
-  transition: 0.3s;
-}
-.input-row input:focus, .input-row select:focus { outline: none; border-color: var(--primary); }
-
 button {
-  padding: 12px 20px;
-  border: none;
-  background: var(--primary);
-  color: white;
-  border-radius: 10px;
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 15px;
-  font-weight: 600;
-  transition: 0.3s;
+  padding: 12px 22px; border: none;
+  background: var(--primary); color: white;
+  border-radius: 12px; cursor: pointer;
+  font-family: inherit; font-size: 15px;
+  font-weight: 600; transition: all 0.3s;
 }
-button:hover {
-  background: var(--primary-dark);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(79,70,229,0.3);
+button:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 10px 25px rgba(99,102,241,0.3); }
+.input-row { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.input-row input, .input-row select {
+  flex: 1; min-width: 150px;
+  padding: 14px 18px;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  font-family: inherit; font-size: 15px;
+  background: var(--bg-card); color: var(--text-color);
 }
-
-/* المهام */
+.input-row input:focus, .input-row select:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 4px rgba(99,102,241,0.1); }
 .task-card {
   background: var(--bg-card);
-  padding: 15px 20px;
-  margin: 10px 0;
-  border-radius: 12px;
+  padding: 18px 22px; margin: 12px 0;
+  border-radius: 14px;
   border-right: 5px solid var(--primary);
-  display: flex;
-  justify-content: space-between;
+  display: flex; justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: 0.3s;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  transition: all 0.3s;
 }
-.task-card:hover { transform: translateX(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
-.task-card.done { opacity: 0.6; text-decoration: line-through; border-right-color: var(--success); }
+.task-card:hover { transform: translateX(-6px); }
+.task-card.done { opacity: 0.55; text-decoration: line-through; border-right-color: var(--success); }
 .task-card[data-priority="high"] { border-right-color: var(--danger); }
 .task-card[data-priority="medium"] { border-right-color: var(--warning); }
 .task-actions { display: flex; gap: 8px; }
-.task-actions button { width: 35px; height: 35px; padding: 0; border-radius: 50%; font-size: 14px; }
+.task-actions button { width: 38px; height: 38px; padding: 0; border-radius: 50%; font-size: 15px; }
 .task-actions .btn-done { background: var(--success); }
 .task-actions .btn-del { background: var(--danger); }
-
-/* ===== قسم المؤقت المتقدم (Flocus + StudiesTimer) ===== */
 #pomodoro.card {
   background: var(--timer-bg);
   color: var(--timer-text);
-  position: relative;
-  overflow: hidden;
-  transition: all 0.8s ease;
+  position: relative; overflow: hidden;
+  transition: all 0.6s ease;
 }
-#pomodoro h2 { color: var(--timer-text); border-right-color: rgba(255,255,255,0.5); }
-
+#pomodoro h2 { color: var(--timer-text); border-right-color: rgba(255,255,255,0.4); }
 .timer-mode-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 25px;
+  display: flex; justify-content: center;
+  gap: 10px; flex-wrap: wrap; margin-bottom: 30px;
 }
 .timer-mode-tabs button {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
   color: var(--timer-text);
-  padding: 10px 20px;
-  border-radius: 30px;
-  font-size: 14px;
-  backdrop-filter: blur(10px);
+  padding: 12px 24px; border-radius: 30px;
+  font-size: 14px; backdrop-filter: blur(10px);
+  border: 2px solid transparent;
 }
 .timer-mode-tabs button.active {
-  background: rgba(255,255,255,0.9);
-  color: #1e293b;
-  font-weight: 700;
+  background: rgba(255,255,255,0.95);
+  color: #1e293b; font-weight: 700;
+  border-color: white;
 }
-
+.timer-mode-tabs button:hover { background: rgba(255,255,255,0.25); }
+.timer-circle-wrapper {
+  position: relative;
+  width: 320px; height: 320px;
+  margin: 20px auto;
+  display: flex; align-items: center;
+  justify-content: center;
+}
+.timer-circle-svg {
+  position: absolute; width: 100%; height: 100%;
+  transform: rotate(-90deg);
+}
+.timer-circle-svg circle {
+  fill: none; stroke-width: 8;
+  stroke-linecap: round;
+}
+.timer-circle-bg { stroke: rgba(255,255,255,0.15); }
+.timer-circle-progress {
+  stroke: var(--timer-text);
+  stroke-dasharray: 880;
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1s linear;
+  filter: drop-shadow(0 0 8px rgba(255,255,255,0.6));
+}
 .pomodoro-display {
-  font-size: 110px;
-  font-weight: 900;
-  text-align: center;
+  font-size: 72px; font-weight: 900;
   color: var(--timer-text);
-  font-family: monospace;
-  margin: 20px 0;
-  text-shadow: 0 8px 30px rgba(0,0,0,0.3);
-  letter-spacing: 5px;
-  transition: 0.3s;
+  font-family: 'Courier New', monospace;
+  letter-spacing: 3px;
+  text-shadow: 0 6px 25px rgba(0,0,0,0.3);
+  position: relative; z-index: 2;
 }
-
 .timer-status {
-  text-align: center;
-  font-size: 16px;
-  opacity: 0.9;
-  margin-bottom: 15px;
+  text-align: center; font-size: 16px;
+  opacity: 0.92; margin: 12px 0 20px;
   font-style: italic;
 }
-
-.pomodoro-controls,
-.mode-switch {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin: 15px 0;
+.pomodoro-controls {
+  display: flex; justify-content: center;
+  gap: 12px; flex-wrap: wrap; margin: 20px 0;
 }
 .pomodoro-controls button {
-  background: rgba(255,255,255,0.2);
+  background: rgba(255,255,255,0.18);
   backdrop-filter: blur(10px);
   color: var(--timer-text);
-  padding: 15px 30px;
-  font-size: 16px;
+  padding: 16px 32px; font-size: 16px;
   border: 2px solid rgba(255,255,255,0.3);
+  border-radius: 16px; font-weight: 700;
 }
-.pomodoro-controls button:hover {
-  background: rgba(255,255,255,0.35);
-  transform: scale(1.05);
-}
+.pomodoro-controls button:hover { background: rgba(255,255,255,0.35); transform: translateY(-3px); }
 .pomodoro-controls button.primary {
-  background: rgba(255,255,255,0.95);
-  color: #1e293b;
-  font-weight: 700;
+  background: rgba(255,255,255,0.98);
+  color: #1e293b; font-weight: 800;
+}
+.mode-switch {
+  display: flex; justify-content: center;
+  gap: 10px; flex-wrap: wrap; margin: 15px 0;
 }
 .mode-switch button {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
   color: var(--timer-text);
+  padding: 10px 18px; font-size: 13px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.2);
 }
-.mode-switch button:hover { background: rgba(255,255,255,0.3); }
-
-/* لوحة تحكم الخلفية */
-.timer-theme-panel {
-  margin-top: 25px;
-  padding: 20px;
-  background: rgba(0,0,0,0.2);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
+.mode-switch button:hover { background: rgba(255,255,255,0.28); }
+.timer-theme-panel, .ambient-sounds {
+  margin-top: 30px; padding: 24px;
+  background: rgba(0,0,0,0.22);
+  border-radius: 18px;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.1);
 }
-.timer-theme-panel h4 {
+.timer-theme-panel h4, .ambient-sounds h4 {
   color: var(--timer-text);
-  margin-bottom: 15px;
-  font-size: 16px;
-  text-align: center;
+  margin-bottom: 16px; font-size: 15px;
+  text-align: center; font-weight: 600;
 }
 .timer-theme-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
-  gap: 10px;
-  margin-bottom: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(65px, 1fr));
+  gap: 12px; margin-bottom: 25px;
 }
 .theme-swatch {
-  height: 50px;
-  border-radius: 10px;
-  cursor: pointer;
-  border: 3px solid transparent;
-  transition: 0.3s;
-  position: relative;
+  height: 52px; border-radius: 12px;
+  cursor: pointer; border: 3px solid transparent;
+  transition: all 0.3s; position: relative;
 }
-.theme-swatch:hover {
-  transform: scale(1.1);
-  border-color: rgba(255,255,255,0.8);
-}
-.theme-swatch.active {
-  border-color: white;
-  box-shadow: 0 0 20px rgba(255,255,255,0.6);
-}
+.theme-swatch:hover { transform: scale(1.12); border-color: rgba(255,255,255,0.7); }
+.theme-swatch.active { border-color: white; box-shadow: 0 0 25px rgba(255,255,255,0.5); transform: scale(1.08); }
 .theme-swatch::after {
   content: attr(data-label);
-  position: absolute;
-  bottom: -18px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 10px;
-  color: var(--timer-text);
-  white-space: nowrap;
-  opacity: 0.8;
+  position: absolute; bottom: -20px;
+  left: 50%; transform: translateX(-50%);
+  font-size: 10px; color: var(--timer-text);
+  white-space: nowrap; opacity: 0.85;
 }
-
-/* إعدادات الألوان المتقدمة */
 .color-controls {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-  margin-top: 20px;
+  display: flex; flex-wrap: wrap;
+  gap: 20px; justify-content: center;
+  margin-top: 15px;
 }
 .color-control-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 5px;
-  color: var(--timer-text);
-  font-size: 12px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 8px;
+  color: var(--timer-text); font-size: 12px;
+  font-weight: 600;
 }
 .color-control-item input[type="color"] {
-  width: 45px;
-  height: 45px;
+  width: 52px; height: 52px;
   border: 3px solid rgba(255,255,255,0.5);
-  border-radius: 50%;
-  cursor: pointer;
-  background: transparent;
-  padding: 0;
+  border-radius: 50%; cursor: pointer;
+  background: transparent; padding: 0;
 }
 .color-control-item input[type="color"]::-webkit-color-swatch-wrapper { padding: 0; }
 .color-control-item input[type="color"]::-webkit-color-swatch { border: none; border-radius: 50%; }
-
-/* قسم الأصوات المحيطة */
-.ambient-sounds {
-  margin-top: 25px;
-  padding: 20px;
-  background: rgba(0,0,0,0.2);
-  border-radius: 15px;
-  backdrop-filter: blur(10px);
-}
-.ambient-sounds h4 {
-  color: var(--timer-text);
-  margin-bottom: 15px;
-  font-size: 16px;
-  text-align: center;
+.color-control-item button {
+  padding: 10px 16px; font-size: 12px;
+  background: rgba(255,255,255,0.9);
+  color: #1e293b;
 }
 .sound-toggles {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
   gap: 10px;
 }
 .sound-toggle {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.12);
   color: var(--timer-text);
-  padding: 12px;
-  border-radius: 12px;
+  padding: 14px 10px; border-radius: 14px;
   border: 2px solid transparent;
-  cursor: pointer;
-  font-size: 13px;
-  text-align: center;
-  transition: 0.3s;
+  cursor: pointer; font-size: 13px;
+  font-weight: 600;
 }
 .sound-toggle:hover { background: rgba(255,255,255,0.25); }
 .sound-toggle.active {
-  background: rgba(255,255,255,0.9);
-  color: #1e293b;
-  border-color: #fff;
-  font-weight: 700;
+  background: rgba(255,255,255,0.95);
+  color: #1e293b; border-color: white;
+  font-weight: 800;
 }
-
-/* Volume sliders */
-.volume-control {
-  margin-top: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+.volume-control { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; }
 .volume-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  color: var(--timer-text);
-  font-size: 13px;
+  display: flex; align-items: center;
+  gap: 12px; color: var(--timer-text);
+  font-size: 13px; font-weight: 600;
 }
-.volume-item input[type="range"] {
-  flex: 1;
-  accent-color: white;
+.volume-item input[type="range"] { flex: 1; accent-color: white; }
+.volume-item button {
+  background: rgba(255,255,255,0.95);
+  color: #1e293b; padding: 10px 18px;
+  font-size: 13px; font-weight: 700;
 }
-
-/* GPA */
 #coursesList { margin-bottom: 15px; }
-.course-row { display: grid; grid-template-columns: 2fr 1fr 1fr 50px; gap: 10px; margin-bottom: 10px; }
-.course-row input, .course-row select {
-  padding: 10px;
-  border: 2px solid var(--border);
-  border-radius: 8px;
-  font-family: inherit;
+.course-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 50px;
+  gap: 10px; margin-bottom: 12px;
 }
-.course-row button { background: var(--danger); padding: 0; width: 50px; }
+.course-row input, .course-row select {
+  padding: 12px; border: 2px solid var(--border);
+  border-radius: 10px; font-family: inherit;
+  background: var(--bg-card); color: var(--text-color);
+}
+.course-row button { background: var(--danger); padding: 0; width: 50px; border-radius: 10px; }
 .gpa-result {
-  margin-top: 20px;
-  padding: 20px;
+  margin-top: 20px; padding: 24px;
   background: linear-gradient(135deg, var(--success), #059669);
-  color: white;
-  border-radius: 12px;
-  font-size: 24px;
-  font-weight: bold;
+  color: white; border-radius: 16px;
+  font-size: 26px; font-weight: 900;
   text-align: center;
 }
-
-/* البطاقات */
-.fc-input { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.fc-input { display: flex; gap: 12px; margin-bottom: 22px; flex-wrap: wrap; }
 .fc-input input {
-  flex: 1;
-  min-width: 150px;
-  padding: 12px;
+  flex: 1; min-width: 150px;
+  padding: 14px 18px;
   border: 2px solid var(--border);
-  border-radius: 10px;
+  border-radius: 14px;
   font-family: inherit;
+  background: var(--bg-card); color: var(--text-color);
 }
 .flashcard-display {
-  background: linear-gradient(135deg, var(--primary), #7c3aed);
-  color: white;
-  padding: 60px 20px;
-  border-radius: 15px;
-  text-align: center;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  margin: 15px 0;
-  min-height: 150px;
-  display: flex;
-  align-items: center;
+  background: linear-gradient(135deg, var(--primary), #8b5cf6);
+  color: white; padding: 70px 25px;
+  border-radius: 20px; text-align: center;
+  font-size: 24px; font-weight: 700;
+  cursor: pointer; margin: 18px 0;
+  min-height: 180px;
+  display: flex; align-items: center;
   justify-content: center;
-  transition: 0.4s;
-  box-shadow: 0 10px 30px rgba(79,70,229,0.3);
+  transition: all 0.4s;
 }
-.flashcard-display:hover { transform: scale(1.02); }
-
-/* الملاحظات */
+.flashcard-display:hover { transform: translateY(-4px) scale(1.01); }
 #notesArea {
-  width: 100%;
-  min-height: 200px;
-  padding: 15px;
-  border: 2px solid var(--border);
-  border-radius: 12px;
-  font-family: inherit;
-  font-size: 15px;
-  resize: vertical;
+  width: 100%; min-height: 220px;
+  padding: 18px; border: 2px solid var(--border);
+  border-radius: 14px; font-family: inherit;
+  font-size: 15px; resize: vertical;
   margin-bottom: 15px;
+  background: var(--bg-card); color: var(--text-color);
+  line-height: 1.8;
 }
-
-/* دليل الطالب */
 .guide-tabs {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: 22px;
   border-bottom: 2px solid var(--border);
   padding-bottom: 15px;
 }
 .guide-tabs button {
-  background: #f1f5f9;
-  color: var(--dark);
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-size: 14px;
+  background: rgba(99,102,241,0.08);
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 30px; font-size: 14px;
+  font-weight: 600;
 }
 .guide-tabs button.active { background: var(--primary); color: white; }
-
 .guide-content { display: none; }
-.guide-content.active { display: block; animation: fadeIn 0.5s; }
-
+.guide-content.active { display: block; animation: fadeIn 0.4s; }
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 .guide-card {
-  background: rgba(79,70,229,0.05);
-  padding: 20px;
-  border-radius: 15px;
+  background: rgba(99,102,241,0.05);
+  padding: 22px; border-radius: 16px;
   margin-bottom: 15px;
   border-right: 4px solid var(--primary);
 }
-.guide-card h3 { color: var(--primary); margin-bottom: 12px; font-size: 18px; }
+.guide-card h3 { color: var(--primary); margin-bottom: 14px; font-size: 18px; font-weight: 700; }
 .guide-tip {
   background: var(--bg-card);
-  padding: 12px 15px;
-  border-radius: 10px;
-  margin: 8px 0;
+  padding: 14px 18px; border-radius: 12px;
+  margin: 10px 0;
   border-right: 3px solid var(--warning);
   font-size: 14px;
 }
 .guide-list { list-style: none; padding: 0; }
 .guide-list li {
-  padding: 10px 15px;
-  margin: 8px 0;
-  background: var(--bg-card);
-  border-radius: 10px;
+  padding: 12px 18px; margin: 10px 0;
+  background: var(--bg-card); border-radius: 12px;
   border-right: 3px solid var(--success);
   font-size: 15px;
 }
-.technique-badge {
-  display: inline-block;
-  padding: 5px 12px;
-  background: var(--primary);
-  color: white;
-  border-radius: 20px;
-  font-size: 12px;
-  margin: 5px 5px 5px 0;
-}
-
-/* لوحة المتصدرين */
-.leaderboard {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
+.leaderboard { display: flex; flex-direction: column; gap: 12px; }
 .leader-row {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  padding: 15px;
-  background: rgba(79,70,229,0.05);
-  border-radius: 12px;
-  transition: 0.3s;
+  display: flex; align-items: center;
+  gap: 18px; padding: 18px;
+  background: rgba(99,102,241,0.05);
+  border-radius: 14px; transition: all 0.3s;
 }
-.leader-row:hover { background: rgba(79,70,229,0.1); }
+.leader-row:hover { transform: translateX(-5px); }
 .leader-row.top1 { background: linear-gradient(135deg, #fbbf24, #f59e0b); color: white; }
 .leader-row.top2 { background: linear-gradient(135deg, #cbd5e1, #94a3b8); color: white; }
 .leader-row.top3 { background: linear-gradient(135deg, #fb923c, #ea580c); color: white; }
-.leader-rank { font-size: 24px; font-weight: 900; width: 40px; }
-.leader-name { flex: 1; font-weight: 600; }
-.leader-hours { font-family: monospace; font-weight: 700; }
-
-/* الجدول */
-.schedule-table { width: 100%; border-collapse: collapse; overflow-x: auto; display: block; }
+.leader-rank { font-size: 26px; font-weight: 900; width: 50px; text-align: center; }
+.leader-name { flex: 1; font-weight: 700; font-size: 16px; }
+.leader-hours { font-family: 'Courier New', monospace; font-weight: 800; }
+.schedule-table { width: 100%; border-collapse: collapse; display: block; overflow-x: auto; }
 .schedule-table th, .schedule-table td {
-  border: 1px solid var(--border);
-  padding: 12px;
-  text-align: center;
-  min-width: 120px;
+  border: 2px solid var(--border);
+  padding: 14px; text-align: center;
+  min-width: 130px; background: var(--bg-card);
 }
-.schedule-table th { background: var(--primary); color: white; }
-.schedule-table td[contenteditable]:focus { background: #fef3c7; outline: none; }
-
-/* الإشعار */
+.schedule-table th { background: var(--primary); color: white; font-weight: 700; }
+.schedule-table td[contenteditable]:focus {
+  background: rgba(245,158,11,0.1);
+  outline: 2px solid var(--warning);
+}
 .notification {
-  position: fixed;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%) translateY(-100px);
-  background: var(--success);
-  color: white;
-  padding: 15px 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: fixed; top: 90px; left: 50%;
+  transform: translateX(-50%) translateY(-120px);
+  background: var(--success); color: white;
+  padding: 16px 32px; border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
   z-index: 10000;
-  transition: 0.5s;
-  font-weight: 600;
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  font-weight: 700; font-size: 15px;
 }
 .notification.show { transform: translateX(-50%) translateY(0); }
-
-/* الفوتر */
 .enhanced-footer {
   background: var(--dark);
-  color: white;
-  padding: 40px 20px;
-  text-align: center;
-  margin-top: 50px;
-  border-radius: 25px 25px 0 0;
+  color: white; padding: 45px 20px;
+  text-align: center; margin-top: 60px;
+  border-radius: 30px 30px 0 0;
 }
-.enhanced-footer p { margin: 5px 0; opacity: 0.8; }
-
-/* الجوال */
+.enhanced-footer p { margin: 6px 0; opacity: 0.85; }
 @media (max-width: 768px) {
-  .quick-sidebar { right: 5px; gap: 5px; }
-  .quick-sidebar button { width: 38px; height: 38px; font-size: 15px; }
-  .hero h1 { font-size: 22px; }
-  .pomodoro-display { font-size: 65px; letter-spacing: 2px; }
+  .quick-sidebar { right: 8px; gap: 6px; }
+  .quick-sidebar button { width: 40px; height: 40px; font-size: 16px; }
+  .hero h1 { font-size: 24px; }
+  .timer-circle-wrapper { width: 260px; height: 260px; }
+  .pomodoro-display { font-size: 54px; }
   .course-row { grid-template-columns: 1fr 1fr; }
   .topbar { padding: 12px 15px; }
-  .logo { font-size: 16px; }
-  .floating-timer { bottom: 10px; left: 10px; padding: 8px 12px; }
-  .floating-timer span { font-size: 16px; }
+  .logo { font-size: 17px; }
+  .floating-timer { bottom: 12px; left: 12px; padding: 8px 12px; }
+  .floating-timer span { font-size: 18px; min-width: 60px; }
   .timer-mode-tabs button { padding: 8px 14px; font-size: 12px; }
+  .pomodoro-controls button { padding: 12px 20px; font-size: 14px; }
+  .card { padding: 20px; border-radius: 18px; }
+  .card h2 { font-size: 19px; }
+  .stat-box h3 { font-size: 28px; }
 }
 </style>
 </head>
 <body class="theme-default">
 
-<!-- الشريط العلوي -->
 <header class="topbar">
-  <div class="logo">🎓 Student OS <span>PRO v6.0</span></div>
+  <div class="logo">🎓 Student OS <span>PRO v7.0</span></div>
   <div class="topbar-actions">
-    <button onclick="toggleDarkMode()" title="الوضع الليلي">🌙</button>
+    <button onclick="toggleDarkMode()" title="الثيمات">🌙</button>
     <button onclick="showQuote()" title="اقتباس">💡</button>
     <button onclick="exportData()" title="تصدير">💾</button>
     <button onclick="document.getElementById('importFile').click()" title="استيراد">📥</button>
@@ -738,7 +552,6 @@ button:hover {
   </div>
 </header>
 
-<!-- الشريط الجانبي -->
 <aside class="quick-sidebar">
   <button onclick="scrollToSection('dashboard')" title="الرئيسية">🏠</button>
   <button onclick="scrollToSection('tasks')" title="المهام">📝</button>
@@ -750,7 +563,6 @@ button:hover {
   <button onclick="window.scrollTo({top:0,behavior:'smooth'})" title="للأعلى">⬆️</button>
 </aside>
 
-<!-- المؤقت العائم -->
 <div class="floating-timer">
   <span id="pomodoroDisplay">25:00</span>
   <button onclick="pomodoro.start()">▶</button>
@@ -758,7 +570,6 @@ button:hover {
   <button onclick="pomodoro.reset()">🔄</button>
 </div>
 
-<!-- الرئيسية -->
 <section id="dashboard" class="hero">
   <h1>مرحباً بك مجدداً أحمد 👋</h1>
   <div class="quote-box" id="quoteBox">"النجاح ليس تصادفاً، بل هو عمل جاد."</div>
@@ -775,41 +586,36 @@ button:hover {
   </div>
 </section>
 
-<!-- ==================== المؤقت المتقدم ==================== -->
 <section id="pomodoro" class="card">
   <h2>⏱️ المؤقت الذكي المتقدم</h2>
-
-  <!-- أوضاع المؤقت -->
   <div class="timer-mode-tabs">
     <button class="active" onclick="setTimerMode('pomodoro', this)">🍅 بومودورو</button>
     <button onclick="setTimerMode('countdown', this)">⏳ عدّ تنازلي</button>
     <button onclick="setTimerMode('stopwatch', this)">⏱️ ساعة إيقاف</button>
   </div>
-
-  <div class="pomodoro-display" id="bigPomodoro">25:00</div>
+  <div class="timer-circle-wrapper">
+    <svg class="timer-circle-svg" viewBox="0 0 300 300">
+      <circle class="timer-circle-bg" cx="150" cy="150" r="140"></circle>
+      <circle class="timer-circle-progress" id="circleProgress" cx="150" cy="150" r="140"></circle>
+    </svg>
+    <div class="pomodoro-display" id="bigPomodoro">25:00</div>
+  </div>
   <div class="timer-status" id="timerStatus">جاهز للبدء</div>
-
   <div class="pomodoro-controls">
     <button onclick="pomodoro.start()" class="primary">▶ ابدأ</button>
     <button onclick="pomodoro.pause()">⏸ إيقاف</button>
     <button onclick="pomodoro.reset()">🔄 إعادة</button>
     <button onclick="pomodoro.skip()">⏭ تخطي</button>
   </div>
-
   <div class="mode-switch">
     <button onclick="setPomodoroMode(25)">تركيز 25د</button>
     <button onclick="setPomodoroMode(5)">راحة 5د</button>
     <button onclick="setPomodoroMode(15)">راحة طويلة 15د</button>
     <button onclick="setPomodoroMode(50)">عميق 50د</button>
   </div>
-
-  <!-- لوحة تحكم ثيمات المؤقت -->
   <div class="timer-theme-panel">
     <h4>🎨 اختر ثيم خلفية المؤقت</h4>
-    <div class="timer-theme-grid" id="themeGrid">
-      <!-- ستتم إضافتها بـ JS -->
-    </div>
-
+    <div class="timer-theme-grid" id="themeGrid"></div>
     <h4>🎨 تخصيص الألوان</h4>
     <div class="color-controls">
       <div class="color-control-item">
@@ -825,12 +631,10 @@ button:hover {
         <label>التمييز</label>
       </div>
       <div class="color-control-item">
-        <button onclick="resetTimerColors()" style="padding:8px 12px;font-size:12px">🔄 افتراضي</button>
+        <button onclick="resetTimerColors()">🔄 افتراضي</button>
       </div>
     </div>
   </div>
-
-  <!-- الأصوات المحيطة القابلة للدمج -->
   <div class="ambient-sounds">
     <h4>🎵 الأصوات المحيطة (قابلة للدمج)</h4>
     <div class="sound-toggles">
@@ -845,23 +649,21 @@ button:hover {
     </div>
     <div class="volume-control">
       <div class="volume-item">
-        <label>🔊 مستوى الصوت:</label>
+        <label>🔊 الصوت:</label>
         <input type="range" id="volumeSlider" min="0" max="100" value="30" oninput="updateVolume(this.value)">
         <span id="volumeValue">30%</span>
       </div>
-      <button onclick="stopAllSounds()" style="background:rgba(255,255,255,0.9);color:#1e293b;font-weight:700">⏹️ إيقاف كل الأصوات</button>
+      <button onclick="stopAllSounds()" style="background:rgba(255,255,255,0.9);color:#1e293b">⏹️ إيقاف الكل</button>
     </div>
   </div>
 </section>
 
-<!-- لوحة المتصدرين -->
 <section id="leaderboard" class="card">
   <h2>🏆 لوحة المتصدرين</h2>
   <p style="text-align:center;color:#64748b;margin-bottom:15px">ترتيب أفضل الطلاب حسب ساعات الدراسة</p>
   <div class="leaderboard" id="leaderboardList"></div>
 </section>
 
-<!-- المهام -->
 <section id="tasks" class="card">
   <h2>📝 قائمة المهام الدراسية</h2>
   <div class="input-row">
@@ -876,7 +678,6 @@ button:hover {
   <div id="taskList"></div>
 </section>
 
-<!-- دليل الطالب -->
 <section id="guide" class="card">
   <h2>📚 دليل الطالب الشامل</h2>
   <div class="guide-tabs">
@@ -889,7 +690,7 @@ button:hover {
 
   <div id="guide-study" class="guide-content active">
     <div class="guide-card">
-      <h3>🎯 تقنية Feynman (فاينمان)</h3>
+      <h3>🎯 تقنية Feynman</h3>
       <ul class="guide-list">
         <li>1️⃣ اختر المفهوم واكتبه</li>
         <li>2️⃣ اشرحه بكلماتك البسيطة</li>
@@ -1005,7 +806,6 @@ button:hover {
   </div>
 </section>
 
-<!-- GPA -->
 <section id="gpa" class="card">
   <h2>📊 حاسبة المعدل التراكمي</h2>
   <div id="coursesList"></div>
@@ -1014,7 +814,6 @@ button:hover {
   <div class="gpa-result" id="gpaResult">المعدل: 0.00</div>
 </section>
 
-<!-- البطاقات -->
 <section id="flashcards" class="card">
   <h2>🃏 البطاقات الذكية</h2>
   <div class="fc-input">
@@ -1028,14 +827,12 @@ button:hover {
   <button onclick="showRandomCard()">🎲 بطاقة عشوائية</button>
 </section>
 
-<!-- الملاحظات -->
 <section id="notes" class="card">
   <h2>📒 الملاحظات والملخصات</h2>
   <textarea id="notesArea" placeholder="اكتب ملاحظاتك هنا..." oninput="saveNotes()"></textarea>
   <button onclick="clearNotes()">🗑️ مسح</button>
 </section>
 
-<!-- الجدول -->
 <section class="card">
   <h2>📅 الجدول الدراسي الأسبوعي</h2>
   <table class="schedule-table">
@@ -1052,24 +849,18 @@ button:hover {
   </table>
 </section>
 
-<!-- الفوتر -->
 <footer class="enhanced-footer">
-  <p>🎓 Student OS PRO v6.0 — صُنع بحب لأحمد</p>
+  <p>🎓 Student OS PRO v7.0 — صُنع بحب لأحمد</p>
   <p>© 2026 جميع الحقوق محفوظة</p>
 </footer>
 
 <script>
-/* ============================================
-   STUDENT OS PRO v6.0 - الكود الكامل
-   ============================================ */
-
 let tasks = JSON.parse(localStorage.getItem('tasks') || '[]');
 let sessions = JSON.parse(localStorage.getItem('sessions') || '[]');
 let flashcards = JSON.parse(localStorage.getItem('flashcards') || '[]');
 let streak = parseInt(localStorage.getItem('streak') || '0');
 let currentCard = null;
 
-/* ===== الإشعارات ===== */
 function notify(message, type = 'success') {
   const n = document.createElement('div');
   n.className = 'notification';
@@ -1084,28 +875,21 @@ function notify(message, type = 'success') {
   }, 2500);
 }
 
-/* ===== التمرير ===== */
 function scrollToSection(id) {
   document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
 }
 
-/* ===== الوضع الليلي ===== */
+const allThemes = ['default', 'dark', 'sunset', 'ocean', 'forest', 'sakura'];
 function toggleDarkMode() {
-  const current = document.body.className;
-  if (current.includes('theme-dark')) {
-    document.body.className = 'theme-default';
-    localStorage.setItem('theme', 'default');
-    notify('☀️ الوضع النهاري');
-  } else {
-    document.body.className = 'theme-dark';
-    localStorage.setItem('theme', 'dark');
-    notify('🌙 الوضع الليلي');
-  }
+  const current = document.body.className.replace('theme-', '');
+  const idx = allThemes.indexOf(current);
+  const next = allThemes[(idx + 1) % allThemes.length];
+  document.body.className = 'theme-' + next;
+  localStorage.setItem('theme', next);
+  notify('🎨 الثيم: ' + next);
 }
-const savedTheme = localStorage.getItem('theme') || 'default';
-document.body.className = 'theme-' + savedTheme;
+document.body.className = 'theme-' + (localStorage.getItem('theme') || 'default');
 
-/* ===== الاقتباسات ===== */
 const quotes = [
   "النجاح ليس تصادفاً، بل هو عمل جاد.",
   "لا تؤجل عمل اليوم إلى الغد.",
@@ -1118,16 +902,12 @@ const quotes = [
   "ابدأ الآن، لا غداً.",
   "الفشل بداية النجاح."
 ];
-
 function showQuote() {
   const q = quotes[Math.floor(Math.random() * quotes.length)];
-  document.getElementById('quoteBox').textContent = `"${q}"`;
+  document.getElementById('quoteBox').textContent = '"' + q + '"';
   notify('💡 ' + q);
 }
 
-/* ============================================
-   🎨 المؤقت المتقدم - الثيمات والتخصيص
-   ============================================ */
 const timerThemes = [
   { name: 'بنفسجي', bg: 'linear-gradient(135deg, #667eea, #764ba2)', text: '#ffffff' },
   { name: 'غروب', bg: 'linear-gradient(135deg, #ff9a9e, #fecfef)', text: '#831843' },
@@ -1138,18 +918,16 @@ const timerThemes = [
   { name: 'مروج', bg: 'linear-gradient(135deg, #a8edea, #fed6e3)', text: '#064e3b' },
   { name: 'ذهبي', bg: 'linear-gradient(135deg, #f7971e, #ffd200)', text: '#7c2d12' },
   { name: 'وردي', bg: 'linear-gradient(135deg, #ee9ca7, #ffdde1)', text: '#831843' },
-  { name: 'أزرق داكن', bg: 'linear-gradient(135deg, #0f2027, #203a43, #2c5364)', text: '#ffffff' },
+  { name: 'ليل داكن', bg: 'linear-gradient(135deg, #0f2027, #203a43, #2c5364)', text: '#ffffff' },
   { name: 'ليموني', bg: 'linear-gradient(135deg, #a8e063, #56ab2f)', text: '#1a2e05' },
   { name: 'أرجواني', bg: 'linear-gradient(135deg, #6a11cb, #2575fc)', text: '#ffffff' }
 ];
 
 function initTimerThemes() {
   const grid = document.getElementById('themeGrid');
-  grid.innerHTML = timerThemes.map((t, i) => `
-    <div class="theme-swatch" data-label="${t.name}" style="background:${t.bg}" onclick="applyTimerTheme(${i})"></div>
-  `).join('');
-
-  // استرجاع الثيم المحفوظ
+  grid.innerHTML = timerThemes.map((t, i) =>
+    `<div class="theme-swatch" data-label="${t.name}" style="background:${t.bg}" onclick="applyTimerTheme(${i})"></div>`
+  ).join('');
   const saved = localStorage.getItem('timerTheme');
   if (saved !== null) applyTimerTheme(parseInt(saved));
   else applyTimerTheme(0);
@@ -1160,91 +938,60 @@ function applyTimerTheme(index) {
   const timerCard = document.getElementById('pomodoro');
   timerCard.style.background = theme.bg;
   timerCard.style.setProperty('--timer-text', theme.text);
-  timerCard.style.setProperty('--timer-bg', theme.bg);
-
-  // تفعيل السواج
   document.querySelectorAll('.theme-swatch').forEach((el, i) => {
     el.classList.toggle('active', i === index);
   });
-
-  // تحديث قيم الألوان
-  const bgColor = extractFirstColor(theme.bg);
+  const match = theme.bg.match(/#[0-9a-fA-F]{6}/);
+  if (match) document.getElementById('timerBgColor').value = match[0];
   document.getElementById('timerTextColor').value = theme.text;
-  document.getElementById('timerBgColor').value = bgColor;
-
   localStorage.setItem('timerTheme', index);
 }
 
-function extractFirstColor(gradient) {
-  const match = gradient.match(/#[0-9a-fA-F]{6}/);
-  return match ? match[0] : '#667eea';
-}
-
 function updateTimerBg(color) {
-  const timerCard = document.getElementById('pomodoro');
-  timerCard.style.background = color;
-  timerCard.style.setProperty('--timer-bg', color);
+  document.getElementById('pomodoro').style.background = color;
   localStorage.setItem('customTimerBg', color);
 }
-
 function updateTimerText(color) {
-  const timerCard = document.getElementById('pomodoro');
-  timerCard.style.setProperty('--timer-text', color);
+  document.getElementById('pomodoro').style.setProperty('--timer-text', color);
   localStorage.setItem('customTimerText', color);
 }
-
 function updateTimerAccent(color) {
   document.documentElement.style.setProperty('--warning', color);
   localStorage.setItem('customAccent', color);
 }
-
 function resetTimerColors() {
-  localStorage.removeItem('customTimerBg');
-  localStorage.removeItem('customTimerText');
-  localStorage.removeItem('customAccent');
-  localStorage.removeItem('timerTheme');
+  ['customTimerBg','customTimerText','customAccent','timerTheme'].forEach(k => localStorage.removeItem(k));
   location.reload();
 }
 
-/* ===== إعدادات الألوان المحفوظة ===== */
 if (localStorage.getItem('customTimerBg')) {
-  const c = localStorage.getItem('customTimerBg');
-  document.getElementById('pomodoro').style.background = c;
-  document.getElementById('timerBgColor').value = c;
+  document.getElementById('pomodoro').style.background = localStorage.getItem('customTimerBg');
 }
 if (localStorage.getItem('customTimerText')) {
-  const c = localStorage.getItem('customTimerText');
-  document.getElementById('pomodoro').style.setProperty('--timer-text', c);
-  document.getElementById('timerTextColor').value = c;
+  document.getElementById('pomodoro').style.setProperty('--timer-text', localStorage.getItem('customTimerText'));
 }
 if (localStorage.getItem('customAccent')) {
   document.documentElement.style.setProperty('--warning', localStorage.getItem('customAccent'));
-  document.getElementById('timerAccentColor').value = localStorage.getItem('customAccent');
 }
 
-/* ============================================
-   🎵 الأصوات المحيطة (Web Audio API)
-   ============================================ */
 let audioCtx = null;
 let activeSounds = {};
 
 function initAudio() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   if (audioCtx.state === 'suspended') audioCtx.resume();
   return audioCtx;
 }
 
-function createNoiseBuffer(ctx, type = 'white') {
-  const bufferSize = 2 * ctx.sampleRate;
-  const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+function createNoiseBuffer(ctx, type) {
+  const size = 2 * ctx.sampleRate;
+  const buffer = ctx.createBuffer(1, size, ctx.sampleRate);
   const data = buffer.getChannelData(0);
   if (type === 'white') {
-    for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
-  } else if (type === 'brown') {
+    for (let i = 0; i < size; i++) data[i] = Math.random() * 2 - 1;
+  } else {
     let last = 0;
-    for (let i = 0; i < bufferSize; i++) {
+    for (let i = 0; i < size; i++) {
       const w = Math.random() * 2 - 1;
       last = (last + 0.02 * w) / 1.02;
       data[i] = last * 3.5;
@@ -1255,105 +1002,74 @@ function createNoiseBuffer(ctx, type = 'white') {
 
 function toggleAmbient(type, btn) {
   if (activeSounds[type]) {
-    // إيقاف
     try { activeSounds[type].stop(); } catch(e) {}
     try { activeSounds[type].disconnect(); } catch(e) {}
     delete activeSounds[type];
     btn.classList.remove('active');
     return;
   }
-
   const ctx = initAudio();
   const vol = (document.getElementById('volumeSlider').value || 30) / 100;
   const gain = ctx.createGain();
   gain.gain.value = vol;
   gain.connect(ctx.destination);
-
   let source = null;
-
   if (type === 'rain') {
-    const buffer = createNoiseBuffer(ctx, 'white');
     source = ctx.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = createNoiseBuffer(ctx, 'white');
     source.loop = true;
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.value = 1200;
-    source.connect(filter);
-    filter.connect(gain);
-  } else if (type === 'fire') {
-    const buffer = createNoiseBuffer(ctx, 'brown');
+    const f = ctx.createBiquadFilter();
+    f.type = 'lowpass'; f.frequency.value = 1200;
+    source.connect(f); f.connect(gain);
+  } else if (type === 'fire' || type === 'brown') {
     source = ctx.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = createNoiseBuffer(ctx, 'brown');
     source.loop = true;
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.value = 500;
-    source.connect(filter);
-    filter.connect(gain);
+    const f = ctx.createBiquadFilter();
+    f.type = 'lowpass'; f.frequency.value = 500;
+    source.connect(f); f.connect(gain);
   } else if (type === 'forest') {
-    const buffer = createNoiseBuffer(ctx, 'white');
     source = ctx.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = createNoiseBuffer(ctx, 'white');
     source.loop = true;
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'bandpass';
-    filter.frequency.value = 800;
-    source.connect(filter);
-    filter.connect(gain);
+    const f = ctx.createBiquadFilter();
+    f.type = 'bandpass'; f.frequency.value = 800;
+    source.connect(f); f.connect(gain);
   } else if (type === 'ocean') {
-    const buffer = createNoiseBuffer(ctx, 'white');
     source = ctx.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = createNoiseBuffer(ctx, 'white');
     source.loop = true;
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.value = 600;
+    const f = ctx.createBiquadFilter();
+    f.type = 'lowpass'; f.frequency.value = 600;
     const lfo = ctx.createOscillator();
     const lfoGain = ctx.createGain();
     lfo.frequency.value = 0.15;
     lfoGain.gain.value = 300;
     lfo.connect(lfoGain);
-    lfoGain.connect(filter.frequency);
+    lfoGain.connect(f.frequency);
     lfo.start();
-    source.connect(filter);
-    filter.connect(gain);
+    source.connect(f); f.connect(gain);
     activeSounds[type + '_lfo'] = lfo;
   } else if (type === 'white') {
-    const buffer = createNoiseBuffer(ctx, 'white');
     source = ctx.createBufferSource();
-    source.buffer = buffer;
-    source.loop = true;
-    source.connect(gain);
-  } else if (type === 'brown') {
-    const buffer = createNoiseBuffer(ctx, 'brown');
-    source = ctx.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = createNoiseBuffer(ctx, 'white');
     source.loop = true;
     source.connect(gain);
   } else if (type === 'cafe') {
-    const buffer = createNoiseBuffer(ctx, 'brown');
     source = ctx.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = createNoiseBuffer(ctx, 'brown');
     source.loop = true;
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'bandpass';
-    filter.frequency.value = 1000;
-    filter.Q.value = 0.5;
-    source.connect(filter);
-    filter.connect(gain);
+    const f = ctx.createBiquadFilter();
+    f.type = 'bandpass'; f.frequency.value = 1000; f.Q.value = 0.5;
+    source.connect(f); f.connect(gain);
   } else if (type === 'birds') {
-    const buffer = createNoiseBuffer(ctx, 'white');
     source = ctx.createBufferSource();
-    source.buffer = buffer;
+    source.buffer = createNoiseBuffer(ctx, 'white');
     source.loop = true;
-    const filter = ctx.createBiquadFilter();
-    filter.type = 'highpass';
-    filter.frequency.value = 2000;
-    source.connect(filter);
-    filter.connect(gain);
+    const f = ctx.createBiquadFilter();
+    f.type = 'highpass'; f.frequency.value = 2000;
+    source.connect(f); f.connect(gain);
   }
-
   if (source) source.start();
   activeSounds[type] = source;
   activeSounds[type + '_gain'] = gain;
@@ -1373,15 +1089,10 @@ function stopAllSounds() {
 function updateVolume(val) {
   document.getElementById('volumeValue').textContent = val + '%';
   Object.keys(activeSounds).forEach(k => {
-    if (k.endsWith('_gain') && activeSounds[k].gain) {
-      activeSounds[k].gain.value = val / 100;
-    }
+    if (k.endsWith('_gain') && activeSounds[k].gain) activeSounds[k].gain.value = val / 100;
   });
 }
 
-/* ============================================
-   ⏱️ المؤقت المتقدم
-   ============================================ */
 let currentMode = 'pomodoro';
 
 class PomodoroTimer {
@@ -1397,9 +1108,8 @@ class PomodoroTimer {
     document.getElementById('timerStatus').textContent = '🔥 جارٍ التركيز...';
     notify('▶ بدأت الجلسة - ركز!');
     this.interval = setInterval(() => {
-      if (currentMode === 'stopwatch') {
-        this.time++;
-      } else {
+      if (currentMode === 'stopwatch') this.time++;
+      else {
         this.time--;
         if (this.time <= 0) return this.complete();
       }
@@ -1410,7 +1120,7 @@ class PomodoroTimer {
     clearInterval(this.interval);
     this.running = false;
     document.getElementById('timerStatus').textContent = '⏸ متوقف مؤقتاً';
-    notify('⏸ تم الإيقاف مؤقتاً', 'warning');
+    notify('⏸ تم الإيقاف', 'warning');
   }
   reset() {
     clearInterval(this.interval);
@@ -1431,7 +1141,7 @@ class PomodoroTimer {
     this.time = minutes * 60;
     this.totalTime = minutes * 60;
     this.update();
-    notify(`⏱️ تم ضبط المؤقت على ${minutes} دقيقة`);
+    notify('⏱️ تم ضبط المؤقت على ' + minutes + ' دقيقة');
   }
   complete() {
     clearInterval(this.interval);
@@ -1440,6 +1150,7 @@ class PomodoroTimer {
     localStorage.setItem('sessions', JSON.stringify(sessions));
     checkStreak();
     updateStats();
+    renderLeaderboard();
     notify('🎉 أكملت الجلسة!');
     playBeep();
     this.time = this.totalTime;
@@ -1447,25 +1158,27 @@ class PomodoroTimer {
     this.update();
   }
   update() {
-    const m = Math.floor(this.time / 60);
-    const s = this.time % 60;
-    const display = `${m.toString().padStart(2,'0')}:${s.toString().padStart(2, '0')}`;
+    const m = Math.floor(Math.abs(this.time) / 60);
+    const s = Math.abs(this.time) % 60;
+    const display = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
     document.getElementById('pomodoroDisplay').textContent = display;
     document.getElementById('bigPomodoro').textContent = display;
+    if (this.totalTime > 0) {
+      const circ = 880;
+      const progress = this.time / this.totalTime;
+      document.getElementById('circleProgress').style.strokeDashoffset = circ * (1 - progress);
+    }
   }
 }
 
 const pomodoro = new PomodoroTimer();
-
 function setPomodoroMode(min) { pomodoro.setMode(min); }
 
 function setTimerMode(mode, btn) {
   currentMode = mode;
   document.querySelectorAll('.timer-mode-tabs button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
-
   if (mode === 'pomodoro') {
-    pomodoro.reset();
     pomodoro.time = 25 * 60;
     pomodoro.totalTime = 25 * 60;
     document.getElementById('timerStatus').textContent = 'جاهز للبدء';
@@ -1474,7 +1187,7 @@ function setTimerMode(mode, btn) {
     if (min) {
       pomodoro.time = parseInt(min) * 60;
       pomodoro.totalTime = parseInt(min) * 60;
-      document.getElementById('timerStatus').textContent = `⏳ عدّ تنازلي ${min} دقيقة`;
+      document.getElementById('timerStatus').textContent = '⏳ عدّ تنازلي ' + min + ' دقيقة';
     }
   } else if (mode === 'stopwatch') {
     pomodoro.time = 0;
@@ -1484,14 +1197,12 @@ function setTimerMode(mode, btn) {
   pomodoro.update();
 }
 
-/* صوت التنبيه */
 function playBeep() {
   try {
     const ctx = new (window.AudioContext || window.webkitAudioContext)();
     const osc = ctx.createOscillator();
     const gain = ctx.createGain();
-    osc.connect(gain);
-    gain.connect(ctx.destination);
+    osc.connect(gain); gain.connect(ctx.destination);
     osc.frequency.value = 800;
     osc.type = 'sine';
     gain.gain.setValueAtTime(0.3, ctx.currentTime);
@@ -1501,7 +1212,6 @@ function playBeep() {
   } catch (e) {}
 }
 
-/* ===== المهام ===== */
 function addTask() {
   const input = document.getElementById('taskInput');
   const priority = document.getElementById('taskPriority').value;
@@ -1513,7 +1223,6 @@ function addTask() {
   renderTasks();
   notify('✅ تمت إضافة المهمة');
 }
-
 function toggleTask(id) {
   const t = tasks.find(x => x.id === id);
   if (t) {
@@ -1523,16 +1232,13 @@ function toggleTask(id) {
     renderTasks();
   }
 }
-
 function deleteTask(id) {
   tasks = tasks.filter(x => x.id !== id);
   saveTasks();
   renderTasks();
   notify('🗑️ تم حذف المهمة');
 }
-
 function saveTasks() { localStorage.setItem('tasks', JSON.stringify(tasks)); }
-
 function renderTasks() {
   const list = document.getElementById('taskList');
   if (!list) return;
@@ -1551,8 +1257,6 @@ function renderTasks() {
   }
   updateStats();
 }
-
-/* ===== الإحصائيات ===== */
 function updateStats() {
   const completed = tasks.filter(t => t.done).length;
   const hours = (sessions.length * 25 / 60).toFixed(1);
@@ -1564,13 +1268,11 @@ function updateStats() {
   const progress = Math.min((hours / goal) * 100, 100);
   document.getElementById('dailyProgress').style.width = progress + '%';
 }
-
 function setDailyGoal(value) {
   localStorage.setItem('dailyGoal', value);
-  notify(`🎯 الهدف اليومي: ${value} ساعات`);
+  notify('🎯 الهدف اليومي: ' + value + ' ساعات');
   updateStats();
 }
-
 function checkStreak() {
   const today = new Date().toDateString();
   const lastDate = localStorage.getItem('lastStudyDate');
@@ -1583,7 +1285,6 @@ function checkStreak() {
   }
 }
 
-/* ===== لوحة المتصدرين ===== */
 const mockLeaders = [
   { name: 'أنت', hours: 0, isMe: true },
   { name: 'محمد ع.', hours: 42.5 },
@@ -1599,9 +1300,7 @@ function renderLeaderboard() {
   const userHours = parseFloat((sessions.length * 25 / 60).toFixed(1));
   const leaders = mockLeaders.map(l => l.isMe ? { ...l, hours: userHours } : l);
   leaders.sort((a, b) => b.hours - a.hours);
-
-  const list = document.getElementById('leaderboardList');
-  list.innerHTML = leaders.map((l, i) => `
+  document.getElementById('leaderboardList').innerHTML = leaders.map((l, i) => `
     <div class="leader-row ${i < 3 ? 'top' + (i+1) : ''}">
       <span class="leader-rank">${i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : '#' + (i+1)}</span>
       <span class="leader-name">${l.name}${l.isMe ? ' (أنت)' : ''}</span>
@@ -1610,7 +1309,6 @@ function renderLeaderboard() {
   `).join('');
 }
 
-/* ===== دليل الطالب ===== */
 function showGuideTab(tab, btn) {
   document.querySelectorAll('.guide-tabs button').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
@@ -1618,7 +1316,6 @@ function showGuideTab(tab, btn) {
   document.getElementById('guide-' + tab).classList.add('active');
 }
 
-/* ===== GPA ===== */
 function addCourse() {
   const list = document.getElementById('coursesList');
   const row = document.createElement('div');
@@ -1643,7 +1340,6 @@ function addCourse() {
   `;
   list.appendChild(row);
 }
-
 function calculateGPA() {
   const rows = document.querySelectorAll('.course-row');
   if (rows.length === 0) { notify('⚠️ أضف مادة أولاً', 'warning'); return; }
@@ -1657,11 +1353,10 @@ function calculateGPA() {
   });
   const gpa = credits ? (total / credits).toFixed(2) : 0;
   const pct = ((gpa / 4) * 100).toFixed(1);
-  document.getElementById('gpaResult').innerHTML = `المعدل: ${gpa} — النسبة: ${pct}%`;
+  document.getElementById('gpaResult').innerHTML = 'المعدل: ' + gpa + ' — النسبة: ' + pct + '%';
   notify('🧮 تم حساب المعدل');
 }
 
-/* ===== البطاقات ===== */
 function addFlashcard() {
   const front = document.getElementById('fcFront').value.trim();
   const back = document.getElementById('fcBack').value.trim();
@@ -1672,25 +1367,19 @@ function addFlashcard() {
   document.getElementById('fcBack').value = '';
   notify('✅ تمت إضافة البطاقة');
 }
-
 function showRandomCard() {
   if (flashcards.length === 0) { notify('⚠️ لا توجد بطاقات', 'warning'); return; }
   currentCard = flashcards[Math.floor(Math.random() * flashcards.length)];
-  document.getElementById('fcDisplay').innerHTML = `<p>${currentCard.front}</p>`;
+  document.getElementById('fcDisplay').innerHTML = '<p>' + currentCard.front + '</p>';
 }
-
 function flipCard() {
   if (!currentCard) { showRandomCard(); return; }
   const display = document.getElementById('fcDisplay');
   const current = display.textContent.trim();
-  if (current === currentCard.front) {
-    display.innerHTML = `<p>${currentCard.back}</p>`;
-  } else {
-    display.innerHTML = `<p>${currentCard.front}</p>`;
-  }
+  if (current === currentCard.front) display.innerHTML = '<p>' + currentCard.back + '</p>';
+  else display.innerHTML = '<p>' + currentCard.front + '</p>';
 }
 
-/* ===== الملاحظات ===== */
 function saveNotes() {
   localStorage.setItem('notes', document.getElementById('notesArea').value);
 }
@@ -1702,7 +1391,6 @@ function clearNotes() {
   }
 }
 
-/* ===== النسخ الاحتياطي ===== */
 function exportData() {
   const data = {
     tasks: localStorage.getItem('tasks'),
@@ -1718,11 +1406,10 @@ function exportData() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = `student-os-backup-${Date.now()}.json`;
+  a.download = 'student-os-backup-' + Date.now() + '.json';
   a.click();
   notify('✅ تم تصدير البيانات');
 }
-
 function importData(file) {
   const reader = new FileReader();
   reader.onload = (e) => {
@@ -1740,7 +1427,6 @@ function importData(file) {
   reader.readAsText(file);
 }
 
-/* ===== التهيئة ===== */
 document.addEventListener('DOMContentLoaded', () => {
   initTimerThemes();
   renderTasks();
