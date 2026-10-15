@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://t8514417-dotcom.github.io/ahmad-student-projikt5/sitemap.xml
