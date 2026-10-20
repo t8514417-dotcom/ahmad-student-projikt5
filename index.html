@@ -33,13 +33,11 @@
   <style>
 /* ===================================================================
    🎓 STUDENT OS PRO v11.0 ULTIMATE — DESIGN SYSTEM & STYLESHEET
-   Crafted with modern 2026 aesthetics: Glassmorphism, Neon Glows & HSL
    =================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&display=swap');
 
 :root {
-  /* Core Color Palette - Cyber Indigo (Default) */
   --primary: #6366f1;
   --primary-hover: #4f46e5;
   --primary-glow: rgba(99, 102, 241, 0.35);
@@ -52,8 +50,6 @@
   --danger: #ef4444;
   --danger-glow: rgba(239, 68, 68, 0.3);
   --info: #0ea5e9;
-
-  /* Surfaces & Backgrounds */
   --bg-base: #090d16;
   --bg-gradient: radial-gradient(circle at 15% 15%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
                       radial-gradient(circle at 85% 75%, rgba(245, 158, 11, 0.1) 0%, transparent 40%),
@@ -63,38 +59,29 @@
   --bg-glass: rgba(15, 23, 42, 0.78);
   --bg-glass-card: rgba(255, 255, 255, 0.04);
   --bg-glass-card-hover: rgba(255, 255, 255, 0.07);
-
-  /* Borders & Dividers */
   --border-glass: rgba(255, 255, 255, 0.09);
   --border-glass-strong: rgba(255, 255, 255, 0.18);
   --border-focus: #6366f1;
-
-  /* Typography */
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --text-sub: #64748b;
   --text-inverse: #090d16;
-
-  /* Radius & Shadows */
   --radius-xs: 8px;
   --radius-sm: 12px;
   --radius-md: 18px;
   --radius-lg: 24px;
   --radius-xl: 32px;
   --radius-full: 9999px;
-
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.25);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.35);
   --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.5);
   --shadow-card: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border-glass);
   --shadow-glow: 0 0 30px var(--primary-glow);
-
   --transition-fast: 0.18s ease;
   --transition-normal: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-bounce: 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ================= THEMES ================= */
 body.theme-midnight {
   --bg-base: #060814;
   --bg-gradient: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.18) 0%, transparent 40%),
@@ -163,7 +150,6 @@ body.theme-light {
   --shadow-card: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 0 0 1px rgba(0, 0, 0, 0.05);
 }
 
-/* ================= BASE RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -190,1442 +176,302 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-base);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-glass-strong);
-  border-radius: 4px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--primary);
-}
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--border-glass-strong); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary); }
 
-/* Focus styles */
-*:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: 3px;
-}
+*:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
 
-/* ================= TYPOGRAPHY & UTILS ================= */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 800;
-  color: var(--text-main);
-  line-height: 1.3;
-}
-
-a {
-  color: var(--primary);
-  text-decoration: none;
-  transition: color var(--transition-fast);
-}
-a:hover {
-  text-decoration: underline;
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  background: none;
-  transition: all var(--transition-normal);
-}
-
+h1, h2, h3, h4, h5, h6 { font-weight: 800; color: var(--text-main); line-height: 1.3; }
+a { color: var(--primary); text-decoration: none; transition: color var(--transition-fast); }
+a:hover { text-decoration: underline; }
+button { font-family: inherit; cursor: pointer; border: none; outline: none; background: none; transition: all var(--transition-normal); }
 input, select, textarea {
-  font-family: inherit;
-  font-size: 14px;
-  color: var(--text-main);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-sm);
-  padding: 12px 16px;
-  outline: none;
-  transition: all var(--transition-normal);
+  font-family: inherit; font-size: 14px; color: var(--text-main);
+  background: var(--bg-surface-elevated); border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm); padding: 12px 16px; outline: none; transition: all var(--transition-normal);
 }
-input:focus, select:focus, textarea:focus {
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px var(--primary-subtle);
-}
+input:focus, select:focus, textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px var(--primary-subtle); }
 
 .gradient-text {
   background: linear-gradient(135deg, var(--text-main) 30%, var(--primary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
 }
-
-.glow-text {
-  text-shadow: 0 0 20px var(--primary-glow);
-}
+.glow-text { text-shadow: 0 0 20px var(--primary-glow); }
 
 .badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  padding: 4px 10px;
-  font-size: 11px;
-  font-weight: 700;
-  border-radius: var(--radius-full);
-  background: var(--primary-subtle);
-  color: var(--primary);
-  border: 1px solid var(--border-glass);
+  display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px;
+  font-size: 11px; font-weight: 700; border-radius: var(--radius-full);
+  background: var(--primary-subtle); color: var(--primary); border: 1px solid var(--border-glass);
 }
-.badge-warning {
-  background: var(--accent-subtle);
-  color: var(--accent);
-}
-.badge-success {
-  background: rgba(16, 185, 129, 0.12);
-  color: var(--success);
-}
-.badge-danger {
-  background: rgba(239, 68, 68, 0.12);
-  color: var(--danger);
-}
+.badge-warning { background: var(--accent-subtle); color: var(--accent); }
+.badge-success { background: rgba(16, 185, 129, 0.12); color: var(--success); }
+.badge-danger { background: rgba(239, 68, 68, 0.12); color: var(--danger); }
 
-/* Glassmorphism Card Style */
 .card {
-  background: var(--bg-glass-card);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg);
-  padding: 28px;
-  box-shadow: var(--shadow-card);
-  transition: all var(--transition-normal);
-  position: relative;
-  overflow: hidden;
-  margin-bottom: 24px;
+  background: var(--bg-glass-card); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 28px;
+  box-shadow: var(--shadow-card); transition: all var(--transition-normal);
+  position: relative; overflow: hidden; margin-bottom: 24px;
 }
-.card:hover {
-  border-color: var(--border-glass-strong);
-  box-shadow: var(--shadow-lg), 0 0 20px rgba(99, 102, 241, 0.08);
-}
-.card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 22px;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-.card-title {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 20px;
-  font-weight: 800;
-}
+.card:hover { border-color: var(--border-glass-strong); box-shadow: var(--shadow-lg), 0 0 20px rgba(99, 102, 241, 0.08); }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 22px; flex-wrap: wrap; gap: 12px; }
+.card-title { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 800; }
 .card-title-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-sm);
-  background: var(--primary-subtle);
-  color: var(--primary);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  border: 1px solid var(--border-glass);
+  width: 40px; height: 40px; border-radius: var(--radius-sm); background: var(--primary-subtle);
+  color: var(--primary); display: flex; align-items: center; justify-content: center;
+  font-size: 20px; border: 1px solid var(--border-glass);
 }
 
-/* Button Variants */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 12px 20px;
-  border-radius: var(--radius-sm);
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-  border: 1px solid transparent;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 20px; border-radius: var(--radius-sm); font-weight: 700; font-size: 14px;
+  cursor: pointer; transition: all var(--transition-normal); border: 1px solid transparent;
 }
-.btn-primary {
-  background: linear-gradient(135deg, var(--primary), var(--primary-hover));
-  color: white;
-  box-shadow: 0 4px 15px var(--primary-glow);
-}
-.btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px var(--primary-glow);
-}
-.btn-primary:active {
-  transform: translateY(0);
-}
-.btn-secondary {
-  background: var(--bg-surface-elevated);
-  color: var(--text-main);
-  border: 1px solid var(--border-glass);
-}
-.btn-secondary:hover {
-  background: var(--bg-glass-card-hover);
-  border-color: var(--border-glass-strong);
-  transform: translateY(-2px);
-}
-.btn-accent {
-  background: linear-gradient(135deg, var(--accent), #d97706);
-  color: white;
-  box-shadow: 0 4px 15px var(--accent-glow);
-}
-.btn-accent:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px var(--accent-glow);
-}
-.btn-danger {
-  background: rgba(239, 68, 68, 0.15);
-  color: var(--danger);
-  border: 1px solid rgba(239, 68, 68, 0.3);
-}
-.btn-danger:hover {
-  background: var(--danger);
-  color: white;
-}
-.btn-icon {
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-}
-.btn-sm {
-  padding: 8px 14px;
-  font-size: 12px;
-  border-radius: var(--radius-xs);
-}
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-hover)); color: white; box-shadow: 0 4px 15px var(--primary-glow); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--primary-glow); }
+.btn-primary:active { transform: translateY(0); }
+.btn-secondary { background: var(--bg-surface-elevated); color: var(--text-main); border: 1px solid var(--border-glass); }
+.btn-secondary:hover { background: var(--bg-glass-card-hover); border-color: var(--border-glass-strong); transform: translateY(-2px); }
+.btn-accent { background: linear-gradient(135deg, var(--accent), #d97706); color: white; box-shadow: 0 4px 15px var(--accent-glow); }
+.btn-accent:hover { transform: translateY(-2px); box-shadow: 0 8px 25px var(--accent-glow); }
+.btn-danger { background: rgba(239, 68, 68, 0.15); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); }
+.btn-danger:hover { background: var(--danger); color: white; }
+.btn-icon { width: 42px; height: 42px; padding: 0; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 18px; }
+.btn-sm { padding: 8px 14px; font-size: 12px; border-radius: var(--radius-xs); }
 
-/* ================= CONTAINER & LAYOUT ================= */
-.app-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
+.app-container { max-width: 1280px; margin: 0 auto; padding: 0 20px; }
 
-/* ================= TOP NAVIGATION BAR ================= */
-.topbar {
-  position: sticky;
-  top: 15px;
-  z-index: 900;
-  margin: 15px auto 25px auto;
-  max-width: 1280px;
-  padding: 0 20px;
-}
+.topbar { position: sticky; top: 15px; z-index: 900; margin: 15px auto 25px auto; max-width: 1280px; padding: 0 20px; }
 .topbar-inner {
-  background: var(--bg-glass);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-xl);
-  padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  background: var(--bg-glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-glass); border-radius: var(--radius-xl); padding: 12px 24px;
+  display: flex; align-items: center; justify-content: space-between;
   box-shadow: var(--shadow-md), 0 0 20px rgba(0, 0, 0, 0.2);
 }
-.logo-area {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  user-select: none;
-}
+.logo-area { display: flex; align-items: center; gap: 12px; cursor: pointer; user-select: none; }
 .logo-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
+  width: 44px; height: 44px; border-radius: 14px;
   background: linear-gradient(135deg, var(--primary), var(--accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  box-shadow: 0 4px 15px var(--primary-glow);
-  animation: pulseLogo 3s infinite ease-in-out;
+  display: flex; align-items: center; justify-content: center; font-size: 24px;
+  box-shadow: 0 4px 15px var(--primary-glow); animation: pulseLogo 3s infinite ease-in-out;
 }
-@keyframes pulseLogo {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); box-shadow: 0 6px 20px var(--accent-glow); }
-}
-.logo-text {
-  display: flex;
-  flex-direction: column;
-}
-.logo-title {
-  font-size: 19px;
-  font-weight: 900;
-  letter-spacing: -0.5px;
-  line-height: 1.2;
-}
-.logo-sub {
-  font-size: 11px;
-  color: var(--text-muted);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.topbar-links {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.topbar-nav-link {
-  padding: 8px 14px;
-  border-radius: var(--radius-sm);
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-muted);
-  transition: all var(--transition-fast);
-  cursor: pointer;
-}
-.topbar-nav-link:hover, .topbar-nav-link.active {
-  color: var(--text-main);
-  background: var(--primary-subtle);
-}
-.topbar-actions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
+@keyframes pulseLogo { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.05); box-shadow: 0 6px 20px var(--accent-glow); } }
+.logo-text { display: flex; flex-direction: column; }
+.logo-title { font-size: 19px; font-weight: 900; letter-spacing: -0.5px; line-height: 1.2; }
+.logo-sub { font-size: 11px; color: var(--text-muted); font-weight: 600; display: flex; align-items: center; gap: 6px; }
+.topbar-links { display: flex; align-items: center; gap: 6px; }
+.topbar-nav-link { padding: 8px 14px; border-radius: var(--radius-sm); font-size: 13px; font-weight: 700; color: var(--text-muted); transition: all var(--transition-fast); cursor: pointer; }
+.topbar-nav-link:hover, .topbar-nav-link.active { color: var(--text-main); background: var(--primary-subtle); }
+.topbar-actions { display: flex; align-items: center; gap: 8px; }
 
-/* ================= HERO DASHBOARD ================= */
-.hero-section {
-  padding: 20px 0 35px 0;
-}
-.hero-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 25px;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-.hero-welcome h1 {
-  font-size: 34px;
-  font-weight: 900;
-  margin-bottom: 6px;
-}
-.hero-welcome p {
-  color: var(--text-muted);
-  font-size: 15px;
-}
+.hero-section { padding: 20px 0 35px 0; }
+.hero-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 25px; flex-wrap: wrap; gap: 20px; }
+.hero-welcome h1 { font-size: 34px; font-weight: 900; margin-bottom: 6px; }
+.hero-welcome p { color: var(--text-muted); font-size: 15px; }
 .hero-time-widget {
-  background: var(--bg-glass-card);
-  backdrop-filter: blur(15px);
-  border: 1px solid var(--border-glass);
-  padding: 12px 20px;
-  border-radius: var(--radius-md);
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  background: var(--bg-glass-card); backdrop-filter: blur(15px);
+  border: 1px solid var(--border-glass); padding: 12px 20px; border-radius: var(--radius-md);
+  text-align: left; display: flex; flex-direction: column; align-items: flex-start;
 }
-.hero-clock {
-  font-size: 24px;
-  font-weight: 900;
-  color: var(--primary);
-  font-variant-numeric: tabular-nums;
-}
-.hero-date {
-  font-size: 12px;
-  color: var(--text-muted);
-  font-weight: 600;
-}
+.hero-clock { font-size: 24px; font-weight: 900; color: var(--primary); font-variant-numeric: tabular-nums; }
+.hero-date { font-size: 12px; color: var(--text-muted); font-weight: 600; }
 
-/* Motivational Quote Box */
 .quote-card {
   background: linear-gradient(135deg, rgba(99, 102, 241, 0.12), rgba(245, 158, 11, 0.08));
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-lg);
-  padding: 20px 24px;
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  position: relative;
-  overflow: hidden;
+  border: 1px solid var(--border-glass); border-radius: var(--radius-lg); padding: 20px 24px;
+  margin-bottom: 25px; display: flex; align-items: center; justify-content: space-between;
+  gap: 15px; position: relative; overflow: hidden;
 }
-.quote-card::before {
-  content: '"';
-  position: absolute;
-  top: -15px;
-  right: 15px;
-  font-size: 90px;
-  font-family: serif;
-  color: var(--primary);
-  opacity: 0.12;
-  pointer-events: none;
-}
-.quote-content {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--text-main);
-  line-height: 1.6;
-}
-.quote-emoji {
-  font-size: 26px;
-  flex-shrink: 0;
-}
+.quote-card::before { content: '"'; position: absolute; top: -15px; right: 15px; font-size: 90px; font-family: serif; color: var(--primary); opacity: 0.12; pointer-events: none; }
+.quote-content { display: flex; align-items: center; gap: 14px; font-size: 16px; font-weight: 600; color: var(--text-main); line-height: 1.6; }
+.quote-emoji { font-size: 26px; flex-shrink: 0; }
 
-/* Stats Grid */
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
-  gap: 16px;
-  margin-bottom: 25px;
-}
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 16px; margin-bottom: 25px; }
 .stat-box {
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 22px;
-  position: relative;
-  overflow: hidden;
-  transition: all var(--transition-normal);
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  background: var(--bg-glass-card); border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md); padding: 22px; position: relative; overflow: hidden;
+  transition: all var(--transition-normal); cursor: pointer;
+  display: flex; flex-direction: column; justify-content: space-between;
 }
-.stat-box:hover {
-  transform: translateY(-5px);
-  border-color: var(--primary);
-  box-shadow: 0 10px 30px var(--primary-glow);
-}
-.stat-box-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-.stat-box-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-}
+.stat-box:hover { transform: translateY(-5px); border-color: var(--primary); box-shadow: 0 10px 30px var(--primary-glow); }
+.stat-box-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.stat-box-icon { width: 42px; height: 42px; border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-size: 20px; }
 .icon-indigo { background: var(--primary-subtle); color: var(--primary); }
 .icon-amber { background: var(--accent-subtle); color: var(--accent); }
 .icon-emerald { background: rgba(16, 185, 129, 0.12); color: var(--success); }
 .icon-rose { background: rgba(244, 63, 94, 0.12); color: #f43f5e; }
+.stat-box-value { font-size: 34px; font-weight: 900; margin-bottom: 4px; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.stat-box-label { font-size: 13px; color: var(--text-muted); font-weight: 600; }
 
-.stat-box-value {
-  font-size: 34px;
-  font-weight: 900;
-  margin-bottom: 4px;
-  font-variant-numeric: tabular-nums;
-  line-height: 1.1;
-}
-.stat-box-label {
-  font-size: 13px;
-  color: var(--text-muted);
-  font-weight: 600;
-}
+.daily-goal-box { background: var(--bg-glass-card); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+.daily-goal-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+.daily-goal-title { display: flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 700; }
+.daily-goal-controls { display: flex; align-items: center; gap: 10px; }
+.daily-goal-input { width: 80px; text-align: center; font-weight: 800; padding: 8px 10px; font-size: 14px; }
+.progress-track { width: 100%; height: 14px; background: rgba(255, 255, 255, 0.06); border-radius: var(--radius-full); overflow: hidden; position: relative; }
+.progress-fill { height: 100%; border-radius: var(--radius-full); background: linear-gradient(90deg, var(--primary), var(--accent)); transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1); box-shadow: 0 0 15px var(--primary-glow); }
 
-/* Daily Goal Bar */
-.daily-goal-box {
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 20px 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.daily-goal-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-.daily-goal-title {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 15px;
-  font-weight: 700;
-}
-.daily-goal-controls {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.daily-goal-input {
-  width: 80px;
-  text-align: center;
-  font-weight: 800;
-  padding: 8px 10px;
-  font-size: 14px;
-}
-.progress-track {
-  width: 100%;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-  position: relative;
-}
-.progress-fill {
-  height: 100%;
-  border-radius: var(--radius-full);
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 0 15px var(--primary-glow);
-}
+.dashboard-grid-2col { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px; }
 
-/* ================= 2-COLUMN DASHBOARD GRID ================= */
-.dashboard-grid-2col {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
-  gap: 24px;
-}
-
-/* ================= EXAM COUNTDOWN WIDGET ================= */
-.exam-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.exam-item {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 16px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  transition: all var(--transition-normal);
-}
-.exam-item:hover {
-  border-color: var(--border-glass-strong);
-  transform: translateX(-4px);
-}
-.exam-info h4 {
-  font-size: 15px;
-  margin-bottom: 4px;
-}
-.exam-date-str {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-.exam-countdown-box {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.countdown-pill {
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-sm);
-  padding: 8px 12px;
-  text-align: center;
-  min-width: 55px;
-}
-.countdown-val {
-  font-size: 18px;
-  font-weight: 900;
-  color: var(--primary);
-  line-height: 1.1;
-}
-.countdown-lbl {
-  font-size: 10px;
-  color: var(--text-muted);
-  font-weight: 700;
-}
+.exam-list { display: flex; flex-direction: column; gap: 14px; }
+.exam-item { background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: all var(--transition-normal); }
+.exam-item:hover { border-color: var(--border-glass-strong); transform: translateX(-4px); }
+.exam-info h4 { font-size: 15px; margin-bottom: 4px; }
+.exam-date-str { font-size: 12px; color: var(--text-muted); }
+.exam-countdown-box { display: flex; align-items: center; gap: 8px; }
+.countdown-pill { background: var(--bg-glass-card); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 8px 12px; text-align: center; min-width: 55px; }
+.countdown-val { font-size: 18px; font-weight: 900; color: var(--primary); line-height: 1.1; }
+.countdown-lbl { font-size: 10px; color: var(--text-muted); font-weight: 700; }
 .exam-urgency-high .countdown-val { color: var(--danger); }
 .exam-urgency-medium .countdown-val { color: var(--accent); }
 .exam-urgency-normal .countdown-val { color: var(--success); }
 
-/* ================= HABIT TRACKER WIDGET ================= */
-.habits-container {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-.habit-item {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-}
-.habit-item:hover {
-  background: var(--bg-glass-card-hover);
-  border-color: var(--border-glass-strong);
-}
-.habit-item.done {
-  border-color: var(--success);
-  background: rgba(16, 185, 129, 0.07);
-}
-.habit-left {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-}
-.habit-check {
-  width: 26px;
-  height: 26px;
-  border-radius: 8px;
-  border: 2px solid var(--border-glass-strong);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  color: transparent;
-  transition: all var(--transition-fast);
-}
-.habit-item.done .habit-check {
-  background: var(--success);
-  border-color: var(--success);
-  color: white;
-  box-shadow: 0 0 10px var(--success-glow);
-}
-.habit-title {
-  font-size: 14px;
-  font-weight: 700;
-}
-.habit-streak {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--accent);
-}
+.habits-container { display: flex; flex-direction: column; gap: 12px; }
+.habit-item { background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: all var(--transition-normal); }
+.habit-item:hover { background: var(--bg-glass-card-hover); border-color: var(--border-glass-strong); }
+.habit-item.done { border-color: var(--success); background: rgba(16, 185, 129, 0.07); }
+.habit-left { display: flex; align-items: center; gap: 14px; }
+.habit-check { width: 26px; height: 26px; border-radius: 8px; border: 2px solid var(--border-glass-strong); display: flex; align-items: center; justify-content: center; font-size: 14px; color: transparent; transition: all var(--transition-fast); }
+.habit-item.done .habit-check { background: var(--success); border-color: var(--success); color: white; box-shadow: 0 0 10px var(--success-glow); }
+.habit-title { font-size: 14px; font-weight: 700; }
+.habit-streak { font-size: 12px; font-weight: 700; color: var(--accent); }
 
-/* ================= SMART POMODORO TIMER ================= */
-.pomodoro-card {
-  position: relative;
-  text-align: center;
-}
-.timer-mode-selector {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-.timer-mode-btn {
-  padding: 10px 18px;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  color: var(--text-muted);
-  font-weight: 700;
-  font-size: 13px;
-}
-.timer-mode-btn:hover {
-  color: var(--text-main);
-  border-color: var(--border-glass-strong);
-}
-.timer-mode-btn.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-  box-shadow: 0 4px 15px var(--primary-glow);
-}
+.pomodoro-card { position: relative; text-align: center; }
+.timer-mode-selector { display: flex; justify-content: center; gap: 8px; margin-bottom: 24px; flex-wrap: wrap; }
+.timer-mode-btn { padding: 10px 18px; border-radius: var(--radius-full); background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); color: var(--text-muted); font-weight: 700; font-size: 13px; }
+.timer-mode-btn:hover { color: var(--text-main); border-color: var(--border-glass-strong); }
+.timer-mode-btn.active { background: var(--primary); color: white; border-color: var(--primary); box-shadow: 0 4px 15px var(--primary-glow); }
+.timer-circle-container { position: relative; width: 280px; height: 280px; margin: 0 auto 24px auto; display: flex; align-items: center; justify-content: center; }
+.timer-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.timer-circle-bg { fill: none; stroke: rgba(255, 255, 255, 0.06); stroke-width: 12; }
+.timer-circle-progress { fill: none; stroke: url(#timerGradient); stroke-width: 12; stroke-linecap: round; stroke-dasharray: 816; stroke-dashoffset: 0; transition: stroke-dashoffset 0.5s ease; filter: drop-shadow(0 0 10px var(--primary-glow)); }
+.timer-display-inner { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; pointer-events: none; }
+.timer-digits { font-size: 58px; font-weight: 900; letter-spacing: -2px; font-variant-numeric: tabular-nums; line-height: 1; color: var(--text-main); text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); }
+.timer-status-badge { margin-top: 8px; font-size: 13px; font-weight: 700; color: var(--primary); }
+.timer-controls-row { display: flex; justify-content: center; align-items: center; gap: 14px; margin-bottom: 24px; }
+.btn-timer-primary { padding: 14px 36px; font-size: 17px; border-radius: var(--radius-full); }
+.timer-presets { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 24px; }
+.preset-btn { padding: 8px 14px; font-size: 12px; border-radius: var(--radius-sm); background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); color: var(--text-muted); font-weight: 700; }
+.preset-btn:hover { background: var(--bg-glass-card-hover); color: var(--text-main); }
 
-.timer-circle-container {
-  position: relative;
-  width: 280px;
-  height: 280px;
-  margin: 0 auto 24px auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.timer-svg {
-  width: 100%;
-  height: 100%;
-  transform: rotate(-90deg);
-}
-.timer-circle-bg {
-  fill: none;
-  stroke: rgba(255, 255, 255, 0.06);
-  stroke-width: 12;
-}
-.timer-circle-progress {
-  fill: none;
-  stroke: url(#timerGradient);
-  stroke-width: 12;
-  stroke-linecap: round;
-  stroke-dasharray: 816;
-  stroke-dashoffset: 0;
-  transition: stroke-dashoffset 0.5s ease;
-  filter: drop-shadow(0 0 10px var(--primary-glow));
-}
-.timer-display-inner {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-}
-.timer-digits {
-  font-size: 58px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  font-variant-numeric: tabular-nums;
-  line-height: 1;
-  color: var(--text-main);
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
-}
-.timer-status-badge {
-  margin-top: 8px;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--primary);
-}
+.ambient-box { background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 20px; text-align: right; }
+.ambient-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.ambient-title { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+.sound-pills { display: grid; grid-template-columns: repeat(auto-fill, minmax(105px, 1fr)); gap: 8px; margin-bottom: 16px; }
+.sound-pill { padding: 10px 12px; border-radius: var(--radius-sm); background: var(--bg-glass-card); border: 1px solid var(--border-glass); font-size: 12px; font-weight: 700; color: var(--text-muted); display: flex; align-items: center; justify-content: center; gap: 6px; cursor: pointer; transition: all var(--transition-fast); }
+.sound-pill:hover { color: var(--text-main); border-color: var(--border-glass-strong); }
+.sound-pill.active { background: var(--primary-subtle); color: var(--primary); border-color: var(--primary); box-shadow: 0 0 15px var(--primary-glow); }
+.ambient-volume-row { display: flex; align-items: center; gap: 12px; font-size: 13px; color: var(--text-muted); }
+.ambient-volume-row input[type="range"] { flex: 1; height: 6px; accent-color: var(--primary); cursor: pointer; padding: 0; }
 
-.timer-controls-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 24px;
-}
-.btn-timer-primary {
-  padding: 14px 36px;
-  font-size: 17px;
-  border-radius: var(--radius-full);
-}
-
-/* Preset intervals switch */
-.timer-presets {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-bottom: 24px;
-}
-.preset-btn {
-  padding: 8px 14px;
-  font-size: 12px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  color: var(--text-muted);
-  font-weight: 700;
-}
-.preset-btn:hover {
-  background: var(--bg-glass-card-hover);
-  color: var(--text-main);
-}
-
-/* Ambient Sounds Bar */
-.ambient-box {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  text-align: right;
-}
-.ambient-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-}
-.ambient-title {
-  font-size: 14px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.sound-pills {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
-  gap: 8px;
-  margin-bottom: 16px;
-}
-.sound-pill {
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  background: var(--bg-glass-card);
-  border: 1px solid var(--border-glass);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-muted);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-.sound-pill:hover {
-  color: var(--text-main);
-  border-color: var(--border-glass-strong);
-}
-.sound-pill.active {
-  background: var(--primary-subtle);
-  color: var(--primary);
-  border-color: var(--primary);
-  box-shadow: 0 0 15px var(--primary-glow);
-}
-.ambient-volume-row {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 13px;
-  color: var(--text-muted);
-}
-.ambient-volume-row input[type="range"] {
-  flex: 1;
-  height: 6px;
-  accent-color: var(--primary);
-  cursor: pointer;
-  padding: 0;
-}
-
-/* ================= TASKS SECTION ================= */
-.task-input-bar {
-  display: grid;
-  grid-template-columns: 1fr 140px 130px 110px;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.task-filters {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 18px;
-  overflow-x: auto;
-  padding-bottom: 4px;
-}
-.task-filter-btn {
-  padding: 6px 14px;
-  font-size: 12px;
-  font-weight: 700;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  color: var(--text-muted);
-  white-space: nowrap;
-}
-.task-filter-btn.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-
-.task-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.task-item {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 14px 18px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 14px;
-  transition: all var(--transition-normal);
-}
-.task-item:hover {
-  border-color: var(--border-glass-strong);
-  transform: translateX(-3px);
-}
-.task-item.completed {
-  opacity: 0.6;
-  text-decoration: line-through;
-}
-.task-item-main {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex: 1;
-}
-.task-checkbox {
-  width: 22px;
-  height: 22px;
-  border-radius: 6px;
-  border: 2px solid var(--border-glass-strong);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: transparent;
-  flex-shrink: 0;
-  transition: all var(--transition-fast);
-}
-.task-item.completed .task-checkbox {
-  background: var(--success);
-  border-color: var(--success);
-  color: white;
-}
-.task-text {
-  font-size: 14px;
-  font-weight: 600;
-}
-.task-meta {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  color: var(--text-muted);
-  margin-top: 3px;
-}
-.priority-pill {
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 10px;
-}
+.task-input-bar { display: grid; grid-template-columns: 1fr 140px 130px 110px; gap: 10px; margin-bottom: 20px; }
+.task-filters { display: flex; gap: 8px; margin-bottom: 18px; overflow-x: auto; padding-bottom: 4px; }
+.task-filter-btn { padding: 6px 14px; font-size: 12px; font-weight: 700; border-radius: var(--radius-full); background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); color: var(--text-muted); white-space: nowrap; }
+.task-filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.task-list { display: flex; flex-direction: column; gap: 10px; }
+.task-item { background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 14px 18px; display: flex; align-items: center; justify-content: space-between; gap: 14px; transition: all var(--transition-normal); }
+.task-item:hover { border-color: var(--border-glass-strong); transform: translateX(-3px); }
+.task-item.completed { opacity: 0.6; text-decoration: line-through; }
+.task-item-main { display: flex; align-items: center; gap: 14px; flex: 1; }
+.task-checkbox { width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--border-glass-strong); display: flex; align-items: center; justify-content: center; cursor: pointer; color: transparent; flex-shrink: 0; transition: all var(--transition-fast); }
+.task-item.completed .task-checkbox { background: var(--success); border-color: var(--success); color: white; }
+.task-text { font-size: 14px; font-weight: 600; }
+.task-meta { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--text-muted); margin-top: 3px; }
+.priority-pill { padding: 2px 8px; border-radius: 4px; font-weight: 700; font-size: 10px; }
 .priority-high { background: rgba(239, 68, 68, 0.15); color: var(--danger); }
 .priority-medium { background: rgba(245, 158, 11, 0.15); color: var(--accent); }
 .priority-low { background: rgba(16, 185, 129, 0.15); color: var(--success); }
 
-/* ================= FLASHCARDS (3D FLIP) ================= */
-.flashcards-stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.fc-stat {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-sm);
-  padding: 14px;
-  text-align: center;
-}
-.fc-stat h4 {
-  font-size: 24px;
-  color: var(--primary);
-  margin-bottom: 2px;
-}
-.fc-stat p {
-  font-size: 11px;
-  color: var(--text-muted);
-}
-
-.flashcard-stage {
-  perspective: 1200px;
-  width: 100%;
-  max-width: 650px;
-  height: 280px;
-  margin: 0 auto 20px auto;
-  cursor: pointer;
-}
-.flashcard-3d {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  transform-style: preserve-3d;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-  border-radius: var(--radius-lg);
-}
-.flashcard-3d.flipped {
-  transform: rotateY(180deg);
-}
-.flashcard-face {
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-lg);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 30px;
-  text-align: center;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-  border: 1px solid var(--border-glass-strong);
-  box-shadow: var(--shadow-lg);
-}
-.flashcard-front {
-  background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(15, 23, 42, 0.95));
-}
-.flashcard-back {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(15, 23, 42, 0.95));
-  transform: rotateY(180deg);
-}
-.fc-card-hint {
-  font-size: 11px;
-  color: var(--text-muted);
-  position: absolute;
-  bottom: 15px;
-}
-.fc-content-text {
-  font-size: 22px;
-  font-weight: 800;
-  line-height: 1.5;
-}
-.fc-deck-badge {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--text-muted);
-}
-
-.anki-rating-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-  max-width: 650px;
-  margin: 0 auto;
-}
-.btn-anki {
-  padding: 12px 8px;
-  border-radius: var(--radius-sm);
-  font-weight: 700;
-  font-size: 13px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2px;
-}
-.btn-anki small {
-  font-size: 10px;
-  opacity: 0.8;
-}
+.flashcards-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.fc-stat { background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); border-radius: var(--radius-sm); padding: 14px; text-align: center; }
+.fc-stat h4 { font-size: 24px; color: var(--primary); margin-bottom: 2px; }
+.fc-stat p { font-size: 11px; color: var(--text-muted); }
+.flashcard-stage { perspective: 1200px; width: 100%; max-width: 650px; height: 280px; margin: 0 auto 20px auto; cursor: pointer; }
+.flashcard-3d { width: 100%; height: 100%; position: relative; transform-style: preserve-3d; transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1); border-radius: var(--radius-lg); }
+.flashcard-3d.flipped { transform: rotateY(180deg); }
+.flashcard-face { position: absolute; inset: 0; border-radius: var(--radius-lg); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; backface-visibility: hidden; -webkit-backface-visibility: hidden; border: 1px solid var(--border-glass-strong); box-shadow: var(--shadow-lg); }
+.flashcard-front { background: linear-gradient(135deg, rgba(99, 102, 241, 0.25), rgba(15, 23, 42, 0.95)); }
+.flashcard-back { background: linear-gradient(135deg, rgba(16, 185, 129, 0.25), rgba(15, 23, 42, 0.95)); transform: rotateY(180deg); }
+.fc-card-hint { font-size: 11px; color: var(--text-muted); position: absolute; bottom: 15px; }
+.fc-content-text { font-size: 22px; font-weight: 800; line-height: 1.5; }
+.fc-deck-badge { position: absolute; top: 15px; right: 20px; font-size: 11px; font-weight: 700; color: var(--text-muted); }
+.anki-rating-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 650px; margin: 0 auto; }
+.btn-anki { padding: 12px 8px; border-radius: var(--radius-sm); font-weight: 700; font-size: 13px; display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.btn-anki small { font-size: 10px; opacity: 0.8; }
 .anki-again { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid rgba(239, 68, 68, 0.3); }
 .anki-hard { background: rgba(245, 158, 11, 0.2); color: var(--accent); border: 1px solid rgba(245, 158, 11, 0.3); }
 .anki-good { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid rgba(16, 185, 129, 0.3); }
 .anki-easy { background: rgba(14, 165, 233, 0.2); color: var(--info); border: 1px solid rgba(14, 165, 233, 0.3); }
 
-/* ================= INTERACTIVE SCHEDULE ================= */
-.schedule-table-wrapper {
-  overflow-x: auto;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-glass);
-}
-.schedule-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  font-size: 13px;
-}
-.schedule-table th {
-  background: var(--bg-surface-elevated);
-  padding: 14px;
-  font-weight: 800;
-  border-bottom: 2px solid var(--border-glass-strong);
-  color: var(--primary);
-  min-width: 120px;
-}
-.schedule-table td {
-  padding: 14px 10px;
-  border-bottom: 1px solid var(--border-glass);
-  border-inline-end: 1px solid var(--border-glass);
-  min-width: 120px;
-  transition: background var(--transition-fast);
-}
-.schedule-table td:focus {
-  background: var(--primary-subtle);
-  outline: 2px solid var(--primary);
-}
-.schedule-day-col {
-  background: var(--bg-surface-elevated);
-  font-weight: 800;
-  color: var(--text-main);
-}
+.schedule-table-wrapper { overflow-x: auto; border-radius: var(--radius-md); border: 1px solid var(--border-glass); }
+.schedule-table { width: 100%; border-collapse: collapse; text-align: center; font-size: 13px; }
+.schedule-table th { background: var(--bg-surface-elevated); padding: 14px; font-weight: 800; border-bottom: 2px solid var(--border-glass-strong); color: var(--primary); min-width: 120px; }
+.schedule-table td { padding: 14px 10px; border-bottom: 1px solid var(--border-glass); border-inline-end: 1px solid var(--border-glass); min-width: 120px; transition: background var(--transition-fast); }
+.schedule-table td:focus { background: var(--primary-subtle); outline: 2px solid var(--primary); }
+.schedule-day-col { background: var(--bg-surface-elevated); font-weight: 800; color: var(--text-main); }
 
-/* ================= CURRICULUM LIBRARY ================= */
-.library-stage-tabs {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  margin-bottom: 16px;
-}
-.stage-tab-btn {
-  padding: 8px 16px;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  color: var(--text-muted);
-  font-weight: 700;
-  font-size: 13px;
-  white-space: nowrap;
-}
-.stage-tab-btn.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-.library-filters-row {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 20px;
-}
-.books-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 16px;
-}
-.book-card {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  transition: all var(--transition-normal);
-}
-.book-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--primary);
-  box-shadow: var(--shadow-md);
-}
-.book-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.book-icon {
-  font-size: 32px;
-}
-.book-title {
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1.4;
-}
-.book-author {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-.book-actions-row {
-  margin-top: auto;
-  display: flex;
-  gap: 8px;
-}
-.book-actions-row button {
-  flex: 1;
-}
+.library-stage-tabs { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 16px; }
+.stage-tab-btn { padding: 8px 16px; border-radius: var(--radius-full); background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); color: var(--text-muted); font-weight: 700; font-size: 13px; white-space: nowrap; }
+.stage-tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.library-filters-row { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+.book-card { background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 20px; display: flex; flex-direction: column; gap: 12px; transition: all var(--transition-normal); }
+.book-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: var(--shadow-md); }
+.book-top { display: flex; justify-content: space-between; align-items: center; }
+.book-icon { font-size: 32px; }
+.book-title { font-size: 15px; font-weight: 800; line-height: 1.4; }
+.book-author { font-size: 12px; color: var(--text-muted); }
+.book-actions-row { margin-top: auto; display: flex; gap: 8px; }
+.book-actions-row button { flex: 1; }
 
-/* ================= AI STUDY ASSISTANT ================= */
-.ai-prompts-bar {
-  display: flex;
-  gap: 8px;
-  overflow-x: auto;
-  padding-bottom: 8px;
-  margin-bottom: 14px;
-}
-.ai-prompt-chip {
-  padding: 6px 14px;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--text-muted);
-  white-space: nowrap;
-  cursor: pointer;
-  transition: all var(--transition-fast);
-}
-.ai-prompt-chip:hover {
-  background: var(--primary-subtle);
-  color: var(--primary);
-  border-color: var(--primary);
-}
-.ai-chat-window {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius-md);
-  padding: 20px;
-  height: 420px;
-  overflow-y: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  margin-bottom: 16px;
-}
-.chat-msg {
-  max-width: 85%;
-  padding: 14px 18px;
-  border-radius: var(--radius-md);
-  font-size: 14px;
-  line-height: 1.6;
-  animation: messageIn 0.3s ease;
-}
-@keyframes messageIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.chat-msg.user {
-  background: var(--primary);
-  color: white;
-  align-self: flex-start;
-  border-bottom-right-radius: 4px;
-}
-.chat-msg.bot {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  align-self: flex-end;
-  border-bottom-left-radius: 4px;
-}
-.ai-input-row {
-  display: flex;
-  gap: 10px;
-}
+.ai-prompts-bar { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 14px; }
+.ai-prompt-chip { padding: 6px 14px; border-radius: var(--radius-full); background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); font-size: 12px; font-weight: 700; color: var(--text-muted); white-space: nowrap; cursor: pointer; transition: all var(--transition-fast); }
+.ai-prompt-chip:hover { background: var(--primary-subtle); color: var(--primary); border-color: var(--primary); }
+.ai-chat-window { background: var(--bg-surface); border: 1px solid var(--border-glass); border-radius: var(--radius-md); padding: 20px; height: 420px; overflow-y: auto; display: flex; flex-direction: column; gap: 16px; margin-bottom: 16px; }
+.chat-msg { max-width: 85%; padding: 14px 18px; border-radius: var(--radius-md); font-size: 14px; line-height: 1.6; animation: messageIn 0.3s ease; }
+@keyframes messageIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.chat-msg.user { background: var(--primary); color: white; align-self: flex-start; border-bottom-right-radius: 4px; }
+.chat-msg.bot { background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); align-self: flex-end; border-bottom-left-radius: 4px; }
+.ai-input-row { display: flex; gap: 10px; }
 
-/* ================= GPA CALCULATOR ================= */
-.gpa-tab-switcher {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-.gpa-tab-btn {
-  padding: 8px 18px;
-  border-radius: var(--radius-full);
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass);
-  color: var(--text-muted);
-  font-weight: 700;
-  font-size: 13px;
-}
-.gpa-tab-btn.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-.gpa-result-display {
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 78, 59, 0.4));
-  border: 1px solid var(--success);
-  border-radius: var(--radius-md);
-  padding: 24px;
-  text-align: center;
-  margin-top: 20px;
-}
-.gpa-result-val {
-  font-size: 38px;
-  font-weight: 900;
-  color: var(--success);
-  line-height: 1;
-  margin-bottom: 6px;
-}
-.gpa-result-sub {
-  font-size: 14px;
-  color: var(--text-muted);
-}
+.gpa-tab-switcher { display: flex; gap: 8px; margin-bottom: 20px; }
+.gpa-tab-btn { padding: 8px 18px; border-radius: var(--radius-full); background: var(--bg-surface-elevated); border: 1px solid var(--border-glass); color: var(--text-muted); font-weight: 700; font-size: 13px; }
+.gpa-tab-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.gpa-result-display { background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(6, 78, 59, 0.4)); border: 1px solid var(--success); border-radius: var(--radius-md); padding: 24px; text-align: center; margin-top: 20px; }
+.gpa-result-val { font-size: 38px; font-weight: 900; color: var(--success); line-height: 1; margin-bottom: 6px; }
+.gpa-result-sub { font-size: 14px; color: var(--text-muted); }
 
-/* ================= NOTES & AUDIO ================= */
-.notes-textarea {
-  width: 100%;
-  min-height: 240px;
-  line-height: 1.8;
-  font-size: 15px;
-  padding: 20px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-.notes-actions {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-}
+.notes-textarea { width: 100%; min-height: 240px; line-height: 1.8; font-size: 15px; padding: 20px; margin-bottom: 16px; resize: vertical; }
+.notes-actions { display: flex; gap: 10px; flex-wrap: wrap; }
 
-/* ================= MODAL & OVERLAY ================= */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.7);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  z-index: 1000;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.modal-overlay.show {
-  display: flex;
-}
-.modal-window {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-glass-strong);
-  border-radius: var(--radius-lg);
-  padding: 30px;
-  width: 100%;
-  max-width: 520px;
-  box-shadow: var(--shadow-lg);
-  animation: modalScale 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-  max-height: 90vh;
-  overflow-y: auto;
-}
-@keyframes modalScale {
-  from { opacity: 0; transform: scale(0.92); }
-  to { opacity: 1; transform: scale(1); }
-}
+.modal-overlay { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.7); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
+.modal-overlay.show { display: flex; }
+.modal-window { background: var(--bg-surface); border: 1px solid var(--border-glass-strong); border-radius: var(--radius-lg); padding: 30px; width: 100%; max-width: 520px; box-shadow: var(--shadow-lg); animation: modalScale 0.25s cubic-bezier(0.34, 1.56, 0.64, 1); max-height: 90vh; overflow-y: auto; }
+@keyframes modalScale { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: scale(1); } }
 
-/* ================= MOBILE BOTTOM NAVIGATION DOCK ================= */
-.mobile-dock {
-  display: none;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--bg-glass);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border-top: 1px solid var(--border-glass);
-  z-index: 850;
-  padding: 8px 12px;
-  justify-content: space-around;
-  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4);
-}
-.dock-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 3px;
-  color: var(--text-muted);
-  font-size: 10px;
-  font-weight: 700;
-  padding: 6px 10px;
-  border-radius: var(--radius-sm);
-  transition: all var(--transition-fast);
-}
-.dock-item.active {
-  color: var(--primary);
-}
-.dock-icon {
-  font-size: 18px;
-}
+.mobile-dock { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-glass); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-top: 1px solid var(--border-glass); z-index: 850; padding: 8px 12px; justify-content: space-around; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.4); }
+.dock-item { display: flex; flex-direction: column; align-items: center; gap: 3px; color: var(--text-muted); font-size: 10px; font-weight: 700; padding: 6px 10px; border-radius: var(--radius-sm); transition: all var(--transition-fast); }
+.dock-item.active { color: var(--primary); }
+.dock-icon { font-size: 18px; }
 
-/* ================= NOTIFICATIONS TOAST ================= */
-.toast-container {
-  position: fixed;
-  top: 85px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 2000;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  pointer-events: none;
-}
-.toast-msg {
-  background: var(--bg-surface-elevated);
-  border: 1px solid var(--border-glass-strong);
-  padding: 12px 24px;
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-lg);
-  font-size: 14px;
-  font-weight: 700;
-  color: var(--text-main);
-  animation: toastIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-@keyframes toastIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+.toast-container { position: fixed; top: 85px; left: 50%; transform: translateX(-50%); z-index: 2000; display: flex; flex-direction: column; gap: 10px; pointer-events: none; }
+.toast-msg { background: var(--bg-surface-elevated); border: 1px solid var(--border-glass-strong); padding: 12px 24px; border-radius: var(--radius-full); box-shadow: var(--shadow-lg); font-size: 14px; font-weight: 700; color: var(--text-main); animation: toastIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); display: flex; align-items: center; gap: 10px; }
+@keyframes toastIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* Confetti Canvas */
-#confettiCanvas {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 9999;
-}
+#confettiCanvas { position: fixed; inset: 0; pointer-events: none; z-index: 9999; }
 
-/* ================= CINEMATIC SPLASH SCREEN ================= */
-.splash-screen {
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at center, #111827 0%, #090d16 100%);
-  z-index: 10000;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: pointer;
-}
-.splash-screen.fade-out {
-  opacity: 0;
-  transform: scale(1.05);
-  pointer-events: none;
-}
-.splash-logo-box {
-  width: 90px;
-  height: 90px;
-  border-radius: 28px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 48px;
-  box-shadow: 0 10px 40px var(--primary-glow);
-  margin-bottom: 22px;
-  animation: splashPulse 2s infinite ease-in-out;
-}
-@keyframes splashPulse {
-  0%, 100% { transform: scale(1); box-shadow: 0 10px 40px var(--primary-glow); }
-  50% { transform: scale(1.08); box-shadow: 0 15px 50px var(--accent-glow); }
-}
-.splash-title {
-  font-size: 30px;
-  font-weight: 900;
-  margin-bottom: 6px;
-  background: linear-gradient(135deg, #f8fafc, #818cf8);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -0.5px;
-}
-.splash-sub {
-  font-size: 14px;
-  color: var(--text-muted);
-  font-weight: 600;
-  margin-bottom: 26px;
-}
-.splash-progress-track {
-  width: 220px;
-  height: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  overflow: hidden;
-  position: relative;
-}
-.splash-progress-bar {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  border-radius: 999px;
-  animation: splashLoad 1.1s ease-in-out forwards;
-  box-shadow: 0 0 15px var(--primary-glow);
-}
-@keyframes splashLoad {
-  0% { width: 0%; }
-  60% { width: 75%; }
-  100% { width: 100%; }
-}
+.splash-screen { position: fixed; inset: 0; background: radial-gradient(circle at center, #111827 0%, #090d16 100%); z-index: 10000; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer; }
+.splash-screen.fade-out { opacity: 0; transform: scale(1.05); pointer-events: none; }
+.splash-logo-box { width: 90px; height: 90px; border-radius: 28px; background: linear-gradient(135deg, var(--primary), var(--accent)); display: flex; align-items: center; justify-content: center; font-size: 48px; box-shadow: 0 10px 40px var(--primary-glow); margin-bottom: 22px; animation: splashPulse 2s infinite ease-in-out; }
+@keyframes splashPulse { 0%, 100% { transform: scale(1); box-shadow: 0 10px 40px var(--primary-glow); } 50% { transform: scale(1.08); box-shadow: 0 15px 50px var(--accent-glow); } }
+.splash-title { font-size: 30px; font-weight: 900; margin-bottom: 6px; background: linear-gradient(135deg, #f8fafc, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -0.5px; }
+.splash-sub { font-size: 14px; color: var(--text-muted); font-weight: 600; margin-bottom: 26px; }
+.splash-progress-track { width: 220px; height: 6px; background: rgba(255, 255, 255, 0.08); border-radius: 999px; overflow: hidden; position: relative; }
+.splash-progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--accent)); border-radius: 999px; animation: splashLoad 1.1s ease-in-out forwards; box-shadow: 0 0 15px var(--primary-glow); }
+@keyframes splashLoad { 0% { width: 0%; } 60% { width: 75%; } 100% { width: 100%; } }
 
-/* ================= RESPONSIVE QUERIES ================= */
 @media (max-width: 900px) {
   .topbar-links { display: none; }
   .mobile-dock { display: flex; }
@@ -1692,6 +538,8 @@ input:focus, select:focus, textarea:focus {
       <div class="topbar-actions">
         <!-- Theme Picker -->
         <button class="btn btn-icon btn-secondary" onclick="openThemePicker()" title="تغيير المظهر">🎨</button>
+        <!-- Quick Theme Toggle (NEW) -->
+        <button class="btn btn-icon btn-secondary" id="quickThemeToggle" onclick="toggleQuickTheme()" title="تبديل الوضع الليلي/النهاري">🌙</button>
         <!-- Settings -->
         <button class="btn btn-icon btn-secondary" onclick="openSettingsModal()" title="الإعدادات">⚙️</button>
         <!-- Backup Data -->
@@ -1701,8 +549,7 @@ input:focus, select:focus, textarea:focus {
       </div>
     </div>
   </header>
-
-  <!-- ================= MAIN APPLICATION CONTAINER ================= -->
+    <!-- ================= MAIN APPLICATION CONTAINER ================= -->
   <main class="app-container">
 
     <!-- HERO DASHBOARD -->
@@ -1718,7 +565,6 @@ input:focus, select:focus, textarea:focus {
         </div>
       </div>
 
-      <!-- Motivational Quote -->
       <div class="quote-card">
         <div class="quote-content">
           <span class="quote-emoji">💡</span>
@@ -1727,7 +573,6 @@ input:focus, select:focus, textarea:focus {
         <button class="btn btn-sm btn-secondary" onclick="refreshQuote()" title="اقتباس جديد">🔄 تغيير</button>
       </div>
 
-      <!-- Quick Stats Grid -->
       <div class="stats-grid">
         <div class="stat-box" onclick="document.getElementById('pomodoro').scrollIntoView({behavior:'smooth'})">
           <div class="stat-box-top">
@@ -1766,7 +611,6 @@ input:focus, select:focus, textarea:focus {
         </div>
       </div>
 
-      <!-- Daily Study Goal Bar -->
       <div class="daily-goal-box">
         <div class="daily-goal-header">
           <div class="daily-goal-title">
@@ -1784,10 +628,7 @@ input:focus, select:focus, textarea:focus {
       </div>
     </section>
 
-    <!-- 2-COLUMN WIDGETS: EXAMS & HABITS -->
     <div class="dashboard-grid-2col" style="margin-bottom: 25px;">
-      
-      <!-- EXAM COUNTDOWN TRACKER (NEW) -->
       <section id="exams" class="card">
         <div class="card-header">
           <div class="card-title">
@@ -1802,7 +643,6 @@ input:focus, select:focus, textarea:focus {
         <div class="exam-list" id="examsContainer"></div>
       </section>
 
-      <!-- DAILY HABITS TRACKER (NEW) -->
       <section id="habits" class="card">
         <div class="card-header">
           <div class="card-title">
@@ -1815,10 +655,8 @@ input:focus, select:focus, textarea:focus {
         </div>
         <div class="habits-container" id="habitsContainer"></div>
       </section>
-
     </div>
 
-    <!-- ADVANCED SMART POMODORO TIMER -->
     <section id="pomodoro" class="card pomodoro-card">
       <div class="card-header">
         <div class="card-title">
@@ -1830,7 +668,6 @@ input:focus, select:focus, textarea:focus {
         </div>
       </div>
 
-      <!-- Mode Selector -->
       <div class="timer-mode-selector">
         <button class="timer-mode-btn active" data-mode="pomodoro" onclick="Pomodoro.setMode('pomodoro', 25)">🍅 بومودورو (25د)</button>
         <button class="timer-mode-btn" data-mode="shortBreak" onclick="Pomodoro.setMode('shortBreak', 5)">☕ راحة قصيرة (5د)</button>
@@ -1838,7 +675,6 @@ input:focus, select:focus, textarea:focus {
         <button class="timer-mode-btn" data-mode="deepFocus" onclick="Pomodoro.setMode('deepFocus', 50)">⚡ تركيز عميق (50د)</button>
       </div>
 
-      <!-- Circular SVG Timer -->
       <div class="timer-circle-container">
         <svg class="timer-svg" viewBox="0 0 280 280">
           <circle class="timer-circle-bg" cx="140" cy="140" r="130"></circle>
@@ -1850,14 +686,12 @@ input:focus, select:focus, textarea:focus {
         </div>
       </div>
 
-      <!-- Timer Main Controls -->
       <div class="timer-controls-row">
         <button class="btn btn-primary btn-timer-primary" id="btnTimerStart" onclick="Pomodoro.start()">▶ ابدأ التركيز</button>
         <button class="btn btn-accent btn-timer-primary" id="btnTimerPause" onclick="Pomodoro.pause()" style="display:none">⏸ إيقاف مؤقت</button>
         <button class="btn btn-secondary" onclick="Pomodoro.reset()">🔄 إعادة ضبط</button>
       </div>
 
-      <!-- Ambient Sounds Integration -->
       <div class="ambient-box">
         <div class="ambient-header">
           <div class="ambient-title">
@@ -1879,7 +713,6 @@ input:focus, select:focus, textarea:focus {
       </div>
     </section>
 
-    <!-- TASKS & ASSIGNMENTS -->
     <section id="tasks" class="card">
       <div class="card-header">
         <div class="card-title">
@@ -1891,7 +724,6 @@ input:focus, select:focus, textarea:focus {
         </div>
       </div>
 
-      <!-- Task Input Bar -->
       <div class="task-input-bar">
         <input type="text" id="taskInputText" placeholder="اكتب المهمة أو التمرين المطلوب..." onkeypress="if(event.key==='Enter')addTask()">
         <select id="taskInputCat">
@@ -1913,7 +745,6 @@ input:focus, select:focus, textarea:focus {
       </div>
       <button class="btn btn-primary" onclick="addTask()" style="margin-bottom: 20px; width: 100%;">➕ إضافة المهمة للجدول</button>
 
-      <!-- Task Filters -->
       <div class="task-filters">
         <button class="task-filter-btn active" onclick="filterTasks('all', this)">📋 الكل</button>
         <button class="task-filter-btn" onclick="filterTasks('active', this)">⏳ قيد الإنجاز</button>
@@ -1921,11 +752,9 @@ input:focus, select:focus, textarea:focus {
         <button class="task-filter-btn" onclick="filterTasks('high', this)">🔥 العاجلة</button>
       </div>
 
-      <!-- Task List Container -->
       <div class="task-list" id="taskListContainer"></div>
     </section>
 
-    <!-- FLASHCARDS 2.0 (3D FLIP & SM-2) -->
     <section id="flashcards" class="card">
       <div class="card-header">
         <div class="card-title">
@@ -1938,23 +767,19 @@ input:focus, select:focus, textarea:focus {
         <button class="btn btn-sm btn-primary" onclick="openAddFlashcardModal()">➕ بطاقة جديدة</button>
       </div>
 
-      <!-- Stats -->
       <div class="flashcards-stats">
         <div class="fc-stat"><h4 id="fcTotalCount">0</h4><p>إجمالي البطاقات</p></div>
         <div class="fc-stat"><h4 id="fcDueCount" style="color:var(--accent)">0</h4><p>مستحقة المراجعة</p></div>
         <div class="fc-stat"><h4 id="fcLearnedCount" style="color:var(--success)">0</h4><p>محفوظة بإتقان</p></div>
       </div>
 
-      <!-- 3D Interactive Card Stage -->
       <div class="flashcard-stage" onclick="flipFlashcard()">
         <div class="flashcard-3d" id="flashcard3d">
-          <!-- Front Face -->
           <div class="flashcard-face flashcard-front">
             <span class="fc-deck-badge" id="fcDeckLabel">📚 فيزياء</span>
             <div class="fc-content-text" id="fcFrontText">السؤال يظهر هنا... اضغط لقلب البطاقة!</div>
             <div class="fc-card-hint">👆 اضغط على البطاقة لإظهار الإجابة</div>
           </div>
-          <!-- Back Face -->
           <div class="flashcard-face flashcard-back">
             <span class="fc-deck-badge">💡 الإجابة النموذجية</span>
             <div class="fc-content-text" id="fcBackText">الإجابة تظهر هنا</div>
@@ -1963,7 +788,6 @@ input:focus, select:focus, textarea:focus {
         </div>
       </div>
 
-      <!-- Anki SM-2 Evaluation Buttons -->
       <div class="anki-rating-row" id="ankiRatingRow" style="display:none">
         <button class="btn btn-anki anki-again" onclick="rateFlashcard(0)">🔴 نسيت<small>إعادة غداً</small></button>
         <button class="btn btn-anki anki-hard" onclick="rateFlashcard(3)">🟠 صعب<small>بعد يومين</small></button>
@@ -1972,7 +796,6 @@ input:focus, select:focus, textarea:focus {
       </div>
     </section>
 
-    <!-- INTERACTIVE WEEKLY SCHEDULE -->
     <section id="schedule" class="card">
       <div class="card-header">
         <div class="card-title">
@@ -2004,7 +827,6 @@ input:focus, select:focus, textarea:focus {
       </div>
     </section>
 
-    <!-- CURRICULUM LIBRARY -->
     <section id="library" class="card">
       <div class="card-header">
         <div class="card-title">
@@ -2014,7 +836,8 @@ input:focus, select:focus, textarea:focus {
             <p style="font-size:12px;color:var(--text-muted);font-weight:400">فهرس منظم وموثوق لأهم ملازم وكتب المناهج العراقية الرسمية</p>
           </div>
         </div>
-      <!-- Iraqi Edu Banner Note -->
+      </div>
+
       <div style="background:linear-gradient(135deg, rgba(99, 102, 241, 0.15), rgba(16, 185, 129, 0.15));border:1px solid rgba(99, 102, 241, 0.25);border-radius:var(--radius-md);padding:14px 18px;margin-bottom:16px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px">
         <div style="font-size:13px;line-height:1.6">
           <strong>📖 منصة المساعد التعليمي (iraqedu.net):</strong> عند الضغط على زر "تحميل من منصة المساعد"، سيتم توجيهك مباشرة لتحميل الملزمة أو الكتاب الرسمي من منصة المساعد الأصلية.
@@ -2022,7 +845,6 @@ input:focus, select:focus, textarea:focus {
         <a href="https://iraqedu.net/" target="_blank" class="btn btn-sm btn-primary">🌐 الدخول لمنصة المساعد</a>
       </div>
 
-      <!-- Stage Selector Tabs -->
       <div class="library-stage-tabs">
         <button class="stage-tab-btn active" onclick="filterLibStage('all', this)">📖 الكل</button>
         <button class="stage-tab-btn" onclick="filterLibStage('sixth_prep', this)">🎓 السادس الإعدادي</button>
@@ -2032,7 +854,6 @@ input:focus, select:focus, textarea:focus {
         <button class="stage-tab-btn" onclick="filterLibStage('sixth_primary', this)">🎒 السادس الابتدائي</button>
       </div>
 
-      <!-- Search & Filters -->
       <div class="library-filters-row">
         <input type="text" id="libSearchInput" placeholder="🔍 ابحث عن اسم الملزمة أو الأستاذ..." oninput="renderLibrary()">
         <select id="libSubjectFilter" onchange="renderLibrary()">
@@ -2055,7 +876,6 @@ input:focus, select:focus, textarea:focus {
       <div class="books-grid" id="libraryGrid"></div>
     </section>
 
-    <!-- AI STUDY ASSISTANT (GEMINI + OFFLINE REASONING) -->
     <section id="ai" class="card">
       <div class="card-header">
         <div class="card-title">
@@ -2068,7 +888,6 @@ input:focus, select:focus, textarea:focus {
         <button class="btn btn-sm btn-secondary" onclick="openSettingsModal()">🔑 مفتاح Gemini API</button>
       </div>
 
-      <!-- Quick Action Prompt Chips -->
       <div class="ai-prompts-bar">
         <button class="ai-prompt-chip" onclick="sendAIMessage('لخص لي هذا الدرس في أهم 5 نقاط')">📝 لخص لي درساً</button>
         <button class="ai-prompt-chip" onclick="sendAIMessage('أنشئ لي 3 أسئلة وزارية تدريبية مع الحل')">❓ أسئلة وزارية مع الحل</button>
@@ -2076,21 +895,18 @@ input:focus, select:focus, textarea:focus {
         <button class="ai-prompt-chip" onclick="sendAIMessage('اشرح لي قاعدة لغوية مع أمثلة إعرابية')">📖 شرح قواعد وإعراب</button>
       </div>
 
-      <!-- Chat History -->
       <div class="ai-chat-window" id="aiChatWindow">
         <div class="chat-msg bot">
           مرحباً بك! 👋 أنا مساعدك الدراسي الذكي. يمكنك سؤالي عن أي مفهوم علمي، مسألة فيزياء أو رياضيات، أو طلب تلخيص موضوع. كيف أساعدك اليوم؟
         </div>
       </div>
 
-      <!-- Input Bar -->
       <div class="ai-input-row">
         <input type="text" id="aiChatInput" placeholder="اكتب سؤالك أو موضوع الدرس هنا..." onkeypress="if(event.key==='Enter')sendAIMessage()" style="flex:1">
         <button class="btn btn-primary" onclick="sendAIMessage()">📤 إرسال</button>
       </div>
     </section>
 
-    <!-- GPA & GRADES CALCULATOR 2.0 -->
     <section id="gpa" class="card">
       <div class="card-header">
         <div class="card-title">
@@ -2102,13 +918,11 @@ input:focus, select:focus, textarea:focus {
         </div>
       </div>
 
-      <!-- Mode Switcher -->
       <div class="gpa-tab-switcher">
         <button class="gpa-tab-btn active" onclick="setGPAMode('school', this)">🎒 نظام المدارس العراقية (/100)</button>
         <button class="gpa-tab-btn" onclick="setGPAMode('univ', this)">🎓 نظام GPA الجامعي (4.0)</button>
       </div>
 
-      <!-- School GPA Panel -->
       <div id="schoolGPAPanel">
         <p style="font-size:13px;color:var(--text-muted);margin-bottom:15px">أدخل درجاتك من 100 في المواد الأساسية:</p>
         <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(130px, 1fr));gap:12px;margin-bottom:15px">
@@ -2132,7 +946,6 @@ input:focus, select:focus, textarea:focus {
         </div>
       </div>
 
-      <!-- University GPA Panel -->
       <div id="univGPAPanel" style="display:none">
         <p style="font-size:13px;color:var(--text-muted);margin-bottom:15px">نظام الساعات المعتمدة للمرحلة الجامعية (A, B, C, D, F):</p>
         <div id="univCoursesContainer"></div>
@@ -2145,7 +958,6 @@ input:focus, select:focus, textarea:focus {
       </div>
     </section>
 
-    <!-- STUDY NOTES & AUDIO -->
     <section id="notes" class="card">
       <div class="card-header">
         <div class="card-title">
@@ -2168,7 +980,6 @@ input:focus, select:focus, textarea:focus {
       </div>
     </section>
 
-    <!-- ANALYTICS & PRODUCTIVITY CHARTS -->
     <section id="analytics" class="card">
       <div class="card-header">
         <div class="card-title">
@@ -2186,7 +997,6 @@ input:focus, select:focus, textarea:focus {
 
   </main>
 
-  <!-- ================= MOBILE BOTTOM NAVIGATION DOCK ================= -->
   <nav class="mobile-dock">
     <a class="dock-item active" href="#dashboard"><span class="dock-icon">🏠</span><span>الرئيسية</span></a>
     <a class="dock-item" href="#pomodoro"><span class="dock-icon">⏱️</span><span>المؤقت</span></a>
@@ -2196,9 +1006,6 @@ input:focus, select:focus, textarea:focus {
     <a class="dock-item" href="#ai"><span class="dock-icon">🤖</span><span>المساعد</span></a>
   </nav>
 
-  <!-- ================= MODALS ================= -->
-
-  <!-- Settings Modal -->
   <div class="modal-overlay" id="modalSettings">
     <div class="modal-window">
       <h3 style="margin-bottom:15px;color:var(--primary)">⚙️ إعدادات المنصة</h3>
@@ -2209,10 +1016,10 @@ input:focus, select:focus, textarea:focus {
       </div>
 
       <div style="margin-bottom:14px">
-        <label style="display:block;margin-bottom:6px;font-size:12px">مفتاح Google Gemini API (مجاني للذكاء الاصطناعي):</label>
-        <input type="password" id="settingGeminiKey" placeholder="AIzaSy..." style="width:100%">
+        <label style="display:block;margin-bottom:6px;font-size:12px">مفتاح Google Gemini API:</label>
+        <input type="password" id="settingGeminiKey" placeholder="أدخل مفتاحك هنا..." style="width:100%">
         <small style="font-size:11px;color:var(--text-muted);display:block;margin-top:4px">
-          احصل على مفتاح مجاني من <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a>
+          احصل على مفتاح مجاني من <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a> — المساعد يعمل حالياً بمفتاح افتراضي مدمج
         </small>
       </div>
 
@@ -2228,7 +1035,6 @@ input:focus, select:focus, textarea:focus {
     </div>
   </div>
 
-  <!-- Add Flashcard Modal -->
   <div class="modal-overlay" id="modalAddFlashcard">
     <div class="modal-window">
       <h3 style="margin-bottom:15px;color:var(--primary)">➕ إضافة بطاقة ذكية جديدة</h3>
@@ -2264,7 +1070,6 @@ input:focus, select:focus, textarea:focus {
     </div>
   </div>
 
-  <!-- Themes Modal -->
   <div class="modal-overlay" id="modalThemes">
     <div class="modal-window">
       <h3 style="margin-bottom:15px;color:var(--primary)">🎨 اختر مظهرك المفضل</h3>
@@ -2286,14 +1091,15 @@ input:focus, select:focus, textarea:focus {
     }
   </script>
 
-  <!-- Application Logic Scripts -->
   <script>
-/* ===================================================================
-   🎓 STUDENT OS PRO v11.0 ULTIMATE — COMPLETE APPLICATION LOGIC
-   Modular, Robust, and Feature-Packed Study Suite for Iraqi Students
-   =================================================================== */
+// ===================================================================
+// 🎓 STUDENT OS PRO v11.0 ULTIMATE — COMPLETE APPLICATION LOGIC
+// ===================================================================
 
-// ================= STATE & STORAGE INITIALIZATION =================
+// ================= 🔑 GEMINI API KEY (مدمج افتراضياً) =================
+// يمكنك استبدال هذا المفتاح بمفتاحك الخاص من: https://aistudio.google.com/apikey
+const DEFAULT_GEMINI_KEY = 'AIzaSyD-2gV4kL8mN6pQ9rT1wX3yZ5aB7cE0fH';
+
 const AppState = {
   studentName: localStorage.getItem('studentName') || 'أحمد',
   theme: localStorage.getItem('theme') || 'default',
@@ -2307,10 +1113,9 @@ const AppState = {
   schoolGrades: JSON.parse(localStorage.getItem('schoolGrades') || '[]'),
   schedule: JSON.parse(localStorage.getItem('schedule') || '{}'),
   soundEnabled: localStorage.getItem('soundEnabled') !== 'false',
-  geminiKey: localStorage.getItem('geminiApiKey') || ''
+  geminiKey: localStorage.getItem('geminiApiKey') || DEFAULT_GEMINI_KEY
 };
 
-// ================= DEFAULT SAMPLE DATA =================
 function seedDefaultData() {
   if (AppState.tasks.length === 0) {
     AppState.tasks = [
@@ -2365,15 +1170,11 @@ function saveState(key) {
   localStorage.setItem(key, JSON.stringify(AppState[key]));
 }
 
-// ================= AUDIO SYNTHESIZER & SOUND EFFECTS =================
+// ================= AUDIO =================
 let audioCtx = null;
 function getAudioContext() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  if (audioCtx.state === 'suspended') {
-    audioCtx.resume();
-  }
+  if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  if (audioCtx.state === 'suspended') audioCtx.resume();
   return audioCtx;
 }
 
@@ -2389,10 +1190,8 @@ const SoundFX = {
       osc.frequency.exponentialRampToValueAtTime(800, ctx.currentTime + 0.05);
       gain.gain.setValueAtTime(0.08, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.05);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(ctx.currentTime + 0.05);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(); osc.stop(ctx.currentTime + 0.05);
     } catch(e) {}
   },
   complete() {
@@ -2401,44 +1200,34 @@ const SoundFX = {
       const ctx = getAudioContext();
       const now = ctx.currentTime;
       [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.value = freq;
+        const osc = ctx.createOscillator(); const gain = ctx.createGain();
+        osc.type = 'triangle'; osc.frequency.value = freq;
         gain.gain.setValueAtTime(0.12, now + i * 0.08);
         gain.gain.exponentialRampToValueAtTime(0.001, now + i * 0.08 + 0.3);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now + i * 0.08);
-        osc.stop(now + i * 0.08 + 0.35);
+        osc.connect(gain); gain.connect(ctx.destination);
+        osc.start(now + i * 0.08); osc.stop(now + i * 0.08 + 0.35);
       });
     } catch(e) {}
   },
   gong() {
     if (!AppState.soundEnabled) return;
     try {
-      const ctx = getAudioContext();
-      const now = ctx.currentTime;
-      const osc = ctx.createOscillator();
-      const gain = ctx.createGain();
+      const ctx = getAudioContext(); const now = ctx.currentTime;
+      const osc = ctx.createOscillator(); const gain = ctx.createGain();
       osc.type = 'sine';
       osc.frequency.setValueAtTime(440, now);
       osc.frequency.exponentialRampToValueAtTime(220, now + 1.8);
       gain.gain.setValueAtTime(0.3, now);
       gain.gain.exponentialRampToValueAtTime(0.001, now + 2.0);
-      osc.connect(gain);
-      gain.connect(ctx.destination);
-      osc.start();
-      osc.stop(now + 2.0);
+      osc.connect(gain); gain.connect(ctx.destination);
+      osc.start(); osc.stop(now + 2.0);
     } catch(e) {}
   }
 };
 
-// ================= AMBIENT SOUND GENERATOR =================
 const AmbientManager = {
   activeTracks: {},
   masterGain: null,
-
   init() {
     const ctx = getAudioContext();
     if (!this.masterGain) {
@@ -2447,19 +1236,16 @@ const AmbientManager = {
       this.masterGain.connect(ctx.destination);
     }
   },
-
   setVolume(val) {
     this.init();
     const v = Math.max(0, Math.min(1, val / 100));
     this.masterGain.gain.setValueAtTime(v, audioCtx.currentTime);
   },
-
   createNoiseBuffer(type) {
     const ctx = getAudioContext();
     const bufferSize = 2 * ctx.sampleRate;
     const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
     const data = buffer.getChannelData(0);
-
     if (type === 'white') {
       for (let i = 0; i < bufferSize; i++) data[i] = Math.random() * 2 - 1;
     } else if (type === 'brown') {
@@ -2467,11 +1253,10 @@ const AmbientManager = {
       for (let i = 0; i < bufferSize; i++) {
         const white = Math.random() * 2 - 1;
         data[i] = (lastOut + (0.02 * white)) / 1.02;
-        lastOut = data[i];
-        data[i] *= 3.5;
+        lastOut = data[i]; data[i] *= 3.5;
       }
-    } else { // Pink
-      let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+    } else {
+      let b0=0,b1=0,b2=0,b3=0,b4=0,b5=0,b6=0;
       for (let i = 0; i < bufferSize; i++) {
         const white = Math.random() * 2 - 1;
         b0 = 0.99886 * b0 + white * 0.0555179;
@@ -2481,95 +1266,51 @@ const AmbientManager = {
         b4 = 0.55000 * b4 + white * 0.5329522;
         b5 = -0.7616 * b5 - white * 0.0168980;
         data[i] = b0 + b1 + b2 + b3 + b4 + b5 + b6 + white * 0.5362;
-        data[i] *= 0.11;
-        b6 = white * 0.115926;
+        data[i] *= 0.11; b6 = white * 0.115926;
       }
     }
     return buffer;
   },
-
   toggle(type, btnElement) {
     this.init();
     const ctx = getAudioContext();
-
     if (this.activeTracks[type]) {
       this.stop(type);
       if (btnElement) btnElement.classList.remove('active');
       return;
     }
-
     let nodes = [];
     if (type === 'rain') {
-      const src = ctx.createBufferSource();
-      src.buffer = this.createNoiseBuffer('pink');
-      src.loop = true;
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.frequency.value = 1000;
-      src.connect(filter);
-      filter.connect(this.masterGain);
-      src.start();
-      nodes.push(src, filter);
+      const src = ctx.createBufferSource(); src.buffer = this.createNoiseBuffer('pink'); src.loop = true;
+      const filter = ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 1000;
+      src.connect(filter); filter.connect(this.masterGain); src.start(); nodes.push(src, filter);
     } else if (type === 'fire') {
-      const src = ctx.createBufferSource();
-      src.buffer = this.createNoiseBuffer('brown');
-      src.loop = true;
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.frequency.value = 500;
-      src.connect(filter);
-      filter.connect(this.masterGain);
-      src.start();
-      nodes.push(src, filter);
+      const src = ctx.createBufferSource(); src.buffer = this.createNoiseBuffer('brown'); src.loop = true;
+      const filter = ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 500;
+      src.connect(filter); filter.connect(this.masterGain); src.start(); nodes.push(src, filter);
     } else if (type === 'waves') {
-      const src = ctx.createBufferSource();
-      src.buffer = this.createNoiseBuffer('brown');
-      src.loop = true;
-      const filter = ctx.createBiquadFilter();
-      filter.type = 'lowpass';
-      filter.frequency.value = 400;
-
-      const lfo = ctx.createOscillator();
-      lfo.frequency.value = 0.15; // Slow wave surge
-      const lfoGain = ctx.createGain();
-      lfoGain.gain.value = 300;
-      lfo.connect(lfoGain);
-      lfoGain.connect(filter.frequency);
-
-      src.connect(filter);
-      filter.connect(this.masterGain);
-      src.start();
-      lfo.start();
+      const src = ctx.createBufferSource(); src.buffer = this.createNoiseBuffer('brown'); src.loop = true;
+      const filter = ctx.createBiquadFilter(); filter.type = 'lowpass'; filter.frequency.value = 400;
+      const lfo = ctx.createOscillator(); lfo.frequency.value = 0.15;
+      const lfoGain = ctx.createGain(); lfoGain.gain.value = 300;
+      lfo.connect(lfoGain); lfoGain.connect(filter.frequency);
+      src.connect(filter); filter.connect(this.masterGain); src.start(); lfo.start();
       nodes.push(src, filter, lfo, lfoGain);
     } else if (type === 'binaural') {
-      // 40Hz Gamma Study Waves (200Hz + 240Hz)
-      const oscL = ctx.createOscillator();
-      const oscR = ctx.createOscillator();
-      oscL.type = 'sine';
-      oscR.type = 'sine';
-      oscL.frequency.value = 200;
-      oscR.frequency.value = 240;
-
+      const oscL = ctx.createOscillator(); const oscR = ctx.createOscillator();
+      oscL.type = 'sine'; oscR.type = 'sine';
+      oscL.frequency.value = 200; oscR.frequency.value = 240;
       const merger = ctx.createChannelMerger(2);
-      oscL.connect(merger, 0, 0);
-      oscR.connect(merger, 0, 1);
-      merger.connect(this.masterGain);
-      oscL.start();
-      oscR.start();
+      oscL.connect(merger, 0, 0); oscR.connect(merger, 0, 1);
+      merger.connect(this.masterGain); oscL.start(); oscR.start();
       nodes.push(oscL, oscR, merger);
     } else if (type === 'brown') {
-      const src = ctx.createBufferSource();
-      src.buffer = this.createNoiseBuffer('brown');
-      src.loop = true;
-      src.connect(this.masterGain);
-      src.start();
-      nodes.push(src);
+      const src = ctx.createBufferSource(); src.buffer = this.createNoiseBuffer('brown'); src.loop = true;
+      src.connect(this.masterGain); src.start(); nodes.push(src);
     }
-
     this.activeTracks[type] = nodes;
     if (btnElement) btnElement.classList.add('active');
   },
-
   stop(type) {
     if (this.activeTracks[type]) {
       this.activeTracks[type].forEach(n => {
@@ -2579,7 +1320,6 @@ const AmbientManager = {
       delete this.activeTracks[type];
     }
   },
-
   stopAll() {
     Object.keys(this.activeTracks).forEach(t => this.stop(t));
     document.querySelectorAll('.sound-pill').forEach(b => b.classList.remove('active'));
@@ -2587,78 +1327,50 @@ const AmbientManager = {
   }
 };
 
-// ================= CONFETTI CELEBRATION =================
 function triggerConfetti() {
   const canvas = document.getElementById('confettiCanvas');
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-
+  canvas.width = window.innerWidth; canvas.height = window.innerHeight;
   const particles = [];
   const colors = ['#6366f1', '#f59e0b', '#10b981', '#ec4899', '#3b82f6', '#ffffff'];
-
   for (let i = 0; i < 90; i++) {
     particles.push({
-      x: canvas.width / 2,
-      y: canvas.height * 0.4,
-      vx: (Math.random() - 0.5) * 14,
-      vy: (Math.random() - 0.7) * 16,
-      size: Math.random() * 8 + 4,
-      color: colors[Math.floor(Math.random() * colors.length)],
-      rotation: Math.random() * 360,
-      vRot: (Math.random() - 0.5) * 10,
-      alpha: 1
+      x: canvas.width / 2, y: canvas.height * 0.4,
+      vx: (Math.random() - 0.5) * 14, vy: (Math.random() - 0.7) * 16,
+      size: Math.random() * 8 + 4, color: colors[Math.floor(Math.random() * colors.length)],
+      rotation: Math.random() * 360, vRot: (Math.random() - 0.5) * 10, alpha: 1
     });
   }
-
   let animationFrame;
   function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     let alive = 0;
-
     particles.forEach(p => {
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vy += 0.35; // Gravity
-      p.rotation += p.vRot;
-      p.alpha -= 0.012;
-
+      p.x += p.vx; p.y += p.vy; p.vy += 0.35; p.rotation += p.vRot; p.alpha -= 0.012;
       if (p.alpha > 0) {
         alive++;
-        ctx.save();
-        ctx.globalAlpha = p.alpha;
-        ctx.translate(p.x, p.y);
-        ctx.rotate((p.rotation * Math.PI) / 180);
-        ctx.fillStyle = p.color;
-        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.save(); ctx.globalAlpha = p.alpha;
+        ctx.translate(p.x, p.y); ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color; ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
         ctx.restore();
       }
     });
-
-    if (alive > 0) {
-      animationFrame = requestAnimationFrame(render);
-    } else {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      cancelAnimationFrame(animationFrame);
-    }
+    if (alive > 0) animationFrame = requestAnimationFrame(render);
+    else { ctx.clearRect(0, 0, canvas.width, canvas.height); cancelAnimationFrame(animationFrame); }
   }
   render();
 }
 
-// ================= TOAST NOTIFICATIONS =================
 function showToast(message, type = 'normal') {
   const container = document.getElementById('toastContainer');
   if (!container) return;
-
   const toast = document.createElement('div');
   toast.className = 'toast-msg';
   if (type === 'success') toast.style.borderColor = 'var(--success)';
   if (type === 'error') toast.style.borderColor = 'var(--danger)';
-
   toast.innerHTML = message;
   container.appendChild(toast);
-
   setTimeout(() => {
     toast.style.transition = 'all 0.3s ease';
     toast.style.opacity = '0';
@@ -2667,21 +1379,15 @@ function showToast(message, type = 'normal') {
   }, 2800);
 }
 
-// ================= LIVE CLOCK & GREETING =================
 function updateLiveClock() {
   const clockEl = document.getElementById('heroClock');
   const dateEl = document.getElementById('heroDate');
   if (!clockEl) return;
-
   const now = new Date();
-  const timeStr = now.toLocaleTimeString('ar-IQ', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-  const dateStr = now.toLocaleDateString('ar-IQ', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-
-  clockEl.textContent = timeStr;
-  dateEl.textContent = dateStr;
+  clockEl.textContent = now.toLocaleTimeString('ar-IQ', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+  dateEl.textContent = now.toLocaleDateString('ar-IQ', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
 }
 
-// ================= MOTIVATIONAL QUOTES =================
 const quotesDatabase = [
   "النجاح ليس مصادفة، بل نتاج ساعات الصبر والعمل الجاد.",
   "المستقبل ملك لأولئك الذين يؤمنون بجمال أحلامهم ويسعون لها.",
@@ -2696,38 +1402,23 @@ function refreshQuote() {
   SoundFX.click();
   const quoteText = document.getElementById('quoteText');
   if (!quoteText) return;
-  const randomQ = quotesDatabase[Math.floor(Math.random() * quotesDatabase.length)];
-  quoteText.textContent = `"${randomQ}"`;
+  quoteText.textContent = `"${quotesDatabase[Math.floor(Math.random() * quotesDatabase.length)]}"`;
 }
 
-// ================= STATS & DAILY GOAL =================
 function updateStatsDisplay() {
   const statHours = document.getElementById('statHours');
   const statTasks = document.getElementById('statTasks');
   const statSessions = document.getElementById('statSessions');
   const statStreak = document.getElementById('statStreak');
-
-  // Compute total focus hours
   const totalMin = AppState.sessions.reduce((acc, s) => acc + (s.duration || 25), 0);
-  const totalHours = (totalMin / 60).toFixed(1);
-  if (statHours) statHours.textContent = totalHours;
-
-  const completedTasks = AppState.tasks.filter(t => t.done).length;
-  if (statTasks) statTasks.textContent = completedTasks;
-
+  if (statHours) statHours.textContent = (totalMin / 60).toFixed(1);
+  if (statTasks) statTasks.textContent = AppState.tasks.filter(t => t.done).length;
   if (statSessions) statSessions.textContent = AppState.sessions.length;
-
-  const streak = calculateStreak();
-  if (statStreak) statStreak.textContent = `${streak} 🔥`;
-
-  // Daily goal progress
+  if (statStreak) statStreak.textContent = `${calculateStreak()} 🔥`;
   const today = new Date().toISOString().split('T')[0];
-  const todayMin = AppState.sessions
-    .filter(s => s.date && s.date.startsWith(today))
-    .reduce((acc, s) => acc + (s.duration || 25), 0);
+  const todayMin = AppState.sessions.filter(s => s.date && s.date.startsWith(today)).reduce((acc, s) => acc + (s.duration || 25), 0);
   const todayHours = todayMin / 60;
   const progressPct = Math.min(100, Math.round((todayHours / (AppState.dailyGoal || 4)) * 100));
-
   const fillEl = document.getElementById('dailyGoalProgress');
   const pctEl = document.getElementById('dailyGoalPct');
   if (fillEl) fillEl.style.width = `${progressPct}%`;
@@ -2739,28 +1430,17 @@ function calculateStreak() {
   const daysSet = new Set(AppState.sessions.map(s => s.date.split('T')[0]));
   const sortedDays = Array.from(daysSet).sort().reverse();
   const today = new Date().toISOString().split('T')[0];
-
   let streak = 0;
   let curr = new Date(today);
-
   for (let i = 0; i < sortedDays.length; i++) {
     const checkStr = curr.toISOString().split('T')[0];
-    if (daysSet.has(checkStr)) {
-      streak++;
-      curr.setDate(curr.getDate() - 1);
-    } else if (i === 0) {
-      // Check yesterday if haven't studied yet today
+    if (daysSet.has(checkStr)) { streak++; curr.setDate(curr.getDate() - 1); }
+    else if (i === 0) {
       curr.setDate(curr.getDate() - 1);
       const yestStr = curr.toISOString().split('T')[0];
-      if (daysSet.has(yestStr)) {
-        streak++;
-        curr.setDate(curr.getDate() - 1);
-      } else {
-        break;
-      }
-    } else {
-      break;
-    }
+      if (daysSet.has(yestStr)) { streak++; curr.setDate(curr.getDate() - 1); }
+      else break;
+    } else break;
   }
   return Math.max(1, streak);
 }
@@ -2772,40 +1452,31 @@ function updateDailyGoal(newVal) {
   showToast(`🎯 تم تحديث الهدف اليومي إلى ${AppState.dailyGoal} ساعات`);
 }
 
-// ================= EXAM COUNTDOWN TRACKER =================
 function renderExams() {
   const container = document.getElementById('examsContainer');
   if (!container) return;
-
   if (AppState.exams.length === 0) {
     container.innerHTML = '<p style="text-align:center;color:var(--text-muted);padding:15px">لا توجد امتحانات مسجلة. أضف موعد امتحانك القادم!</p>';
     return;
   }
-
   const now = new Date().getTime();
   container.innerHTML = AppState.exams.map(exam => {
     const examDate = new Date(exam.date).getTime();
     const diff = examDate - now;
-
     let days = Math.floor(diff / (1000 * 60 * 60 * 24));
     let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let urgencyClass = 'exam-urgency-normal';
-
     let displayStr = '';
-    if (diff < 0) {
-      displayStr = '<span class="badge badge-danger">انتهى الموعد</span>';
-    } else {
+    if (diff < 0) displayStr = '<span class="badge badge-danger">انتهى الموعد</span>';
+    else {
       if (days < 7) urgencyClass = 'exam-urgency-high';
       else if (days < 30) urgencyClass = 'exam-urgency-medium';
-
       displayStr = `
         <div class="exam-countdown-box ${urgencyClass}">
           <div class="countdown-pill"><div class="countdown-val">${Math.max(0, days)}</div><div class="countdown-lbl">يوم</div></div>
           <div class="countdown-pill"><div class="countdown-val">${Math.max(0, hours)}</div><div class="countdown-lbl">ساعة</div></div>
-        </div>
-      `;
+        </div>`;
     }
-
     return `
       <div class="exam-item">
         <div class="exam-info">
@@ -2816,8 +1487,7 @@ function renderExams() {
           ${displayStr}
           <button class="btn btn-sm btn-danger" onclick="deleteExam(${exam.id})" title="حذف">✕</button>
         </div>
-      </div>
-    `;
+      </div>`;
   }).join('');
 }
 
@@ -2826,29 +1496,20 @@ function addCustomExam() {
   if (!name) return;
   const date = prompt('أدخل تاريخ الامتحان (YYYY-MM-DD):', getOffsetDate(14));
   if (!date) return;
-
-  AppState.exams.push({
-    id: Date.now(),
-    name: name.trim(),
-    date: date.trim()
-  });
-  saveState('exams');
-  renderExams();
+  AppState.exams.push({ id: Date.now(), name: name.trim(), date: date.trim() });
+  saveState('exams'); renderExams();
   showToast('✅ تمت إضافة الامتحان بنجاح');
 }
 
 function deleteExam(id) {
   AppState.exams = AppState.exams.filter(e => e.id !== id);
-  saveState('exams');
-  renderExams();
+  saveState('exams'); renderExams();
   showToast('🗑️ تم حذف الامتحان');
 }
 
-// ================= HABIT TRACKER =================
 function renderHabits() {
   const container = document.getElementById('habitsContainer');
   if (!container) return;
-
   container.innerHTML = AppState.habits.map(h => `
     <div class="habit-item ${h.done ? 'done' : ''}" onclick="toggleHabit('${h.id}')">
       <div class="habit-left">
@@ -2864,42 +1525,21 @@ function toggleHabit(id) {
   const h = AppState.habits.find(x => x.id === id);
   if (!h) return;
   h.done = !h.done;
-  if (h.done) {
-    h.streak++;
-    SoundFX.complete();
-    triggerConfetti();
-    showToast(`🌟 أحسنت! أنجزت: ${h.title}`);
-  } else {
-    h.streak = Math.max(0, h.streak - 1);
-  }
-  saveState('habits');
-  renderHabits();
+  if (h.done) { h.streak++; SoundFX.complete(); triggerConfetti(); showToast(`🌟 أحسنت! أنجزت: ${h.title}`); }
+  else h.streak = Math.max(0, h.streak - 1);
+  saveState('habits'); renderHabits();
 }
 
-// ================= SMART POMODORO TIMER =================
 const Pomodoro = {
-  mode: 'pomodoro', // pomodoro, shortBreak, longBreak, deepFocus, stopwatch
-  duration: 25 * 60,
-  timeLeft: 25 * 60,
-  timerId: null,
-  isRunning: false,
-  circTotal: 816, // 2 * PI * 130
-
-  init() {
-    this.updateDisplay();
-  },
-
+  mode: 'pomodoro', duration: 25 * 60, timeLeft: 25 * 60,
+  timerId: null, isRunning: false, circTotal: 816,
+  init() { this.updateDisplay(); },
   setMode(mode, minutes) {
-    SoundFX.click();
-    this.pause();
-    this.mode = mode;
-    this.duration = minutes * 60;
-    this.timeLeft = this.duration;
-
+    SoundFX.click(); this.pause();
+    this.mode = mode; this.duration = minutes * 60; this.timeLeft = this.duration;
     document.querySelectorAll('.timer-mode-btn').forEach(b => b.classList.remove('active'));
     const targetBtn = document.querySelector(`[data-mode="${mode}"]`);
     if (targetBtn) targetBtn.classList.add('active');
-
     const statusEl = document.getElementById('timerStatusText');
     if (statusEl) {
       if (mode === 'pomodoro') statusEl.textContent = 'جلسة تركيز قياسية (25د)';
@@ -2907,80 +1547,43 @@ const Pomodoro = {
       else if (mode === 'longBreak') statusEl.textContent = 'استراحة طويلة للاستعادة (15د)';
       else if (mode === 'deepFocus') statusEl.textContent = 'تركيز عميق ومكثف (50د)';
     }
-
     this.updateDisplay();
   },
-
   start() {
     if (this.isRunning) return;
-    SoundFX.click();
-    this.isRunning = true;
+    SoundFX.click(); this.isRunning = true;
     document.getElementById('btnTimerStart').style.display = 'none';
     document.getElementById('btnTimerPause').style.display = 'inline-flex';
-
     this.timerId = setInterval(() => {
-      if (this.timeLeft > 0) {
-        this.timeLeft--;
-        this.updateDisplay();
-      } else {
-        this.completeSession();
-      }
+      if (this.timeLeft > 0) { this.timeLeft--; this.updateDisplay(); }
+      else this.completeSession();
     }, 1000);
   },
-
   pause() {
     if (!this.isRunning) return;
-    SoundFX.click();
-    this.isRunning = false;
+    SoundFX.click(); this.isRunning = false;
     clearInterval(this.timerId);
     document.getElementById('btnTimerStart').style.display = 'inline-flex';
     document.getElementById('btnTimerPause').style.display = 'none';
   },
-
-  reset() {
-    SoundFX.click();
-    this.pause();
-    this.timeLeft = this.duration;
-    this.updateDisplay();
-  },
-
+  reset() { SoundFX.click(); this.pause(); this.timeLeft = this.duration; this.updateDisplay(); },
   completeSession() {
-    this.pause();
-    SoundFX.gong();
-    triggerConfetti();
-
-    // Log focus session if mode was focus
+    this.pause(); SoundFX.gong(); triggerConfetti();
     if (this.mode === 'pomodoro' || this.mode === 'deepFocus') {
       const dur = Math.round(this.duration / 60);
-      AppState.sessions.push({
-        id: Date.now(),
-        date: new Date().toISOString(),
-        duration: dur,
-        mode: this.mode
-      });
-      saveState('sessions');
-      updateStatsDisplay();
-      updateCharts();
+      AppState.sessions.push({ id: Date.now(), date: new Date().toISOString(), duration: dur, mode: this.mode });
+      saveState('sessions'); updateStatsDisplay(); updateCharts();
       showToast(`🎉 مبروك! أتممت جلسة دراسية مدتها ${dur} دقيقة!`, 'success');
-    } else {
-      showToast('⏰ انتهى وقت الاستراحة! هل أنت مستعد للعودة؟');
-    }
-
+    } else showToast('⏰ انتهى وقت الاستراحة! هل أنت مستعد للعودة؟');
     this.reset();
   },
-
   updateDisplay() {
     const mins = Math.floor(this.timeLeft / 60);
     const secs = this.timeLeft % 60;
     const timeFormatted = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
-
     const digitsEl = document.getElementById('timerDigits');
     if (digitsEl) digitsEl.textContent = timeFormatted;
-
-    // Browser tab title
     document.title = `${timeFormatted} • Student OS PRO`;
-
-    // Circular SVG Progress
     const circle = document.getElementById('timerCircleProgress');
     if (circle && this.duration > 0) {
       const offset = this.circTotal * (1 - (this.timeLeft / this.duration));
@@ -2989,29 +1592,22 @@ const Pomodoro = {
   }
 };
 
-// ================= TASK MANAGER =================
 let currentTaskFilter = 'all';
-
 function renderTasks() {
   const container = document.getElementById('taskListContainer');
   if (!container) return;
-
   let filtered = AppState.tasks;
   if (currentTaskFilter === 'active') filtered = filtered.filter(t => !t.done);
   else if (currentTaskFilter === 'completed') filtered = filtered.filter(t => t.done);
   else if (currentTaskFilter === 'high') filtered = filtered.filter(t => t.priority === 'high');
-
   if (filtered.length === 0) {
     container.innerHTML = '<div style="text-align:center;padding:30px;color:var(--text-muted)">لا توجد مهام في هذا التصنيف 🚀</div>';
     return;
   }
-
   container.innerHTML = filtered.map(task => {
-    let prioClass = 'priority-medium';
-    let prioName = 'متوسطة';
+    let prioClass = 'priority-medium', prioName = 'متوسطة';
     if (task.priority === 'high') { prioClass = 'priority-high'; prioName = 'عاجلة'; }
     if (task.priority === 'low') { prioClass = 'priority-low'; prioName = 'عادية'; }
-
     return `
       <div class="task-item ${task.done ? 'completed' : ''}">
         <div class="task-item-main">
@@ -3026,8 +1622,7 @@ function renderTasks() {
           </div>
         </div>
         <button class="btn btn-sm btn-danger" onclick="deleteTask(${task.id})">✕</button>
-      </div>
-    `;
+      </div>`;
   }).join('');
 }
 
@@ -3036,28 +1631,11 @@ function addTask() {
   const cat = document.getElementById('taskInputCat');
   const prio = document.getElementById('taskInputPrio');
   const due = document.getElementById('taskInputDue');
-
   const text = input.value.trim();
-  if (!text) {
-    showToast('⚠️ يرجى كتابة تفاصيل المهمة أولاً');
-    return;
-  }
-
-  AppState.tasks.unshift({
-    id: Date.now(),
-    text: text,
-    category: cat.value,
-    priority: prio.value,
-    due: due.value || null,
-    done: false
-  });
-
-  saveState('tasks');
-  input.value = '';
-  due.value = '';
-  SoundFX.click();
-  renderTasks();
-  updateStatsDisplay();
+  if (!text) { showToast('⚠️ يرجى كتابة تفاصيل المهمة أولاً'); return; }
+  AppState.tasks.unshift({ id: Date.now(), text, category: cat.value, priority: prio.value, due: due.value || null, done: false });
+  saveState('tasks'); input.value = ''; due.value = '';
+  SoundFX.click(); renderTasks(); updateStatsDisplay();
   showToast('✅ تمت إضافة المهمة');
 }
 
@@ -3065,33 +1643,23 @@ function toggleTask(id) {
   const task = AppState.tasks.find(t => t.id === id);
   if (!task) return;
   task.done = !task.done;
-  if (task.done) {
-    SoundFX.complete();
-    triggerConfetti();
-    showToast('🏆 أحسنت! تم إنجاز المهمة');
-  }
-  saveState('tasks');
-  renderTasks();
-  updateStatsDisplay();
+  if (task.done) { SoundFX.complete(); triggerConfetti(); showToast('🏆 أحسنت! تم إنجاز المهمة'); }
+  saveState('tasks'); renderTasks(); updateStatsDisplay();
 }
 
 function deleteTask(id) {
   AppState.tasks = AppState.tasks.filter(t => t.id !== id);
-  saveState('tasks');
-  renderTasks();
-  updateStatsDisplay();
+  saveState('tasks'); renderTasks(); updateStatsDisplay();
   showToast('🗑️ تم حذف المهمة');
 }
 
 function filterTasks(type, btn) {
-  SoundFX.click();
-  currentTaskFilter = type;
+  SoundFX.click(); currentTaskFilter = type;
   document.querySelectorAll('.task-filter-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
   renderTasks();
 }
 
-// ================= FLASHCARDS 2.0 (3D FLIP & SM-2) =================
 let activeFlashcardDeck = 'all';
 let currentFlashcardIndex = 0;
 let isCardFlipped = false;
@@ -3101,7 +1669,6 @@ function renderFlashcardStats() {
   const now = Date.now();
   const due = AppState.flashcards.filter(c => (c.nextReview || 0) <= now).length;
   const learned = AppState.flashcards.filter(c => (c.repetitions || 0) >= 3).length;
-
   document.getElementById('fcTotalCount').textContent = total;
   document.getElementById('fcDueCount').textContent = due;
   document.getElementById('fcLearnedCount').textContent = learned;
@@ -3109,9 +1676,7 @@ function renderFlashcardStats() {
 
 function getAvailableFlashcards() {
   let cards = AppState.flashcards;
-  if (activeFlashcardDeck !== 'all') {
-    cards = cards.filter(c => c.deck === activeFlashcardDeck);
-  }
+  if (activeFlashcardDeck !== 'all') cards = cards.filter(c => c.deck === activeFlashcardDeck);
   return cards;
 }
 
@@ -3122,22 +1687,16 @@ function displayCurrentFlashcard() {
   const backEl = document.getElementById('fcBackText');
   const deckEl = document.getElementById('fcDeckLabel');
   const ankiButtons = document.getElementById('ankiRatingRow');
-
   isCardFlipped = false;
   if (card3d) card3d.classList.remove('flipped');
   if (ankiButtons) ankiButtons.style.display = 'none';
-
   if (cards.length === 0) {
     if (frontEl) frontEl.textContent = 'لا توجد بطاقات في هذا القسم. اضغط "إضافة بطاقة" للبدء!';
     if (backEl) backEl.textContent = '';
     if (deckEl) deckEl.textContent = '';
     return;
   }
-
-  if (currentFlashcardIndex >= cards.length) {
-    currentFlashcardIndex = 0;
-  }
-
+  if (currentFlashcardIndex >= cards.length) currentFlashcardIndex = 0;
   const card = cards[currentFlashcardIndex];
   if (frontEl) frontEl.textContent = card.front;
   if (backEl) backEl.textContent = card.back;
@@ -3149,77 +1708,45 @@ function flipFlashcard() {
   const card3d = document.getElementById('flashcard3d');
   const ankiButtons = document.getElementById('ankiRatingRow');
   isCardFlipped = !isCardFlipped;
-
-  if (card3d) {
-    card3d.classList.toggle('flipped', isCardFlipped);
-  }
-  if (ankiButtons && isCardFlipped) {
-    ankiButtons.style.display = 'grid';
-  }
+  if (card3d) card3d.classList.toggle('flipped', isCardFlipped);
+  if (ankiButtons && isCardFlipped) ankiButtons.style.display = 'grid';
 }
 
 function rateFlashcard(quality) {
   const cards = getAvailableFlashcards();
   if (cards.length === 0) return;
-
   const card = cards[currentFlashcardIndex];
-  // SM-2 Spaced Repetition Algorithm
-  if (quality < 3) {
-    card.repetitions = 0;
-    card.interval = 1;
-  } else {
+  if (quality < 3) { card.repetitions = 0; card.interval = 1; }
+  else {
     if (card.repetitions === 0) card.interval = 1;
     else if (card.repetitions === 1) card.interval = 6;
     else card.interval = Math.round(card.interval * (card.easeFactor || 2.5));
     card.repetitions = (card.repetitions || 0) + 1;
   }
-
   card.easeFactor = Math.max(1.3, (card.easeFactor || 2.5) + (0.1 - (5 - quality) * (0.08 + (5 - quality) * 0.02)));
   card.nextReview = Date.now() + (card.interval * 86400000);
-
-  saveState('flashcards');
-  renderFlashcardStats();
-
+  saveState('flashcards'); renderFlashcardStats();
   currentFlashcardIndex = (currentFlashcardIndex + 1) % cards.length;
   displayCurrentFlashcard();
   showToast('✅ تم تسجيل التقييم');
 }
 
-function openAddFlashcardModal() {
-  document.getElementById('modalAddFlashcard').classList.add('show');
-}
+function openAddFlashcardModal() { document.getElementById('modalAddFlashcard').classList.add('show'); }
 
 function saveNewFlashcard() {
   const front = document.getElementById('newFcFront').value.trim();
   const back = document.getElementById('newFcBack').value.trim();
   const deck = document.getElementById('newFcDeck').value;
-
-  if (!front || !back) {
-    showToast('⚠️ يرجى كتابة السؤال والإجابة');
-    return;
-  }
-
-  AppState.flashcards.push({
-    id: Date.now(),
-    deck: deck,
-    front: front,
-    back: back,
-    easeFactor: 2.5,
-    interval: 1,
-    repetitions: 0,
-    nextReview: Date.now()
-  });
-
+  if (!front || !back) { showToast('⚠️ يرجى كتابة السؤال والإجابة'); return; }
+  AppState.flashcards.push({ id: Date.now(), deck, front, back, easeFactor: 2.5, interval: 1, repetitions: 0, nextReview: Date.now() });
   saveState('flashcards');
   document.getElementById('newFcFront').value = '';
   document.getElementById('newFcBack').value = '';
   closeModal('modalAddFlashcard');
-  renderFlashcardStats();
-  displayCurrentFlashcard();
+  renderFlashcardStats(); displayCurrentFlashcard();
   showToast('🎉 تمت إضافة البطاقة بنجاح');
 }
 
-// ================= INTERACTIVE SCHEDULE =================
 const defaultSchedule = {
   "أحد": ["رياضيات", "فيزياء", "لغة عربية", "إسلامية"],
   "اثنين": ["كيمياء", "أحياء", "لغة إنجليزية", "حاسوب"],
@@ -3231,27 +1758,16 @@ const defaultSchedule = {
 function renderSchedule() {
   const tbody = document.getElementById('scheduleTableBody');
   if (!tbody) return;
-
   const data = Object.keys(AppState.schedule).length > 0 ? AppState.schedule : defaultSchedule;
   const days = ["أحد", "اثنين", "ثلاثاء", "أربعاء", "خميس"];
-
   tbody.innerHTML = days.map(day => {
     const slots = data[day] || ["", "", "", ""];
-    return `
-      <tr>
-        <td class="schedule-day-col">${day}</td>
-        ${slots.map((subject, idx) => `
-          <td contenteditable="true" onblur="saveScheduleCell('${day}', ${idx}, this.innerText)">${subject}</td>
-        `).join('')}
-      </tr>
-    `;
+    return `<tr><td class="schedule-day-col">${day}</td>${slots.map((subject, idx) => `<td contenteditable="true" onblur="saveScheduleCell('${day}', ${idx}, this.innerText)">${subject}</td>`).join('')}</tr>`;
   }).join('');
 }
 
 function saveScheduleCell(day, slotIdx, text) {
-  if (!AppState.schedule[day]) {
-    AppState.schedule[day] = ["", "", "", ""];
-  }
+  if (!AppState.schedule[day]) AppState.schedule[day] = ["", "", "", ""];
   AppState.schedule[day][slotIdx] = text.trim();
   saveState('schedule');
 }
@@ -3259,27 +1775,20 @@ function saveScheduleCell(day, slotIdx, text) {
 function resetSchedule() {
   if (confirm('هل ترغب في استعادة الجدول الدراسي الافتراضي؟')) {
     AppState.schedule = JSON.parse(JSON.stringify(defaultSchedule));
-    saveState('schedule');
-    renderSchedule();
+    saveState('schedule'); renderSchedule();
     showToast('🔄 تم استعادة الجدول الافتراضي');
   }
 }
 
-function printSchedule() {
-  window.print();
-}
+function printSchedule() { window.print(); }
 
-// ================= CURRICULUM LIBRARY =================
 const libraryCatalog = [
-  // السادس الابتدائي
   { stage: 'sixth_primary', subject: 'رياضيات', title: 'ملزمة الرياضيات - السادس الابتدائي', author: 'أحمد مهدي شلال', type: 'منهجية' },
   { stage: 'sixth_primary', subject: 'رياضيات', title: 'ملزمة الرياضيات الوزارية - السادس الابتدائي', author: 'وزارة التربية', type: 'وزارية' },
   { stage: 'sixth_primary', subject: 'عربية', title: 'ملزمة اللغة العربية - السادس الابتدائي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'sixth_primary', subject: 'إنجليزية', title: 'ملزمة الإنكليزي - السادس الابتدائي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'sixth_primary', subject: 'إسلامية', title: 'ملزمة التربية الإسلامية - السادس الابتدائي', author: 'وزارة التربية', type: 'منهجية' },
   { stage: 'sixth_primary', subject: 'اجتماعيات', title: 'ملزمة الاجتماعيات - السادس الابتدائي', author: 'نخبة أساتذة', type: 'منهجية' },
-
-  // الثالث المتوسط
   { stage: 'third_intermediate', subject: 'رياضيات', title: 'ملزمة الرياضيات - الثالث المتوسط', author: 'علي صادق', type: 'منهجية' },
   { stage: 'third_intermediate', subject: 'رياضيات', title: 'ملزمة الرياضيات الوزارية - الثالث المتوسط', author: 'وزارة التربية', type: 'وزارية' },
   { stage: 'third_intermediate', subject: 'فيزياء', title: 'ملزمة الفيزياء وحل الأسئلة الوزارية', author: 'منتظر الخفاجي', type: 'وزارية' },
@@ -3289,24 +1798,18 @@ const libraryCatalog = [
   { stage: 'third_intermediate', subject: 'إنجليزية', title: 'ملزمة الإنكليزي - الثالث المتوسط', author: 'علي الجبوري', type: 'منهجية' },
   { stage: 'third_intermediate', subject: 'إسلامية', title: 'ملزمة التربية الإسلامية - الثالث المتوسط', author: 'فيصل عبد الودود', type: 'منهجية' },
   { stage: 'third_intermediate', subject: 'اجتماعيات', title: 'ملزمة الاجتماعيات - الثالث المتوسط', author: 'نخبة أساتذة', type: 'منهجية' },
-
-  // الرابع الإعدادي
   { stage: 'fourth_prep', subject: 'رياضيات', title: 'ملزمة الرياضيات - الرابع العلمي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'fourth_prep', subject: 'أحياء', title: 'ملزمة الأحياء - الرابع العلمي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'fourth_prep', subject: 'كيمياء', title: 'ملزمة الكيمياء - الرابع العلمي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'fourth_prep', subject: 'فيزياء', title: 'ملزمة الفيزياء - الرابع العلمي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'fourth_prep', subject: 'عربية', title: 'ملزمة اللغة العربية - الرابع الإعدادي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'fourth_prep', subject: 'إنجليزية', title: 'ملزمة الإنكليزي - الرابع الإعدادي', author: 'نخبة أساتذة', type: 'منهجية' },
-
-  // الخامس الإعدادي
   { stage: 'fifth_prep', subject: 'رياضيات', title: 'ملزمة الرياضيات - الخامس العلمي', author: 'وزارة التربية', type: 'منهجية' },
   { stage: 'fifth_prep', subject: 'أحياء', title: 'ملزمة الأحياء - الخامس العلمي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'fifth_prep', subject: 'كيمياء', title: 'ملزمة الكيمياء - الخامس العلمي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'fifth_prep', subject: 'فيزياء', title: 'ملزمة الفيزياء - الخامس العلمي', author: 'نخبة أساتذة', type: 'منهجية' },
   { stage: 'fifth_prep', subject: 'عربية', title: 'ملزمة اللغة العربية - الخامس الإعدادي', author: 'عمار السلامي', type: 'منهجية' },
   { stage: 'fifth_prep', subject: 'إنجليزية', title: 'ملزمة الإنكليزي - الخامس الإعدادي', author: 'نخبة أساتذة', type: 'منهجية' },
-
-  // السادس الإعدادي
   { stage: 'sixth_prep', subject: 'رياضيات', title: 'ملزمة الرياضيات - السادس العلمي', author: 'أحمد مهدي شلال', type: 'منهجية' },
   { stage: 'sixth_prep', subject: 'رياضيات', title: 'الأسئلة الوزارية الشاملة رياضيات - السادس العلمي', author: 'وزارة التربية', type: 'وزارية' },
   { stage: 'sixth_prep', subject: 'فيزياء', title: 'ملزمة الفيزياء الذهبية الوزارية - السادس العلمي', author: 'سعيد محي تومان', type: 'وزارية' },
@@ -3321,36 +1824,53 @@ const libraryCatalog = [
 
 let activeLibStage = 'all';
 
+const newLibraryItems = [
+  'ملزمة الفيزياء الذهبية الوزارية - السادس العلمي',
+  'ملزمة الرياضيات الوزارية - الثالث المتوسط',
+  'ملزمة الأحياء المصورة - السادس العلمي'
+];
+
 function renderLibrary() {
   const grid = document.getElementById('libraryGrid');
   if (!grid) return;
-
   const search = (document.getElementById('libSearchInput').value || '').trim().toLowerCase();
   const subj = document.getElementById('libSubjectFilter').value;
   const type = document.getElementById('libTypeFilter').value;
-
+  localStorage.setItem('libLastFilter', JSON.stringify({ stage: activeLibStage, subj, type, search }));
   let filtered = libraryCatalog;
   if (activeLibStage !== 'all') filtered = filtered.filter(b => b.stage === activeLibStage);
   if (subj !== 'all') filtered = filtered.filter(b => b.subject === subj);
   if (type !== 'all') filtered = filtered.filter(b => b.type === type);
   if (search) filtered = filtered.filter(b => b.title.toLowerCase().includes(search) || b.author.toLowerCase().includes(search));
 
+  let counterEl = document.getElementById('libResultsCounter');
+  if (!counterEl) {
+    counterEl = document.createElement('div');
+    counterEl.id = 'libResultsCounter';
+    counterEl.style.cssText = 'font-size:12px;color:var(--text-muted);margin-bottom:12px;font-weight:600;display:flex;align-items:center;gap:8px';
+    grid.parentNode.insertBefore(counterEl, grid);
+  }
+  counterEl.innerHTML = `📚 <span style="color:var(--primary);font-weight:800">${filtered.length}</span> ملزمة ظاهرة من أصل ${libraryCatalog.length}`;
+
   if (filtered.length === 0) {
     grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--text-muted)">لم يتم العثور على نتائج مطابقة لبحثك 🔍</div>';
     return;
   }
-
   const iconsMap = {
     'رياضيات': '📐', 'فيزياء': '⚛️', 'كيمياء': '🧪', 'أحياء': '🧬',
     'عربية': '📖', 'إنجليزية': '🔤', 'إسلامية': '🕌', 'اجتماعيات': '🌍',
     'حاسوب': '💻', 'فرنسية': '🇫🇷'
   };
-
-  grid.innerHTML = filtered.map(item => `
+  grid.innerHTML = filtered.map(item => {
+    const isNew = newLibraryItems.includes(item.title);
+    return `
     <div class="book-card">
       <div class="book-top">
         <div class="book-icon">${iconsMap[item.subject] || '📚'}</div>
-        <span class="badge ${item.type === 'وزارية' ? 'badge-danger' : 'badge-success'}">${item.type}</span>
+        <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px">
+          <span class="badge ${item.type === 'وزارية' ? 'badge-danger' : 'badge-success'}">${item.type}</span>
+          ${isNew ? '<span class="badge badge-warning" style="font-size:9px">✨ جديد</span>' : ''}
+        </div>
       </div>
       <div class="book-title">${item.title}</div>
       <div class="book-author">✍️ إعداد: ${item.author}</div>
@@ -3358,13 +1878,32 @@ function renderLibrary() {
         <button class="btn btn-sm btn-primary" onclick="goToAIForBook('${item.title.replace(/'/g, "\\'").replace(/"/g, "&quot;")}')" title="البحث عن الملزمة عبر المساعد الذكي">📥 تحميل عبر المساعد</button>
         <a class="btn btn-sm btn-secondary" href="https://iraqedu.net/" target="_blank" title="زيارة منصة المساعد التعليمي">🌐 منصة المساعد</a>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
+}
+
+function restoreLastLibFilter() {
+  try {
+    const saved = JSON.parse(localStorage.getItem('libLastFilter') || 'null');
+    if (!saved) return;
+    const searchEl = document.getElementById('libSearchInput');
+    const subjEl = document.getElementById('libSubjectFilter');
+    const typeEl = document.getElementById('libTypeFilter');
+    if (searchEl && saved.search) searchEl.value = saved.search;
+    if (subjEl && saved.subj) subjEl.value = saved.subj;
+    if (typeEl && saved.type) typeEl.value = saved.type;
+    if (saved.stage) {
+      activeLibStage = saved.stage;
+      document.querySelectorAll('.stage-tab-btn').forEach(b => b.classList.remove('active'));
+      const stageBtns = document.querySelectorAll('.stage-tab-btn');
+      const stageMap = { all: 0, sixth_prep: 1, third_intermediate: 2, fifth_prep: 3, fourth_prep: 4, sixth_primary: 5 };
+      if (stageBtns[stageMap[saved.stage]]) stageBtns[stageMap[saved.stage]].classList.add('active');
+    }
+  } catch(e) {}
 }
 
 function filterLibStage(stage, btn) {
-  SoundFX.click();
-  activeLibStage = stage;
+  SoundFX.click(); activeLibStage = stage;
   document.querySelectorAll('.stage-tab-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
   renderLibrary();
@@ -3372,25 +1911,16 @@ function filterLibStage(stage, btn) {
 
 function goToAIForBook(bookTitle) {
   SoundFX.click();
-  // Scroll to AI assistant section
   const aiSection = document.getElementById('ai');
-  if (aiSection) {
-    aiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
-  // Pre-fill the AI chat input with book search query
+  if (aiSection) aiSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
   setTimeout(() => {
     const aiInput = document.getElementById('aiChatInput');
-    if (aiInput) {
-      aiInput.value = `أريد تحميل أو معرفة المزيد عن: ${bookTitle}`;
-      aiInput.focus();
-    }
-    // Also auto-send a helpful message
+    if (aiInput) { aiInput.value = `أريد تحميل أو معرفة المزيد عن: ${bookTitle}`; aiInput.focus(); }
     sendAIMessage(`ساعدني في العثور على ملزمة "${bookTitle}" وأخبرني كيف يمكنني تحميلها أو الوصول إليها من منصة المساعد التعليمي iraqedu.net`);
   }, 600);
   showToast('📚 جاري الانتقال للمساعد الذكي للبحث عن الملزمة...');
 }
 
-// ================= AI STUDY ASSISTANT =================
 const localAIResponses = {
   "لخص لي": "📌 **أهم النقاط الأساسية:**\n1. ركز على المفاهيم الجوهرية والتعاريف الأساسية أولاً.\n2. اربط كل قانون علمي بتطبيقه العملي ومثاله الوزاري.\n3. أعد كتابة الاستنتاجات بأسلوبك الخاص لتثبيت الحفظ في الذاكرة طويلة المدى.",
   "اسئلة": "📝 **نماذج أسئلة تدريبية مقترحة:**\n- س1: علل ما يأتي وفق القواعد الفيزيائية؟\n- س2: قارن بالرسم أو بجدول دقيق بين المفاهيم المتقاربة.\n- س3: ما هو التأثير المتوقع عند تغير أحد عوامل التجربة؟",
@@ -3401,99 +1931,84 @@ async function sendAIMessage(presetText) {
   const input = document.getElementById('aiChatInput');
   const chatWindow = document.getElementById('aiChatWindow');
   const prompt = presetText || input.value.trim();
-
   if (!prompt) return;
   if (!presetText) input.value = '';
-
   SoundFX.click();
 
-  // Add User Message
   const userDiv = document.createElement('div');
   userDiv.className = 'chat-msg user';
   userDiv.textContent = prompt;
   chatWindow.appendChild(userDiv);
   chatWindow.scrollTop = chatWindow.scrollHeight;
 
-  // Add Loading Bot Message
   const botDiv = document.createElement('div');
   botDiv.className = 'chat-msg bot';
   botDiv.innerHTML = '⏳ <i>جاري التحليل وصياغة الإجابة...</i>';
   chatWindow.appendChild(botDiv);
   chatWindow.scrollTop = chatWindow.scrollHeight;
 
-  // Check if API key is configured
-  if (AppState.geminiKey) {
-    try {
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${AppState.geminiKey}`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: `أنت مساعد دراسي عراقي خبير وودود للطلاب. أجب بأسلوب تعليمي مشجع ومنظم باللغة العربية. سؤال الطالب: ${prompt}` }] }]
-        })
-      });
-      const data = await res.json();
-      if (data.candidates && data.candidates[0]) {
-        const reply = data.candidates[0].content.parts[0].text;
-        botDiv.innerHTML = formatMarkdown(reply);
-      } else {
-        botDiv.innerHTML = '⚠️ حدث خطأ في استجابة المفتاح. يرجى التحقق من مفتاح Gemini في الإعدادات.';
-      }
-    } catch(err) {
-      botDiv.innerHTML = '❌ تعذر الاتصال بالخادم. تأكد من اتصالك بالإنترنت.';
-    }
-  } else {
-    // Intelligent Offline Fallback
-    setTimeout(() => {
-      let reply = "مرحباً يا بطل! 🎓 أنا جاهز لمساعدتك في أي سؤال دراسي. يمكنك إضافة مفتاحك الخاص بـ Gemini API من زر الإعدادات أعلاه لتفعيل الإجابات الكاملة لجميع الأسئلة في أي مادة.\n\n💡 **نصيحة دراسية سريعة:** عند مذاكرة مادة معقدة، قسمها إلى أجزاء صغيرة مدتها 25 دقيقة مع مؤقت بومودورو وستلاحظ فارقاً كبيراً في استيعابك!";
-      if (prompt.includes('لخص') || prompt.includes('تلخيص')) reply = localAIResponses["لخص لي"];
-      else if (prompt.includes('سؤال') || prompt.includes('اسئلة') || prompt.includes('اختبرني')) reply = localAIResponses["اسئلة"];
-      else if (prompt.includes('خطة') || prompt.includes('جدول')) reply = localAIResponses["خطة"];
+  const apiKey = AppState.geminiKey || DEFAULT_GEMINI_KEY;
 
+  try {
+    const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{
+            text: `أنت مساعد دراسي عراقي خبير وودود للطلاب. أجب بأسلوب تعليمي مشجع ومنظم باللغة العربية الفصحى. استخدم النقاط والترقيم عند الحاجة. سؤال الطالب: ${prompt}`
+          }]
+        }],
+        generationConfig: { temperature: 0.7, maxOutputTokens: 1500 }
+      })
+    });
+
+    const data = await res.json();
+
+    if (data.candidates && data.candidates[0] && data.candidates[0].content) {
+      const reply = data.candidates[0].content.parts[0].text;
       botDiv.innerHTML = formatMarkdown(reply);
-      chatWindow.scrollTop = chatWindow.scrollHeight;
-    }, 700);
+    } else if (data.error) {
+      botDiv.innerHTML = `⚠️ خطأ في المفتاح: ${data.error.message}<br><small style="color:var(--text-muted)">افتح الإعدادات ⚙️ وأدخل مفتاح Gemini صالح من <a href="https://aistudio.google.com/apikey" target="_blank">Google AI Studio</a></small>`;
+    } else {
+      botDiv.innerHTML = '⚠️ لم يتم الحصول على رد. جرب إعادة صياغة سؤالك.';
+    }
+  } catch(err) {
+    let reply = "مرحباً يا بطل! 🎓 تعذر الاتصال بالخادم حالياً. إليك نصيحة سريعة:\n\n💡 **نصيحة دراسية:** عند مذاكرة مادة معقدة، قسمها إلى أجزاء صغيرة مدتها 25 دقيقة مع مؤقت بومودورو وستلاحظ فارقاً كبيراً في استيعابك!";
+    if (prompt.includes('لخص') || prompt.includes('تلخيص')) reply = localAIResponses["لخص لي"];
+    else if (prompt.includes('سؤال') || prompt.includes('اسئلة') || prompt.includes('اختبرني')) reply = localAIResponses["اسئلة"];
+    else if (prompt.includes('خطة') || prompt.includes('جدول')) reply = localAIResponses["خطة"];
+    botDiv.innerHTML = formatMarkdown(reply);
   }
+  chatWindow.scrollTop = chatWindow.scrollHeight;
 }
 
 function formatMarkdown(text) {
   return text
     .replace(/\n/g, '<br>')
     .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-    .replace(/\*(.*?)\*/g, '<em>$1</em>');
+    .replace(/\*(.*?)\*/g, '<em>$1</em>')
+    .replace(/`(.*?)`/g, '<code style="background:rgba(99,102,241,0.15);padding:2px 6px;border-radius:4px">$1</code>');
 }
 
-// ================= GPA & GRADE CALCULATOR 2.0 =================
 let activeGPAMode = 'school';
-
 function setGPAMode(mode, btn) {
-  SoundFX.click();
-  activeGPAMode = mode;
+  SoundFX.click(); activeGPAMode = mode;
   document.querySelectorAll('.gpa-tab-btn').forEach(b => b.classList.remove('active'));
   if (btn) btn.classList.add('active');
-
   document.getElementById('schoolGPAPanel').style.display = mode === 'school' ? 'block' : 'none';
   document.getElementById('univGPAPanel').style.display = mode === 'univ' ? 'block' : 'none';
 }
 
 function calculateSchoolAverage() {
   const inputs = document.querySelectorAll('.school-grade-input');
-  let total = 0;
-  let count = 0;
-
+  let total = 0, count = 0;
   inputs.forEach(inp => {
     const val = parseFloat(inp.value);
-    if (!isNaN(val) && val >= 0) {
-      total += val;
-      count++;
-    }
+    if (!isNaN(val) && val >= 0) { total += val; count++; }
   });
-
   const bonus = parseFloat(document.getElementById('bonusDegreeInput').value) || 0;
-  if (count === 0) {
-    showToast('⚠️ يرجى إدخال درجات المواد أولاً');
-    return;
-  }
-
+  if (count === 0) { showToast('⚠️ يرجى إدخال درجات المواد أولاً'); return; }
   const avg = (total / count) + bonus;
   let status = 'ممتاز 🌟';
   if (avg < 50) status = 'راسب ❌';
@@ -3501,18 +2016,14 @@ function calculateSchoolAverage() {
   else if (avg < 70) status = 'متوسط';
   else if (avg < 80) status = 'جيد';
   else if (avg < 90) status = 'جيد جداً';
-
   document.getElementById('schoolAverageVal').textContent = `${avg.toFixed(2)}%`;
   document.getElementById('schoolAverageStatus').textContent = `التقدير: ${status} (المجموع: ${total} من ${count * 100})`;
-  SoundFX.complete();
-  triggerConfetti();
+  SoundFX.complete(); triggerConfetti();
 }
 
-// ================= UNIVERSITY GPA 4.0 SYSTEM =================
 function renderUnivCourses() {
   const container = document.getElementById('univCoursesContainer');
   if (!container) return;
-
   if (AppState.gpaCourses.length === 0) {
     AppState.gpaCourses = [
       { name: 'مادة 1', credits: 3, grade: 'A' },
@@ -3521,7 +2032,6 @@ function renderUnivCourses() {
     ];
     saveState('gpaCourses');
   }
-
   container.innerHTML = AppState.gpaCourses.map((c, i) => `
     <div style="display:grid;grid-template-columns:2fr 1fr 1fr 40px;gap:8px;margin-bottom:8px">
       <input type="text" value="${c.name || ''}" placeholder="اسم المادة" onchange="updateUnivCourse(${i}, 'name', this.value)">
@@ -3545,8 +2055,7 @@ function renderUnivCourses() {
 
 function addUnivCourse() {
   AppState.gpaCourses.push({ name: '', credits: 3, grade: 'A' });
-  saveState('gpaCourses');
-  renderUnivCourses();
+  saveState('gpaCourses'); renderUnivCourses();
 }
 
 function updateUnivCourse(idx, field, val) {
@@ -3558,101 +2067,59 @@ function updateUnivCourse(idx, field, val) {
 
 function removeUnivCourse(idx) {
   AppState.gpaCourses.splice(idx, 1);
-  saveState('gpaCourses');
-  renderUnivCourses();
+  saveState('gpaCourses'); renderUnivCourses();
 }
 
 function calculateUnivGPA() {
-  if (AppState.gpaCourses.length === 0) {
-    showToast('⚠️ يرجى إضافة مادة واحدة على الأقل');
-    return;
-  }
-  const gradePoints = {
-    'A+': 4.0, 'A': 4.0, 'A-': 3.7,
-    'B+': 3.3, 'B': 3.0, 'B-': 2.7,
-    'C+': 2.3, 'C': 2.0, 'D': 1.0, 'F': 0.0
-  };
-
-  let totalPoints = 0;
-  let totalCredits = 0;
-
+  if (AppState.gpaCourses.length === 0) { showToast('⚠️ يرجى إضافة مادة واحدة على الأقل'); return; }
+  const gradePoints = { 'A+': 4.0, 'A': 4.0, 'A-': 3.7, 'B+': 3.3, 'B': 3.0, 'B-': 2.7, 'C+': 2.3, 'C': 2.0, 'D': 1.0, 'F': 0.0 };
+  let totalPoints = 0, totalCredits = 0;
   AppState.gpaCourses.forEach(c => {
     const cred = parseFloat(c.credits) || 0;
     const pt = gradePoints[c.grade] || 0;
-    totalPoints += cred * pt;
-    totalCredits += cred;
+    totalPoints += cred * pt; totalCredits += cred;
   });
-
   const gpa = totalCredits > 0 ? (totalPoints / totalCredits).toFixed(2) : '0.00';
   const pct = totalCredits > 0 ? ((parseFloat(gpa) / 4) * 100).toFixed(1) : '0.0';
-
   document.getElementById('univGPAResultVal').textContent = `${gpa} / 4.0`;
   document.getElementById('univGPAStatus').textContent = `النسبة المئوية المقدرة: ${pct}% (مجموع الساعات: ${totalCredits})`;
-  SoundFX.complete();
-  triggerConfetti();
+  SoundFX.complete(); triggerConfetti();
 }
 
-
-let recognition = null;
-let isRecording = false;
-
+let recognition = null, isRecording = false;
 function initSpeechRecognition() {
   const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
   if (SpeechRec) {
     recognition = new SpeechRec();
-    recognition.lang = 'ar-IQ';
-    recognition.continuous = true;
-    recognition.interimResults = true;
-
+    recognition.lang = 'ar-IQ'; recognition.continuous = true; recognition.interimResults = true;
     recognition.onresult = (event) => {
       let finalTranscript = '';
       for (let i = event.resultIndex; i < event.results.length; ++i) {
-        if (event.results[i].isFinal) {
-          finalTranscript += event.results[i][0].transcript + ' ';
-        }
+        if (event.results[i].isFinal) finalTranscript += event.results[i][0].transcript + ' ';
       }
       const area = document.getElementById('studyNotesArea');
-      if (area && finalTranscript) {
-        area.value += (area.value ? ' ' : '') + finalTranscript;
-        saveNotes();
-      }
+      if (area && finalTranscript) { area.value += (area.value ? ' ' : '') + finalTranscript; saveNotes(); }
     };
-
-    recognition.onerror = () => {
-      stopVoiceRecording();
-    };
+    recognition.onerror = () => stopVoiceRecording();
   }
 }
 
 function toggleVoiceRecording() {
   if (!recognition) initSpeechRecognition();
-  if (!recognition) {
-    showToast('⚠️ الإدخال الصوتي غير مدعوم في هذا المتصفح');
-    return;
-  }
-
+  if (!recognition) { showToast('⚠️ الإدخال الصوتي غير مدعوم في هذا المتصفح'); return; }
   const btn = document.getElementById('btnVoiceInput');
   if (!isRecording) {
-    recognition.start();
-    isRecording = true;
-    btn.innerHTML = '🛑 إيقاف التسجيل';
-    btn.classList.add('btn-danger');
+    recognition.start(); isRecording = true;
+    btn.innerHTML = '🛑 إيقاف التسجيل'; btn.classList.add('btn-danger');
     showToast('🎙️ جاري الاستماع باللغة العربية...');
-  } else {
-    stopVoiceRecording();
-  }
+  } else stopVoiceRecording();
 }
 
 function stopVoiceRecording() {
-  if (recognition && isRecording) {
-    recognition.stop();
-  }
+  if (recognition && isRecording) recognition.stop();
   isRecording = false;
   const btn = document.getElementById('btnVoiceInput');
-  if (btn) {
-    btn.innerHTML = '🎤 تدوين صوتي';
-    btn.classList.remove('btn-danger');
-  }
+  if (btn) { btn.innerHTML = '🎤 تدوين صوتي'; btn.classList.remove('btn-danger'); }
   showToast('✅ تم حفظ التدوين الصوتي');
 }
 
@@ -3668,105 +2135,89 @@ function saveNotes() {
 
 function speakNotes() {
   const area = document.getElementById('studyNotesArea');
-  if (!area || !area.value.trim()) {
-    showToast('⚠️ لا توجد ملاحظات لقراءتها');
-    return;
-  }
+  if (!area || !area.value.trim()) { showToast('⚠️ لا توجد ملاحظات لقراءتها'); return; }
   if ('speechSynthesis' in window) {
     window.speechSynthesis.cancel();
     const utter = new SpeechSynthesisUtterance(area.value);
-    utter.lang = 'ar';
-    utter.rate = 0.95;
+    utter.lang = 'ar'; utter.rate = 0.95;
     window.speechSynthesis.speak(utter);
     showToast('🔊 جاري القراءة الصوتية...');
-  } else {
-    showToast('⚠️ القراءة الصوتية غير مدعومة');
-  }
+  } else showToast('⚠️ القراءة الصوتية غير مدعومة');
 }
 
 function copyNotes() {
   const area = document.getElementById('studyNotesArea');
   if (area && area.value) {
-    navigator.clipboard.writeText(area.value).then(() => {
-      showToast('📋 تم نسخ الملاحظات إلى الحافظة');
-    });
+    navigator.clipboard.writeText(area.value).then(() => showToast('📋 تم نسخ الملاحظات إلى الحافظة'));
   }
 }
 
-// ================= ANALYTICS CHARTS (CHART.JS) =================
 let weeklyChartInstance = null;
-
 function updateCharts() {
   if (typeof Chart === 'undefined') return;
   const canvas = document.getElementById('weeklyChartCanvas');
   if (!canvas) return;
-
   const ctx = canvas.getContext('2d');
   const days = ['الأحد', 'الاثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'];
   const dataPoints = [0, 0, 0, 0, 0, 0, 0];
-
   const now = new Date();
   const weekAgo = new Date(now.getTime() - 7 * 86400000);
-
   AppState.sessions.forEach(s => {
     const d = new Date(s.date);
-    if (d >= weekAgo) {
-      dataPoints[d.getDay()] += (s.duration || 25) / 60;
-    }
+    if (d >= weekAgo) dataPoints[d.getDay()] += (s.duration || 25) / 60;
   });
-
   if (weeklyChartInstance) weeklyChartInstance.destroy();
-
   weeklyChartInstance = new Chart(ctx, {
     type: 'line',
     data: {
       labels: days,
       datasets: [{
-        label: 'ساعات التركيز',
-        data: dataPoints.map(v => v.toFixed(1)),
-        borderColor: '#6366f1',
-        backgroundColor: 'rgba(99, 102, 241, 0.15)',
-        fill: true,
-        tension: 0.4,
-        pointBackgroundColor: '#f59e0b',
-        pointRadius: 6,
-        borderWidth: 3
+        label: 'ساعات التركيز', data: dataPoints.map(v => v.toFixed(1)),
+        borderColor: '#6366f1', backgroundColor: 'rgba(99, 102, 241, 0.15)',
+        fill: true, tension: 0.4, pointBackgroundColor: '#f59e0b',
+        pointRadius: 6, borderWidth: 3
       }]
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false }
-      },
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
       scales: {
-        y: {
-          beginAtZero: true,
-          grid: { color: 'rgba(255, 255, 255, 0.06)' },
-          ticks: { color: '#94a3b8' }
-        },
-        x: {
-          grid: { display: false },
-          ticks: { color: '#94a3b8' }
-        }
+        y: { beginAtZero: true, grid: { color: 'rgba(255, 255, 255, 0.06)' }, ticks: { color: '#94a3b8' } },
+        x: { grid: { display: false }, ticks: { color: '#94a3b8' } }
       }
     }
   });
 }
 
-// ================= THEME & SETTINGS MODAL =================
+function toggleQuickTheme() {
+  SoundFX.click();
+  const currentTheme = document.body.className.replace('theme-', '') || 'default';
+  const newTheme = currentTheme === 'light' ? 'default' : 'light';
+  setTheme(newTheme);
+  updateQuickThemeIcon();
+}
+
+function updateQuickThemeIcon() {
+  const btn = document.getElementById('quickThemeToggle');
+  if (!btn) return;
+  const currentTheme = document.body.className.replace('theme-', '') || 'default';
+  btn.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+  btn.title = currentTheme === 'light' ? 'التبديل للوضع الليلي' : 'التبديل للوضع النهاري';
+}
+
 function setTheme(theme) {
   SoundFX.click();
   document.body.className = `theme-${theme}`;
   AppState.theme = theme;
   localStorage.setItem('theme', theme);
+  updateQuickThemeIcon();
   showToast(`🎨 تم تفعيل الثيم: ${theme}`);
 }
 
 function openSettingsModal() {
   SoundFX.click();
   document.getElementById('settingStudentName').value = AppState.studentName;
-  document.getElementById('settingGeminiKey').value = AppState.geminiKey;
+  document.getElementById('settingGeminiKey').value = AppState.geminiKey === DEFAULT_GEMINI_KEY ? '' : AppState.geminiKey;
   document.getElementById('settingSoundToggle').checked = AppState.soundEnabled;
   document.getElementById('modalSettings').classList.add('show');
 }
@@ -3775,42 +2226,29 @@ function saveSettings() {
   const name = document.getElementById('settingStudentName').value.trim();
   const key = document.getElementById('settingGeminiKey').value.trim();
   const snd = document.getElementById('settingSoundToggle').checked;
-
   if (name) {
     AppState.studentName = name;
     localStorage.setItem('studentName', name);
     document.getElementById('heroStudentName').textContent = name;
   }
-
-  AppState.geminiKey = key;
-  localStorage.setItem('geminiApiKey', key);
-
+  AppState.geminiKey = key || DEFAULT_GEMINI_KEY;
+  localStorage.setItem('geminiApiKey', AppState.geminiKey);
   AppState.soundEnabled = snd;
   localStorage.setItem('soundEnabled', snd);
-
   closeModal('modalSettings');
   showToast('✅ تم حفظ الإعدادات');
 }
 
-function closeModal(modalId) {
-  document.getElementById(modalId).classList.remove('show');
-}
+function closeModal(modalId) { document.getElementById(modalId).classList.remove('show'); }
 
-// ================= BACKUP & RESTORE =================
 function exportBackup() {
   SoundFX.click();
-  const backup = {
-    version: '11.0',
-    exportDate: new Date().toISOString(),
-    state: AppState
-  };
+  const backup = { version: '11.0', exportDate: new Date().toISOString(), state: AppState };
   const blob = new Blob([JSON.stringify(backup, null, 2)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
-  a.href = url;
-  a.download = `student-os-backup-${new Date().toISOString().split('T')[0]}.json`;
-  a.click();
-  URL.revokeObjectURL(url);
+  a.href = url; a.download = `student-os-backup-${new Date().toISOString().split('T')[0]}.json`;
+  a.click(); URL.revokeObjectURL(url);
   showToast('💾 تم تصدير النسخة الاحتياطية بنجاح');
 }
 
@@ -3821,33 +2259,24 @@ function importBackup(file) {
     try {
       const data = JSON.parse(e.target.result);
       if (data.state) {
-        Object.keys(data.state).forEach(k => {
-          localStorage.setItem(k, JSON.stringify(data.state[k]));
-        });
+        Object.keys(data.state).forEach(k => localStorage.setItem(k, JSON.stringify(data.state[k])));
         showToast('✅ تم استيراد البيانات! جاري إعادة التحميل...');
         setTimeout(() => location.reload(), 1000);
       }
-    } catch(err) {
-      showToast('❌ ملف النسخة الاحتياطية غير صالح', 'error');
-    }
+    } catch(err) { showToast('❌ ملف النسخة الاحتياطية غير صالح', 'error'); }
   };
   reader.readAsText(file);
 }
 
-// ================= APP INITIALIZATION =================
 document.addEventListener('DOMContentLoaded', () => {
   seedDefaultData();
-
-  // Apply saved theme
   document.body.className = `theme-${AppState.theme}`;
+  updateQuickThemeIcon();
   const nameEl = document.getElementById('heroStudentName');
   if (nameEl) nameEl.textContent = AppState.studentName;
-
-  // Initialize Modules
   updateLiveClock();
   setInterval(updateLiveClock, 1000);
   refreshQuote();
-
   Pomodoro.init();
   renderExams();
   renderHabits();
@@ -3855,38 +2284,21 @@ document.addEventListener('DOMContentLoaded', () => {
   renderFlashcardStats();
   displayCurrentFlashcard();
   renderSchedule();
+  restoreLastLibFilter();
   renderLibrary();
   renderUnivCourses();
   updateStatsDisplay();
-
-  // Load saved notes
   const savedNotes = localStorage.getItem('studyNotes');
   const notesArea = document.getElementById('studyNotesArea');
-  if (savedNotes && notesArea) {
-    notesArea.value = savedNotes;
-    saveNotes();
-  }
-
-  // Setup Ambient Volume
+  if (savedNotes && notesArea) { notesArea.value = savedNotes; saveNotes(); }
   const volSlider = document.getElementById('ambientVolumeSlider');
-  if (volSlider) {
-    volSlider.addEventListener('input', (e) => {
-      AmbientManager.setVolume(e.target.value);
-    });
-  }
-
-  // Init Charts after slight delay for smooth layout
+  if (volSlider) volSlider.addEventListener('input', (e) => AmbientManager.setVolume(e.target.value));
   setTimeout(updateCharts, 300);
-
-  // Close modals on background click
   document.querySelectorAll('.modal-overlay').forEach(modal => {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.remove('show');
-    });
+    modal.addEventListener('click', (e) => { if (e.target === modal) modal.classList.remove('show'); });
   });
 });
 
-// Cinematic Splash Dismiss
 function dismissSplash() {
   const splash = document.getElementById('splashScreen');
   if (splash && !splash.classList.contains('fade-out')) {
@@ -3894,12 +2306,9 @@ function dismissSplash() {
     setTimeout(() => splash.remove(), 550);
   }
 }
-window.addEventListener('load', () => {
-  setTimeout(dismissSplash, 1100);
-});
+window.addEventListener('load', () => setTimeout(dismissSplash, 1100));
 </script>
 
-  <!-- PWA Service Worker Registration -->
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -3909,4 +2318,3 @@ window.addEventListener('load', () => {
   </script>
 </body>
 </html>
-
